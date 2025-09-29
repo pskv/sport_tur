@@ -439,20 +439,41 @@
     </style>
 </head>
 <body>
-<!-- Кнопка возврата на главную -->
-<div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+<!-- Фиксированная верхняя панель -->
+<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(26, 58, 95, 0.95); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
+    
+    <!-- Кнопка возврата -->
     <a href="https://pskv.github.io/sport_tur/" 
        style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(26, 58, 95, 0.9); color: white; 
-              padding: 10px 16px; border-radius: 25px; 
+              background: rgba(255,255,255,0.15); color: white; 
+              padding: 8px 16px; border-radius: 20px; 
               text-decoration: none; font-weight: 600;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.3);
               transition: all 0.3s ease;
-              backdrop-filter: blur(10px);">
+              border: 1px solid rgba(255,255,255,0.2);
+              font-size: 0.9rem;">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
+    
+    <!-- Название страницы -->
+    <div style="color: white; font-weight: 600; font-size: 1.1rem;">
+        Калиновский Леонид
+    </div>
+    
+    <!-- Пустой элемент для выравнивания -->
+    <div style="width: 100px;"></div>
 </div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 60px;"></div>
     <header>
         <div class="container">
             <div class="header-content">
