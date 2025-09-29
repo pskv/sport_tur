@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калиновский Леонид - Статистика выступлений</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .athlete-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .athlete-photo i {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .region-flag {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #0055a4;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .athlete-info {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .athlete-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .athlete-sport {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .basic-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .basic-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            color: #2c5a8a;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-card i {
+            font-size: 1.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a3a5f;
+        }
+
+        .stat-description {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .medal-stats {
+            margin-top: 15px;
+        }
+
+        .medal-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .medal-icon {
+            font-size: 1.8rem;
+        }
+
+        .gold { color: #FFD700; }
+        .silver { color: #C0C0C0; }
+        .bronze { color: #CD7F32; }
+
+        .medal-details {
+            flex: 1;
+        }
+
+        .medal-count {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .medal-event {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .top10-stats {
+            margin-top: 10px;
+        }
+
+        .top10-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .top10-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: #e9f5ff;
+            color: #1a3a5f;
+        }
+
+        .discipline-stats {
+            margin-top: 15px;
+        }
+
+        .discipline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .discipline-best {
+            background: #e8f5e8;
+            border-left: 3px solid #4caf50;
+        }
+
+        .discipline-name {
+            font-weight: 600;
+        }
+
+        .discipline-value {
+            font-weight: 700;
+            color: #1a3a5f;
+        }
+
+        .discipline-criteria {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1a3a5f;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .performance-chart {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+
+        .competition-history {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .competition-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px;
+        }
+
+        .competition-table th, .competition-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+            font-size: 0.9rem;
+        }
+
+        .competition-table th {
+            background-color: #f8f9fa;
+            color: #1a3a5f;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .competition-table th:hover {
+            background-color: #e9f5ff;
+        }
+
+        .competition-table th i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .competition-table tr:hover {
+            background-color: #f5f7fa;
+        }
+
+        .place-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 24px;
+        }
+
+        .place-1 {
+            background-color: #FFD700;
+            color: #333;
+        }
+
+        .place-2 {
+            background-color: #C0C0C0;
+            color: #333;
+        }
+
+        .place-3 {
+            background-color: #CD7F32;
+            color: #fff;
+        }
+
+        .place-top10 {
+            background-color: #e9f5ff;
+            color: #1a3a5f;
+        }
+
+        .place-other {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+        .place-dnf {
+            background-color: #ffebee;
+            color: #d32f2f;
+            border: 1px dashed #d32f2f;
+        }
+
+        .year-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .year-btn {
+            padding: 8px 16px;
+            background-color: #e9f5ff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #1a3a5f;
+            transition: all 0.3s ease;
+        }
+
+        .year-btn.active {
+            background-color: #1a3a5f;
+            color: white;
+        }
+
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeaea;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .athlete-info {
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .basic-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .competition-table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-hiking"></i>
+                    <div class="region-flag">МС</div>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Калиновский Леонид</h1>
+                    <p class="athlete-sport">Спортивный туризм, Мастер спорта</p>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 1995</p>
+                        <p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Moscow_oblast.svg/120px-Flag_of_Moscow_oblast.svg.png" 
+                                 alt="Флаг Московской области" class="flag-icon">
+                            Московская область
+                        </p>
+                        <p><i class="fas fa-flag"></i> Страна: Россия</p>
+                        <p><i class="fas fa-award"></i> Звание: Мастер спорта</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Общая статистика (2022-2024)</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">45</div>
+                <div class="stat-description">Всего участий в соревнованиях за 3 года</div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
+                <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon gold"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">1 место</div>
+                            <div class="medal-event">Чемпионат России 2024, групповая</div>
+                        </div>
+                    </div>
+                    <div class="medal-item">
+                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">2 место</div>
+                            <div class="medal-event">Кубок России 2022, личная</div>
+                        </div>
+                    </div>
+                    <div class="medal-item">
+                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">2 место</div>
+                            <div class="medal-event">Всероссийские 2024, личная</div>
+                        </div>
+                    </div>
+                    <div class="medal-item">
+                        <div class="medal-icon bronze"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">3 место</div>
+                            <div class="medal-event">Всероссийские 2023, связка</div>
+                        </div>
+                    </div>
+                    <div class="medal-item">
+                        <div class="medal-icon bronze"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">3 место</div>
+                            <div class="medal-event">Всероссийские 2024, групповая</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-chart-line"></i> Топ-10 результатов</h3>
+                <div class="stat-value">16</div>
+                <div class="stat-description">Попаданий в топ-10 за 3 года</div>
+                <div class="top10-stats">
+                    <div class="top10-item">
+                        <span class="top10-badge">Личные</span>
+                        <span>5 результатов</span>
+                    </div>
+                    <div class="top10-item">
+                        <span class="top10-badge">Связки</span>
+                        <span>2 результата</span>
+                    </div>
+                    <div class="top10-item">
+                        <span class="top10-badge">Групповые</span>
+                        <span>9 результатов</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-mountain"></i> Лучшая дисциплина</h3>
+                <div class="stat-value">Групповые</div>
+                <div class="stat-description">Наилучшие результаты в групповых дистанциях</div>
+                <div class="discipline-stats">
+                    <div class="discipline-item discipline-best">
+                        <div>
+                            <div class="discipline-name">Групповые</div>
+                            <div class="discipline-criteria">Топ-5: 47% результатов</div>
+                        </div>
+                        <span class="discipline-value">47%</span>
+                    </div>
+                    <div class="discipline-item">
+                        <div>
+                            <div class="discipline-name">Личные</div>
+                            <div class="discipline-criteria">Топ-15: 33% результатов</div>
+                        </div>
+                        <span class="discipline-value">33%</span>
+                    </div>
+                    <div class="discipline-item">
+                        <div>
+                            <div class="discipline-name">Связки</div>
+                            <div class="discipline-criteria">Топ-10: 18% результатов</div>
+                        </div>
+                        <span class="discipline-value">18%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Статистика по годам</h2>
+        <div class="performance-chart">
+            <div class="chart-container">
+                <div style="display: flex; align-items: flex-end; height: 250px; gap: 10px; justify-content: center; margin-top: 30px;">
+                    <!-- 2022 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                        <div style="width: 30px; background: #ff6b6b; height: 50px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #4ecdc4; height: 35px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #45b7d1; height: 45px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2022</div>
+                        <div style="margin-top: 5px; font-size: 0.8rem;">14 участ.</div>
+                    </div>
+                    <!-- 2023 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                        <div style="width: 30px; background: #ff6b6b; height: 55px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #4ecdc4; height: 45px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #45b7d1; height: 60px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2023</div>
+                        <div style="margin-top: 5px; font-size: 0.8rem;">15 участ.</div>
+                    </div>
+                    <!-- 2024 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                        <div style="width: 30px; background: #ff6b6b; height: 60px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #4ecdc4; height: 50px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="width: 30px; background: #45b7d1; height: 70px; border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2024</div>
+                        <div style="margin-top: 5px; font-size: 0.8rem;">16 участ.</div>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ff6b6b;"></div>
+                        <span>Личные (26%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4ecdc4;"></div>
+                        <span>Связки (24%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #45b7d1;"></div>
+                        <span>Групповые (50%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">История выступлений (45 стартов)</h2>
+        <div class="competition-history">
+            <div class="year-filter">
+                <button class="year-btn active" data-year="all">Все годы</button>
+                <button class="year-btn" data-year="2022">2022</button>
+                <button class="year-btn" data-year="2023">2023</button>
+                <button class="year-btn" data-year="2024">2024</button>
+            </div>
+            <div class="table-container">
+                <table class="competition-table" id="competitionTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">Соревнование и место <i class="fas fa-sort"></i></th>
+                            <th data-sort="discipline">Дисциплина <i class="fas fa-sort"></i></th>
+                            <th data-sort="place">Место <i class="fas fa-sort"></i></th>
+                            <th data-sort="result">Результат <i class="fas fa-sort"></i></th>
+                            <th>Состав</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 2022 год -->
+                        <tr data-year="2022">
+                            <td>2022-05-01</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">8</span></td>
+                            <td>111.66%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-05-02</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">11</span></td>
+                            <td>147.07%</td>
+                            <td>Калиновский Л.(КМС), Киселев А.(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-05-03</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>130.1%</td>
+                            <td>Калиновский Л.(КМС), Киселев А.(КМС), Болтышев В.(КМС), Чернецкий И.(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-05-07</td>
+                            <td>1 этап Кубка России (г.Елец)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">8</span></td>
+                            <td>115.02%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-05-08</td>
+                            <td>1 этап Кубка России (г.Елец)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">6</span></td>
+                            <td>108.89%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-05-09</td>
+                            <td>1 этап Кубка России (г.Елец)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-2">2</span></td>
+                            <td>101.8%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-07-07</td>
+                            <td>Кубок России финал (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">14</span></td>
+                            <td>141.09%</td>
+                            <td>Скородумов А.(КМС), Калиновский Л.(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-07-08</td>
+                            <td>Кубок России финал (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">16</span></td>
+                            <td>118.03%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-07-09</td>
+                            <td>Кубок России финал (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">22</span></td>
+                            <td>140.2%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-07-10</td>
+                            <td>Кубок России финал (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>109.51%</td>
+                            <td>Пешиков С.(МС), Скородумов А.(КМС), Калиновский Л.(КМС), Зюзин Д.(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-08-21</td>
+                            <td>Чемпионат России (п. Листвянка)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">15</span></td>
+                            <td>137.95%</td>
+                            <td>Калиновский Л.(КМС), Скородумов А.(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-08-22</td>
+                            <td>Чемпионат России (п. Листвянка)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">13</span></td>
+                            <td>113.07%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-08-24</td>
+                            <td>Чемпионат России (п. Листвянка)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>112.03%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2022">
+                            <td>2022-10-01</td>
+                            <td>Гонки четырёх - 2022 (г. Лыткарино)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>-</td>
+                            <td>Лашков А.(I), Федин М.(МС), Калиновский Л.(КМС), Тюрин Д.(КМС)</td>
+                        </tr>
+
+                        <!-- 2023 год -->
+                        <tr data-year="2023">
+                            <td>2023-04-30</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">15</span></td>
+                            <td>120.09%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-05-01</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">17</span></td>
+                            <td>143.37%</td>
+                            <td>Калиновский Л.(КМС), Моргунов С.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-05-02</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">8</span></td>
+                            <td>125.08%</td>
+                            <td>Калиновский Л.(КМС), Безруков А.(КМС), Моргунов С.(КМС), Чернецкий И.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-05-07</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-3">3</span></td>
+                            <td>110.59%</td>
+                            <td>Моргунов С.(КМС), Калиновский Л.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-05-08</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>124.38%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-05-09</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>-</td>
+                            <td>Моргунов С.(КМС), Калиновский Л.(КМС), Чернецкий И.(КМС), Лазоренко Н.(I)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-07-06</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">14</span></td>
+                            <td>134.99%</td>
+                            <td>Калиновский Л.(КМС), Моргунов С.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-07-07</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">8</span></td>
+                            <td>117.64%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-07-08</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">11</span></td>
+                            <td>123.21%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-07-09</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">7</span></td>
+                            <td>125.62%</td>
+                            <td>Киселев А.(КМС), Калиновский Л.(КМС), Моргунов С.(КМС), Зюзин Д.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-09-13</td>
+                            <td>Чемпионат России (г. Камышин)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">19</span></td>
+                            <td>147.55%</td>
+                            <td>Зюзин Д.(КМС), Калиновский Л.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-09-14</td>
+                            <td>Чемпионат России (г. Камышин)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-top10">10</span></td>
+                            <td>112.78%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-09-15</td>
+                            <td>Чемпионат России (г. Камышин)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">20</span></td>
+                            <td>130.93%</td>
+                            <td>Калиновский Леонид(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-09-16</td>
+                            <td>Чемпионат России (г. Камышин)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">6</span></td>
+                            <td>120.39%</td>
+                            <td>Зернин М.(КМС), Зюзин Д.(КМС), Тельбух И.(КМС), Калиновский Л.(КМС)</td>
+                        </tr>
+                        <tr data-year="2023">
+                            <td>2023-09-30</td>
+                            <td>Гонки четырёх - 2023 (Бутовский лесопарк)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>-</td>
+                            <td>Безруков А.(КМС), Калиновский Л.(КМС), Моргунов С.(КМС), Чернецкий И.(КМС)</td>
+                        </tr>
+
+                        <!-- 2024 год -->
+                        <tr data-year="2024">
+                            <td>2024-04-30</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">21</span></td>
+                            <td>127.45%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-05-01</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-top10">10</span></td>
+                            <td>122.64%</td>
+                            <td>Федин М.(МС), Калиновский Л.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-05-02</td>
+                            <td>Всероссийские соревнования (п. Куяр)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-3">3</span></td>
+                            <td>105.13%</td>
+                            <td>Федин М.(МС), Калиновский Л.(МС), Скородумов А.(КМС), Тюрин Д.(КМС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-05-07</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная (длинная)</td>
+                            <td><span class="place-badge place-2">2</span></td>
+                            <td>107.05%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-05-08</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная (короткая)</td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>120.66%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-05-09</td>
+                            <td>Всероссийские соревнования (г.Елец)</td>
+                            <td>дистанция - пешеходная (короткая (спринт))</td>
+                            <td><span class="place-badge place-other">12</span></td>
+                            <td>122.47%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-07-04</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-top10">8</span></td>
+                            <td>121.3%</td>
+                            <td>Федин М.(МС), Калиновский Л.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-07-05</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">13</span></td>
+                            <td>121.44%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-07-06</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">11</span></td>
+                            <td>119.26%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-07-07</td>
+                            <td>Кубок России (пос. им. Цюрупы)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-3">3</span></td>
+                            <td>101.65%</td>
+                            <td>Пешиков С.(МС), Федин М.(МС), Тюрин Д.(КМС), Калиновский Л.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-09-03</td>
+                            <td>Чемпионат России (пгт. Новомихайловский)</td>
+                            <td>дистанция - пешеходная - связка</td>
+                            <td><span class="place-badge place-other">12</span></td>
+                            <td>121.97%</td>
+                            <td>Федин М.(МС), Калиновский Л.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-09-04</td>
+                            <td>Чемпионат России (пгт. Новомихайловский)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">16</span></td>
+                            <td>127.29%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-09-05</td>
+                            <td>Чемпионат России (пгт. Новомихайловский)</td>
+                            <td>дистанция - пешеходная</td>
+                            <td><span class="place-badge place-other">16</span></td>
+                            <td>134.43%</td>
+                            <td>Калиновский Леонид(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-09-06</td>
+                            <td>Чемпионат России (пгт. Новомихайловский)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-1">1</span></td>
+                            <td>100% (лидер)</td>
+                            <td>Пешиков С.(МС), Федин М.(МС), Тюрин Д.(КМС), Калиновский Л.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-10-19</td>
+                            <td>Гонки четырёх - 2024 (Бутовский лесопарк)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-top10">4</span></td>
+                            <td>-</td>
+                            <td>Калиновский Л.(МС), Пешиков С.(МС), Тюрин Д.(КМС), Федин М.(МС)</td>
+                        </tr>
+                        <tr data-year="2024">
+                            <td>2024-10-20</td>
+                            <td>Гонки четырёх - 2024 (Бутовский лесопарк)</td>
+                            <td>дистанция - пешеходная - группа</td>
+                            <td><span class="place-badge place-dnf">СН</span></td>
+                            <td>Снятие с дистанции</td>
+                            <td>Калиновский Л.(МС), Пешиков С.(МС), Федин М.(МС), Моргунов С.(КМС)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="section-title">Достижения</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Главное достижение</h3>
+                <div class="stat-value">Чемпион России</div>
+                <div class="stat-description">2024 - 1 место в групповой дисциплине</div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-chart-line"></i> Прогресс</h3>
+                <div class="stat-value">КМС → МС</div>
+                <div class="stat-description">Повышение спортивного звания в 2024 году</div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-users"></i> Командные результаты</h3>
+                <div class="stat-value">9</div>
+                <div class="stat-description">Топ-10 результатов в групповых дисциплинах</div>
+            </div>
+            <div class="stat-card">
+                <h3><i class="fas fa-mountain"></i> Стабильность</h3>
+                <div class="stat-value">36%</div>
+                <div class="stat-description">Результатов в топ-10 от общего числа выступлений</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Статистика спортсмена. Данные обновлены: 20 октября 2024 года</p>
+            <p>Спортивный туризм - дистанции пешеходные</p>
+        </div>
+    </footer>
+
+    <script>
+        // Фильтрация по годам
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearButtons = document.querySelectorAll('.year-btn');
+            const tableRows = document.querySelectorAll('.competition-table tbody tr');
+            
+            yearButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const year = this.getAttribute('data-year');
+                    
+                    // Активируем кнопку
+                    yearButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Показываем/скрываем строки таблицы
+                    tableRows.forEach(row => {
+                        if (year === 'all' || row.getAttribute('data-year') === year) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Сортировка таблицы
+            const table = document.getElementById('competitionTable');
+            const headers = table.querySelectorAll('th[data-sort]');
+            let currentSort = { column: 'date', direction: 'asc' };
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const column = header.getAttribute('data-sort');
+                    const tbody = table.querySelector('tbody');
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    
+                    // Определяем направление сортировки
+                    const direction = currentSort.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
+                    
+                    // Сортируем строки
+                    rows.sort((a, b) => {
+                        const aValue = a.querySelector(`td:nth-child(${getColumnIndex(header)})`).textContent;
+                        const bValue = b.querySelector(`td:nth-child(${getColumnIndex(header)})`).textContent;
+                        
+                        let comparison = 0;
+                        
+                        if (column === 'date') {
+                            comparison = new Date(aValue) - new Date(bValue);
+                        } else if (column === 'place') {
+                            const aPlace = getPlaceValue(a);
+                            const bPlace = getPlaceValue(b);
+                            comparison = aPlace - bPlace;
+                        } else if (column === 'result') {
+                            const aResult = getResultValue(a);
+                            const bResult = getResultValue(b);
+                            comparison = aResult - bResult;
+                        } else {
+                            comparison = aValue.localeCompare(bValue);
+                        }
+                        
+                        return direction === 'asc' ? comparison : -comparison;
+                    });
+                    
+                    // Обновляем таблицу
+                    rows.forEach(row => tbody.appendChild(row));
+                    
+                    // Обновляем текущую сортировку
+                    currentSort = { column, direction };
+                    
+                    // Обновляем иконки сортировки
+                    updateSortIcons(header, direction);
+                });
+            });
+
+            function getColumnIndex(header) {
+                return Array.from(header.parentNode.children).indexOf(header) + 1;
+            }
+
+            function getPlaceValue(row) {
+                const placeText = row.querySelector('td:nth-child(4)').textContent;
+                if (placeText.includes('СН')) return 999; // Снятия в конец
+                const match = placeText.match(/\d+/);
+                return match ? parseInt(match[0]) : 998;
+            }
+
+            function getResultValue(row) {
+                const resultText = row.querySelector('td:nth-child(5)').textContent;
+                if (resultText.includes('Снятие')) return 999;
+                if (resultText.includes('-')) return 998;
+                const match = resultText.match(/(\d+\.?\d*)/);
+                return match ? parseFloat(match[0]) : 997;
+            }
+
+            function updateSortIcons(activeHeader, direction) {
+                headers.forEach(header => {
+                    const icon = header.querySelector('i');
+                    if (header === activeHeader) {
+                        icon.className = direction === 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down';
+                    } else {
+                        icon.className = 'fas fa-sort';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
