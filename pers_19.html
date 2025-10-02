@@ -432,10 +432,37 @@
                 grid-template-columns: 1fr;
             }
             
-            .competition-table {
-                font-size: 0.8rem;
-            }
+
+    .competition-history {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .competition-table {
+        min-width: 800px; /* Минимальная ширина для читаемости */
+        font-size: 0.75rem;
+    }
+    
+    /* Фиксируем первые 2 колонки при скролле */
+    .competition-table th:nth-child(1),
+    .competition-table td:nth-child(1) {
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 2;
+    }
+    
+    .competition-table th:nth-child(2),
+    .competition-table td:nth-child(2) {
+        position: sticky;
+        left: 80px; /* Ширина первой колонки */
+        background: white;
+        z-index: 2;
+    }
+	
         }
+
+
     </style>
 </head>
 <body>
