@@ -414,6 +414,26 @@
             border-top: 1px solid #eaeaea;
         }
 
+/* Модальное окно состава */
+.composition-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+.composition-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -872,6 +892,11 @@
         </div>
     </footer>
 
+    <!-- Модальное окно состава -->
+    <div class="composition-modal" id="compositionModal">
+        <div class="composition-modal-content" id="compositionContent"></div>
+    </div>
+
     <script>
         // Фильтрация по годам и сортировка таблицы
 document.addEventListener('DOMContentLoaded', function() {
@@ -1013,6 +1038,22 @@ document.addEventListener('DOMContentLoaded', function() {
         dateHeader.click();
         dateHeader.click();
     }
+
+// Клик по ячейке "Вид" для показа состава
+document.querySelectorAll('.competition-table td:nth-child(3)').forEach(cell => {
+    cell.style.cursor = 'pointer';
+    cell.addEventListener('click', function() {
+        const composition = this.parentElement.querySelector('td:nth-child(7)').innerHTML;
+        document.getElementById('compositionContent').innerHTML = composition;
+        document.getElementById('compositionModal').style.display = 'flex';
+    });
+});
+
+// Закрытие модального окна
+document.getElementById('compositionModal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+});	
+	
 });
     </script>
 </body>
