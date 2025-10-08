@@ -414,71 +414,61 @@
             border-top: 1px solid #eaeaea;
         }
 
-/* Модальное окно состава */
-.composition-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-}
-.composition-modal-content {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 450px;
-    max-height: 400px;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 1px solid #eaeaea;
-}
-.composition-modal-content h3 {
-    margin: 0 0 20px 0;
-    color: #1a3a5f;
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eaeaea;
-}
-
-@media (max-width: 768px) {
-    .competition-table {
-        min-width: auto;
-        width: 100%;
-        font-size: 0.6rem;
-        line-height: 1.1;
-    }
-    
-    .competition-table th, 
-    .competition-table td {
-        padding: 2px 3px;
-    }
-    
-    /* Скрываем колонку "Состав" */
-    .competition-table th:nth-child(7),
-    .competition-table td:nth-child(7) {
-        display: none;
-    }
-	
-	.competition-table td:nth-child(3) {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    }
-    
-    /* Уменьшаем отступы в контейнере */
-    .container {
-        padding: 8px;
-    }
-    
-    .competition-history {
-        padding: 12px 8px;
-    }
-}
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .athlete-info {
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .basic-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .competition-table {
+                font-size: 0.8rem;
+            }
+        }
 		
+		.icons-group {
+			display: flex;
+			gap: 0;
+		}
+
+		@media (max-width: 768px) {
+		    .competition-table {
+		        min-width: auto;
+		        width: 100%;
+		        font-size: 0.6rem;
+		        line-height: 1.1;
+		    }
+		    
+		    .competition-table th, 
+		    .competition-table td {
+		        padding: 2px 3px;
+		    }
+			
+			.competition-table td:nth-child(3) {
+		    white-space: nowrap;
+		    font-size: 0.8rem;
+		    }
+		    
+		    /* Уменьшаем отступы в контейнере */
+		    .container {
+		        padding: 8px;
+		    }
+		    
+		    .competition-history {
+		        padding: 12px 8px;
+		    }
+		}
     </style>
 </head>
 <body>
@@ -540,14 +530,6 @@
     </header>
 	
     <div class="container">
-        <h2 class='section-title'>Достижения</h2>
-        <div class='stats-grid'>
-            <div class="stat-card">
-                <h3><i class="fas fa-trophy"></i> Главное достижение</h3>
-                <div class="stat-value">Чемпион Московской Области</div>
-                <div class="stat-description">по количеству ошибок в ориентировании на длинных групповых дистанциях</div>
-            </div>
-        </div>
         <h2 class='section-title'>Общая статистика</h2>
         <div class='stats-grid'>
             <div class="stat-card">
@@ -574,9 +556,7 @@
                             <div class="medal-count">1 место</div>
                             <div class="medal-event">Чемпионат России 2024, пгт. Новомихайловский</div>
                         </div>
-                        <i class="fa-solid fa-people-pulling"></i>
-                        <i class="fa-solid fa-person-walking"></i>
-                        <i class="fa-solid fa-person-running"></i>
+                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div>
                         <div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
                     </div>
 
@@ -613,7 +593,6 @@
                 </div>
             </div>
         </div>
-        <h2 class='section-title'>Графики</h2><div class='graph-container'></div>
         <h2 class='section-title'>История выступлений</h2>
         <div class="competition-history">
             <div class="year-filter">
@@ -627,290 +606,246 @@
                     <thead>
                         <tr>
                             <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
-                            <th data-sort="competition">Соревнование и место <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">Соревнование <i class="fas fa-sort"></i></th>
                             <th>Вид</th>
                             <th>Тип</th>
                             <th data-sort="place">Место <i class="fas fa-sort"></i></th>
                             <th data-sort="result">Результат <i class="fas fa-sort"></i></th>
-                            <th>Состав</th>
                         </tr>
 
                     </thead>
                     <tbody>
-                        
-                     
-
-                        
                         <tr data-year="2024">
                             <td>19.10.24</td>
-
-
-    <td style="display: flex; align-items: stretch; min-height: 100%;">
-        <img src="https://pskv.github.io/sport_tur/img/1.png" alt="" style="height: 10px; margin-right: 8px; flex-shrink: 0; align-self: center;">
-        <span style="flex: 1; word-wrap: break-word; display: flex; align-items: center; padding: 5px 0;">ВС, Бутовский лесопарк</span> 
-    </td>
-
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>-</td>
-                            <td>Калиновский Леонид(МС)<br> Пешиков Сергей(МС)<br> Тюрин Денис(КМС)<br> Федин Михаил(МС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>06.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-1">1</span></td>
                             <td>100%</td>
-                            <td>Пешиков Сергей(МС)<br> Федин Михаил(МС)<br> Тюрин Денис(КМС)<br> Калиновский Леонид(МС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>07.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-3">3</span></td>
                             <td>101.65%</td>
-                            <td>Пешиков Сергей(МС)<br> Федин Михаил(МС)<br> Тюрин Денис(КМС)<br> Калиновский Леонид(МС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>04.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">19</span></td>
                             <td>131.23%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>05.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">6</span></td>
                             <td>113.01%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>06.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>110.64%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>05.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">24</span></td>
                             <td>135.61%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>04.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">9</span></td>
                             <td>123.56%</td>
-                            <td>Пешиков Сергей(МС)<br> Тельбух Иван(КМС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>03.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">11</span></td>
                             <td>121.53%</td>
-                            <td>Пешиков Сергей(МС)<br> Тельбух Иван(КМС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>07.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-3">3</span></td>
                             <td>108.96%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>09.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">17</span></td>
                             <td>132.5%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>08.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">17</span></td>
                             <td>142.79%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2023">
                             <td>07.05.23</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-1">1</span></td>
                             <td>100%</td>
-                            <td>Пешиков Сергей(МС)<br> Зюзин Дмитрий(КМС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>09.07.23</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-3">3</span></td>
                             <td>110.79%</td>
-                            <td>Пешиков Сергей(МС)<br> Скородумов Анатолий(КМС)<br> Тюрин Денис(КМС)<br> Федин Михаил(МС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>08.05.23</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">10</span></td>
                             <td>128.52%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2023">
                             <td>09.05.23</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>-</td>
-                            <td>Пешиков Сергей(МС)<br> Зюзин Дмитрий(КМС)<br> Титов Алексей(КМС)<br> Черненков Алексей(КМС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>06.07.23</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">8</span></td>
                             <td>119.92%</td>
-                            <td>Пешиков Сергей(МС)<br> Федин Михаил(МС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>07.07.23</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">33</span></td>
                             <td>156.76%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2023">
                             <td>08.07.23</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">10</span></td>
                             <td>121.44%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2023">
                             <td>13.09.23</td>
-                            <td>Чемпионат России, г. Камышин</td>
+                            <td>ЧР, г. Камышин</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">10</span></td>
                             <td>121.33%</td>
-                            <td>Пешиков Сергей(МС)<br> Федин Михаил(МС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>15.09.23</td>
-                            <td>Чемпионат России, г. Камышин</td>
+                            <td>ЧР, г. Камышин</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-2">2</span></td>
                             <td>109.99%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>21.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">7</span></td>
                             <td>117.92%</td>
-                            <td>Федин Михаил(МС)<br> Пешиков Сергей(МС)</td>
                         </tr>                        <tr data-year="2022">
                             <td>10.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
                             <td>109.51%</td>
-                            <td>Пешиков Сергей(МС)<br> Скородумов Анатолий(КМС)<br> Калиновский Леонид(КМС)<br> Зюзин Дмитрий(КМС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>16.09.23</td>
-                            <td>Чемпионат России, г. Камышин</td>
+                            <td>ЧР, г. Камышин</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>104.99%</td>
-                            <td>Скородумов Анатолий(КМС)<br> Пешиков Сергей(МС)<br> Тюрин Денис(КМС)<br> Федин Михаил(МС)</td>
                         </tr>                        <tr data-year="2023">
                             <td>30.09.23</td>
-                            <td>Всероcсийские, Бутовский лесопарк</td>
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-1">1</span></td>
                             <td>-</td>
-                            <td>Пешиков Сергей(МС)<br> Федин Михаил(МС)<br> Скородумов Анатолий(КМС)<br> Тюрин Денис(КМС)</td>
                         </tr>                        <tr data-year="2022">
                             <td>25.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
                             <td>104.32%</td>
-                            <td>Федин Михаил(МС)<br> Киселев Александр(КМС)<br> Пешиков Сергей(МС)<br> Скородумов Анатолий(КМС)</td>
                         </tr>                        <tr data-year="2022">
                             <td>22.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">19</span></td>
                             <td>117.01%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>07.05.22</td>
-                            <td>Кубок России, г.Елец</td>
+                            <td>КР, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">13</span></td>
                             <td>123.71%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>09.05.22</td>
-                            <td>Кубок России, г.Елец</td>
+                            <td>КР, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">9</span></td>
                             <td>116.79%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>09.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">7</span></td>
                             <td>116.11%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>08.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">17</span></td>
                             <td>118.16%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2022">
                             <td>24.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-other">15</span></td>
                             <td>126.8%</td>
-                            <td>Пешиков Сергей(МС)<br>1990</td>
                         </tr>                        <tr data-year="2024">
                             <td>20.10.24</td>
-                            <td>Всероcсийские, Бутовский лесопарк</td>
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-dnf">CH</span></td>
-                            <td>Снятие с дистанции</td>
-                            <td>Калиновский Леонид(МС)<br> Пешиков Сергей(МС)<br> Федин Михаил(МС)<br> Моргунов Сергей(КМС)</td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -924,14 +859,6 @@
             <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
         </div>
     </footer>
-	
-    <div class="composition-modal" id="compositionModal">
-        <div class="composition-modal-content">
-            <h3>Состав</h3>
-            <div id="compositionContent"></div>
-        </div>
-    </div>
-
 
     <script>
         // Фильтрация по годам и сортировка таблицы
@@ -1074,22 +1001,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateHeader.click();
         dateHeader.click();
     }
-
-// Клик по ячейке "Вид" для показа состава
-document.querySelectorAll('.competition-table td:nth-child(3)').forEach(cell => {
-    cell.style.cursor = 'pointer';
-    cell.addEventListener('click', function() {
-        const composition = this.parentElement.querySelector('td:nth-child(7)').innerHTML;
-        document.getElementById('compositionContent').innerHTML = composition;
-        document.getElementById('compositionModal').style.display = 'flex';
-    });
-});
-
-// Закрытие модального окна
-document.getElementById('compositionModal').addEventListener('click', function(e) {
-    if (e.target === this) this.style.display = 'none';
-});	
-	
 });
     </script>
 </body>
