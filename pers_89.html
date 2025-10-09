@@ -297,12 +297,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             margin-bottom: 30px;
             overflow-x: auto;
+    		width: 100%;
+    		max-width: 100%;
+    		box-sizing: border-box;
         }
 
         .competition-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1000px;
+    		min-width: auto;
+    		table-layout: auto;
         }
 
         .competition-table th, .competition-table td {
@@ -331,6 +335,16 @@
             font-size: 0.8rem;
             opacity: 0.7;
         }
+
+		/* Адаптивные заголовки таблицы */
+		.competition-table th .full-text { 
+    		display: inline; /* По умолчанию показываем полные названия */
+		}
+
+		.competition-table th .short-text { 
+    		display: none; /* По умолчанию скрываем короткие названия */
+		}
+		
 
         .competition-table tr:hover {
             background-color: #f5f7fa;
@@ -413,29 +427,54 @@
             font-size: 0.9rem;
             border-top: 1px solid #eaeaea;
         }
+		
+		.icons-group {
+			display: flex;
+			gap: 0;
+		}
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .athlete-info {
-                text-align: center;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .basic-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .competition-table {
-                font-size: 0.8rem;
-            }
-        }
+		@media (max-width: 768px) {
+		    .competition-table {
+		        min-width: auto;
+		        width: 100%;
+		        font-size: 0.6rem;
+		        line-height: 1.1;
+		    }
+		    
+		    .competition-table th, 
+		    .competition-table td {
+		        padding: 2px 3px;
+		    }
+			
+			.competition-table td:nth-child(3) {
+		    white-space: nowrap;
+		    font-size: 0.8rem;
+		    }
+		    
+		    /* Уменьшаем отступы в контейнере */
+		    .container {
+		        padding: 8px;
+		    }
+		    
+		    .competition-history {
+		        padding: 12px 8px;
+		    }
+
+			/* Для длинного текста в названиях соревнований */
+			.competition-table td:nth-child(2) {
+				white-space: normal; /* Разрешаем перенос слов */
+				word-break: break-word;
+			}
+
+			.competition-table th .full-text { 
+        		display: none; 
+    		}
+    		.competition-table th .short-text { 
+        		display: inline; 
+    		}
+			
+			
+		}
     </style>
 </head>
 <body>
@@ -475,20 +514,13 @@
         <div class="container">
             <div class="header-content">
                 <div class="athlete-photo">
-                    <i class="fas fa-hiking"></i>
-<!--                    <div class="region-flag">МС</div> -->
+                    <i class="fas fa-person-running"></i>
                 </div>
                 <div class="athlete-info">
                     <h1 class="athlete-name">Калиновская Мария</h1>
-                    <p class="athlete-sport">Мастер спорта. Вице-чемпионка России</p>
                     <div class="basic-info">
                         <p><i class="fas fa-birthday-cake"></i> Год рождения: 1995</p>
-                        <p>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Moscow_oblast.svg/120px-Flag_of_Moscow_oblast.svg.png" 
-                                 alt="Флаг Московской области" class="flag-icon">
-                            Московская область
-                        </p>
-                        <p><i class="fas fa-flag"></i> Страна: Россия</p>
+                        <p><i class="fas fa-flag"></i> Московская область</p>
                         <p><i class="fas fa-award"></i> Звание: Мастер спорта</p>
                     </div>
                 </div>
@@ -497,14 +529,6 @@
     </header>
 	
     <div class="container">
-        <h2 class='section-title'>Достижения</h2>
-        <div class='stats-grid'>
-            <div class="stat-card">
-                <h3><i class="fas fa-trophy"></i> Главное достижение</h3>
-                <div class="stat-value">Вице-чемпионка России</div>
-                <div class="stat-description">2021 год - 2 место на дистании-пешеходняя-личная</div>
-            </div>
-        </div>
         <h2 class='section-title'>Общая статистика</h2>
         <div class='stats-grid'>
             <div class="stat-card">
@@ -566,7 +590,6 @@
                 </div>
             </div>
         </div>
-        <h2 class='section-title'>Графики</h2><div class='graph-container'></div>
         <h2 class='section-title'>История выступлений</h2>
         <div class="competition-history">
             <div class="year-filter">
@@ -580,200 +603,184 @@
                     <thead>
                         <tr>
                             <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
-                            <th data-sort="competition">Соревнование и место <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
                             <th>Вид</th>
                             <th>Тип</th>
                             <th data-sort="place">Место <i class="fas fa-sort"></i></th>
-                            <th data-sort="result">Результат <i class="fas fa-sort"></i></th>
-                            <th>Состав</th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
                         </tr>
 
                     </thead>
                     <tbody>
                         <tr data-year="2024">
                             <td>04.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">20</span></td>
                             <td>145.5%</td>
-                            <td>Пшестанчик Ирина(МС)<br> Калиновская Мария(МС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>06.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
                             <td>109.9%</td>
-                            <td>Лизунова Анна(КМС)<br> Калиновская Мария(МС)<br> Пешикова Анастасия(МС)<br> Огрызкова Анастасия(КМС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>03.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">9</span></td>
-                            <td>118.54%</td>
-                            <td>Калиновская Мария(МС)<br> Беляева Татьяна(КМС)</td>
+                            <td>118.5%</td>
                         </tr>                        <tr data-year="2024">
                             <td>09.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">15</span></td>
                             <td>123.4%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
                         </tr>                        <tr data-year="2024">
                             <td>08.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">9</span></td>
-                            <td>111.13%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
+                            <td>111.1%</td>
                         </tr>                        <tr data-year="2024">
                             <td>07.05.24</td>
-                            <td>Всероcсийские, г.Елец</td>
+                            <td>ВС, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
-                            <td>115.05%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
+                            <td>115%</td>
                         </tr>                        <tr data-year="2024">
                             <td>06.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">9</span></td>
-                            <td>119.82%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
+                            <td>119.8%</td>
                         </tr>                        <tr data-year="2024">
                             <td>05.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
-                            <td>109.44%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
+                            <td>109.4%</td>
                         </tr>                        <tr data-year="2024">
                             <td>04.09.24</td>
-                            <td>Чемпионат России, пгт. Новомихайловский</td>
+                            <td>ЧР, пгт. Новомихайловский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">5</span></td>
-                            <td>105.16%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
+                            <td>105.2%</td>
                         </tr>                        <tr data-year="2024">
                             <td>05.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">19</span></td>
                             <td>115.9%</td>
-                            <td>Калиновская Мария(МС)<br>1995</td>
                         </tr>                        <tr data-year="2022">
                             <td>21.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">6</span></td>
-                            <td>119.37%</td>
-                            <td>Калиновская Мария(КМС)<br> Гелетух Дарья(КМС)</td>
+                            <td>119.4%</td>
                         </tr>                        <tr data-year="2022">
                             <td>25.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>110.2%</td>
-                            <td>Пешикова Анастасия(КМС)<br> Пшестанчик Ирина(КМС)<br> Калиновская Мария(КМС)<br> Гелетух Дарья(КМС)</td>
                         </tr>                        <tr data-year="2024">
                             <td>07.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
-                            <td>111.52%</td>
-                            <td>Пешикова Анастасия(МС)<br> Лизунова Анна(КМС)<br> Калиновская Мария(МС)<br> Огрызкова Анастасия(КМС)</td>
+                            <td>111.5%</td>
                         </tr>                        <tr data-year="2022">
                             <td>07.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">6</span></td>
-                            <td>121.45%</td>
-                            <td>Гелетух Дарья(КМС)<br> Калиновская Мария(КМС)</td>
+                            <td>121.4%</td>
                         </tr>                        <tr data-year="2023">
                             <td>30.09.23</td>
-                            <td>Всероcсийские, Бутовский лесопарк</td>
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-3">3</span></td>
                             <td>-</td>
-                            <td>Пшестанчик Ирина(МС)<br> Пешикова Анастасия(МС)<br> Калиновская Мария(МС)<br> Лизунова Анна(КМС)</td>
                         </tr>                        <tr data-year="2022">
                             <td>08.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">6</span></td>
-                            <td>122.98%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>123%</td>
                         </tr>                        <tr data-year="2022">
                             <td>08.05.22</td>
-                            <td>Кубок России, г.Елец</td>
+                            <td>КР, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-2">2</span></td>
-                            <td>101.26%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>101.3%</td>
                         </tr>                        <tr data-year="2022">
                             <td>09.05.22</td>
-                            <td>Кубок России, г.Елец</td>
+                            <td>КР, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-2">2</span></td>
-                            <td>101.12%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>101.1%</td>
                         </tr>                        <tr data-year="2022">
                             <td>07.05.22</td>
-                            <td>Кубок России, г.Елец</td>
+                            <td>КР, г.Елец</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-2">2</span></td>
-                            <td>102.98%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>103%</td>
                         </tr>                        <tr data-year="2022">
                             <td>09.07.22</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">6</span></td>
-                            <td>119.51%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>119.5%</td>
                         </tr>                        <tr data-year="2022">
                             <td>22.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-top10">8</span></td>
-                            <td>109.47%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>109.5%</td>
                         </tr>                        <tr data-year="2022">
                             <td>24.08.22</td>
-                            <td>Чемпионат России, п. Листвянка</td>
+                            <td>ЧР, п. Листвянка</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
-                            <td>120.28%</td>
-                            <td>Калиновская Мария(КМС)<br>1995</td>
+                            <td>120.3%</td>
                         </tr>                        <tr data-year="2024">
                             <td>20.10.24</td>
-                            <td>Всероcсийские, Бутовский лесопарк</td>
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">5</span></td>
-                            <td>113.95%</td>
-                            <td>Беляева Татьяна(КМС)<br> Калиновская Мария(МС)<br> Пешикова Анастасия(МС)<br> Пшестанчик Ирина(МС)</td>
+                            <td>114%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -926,7 +933,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация - сортировка по дате (новые сверху) при загрузке
     const dateHeader = document.querySelector('th[data-sort="date"]');
     if (dateHeader) {
-        dateHeader.click();
         dateHeader.click();
     }
 });

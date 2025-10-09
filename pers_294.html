@@ -297,12 +297,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             margin-bottom: 30px;
             overflow-x: auto;
+    		width: 100%;
+    		max-width: 100%;
+    		box-sizing: border-box;
         }
 
         .competition-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1000px;
+    		min-width: auto;
+    		table-layout: auto;
         }
 
         .competition-table th, .competition-table td {
@@ -331,6 +335,16 @@
             font-size: 0.8rem;
             opacity: 0.7;
         }
+
+		/* Адаптивные заголовки таблицы */
+		.competition-table th .full-text { 
+    		display: inline; /* По умолчанию показываем полные названия */
+		}
+
+		.competition-table th .short-text { 
+    		display: none; /* По умолчанию скрываем короткие названия */
+		}
+		
 
         .competition-table tr:hover {
             background-color: #f5f7fa;
@@ -413,29 +427,54 @@
             font-size: 0.9rem;
             border-top: 1px solid #eaeaea;
         }
+		
+		.icons-group {
+			display: flex;
+			gap: 0;
+		}
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .athlete-info {
-                text-align: center;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .basic-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .competition-table {
-                font-size: 0.8rem;
-            }
-        }
+		@media (max-width: 768px) {
+		    .competition-table {
+		        min-width: auto;
+		        width: 100%;
+		        font-size: 0.6rem;
+		        line-height: 1.1;
+		    }
+		    
+		    .competition-table th, 
+		    .competition-table td {
+		        padding: 2px 3px;
+		    }
+			
+			.competition-table td:nth-child(3) {
+		    white-space: nowrap;
+		    font-size: 0.8rem;
+		    }
+		    
+		    /* Уменьшаем отступы в контейнере */
+		    .container {
+		        padding: 8px;
+		    }
+		    
+		    .competition-history {
+		        padding: 12px 8px;
+		    }
+
+			/* Для длинного текста в названиях соревнований */
+			.competition-table td:nth-child(2) {
+				white-space: normal; /* Разрешаем перенос слов */
+				word-break: break-word;
+			}
+
+			.competition-table th .full-text { 
+        		display: none; 
+    		}
+    		.competition-table th .short-text { 
+        		display: inline; 
+    		}
+			
+			
+		}
     </style>
 </head>
 <body>
@@ -475,20 +514,13 @@
         <div class="container">
             <div class="header-content">
                 <div class="athlete-photo">
-                    <i class="fas fa-hiking"></i>
-<!--                    <div class="region-flag">МС</div> -->
+                    <i class="fas fa-person-running"></i>
                 </div>
                 <div class="athlete-info">
                     <h1 class="athlete-name">Моргунова Анастасия</h1>
-                    <p class="athlete-sport">Спортсмен</p>
                     <div class="basic-info">
                         <p><i class="fas fa-birthday-cake"></i> Год рождения: 1989</p>
-                        <p>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Moscow_oblast.svg/120px-Flag_of_Moscow_oblast.svg.png" 
-                                 alt="Флаг Московской области" class="flag-icon">
-                            Московская область
-                        </p>
-                        <p><i class="fas fa-flag"></i> Страна: Россия</p>
+                        <p><i class="fas fa-flag"></i> Московская область</p>
                         <p><i class="fas fa-award"></i> Разряд: I</p>
                     </div>
                 </div>
@@ -497,10 +529,6 @@
     </header>
 	
     <div class="container">
-        <h2 class='section-title'>Достижения</h2>
-        <div class='stats-grid'>
-
-        </div>
         <h2 class='section-title'>Общая статистика</h2>
         <div class='stats-grid'>
             <div class="stat-card">
@@ -517,9 +545,7 @@
                             <div class="medal-count">8 место</div>
                             <div class="medal-event">Кубок России 2024, пос. им. Цюрупы</div>
                         </div>
-                        <i class="fa-solid fa-people-pulling"></i>
-                        <i class="fa-solid fa-person-walking"></i>
-                        <i class="fa-solid fa-person-running"></i>
+                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div>
                         <div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
                     </div>
 
@@ -538,7 +564,6 @@
                 </div>
             </div>
         </div>
-        <h2 class='section-title'>Графики</h2><div class='graph-container'></div>
         <h2 class='section-title'>История выступлений</h2>
         <div class="competition-history">
             <div class="year-filter">
@@ -550,48 +575,51 @@
                     <thead>
                         <tr>
                             <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
-                            <th data-sort="competition">Соревнование и место <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
                             <th>Вид</th>
                             <th>Тип</th>
                             <th data-sort="place">Место <i class="fas fa-sort"></i></th>
-                            <th data-sort="result">Результат <i class="fas fa-sort"></i></th>
-                            <th>Состав</th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
                         </tr>
 
                     </thead>
                     <tbody>
                         <tr data-year="2024">
                             <td>06.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-dnf">CH</span></td>
-                            <td>Снятие с дистанции</td>
-                            <td>Моргунова Анастасия(I)<br>1989</td>
+                            <td>-</td>
                         </tr>                        <tr data-year="2024">
                             <td>05.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td></td>
                             <td><span class="place-badge place-other">48</span></td>
-                            <td>168.91%</td>
-                            <td>Моргунова Анастасия(I)<br>1989</td>
+                            <td>168.9%</td>
                         </tr>                        <tr data-year="2024">
                             <td>07.07.24</td>
-                            <td>Кубок России, пос. им. Цюрупы</td>
+                            <td>КР, пос. им. Цюрупы</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">8</span></td>
-                            <td>152.79%</td>
-                            <td>Моргунова Анастасия(I)<br> Беляева Татьяна(КМС)<br> Малёмина Анастасия(КМС)<br> Ахапкина Алёна(КМС)</td>
+                            <td>152.8%</td>
                         </tr>                        <tr data-year="2024">
                             <td>19.10.24</td>
-                            <td>Всероcсийские, Бутовский лесопарк</td>
+                            <td>ВС, Бутовский лесопарк</td>
                             <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-dnf">CH</span></td>
-                            <td>Снятие с дистанции</td>
-                            <td>Бабанина Мария(КМС)<br> Терскова Виктория(КМС)<br> Орехова Ксения(КМС)<br> Моргунова Анастасия(I)</td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -744,7 +772,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация - сортировка по дате (новые сверху) при загрузке
     const dateHeader = document.querySelector('th[data-sort="date"]');
     if (dateHeader) {
-        dateHeader.click();
         dateHeader.click();
     }
 });
