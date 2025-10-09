@@ -297,12 +297,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
             margin-bottom: 30px;
             overflow-x: auto;
+    		width: 100%;
+    		max-width: 100%;
+    		box-sizing: border-box;
         }
 
         .competition-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1000px;
+    		min-width: auto;
+    		table-layout: auto;
         }
 
         .competition-table th, .competition-table td {
@@ -413,29 +417,6 @@
             font-size: 0.9rem;
             border-top: 1px solid #eaeaea;
         }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .athlete-info {
-                text-align: center;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .basic-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .competition-table {
-                font-size: 0.8rem;
-            }
-        }
 		
 		.icons-group {
 			display: flex;
@@ -468,6 +449,12 @@
 		    .competition-history {
 		        padding: 12px 8px;
 		    }
+
+			/* Для длинного текста в названиях соревнований */
+			.competition-table td:nth-child(2) {
+				white-space: normal; /* Разрешаем перенос слов */
+				word-break: break-word;
+			}
 		}
     </style>
 </head>
