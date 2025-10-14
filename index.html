@@ -5,233 +5,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Спортивный туризм - Статистика спортсменов</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+ 
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        body {
-            background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
-            color: white;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    body {
+        background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
+        color: white;
+        min-height: 100vh;
+        padding: 10px; /* Уменьшили padding */
+        overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+    }
 
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 15px; /* Уменьшили padding */
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        max-height: calc(100vh - 20px); /* Ограничиваем высоту контейнера */
+        overflow-y: auto; /* Добавляем прокрутку внутри контейнера если нужно */
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px; /* Уменьшили отступ */
+    }
+
+    .header h1 {
+        font-size: 1.8rem; /* Уменьшили размер шрифта */
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    .header p {
+        font-size: 1rem; /* Уменьшили размер шрифта */
+        opacity: 0.9;
+    }
+
+    /* Стили для поиска */
+    .search-section {
+        margin-bottom: 20px; /* Уменьшили отступ */
+    }
+
+    .search-box {
+        display: flex;
+        gap: 8px; /* Уменьшили gap */
+        margin-bottom: 10px; /* Уменьшили отступ */
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 10px 12px; /* Уменьшили padding */
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        font-size: 0.9rem; /* Уменьшили размер шрифта */
+        backdrop-filter: blur(10px);
+    }
+
+    .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .search-stats {
+        text-align: center;
+        opacity: 0.8;
+        font-size: 0.8rem; /* Уменьшили размер шрифта */
+        margin-bottom: 8px; /* Уменьшили отступ */
+    }
+
+    .initial-state {
+        text-align: center;
+        padding: 30px 15px; /* Уменьшили padding */
+        opacity: 0.7;
+    }
+
+    .initial-state i {
+        font-size: 2.5rem; /* Уменьшили размер иконки */
+        margin-bottom: 15px;
+        opacity: 0.5;
+    }
+
+    .initial-state h3 {
+        font-size: 1.2rem; /* Уменьшили размер шрифта */
+        margin-bottom: 8px;
+    }
+
+    .initial-state p {
+        font-size: 0.9rem; /* Уменьшили размер шрифта */
+        line-height: 1.4;
+    }
+
+    .min-chars-warning {
+        text-align: center;
+        padding: 25px 15px; /* Уменьшили padding */
+        opacity: 0.7;
+    }
+
+    .min-chars-warning i {
+        font-size: 2.2rem; /* Уменьшили размер иконки */
+        margin-bottom: 12px;
+        opacity: 0.5;
+    }
+
+    .no-results {
+        text-align: center;
+        padding: 25px 15px; /* Уменьшили padding */
+        opacity: 0.7;
+    }
+
+    .no-results i {
+        font-size: 2.2rem; /* Уменьшили размер иконки */
+        margin-bottom: 12px;
+    }
+
+    .athletes-list {
+        display: grid;
+        gap: 10px; /* Уменьшили gap */
+    }
+
+    .athlete-card {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 15px; /* Уменьшили padding */
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    .athlete-card:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .athlete-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px; /* Уменьшили отступ */
+    }
+
+    .athlete-name {
+        font-size: 1.1rem; /* Уменьшили размер шрифта */
+        font-weight: 600;
+        flex: 1;
+    }
+
+    .athlete-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Уменьшили minmax */
+        gap: 8px; /* Уменьшили gap */
+        font-size: 0.8rem; /* Уменьшили размер шрифта */
+        opacity: 0.9;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 4px; /* Уменьшили gap */
+    }
+
+    .gender-m {
+        color: #4fc3f7;
+    }
+
+    .gender-f {
+        color: #f06292;
+    }
+
+    .rank-badge {
+        background: linear-gradient(135deg, #FFD700, #FFA000);
+        color: #333;
+        padding: 2px 6px; /* Уменьшили padding */
+        border-radius: 6px;
+        font-size: 0.7rem; /* Уменьшили размер шрифта */
+        font-weight: 600;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 25px; /* Уменьшили отступ */
+        padding-top: 15px; /* Уменьшили padding */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0.7;
+        font-size: 0.8rem; /* Уменьшили размер шрифта */
+    }
+
+    @media (max-width: 768px) {
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 12px; /* Уменьшили padding */
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
+        
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 1.5rem; /* Уменьшили размер шрифта */
         }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Стили для поиска */
-        .search-section {
-            margin-bottom: 30px;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .search-input:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .search-stats {
-            text-align: center;
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .initial-state {
-            text-align: center;
-            padding: 60px 20px;
-            opacity: 0.7;
-        }
-
-        .initial-state i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .initial-state h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .initial-state p {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .min-chars-warning {
-            text-align: center;
-            padding: 40px 20px;
-            opacity: 0.7;
-        }
-
-        .min-chars-warning i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            opacity: 0.5;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 40px 20px;
-            opacity: 0.7;
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .athletes-list {
-            display: grid;
-            gap: 15px;
-        }
-
-        .athlete-card {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-
-        .athlete-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .athlete-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .athlete-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            flex: 1;
-        }
-
-        /* Убрали стили для athlete-id */
-
+        
         .athlete-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            font-size: 0.9rem;
-            opacity: 0.9;
+            grid-template-columns: 1fr;
         }
+        
+        .search-box {
+            flex-direction: column;
+        }
+        
+        .initial-state {
+            padding: 25px 15px; /* Уменьшили padding */
+        }
+        
+        .initial-state i {
+            font-size: 2rem; /* Уменьшили размер иконки */
+        }
+    }
 
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+    /* Добавляем медиа-запрос для очень маленьких экранов */
+    @media (max-width: 480px) {
+        body {
+            padding: 5px; /* Еще меньше padding */
         }
+        
+        .container {
+            padding: 10px; /* Еще меньше padding */
+            max-height: calc(100vh - 10px); /* Учитываем уменьшенный padding */
+        }
+        
+        .header h1 {
+            font-size: 1.3rem; /* Еще меньше размер шрифта */
+        }
+        
+        .header p {
+            font-size: 0.9rem; /* Еще меньше размер шрифта */
+        }
+        
+        .athlete-name {
+            font-size: 1rem; /* Еще меньше размер шрифта */
+        }
+    }
+</style>
 
-        .gender-m {
-            color: #4fc3f7;
-        }
-
-        .gender-f {
-            color: #f06292;
-        }
-
-        .rank-badge {
-            background: linear-gradient(135deg, #FFD700, #FFA000);
-            color: #333;
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .athlete-details {
-                grid-template-columns: 1fr;
-            }
-            
-            .search-box {
-                flex-direction: column;
-            }
-            
-            .initial-state {
-                padding: 40px 20px;
-            }
-            
-            .initial-state i {
-                font-size: 3rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
