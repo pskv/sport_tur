@@ -18,8 +18,7 @@
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
         min-height: 100vh;
-        padding: 10px; /* Уменьшили padding */
-        overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+        padding: 15px; /* Уменьшил с 20px */
     }
 
     .container {
@@ -27,48 +26,46 @@
         margin: 0 auto;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 15px;
-        padding: 15px; /* Уменьшили padding */
+        padding: 25px; /* Уменьшил с 30px */
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        max-height: calc(100vh - 20px); /* Ограничиваем высоту контейнера */
-        overflow-y: auto; /* Добавляем прокрутку внутри контейнера если нужно */
     }
 
     .header {
         text-align: center;
-        margin-bottom: 20px; /* Уменьшили отступ */
+        margin-bottom: 30px; /* Уменьшил с 40px */
     }
 
     .header h1 {
-        font-size: 1.8rem; /* Уменьшили размер шрифта */
-        margin-bottom: 8px;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
         font-weight: 700;
     }
 
     .header p {
-        font-size: 1rem; /* Уменьшили размер шрифта */
+        font-size: 1.2rem;
         opacity: 0.9;
     }
 
     /* Стили для поиска */
     .search-section {
-        margin-bottom: 20px; /* Уменьшили отступ */
+        margin-bottom: 25px; /* Уменьшил с 30px */
     }
 
     .search-box {
         display: flex;
-        gap: 8px; /* Уменьшили gap */
-        margin-bottom: 10px; /* Уменьшили отступ */
+        gap: 10px;
+        margin-bottom: 15px;
     }
 
     .search-input {
         flex: 1;
-        padding: 10px 12px; /* Уменьшили padding */
+        padding: 12px 15px;
         border: none;
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.15);
         color: white;
-        font-size: 0.9rem; /* Уменьшили размер шрифта */
+        font-size: 1rem;
         backdrop-filter: blur(10px);
     }
 
@@ -84,64 +81,64 @@
     .search-stats {
         text-align: center;
         opacity: 0.8;
-        font-size: 0.8rem; /* Уменьшили размер шрифта */
-        margin-bottom: 8px; /* Уменьшили отступ */
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 
     .initial-state {
         text-align: center;
-        padding: 30px 15px; /* Уменьшили padding */
+        padding: 50px 20px; /* Уменьшил с 60px */
         opacity: 0.7;
     }
 
     .initial-state i {
-        font-size: 2.5rem; /* Уменьшили размер иконки */
-        margin-bottom: 15px;
+        font-size: 4rem;
+        margin-bottom: 20px;
         opacity: 0.5;
     }
 
     .initial-state h3 {
-        font-size: 1.2rem; /* Уменьшили размер шрифта */
-        margin-bottom: 8px;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 
     .initial-state p {
-        font-size: 0.9rem; /* Уменьшили размер шрифта */
-        line-height: 1.4;
+        font-size: 1rem;
+        line-height: 1.5;
     }
 
     .min-chars-warning {
         text-align: center;
-        padding: 25px 15px; /* Уменьшили padding */
+        padding: 35px 20px; /* Уменьшил с 40px */
         opacity: 0.7;
     }
 
     .min-chars-warning i {
-        font-size: 2.2rem; /* Уменьшили размер иконки */
-        margin-bottom: 12px;
+        font-size: 3rem;
+        margin-bottom: 15px;
         opacity: 0.5;
     }
 
     .no-results {
         text-align: center;
-        padding: 25px 15px; /* Уменьшили padding */
+        padding: 35px 20px; /* Уменьшил с 40px */
         opacity: 0.7;
     }
 
     .no-results i {
-        font-size: 2.2rem; /* Уменьшили размер иконки */
-        margin-bottom: 12px;
+        font-size: 3rem;
+        margin-bottom: 15px;
     }
 
     .athletes-list {
         display: grid;
-        gap: 10px; /* Уменьшили gap */
+        gap: 15px;
     }
 
     .athlete-card {
         background: rgba(255, 255, 255, 0.15);
         border-radius: 10px;
-        padding: 15px; /* Уменьшили padding */
+        padding: 20px;
         transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.2);
         text-decoration: none;
@@ -159,27 +156,29 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px; /* Уменьшили отступ */
+        margin-bottom: 10px;
     }
 
     .athlete-name {
-        font-size: 1.1rem; /* Уменьшили размер шрифта */
+        font-size: 1.3rem;
         font-weight: 600;
         flex: 1;
     }
 
+    /* Убрали стили для athlete-id */
+
     .athlete-details {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Уменьшили minmax */
-        gap: 8px; /* Уменьшили gap */
-        font-size: 0.8rem; /* Уменьшили размер шрифта */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        font-size: 0.9rem;
         opacity: 0.9;
     }
 
     .detail-item {
         display: flex;
         align-items: center;
-        gap: 4px; /* Уменьшили gap */
+        gap: 5px;
     }
 
     .gender-m {
@@ -193,28 +192,28 @@
     .rank-badge {
         background: linear-gradient(135deg, #FFD700, #FFA000);
         color: #333;
-        padding: 2px 6px; /* Уменьшили padding */
+        padding: 2px 8px;
         border-radius: 6px;
-        font-size: 0.7rem; /* Уменьшили размер шрифта */
+        font-size: 0.8rem;
         font-weight: 600;
     }
 
     .footer {
         text-align: center;
-        margin-top: 25px; /* Уменьшили отступ */
-        padding-top: 15px; /* Уменьшили padding */
+        margin-top: 30px; /* Уменьшил с 40px */
+        padding-top: 20px;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         opacity: 0.7;
-        font-size: 0.8rem; /* Уменьшили размер шрифта */
+        font-size: 0.9rem;
     }
 
     @media (max-width: 768px) {
         .container {
-            padding: 12px; /* Уменьшили padding */
+            padding: 20px;
         }
         
         .header h1 {
-            font-size: 1.5rem; /* Уменьшили размер шрифта */
+            font-size: 2rem;
         }
         
         .athlete-details {
@@ -226,35 +225,11 @@
         }
         
         .initial-state {
-            padding: 25px 15px; /* Уменьшили padding */
+            padding: 40px 20px;
         }
         
         .initial-state i {
-            font-size: 2rem; /* Уменьшили размер иконки */
-        }
-    }
-
-    /* Добавляем медиа-запрос для очень маленьких экранов */
-    @media (max-width: 480px) {
-        body {
-            padding: 5px; /* Еще меньше padding */
-        }
-        
-        .container {
-            padding: 10px; /* Еще меньше padding */
-            max-height: calc(100vh - 10px); /* Учитываем уменьшенный padding */
-        }
-        
-        .header h1 {
-            font-size: 1.3rem; /* Еще меньше размер шрифта */
-        }
-        
-        .header p {
-            font-size: 0.9rem; /* Еще меньше размер шрифта */
-        }
-        
-        .athlete-name {
-            font-size: 1rem; /* Еще меньше размер шрифта */
+            font-size: 3rem;
         }
     }
 </style>
