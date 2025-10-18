@@ -15,7 +15,6 @@
         gtag('config', 'G-XHSVZLPZ8C');
     </script>
     <style>
-
     * {
         margin: 0;
         padding: 0;
@@ -355,7 +354,7 @@
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         width: 90%;
-        max-width: 360px;
+        max-width: 420px;
         max-height: 80vh;
         overflow-y: auto;
         position: relative;
@@ -432,14 +431,14 @@
     }
 
     .modal-section.compact {
-        margin-bottom: 0;
+        margin-bottom: 12px;
         background: none;
         padding: 0;
         box-shadow: none;
         border: none;
     }
 
-    .section-title {
+    .modal-section-title {
         font-size: 0.9rem;
         color: #1a3a5f;
         font-weight: 600;
@@ -449,7 +448,7 @@
         gap: 6px;
     }
 
-    .section-title i {
+    .modal-section-title i {
         font-size: 0.8rem;
         color: #2c5a8a;
     }
@@ -479,6 +478,62 @@
         min-width: 20px;
         display: inline-block;
         text-align: center;
+    }
+
+    /* Стили для результатов */
+    .results-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 8px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.8rem;
+    }
+
+    .result-item:last-child {
+        border-bottom: none;
+    }
+
+    .result-item.athlete-result {
+        background-color: #e9f5ff;
+        border-left: 3px solid #2c5a8a;
+        font-weight: 600;
+    }
+
+    .result-place {
+        font-weight: 600;
+        min-width: 30px;
+    }
+
+    .result-name {
+        flex: 1;
+        margin: 0 8px;
+    }
+
+    .result-time {
+        color: #666;
+        font-family: monospace;
+    }
+
+    .result-gap {
+        color: #d32f2f;
+        font-family: monospace;
+        margin-left: 8px;
+    }
+
+    .ellipsis {
+        text-align: center;
+        padding: 4px 0;
+        color: #999;
+        font-size: 0.7rem;
     }
 
     .close {
@@ -556,7 +611,7 @@
             margin: 10% auto;
             padding: 12px;
             width: 95%;
-            max-width: 340px;
+            max-width: 380px;
         }
 
         .info-label {
@@ -635,31 +690,36 @@
             <!-- Заголовок будет заполняться JavaScript -->
         </div>
 
-		<div class="modal-grid compact">
-			<div class="info-row">
-				<span class="info-label">Дисциплина:</span>
-				<span class="info-value" id="modalDiscipline"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Вид:</span>
-				<span class="info-value" id="modalType"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Место:</span>
-				<span class="info-value" id="modalPlace"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Результат:</span>
-				<span class="info-value" id="modalResult"></span>
-			</div>
-		</div>
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
 
         <div class="modal-section compact">
-            <div class="section-title">
+            <div class="modal-section-title">
                 <i class="fas fa-users"></i> Состав
             </div>
             <ul class="athletes-list compact" id="modalAthletesList">
                 <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
             </ul>
         </div>
     </div>
@@ -682,7 +742,7 @@
             </div>
         </div>
     </header>
-	
+    
     <div class="container">
         <h2 class='section-title'>Общая статистика</h2>
         <div class='stats-grid'>
@@ -773,83 +833,89 @@
                     </thead>
                     <tbody>
                         <tr data-year="2024"
-	                        data-date="20240509"
+                            data-date="20240509"
                             data-athletes='["Лапин Степан"]'
-							data-distance="дистанция - пешеходная"
-							data-competition-type="спринт"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная"
+                            data-competition-type="спринт"
+                            class="clickable-row">
                             <td>09.05.24</td>
                             <td>ВС, Аргамач-Пальна</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
                             <td><span class="place-badge place-other">33</span></td>
                             <td>183.3%</td>
-                        </tr>                        <tr data-year="2024"
-	                        data-date="20240501"
+                        </tr>
+                        <tr data-year="2024"
+                            data-date="20240501"
                             data-athletes='["Лапин Степан", "Тельбух Иван"]'
-							data-distance="дистанция - пешеходная - связка"
-							data-competition-type="спринт"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная - связка"
+                            data-competition-type="спринт"
+                            class="clickable-row">
                             <td>01.05.24</td>
                             <td>ВС, Куяр</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
                             <td><span class="place-badge place-other">34</span></td>
                             <td>178.9%</td>
-                        </tr>                        <tr data-year="2024"
-	                        data-date="20240322"
+                        </tr>
+                        <tr data-year="2024"
+                            data-date="20240322"
                             data-athletes='["Лапин Степан"]'
-							data-distance="дистанция - пешеходная"
-							data-competition-type="залинг"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная"
+                            data-competition-type="залинг"
+                            class="clickable-row">
                             <td>22.03.24</td>
                             <td>ВС, Марковский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-other">30</span></td>
                             <td>129%</td>
-                        </tr>                        <tr data-year="2024"
-	                        data-date="20240323"
+                        </tr>
+                        <tr data-year="2024"
+                            data-date="20240323"
                             data-athletes='["Лапин Степан", "Тельбух Иван"]'
-							data-distance="дистанция - пешеходная - связка"
-							data-competition-type="залинг"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная - связка"
+                            data-competition-type="залинг"
+                            class="clickable-row">
                             <td>23.03.24</td>
                             <td>ВС, Марковский</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-other">22</span></td>
                             <td>180.1%</td>
-                        </tr>                        <tr data-year="2023"
-	                        data-date="20231221"
+                        </tr>
+                        <tr data-year="2023"
+                            data-date="20231221"
                             data-athletes='["Лапин Степан"]'
-							data-distance="дистанция - пешеходная"
-							data-competition-type="залинг"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная"
+                            data-competition-type="залинг"
+                            class="clickable-row">
                             <td>21.12.23</td>
                             <td>ВС, Марковский</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-other">52</span></td>
                             <td>150.2%</td>
-                        </tr>                        <tr data-year="2023"
-	                        data-date="20231222"
+                        </tr>
+                        <tr data-year="2023"
+                            data-date="20231222"
                             data-athletes='["Лапин Степан", "Тельбух Иван"]'
-							data-distance="дистанция - пешеходная - связка"
-							data-competition-type="залинг"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная - связка"
+                            data-competition-type="залинг"
+                            class="clickable-row">
                             <td>22.12.23</td>
                             <td>ВС, Марковский</td>
                             <td><i class="fa-solid fa-people-pulling"></i></td>
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-other">21</span></td>
                             <td>200.8%</td>
-                        </tr>                        <tr data-year="2022"
-	                        data-date="20220508"
+                        </tr>
+                        <tr data-year="2022"
+                            data-date="20220508"
                             data-athletes='["Лапин Степан"]'
-							data-distance="дистанция - пешеходная"
-							data-competition-type="спринт"
-							class="clickable-row">
+                            data-distance="дистанция - пешеходная"
+                            data-competition-type="спринт"
+                            class="clickable-row">
                             <td>08.05.22</td>
                             <td>КР, Аргамач-Пальна</td>
                             <td><i class="fa-solid fa-person-running"></i></td>
@@ -998,12 +1064,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('universalModal');
     const closeBtn = document.querySelector('.close');
     const athletesList = document.getElementById('modalAthletesList');
+    const resultsList = document.getElementById('modalResultsList');
 
     const modalHeader = document.getElementById('modalHeader');
     const modalDiscipline = document.getElementById('modalDiscipline');
     const modalType = document.getElementById('modalType');
     const modalPlace = document.getElementById('modalPlace');
-    const modalResult = document.getElementById('modalResult');
 
     // Обработчик для кликабельных строк
     document.querySelectorAll('.clickable-row').forEach(row => {
@@ -1038,10 +1104,12 @@ document.addEventListener('DOMContentLoaded', function() {
         modalDiscipline.textContent = distanceData && distanceData !== '-' ? distanceData : '—';
         modalType.textContent = competitionType && competitionType !== '-' ? competitionType : '—';
         modalPlace.innerHTML = getPlaceDisplay(placeCell);
-        modalResult.textContent = resultCell.textContent || '—';
 
         // Заполняем состав
         fillAthletesList(athletesData);
+
+        // Заполняем результаты
+        fillResultsList(row);
 
         modal.style.display = 'block';
     }
@@ -1080,6 +1148,85 @@ document.addEventListener('DOMContentLoaded', function() {
             li.style.color = '#999';
             li.style.fontStyle = 'italic';
             athletesList.appendChild(li);
+        }
+    }
+
+    function fillResultsList(row) {
+        resultsList.innerHTML = '';
+        
+        // Получаем данные о соревновании
+        const eventName = row.cells[1].textContent;
+        const athletePlace = parseInt(row.cells[4].textContent);
+        const athleteResult = row.cells[5].textContent;
+        
+        // Генерируем демонстрационные данные для первых трех мест
+        const topResults = [
+            { place: 1, name: "Иванов Алексей", time: "15:23", gap: "" },
+            { place: 2, name: "Петров Дмитрий", time: "15:45", gap: "+0:22" },
+            { place: 3, name: "Сидоров Михаил", time: "16:12", gap: "+0:49" }
+        ];
+        
+        // Добавляем первые три места
+        topResults.forEach(result => {
+            const li = document.createElement('li');
+            li.className = 'result-item';
+            li.innerHTML = `
+                <span class="result-place">${result.place}</span>
+                <span class="result-name">${result.name}</span>
+                <span class="result-time">${result.time}</span>
+                <span class="result-gap">${result.gap}</span>
+            `;
+            resultsList.appendChild(li);
+        });
+        
+        // Добавляем троеточие для пропущенных мест
+        if (athletePlace > 4) {
+            const ellipsis = document.createElement('li');
+            ellipsis.className = 'ellipsis';
+            ellipsis.textContent = '...';
+            resultsList.appendChild(ellipsis);
+        }
+        
+        // Добавляем результат спортсмена
+        const athleteResultItem = document.createElement('li');
+        athleteResultItem.className = 'result-item athlete-result';
+        
+        // Преобразуем процент отставания во временной разрыв
+        const timeGap = calculateTimeGap(athleteResult);
+        
+        athleteResultItem.innerHTML = `
+            <span class="result-place">${athletePlace}</span>
+            <span class="result-name">Лапин Степан</span>
+            <span class="result-time">${timeGap.time}</span>
+            <span class="result-gap">${timeGap.gap}</span>
+        `;
+        resultsList.appendChild(athleteResultItem);
+    }
+
+    function calculateTimeGap(resultPercent) {
+        // Преобразуем процент отставания во временной разрыв
+        // Для демонстрации используем фиктивные данные
+        const baseTime = "18:30"; // Базовое время победителя
+        const percent = parseFloat(resultPercent);
+        
+        // Простая логика преобразования процента во время
+        if (percent <= 100) {
+            return { time: baseTime, gap: "" };
+        } else {
+            const gapPercent = percent - 100;
+            const gapMinutes = Math.floor(gapPercent / 10);
+            const gapSeconds = Math.floor((gapPercent % 10) * 6);
+            const gapTime = `+${gapMinutes}:${gapSeconds < 10 ? '0' : ''}${gapSeconds}`;
+            
+            // Вычисляем время спортсмена
+            const baseMinutes = 18;
+            const baseSeconds = 30;
+            const totalSeconds = baseMinutes * 60 + baseSeconds + gapMinutes * 60 + gapSeconds;
+            const athleteMinutes = Math.floor(totalSeconds / 60);
+            const athleteSeconds = totalSeconds % 60;
+            const athleteTime = `${athleteMinutes}:${athleteSeconds < 10 ? '0' : ''}${athleteSeconds}`;
+            
+            return { time: athleteTime, gap: gapTime };
         }
     }
 
