@@ -355,7 +355,7 @@
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         width: 90%;
-        max-width: 360px;
+        max-width: 420px;
         max-height: 80vh;
         overflow-y: auto;
         position: relative;
@@ -432,14 +432,14 @@
     }
 
     .modal-section.compact {
-        margin-bottom: 0;
+        margin-bottom: 12px;
         background: none;
         padding: 0;
         box-shadow: none;
         border: none;
     }
 
-    .section-title {
+    .modal-section-title {
         font-size: 0.9rem;
         color: #1a3a5f;
         font-weight: 600;
@@ -449,7 +449,7 @@
         gap: 6px;
     }
 
-    .section-title i {
+    .modal-section-title i {
         font-size: 0.8rem;
         color: #2c5a8a;
     }
@@ -479,6 +479,62 @@
         min-width: 20px;
         display: inline-block;
         text-align: center;
+    }
+
+    /* Стили для результатов */
+    .results-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 8px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.8rem;
+    }
+
+    .result-item:last-child {
+        border-bottom: none;
+    }
+
+    .result-item.athlete-result {
+        background-color: #e9f5ff;
+        border-left: 3px solid #2c5a8a;
+        font-weight: 600;
+    }
+
+    .result-place {
+        font-weight: 600;
+        min-width: 30px;
+    }
+
+    .result-name {
+        flex: 1;
+        margin: 0 8px;
+    }
+
+    .result-time {
+        color: #666;
+        font-family: monospace;
+    }
+
+    .result-gap {
+        color: #d32f2f;
+        font-family: monospace;
+        margin-left: 8px;
+    }
+
+    .ellipsis {
+        text-align: center;
+        padding: 4px 0;
+        color: #999;
+        font-size: 0.7rem;
     }
 
     .close {
@@ -556,7 +612,7 @@
             margin: 10% auto;
             padding: 12px;
             width: 95%;
-            max-width: 340px;
+            max-width: 380px;
         }
 
         .info-label {
@@ -635,31 +691,36 @@
             <!-- Заголовок будет заполняться JavaScript -->
         </div>
 
-		<div class="modal-grid compact">
-			<div class="info-row">
-				<span class="info-label">Дисциплина:</span>
-				<span class="info-value" id="modalDiscipline"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Вид:</span>
-				<span class="info-value" id="modalType"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Место:</span>
-				<span class="info-value" id="modalPlace"></span>
-			</div>
-			<div class="info-row">
-				<span class="info-label">Результат:</span>
-				<span class="info-value" id="modalResult"></span>
-			</div>
-		</div>
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
 
         <div class="modal-section compact">
-            <div class="section-title">
+            <div class="modal-section-title">
                 <i class="fas fa-users"></i> Состав
             </div>
             <ul class="athletes-list compact" id="modalAthletesList">
                 <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
             </ul>
         </div>
     </div>
@@ -776,6 +837,11 @@
                             data-athletes='["Беляева Анастасия"]'
 							data-distance="дистанция - пешеходная"
 							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Лапушкова Екатерина", "time": "02:04", "gap": ""},
+            							                {"place":2, "name": "Дегтярева Яна", "time": "02:08", "gap": "+0:04"},
+            							                {"place":3, "name": "Тотубалина Татьяна", "time": "02:12", "gap": "+0:08"},
+            							                {"place":8, "name": "Беляева Анастасия", "time": "02:19", "gap": "+0:15"}
+							]'
 							class="clickable-row">
                             <td>02.02.23</td>
                             <td>ВС, Набережные Челны</td>
@@ -788,6 +854,11 @@
                             data-athletes='["Беляева Анастасия", "Борознова Гульчечек"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Лапушкова Анастасия, Лапушкова Екатерина", "time": "09:21:00", "gap": ""},
+            							                {"place":2, "name": "Кузнецова Екатерина, Комкова Надежда", "time": "09:26:00", "gap": "+05:00"},
+            							                {"place":3, "name": "Дегтярева Яна, Инюшина Светлана", "time": "10:04:00", "gap": "+43:00"},
+            							                {"place":4, "name": "Беляева Анастасия, Борознова Гульчечек", "time": "10:09:00", "gap": "+48:00"}
+							]'
 							class="clickable-row">
                             <td>03.02.23</td>
                             <td>ВС, Набережные Челны</td>
@@ -800,6 +871,11 @@
                             data-athletes='["Беляева Анастасия", "Борознова Гульчечек", "Иванова Арина", "Лисина Ксения"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Лапушкова Анастасия, Лапушкова Екатерина, Григорьева Кира, Чегодаева Полина", "time": "08:34:00", "gap": ""},
+            							                {"place":2, "name": "Белоногова Кристина, Микрюкова Мария, Шмыкова Полина, Калабина Елизавета", "time": "09:05:00", "gap": "+31:00"},
+            							                {"place":3, "name": "Иншакова Инна, Ляскун Софья, Полищук Анастасия, Кравченко Анастасия", "time": "09:42:00", "gap": "+01:08:00"},
+            							                {"place":5, "name": "Беляева Анастасия, Борознова Гульчечек, Иванова Арина, Лисина Ксения", "time": "10:09:00", "gap": "+01:35:00"}
+							]'
 							class="clickable-row">
                             <td>04.02.23</td>
                             <td>ВС, Набережные Челны</td>
@@ -812,6 +888,11 @@
                             data-athletes='["Беляева Анастасия"]'
 							data-distance="дистанция - пешеходная"
 							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Белоногова Кристина", "time": "01:54", "gap": ""},
+            							                {"place":2, "name": "Тотубалина Татьяна", "time": "02:00", "gap": "+0:05"},
+            							                {"place":3, "name": "Кузнецова Дарья", "time": "02:03", "gap": "+0:08"},
+            							                {"place":29, "name": "Беляева Анастасия", "time": "02:40", "gap": "+0:45"}
+							]'
 							class="clickable-row">
                             <td>20.01.22</td>
                             <td>ВС, Марковский</td>
@@ -824,6 +905,11 @@
                             data-athletes='["Беляева Анастасия", "Борознова Гульчечек"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Кузнецова Екатерина, Комкова Надежда", "time": "06:31", "gap": ""},
+            							                {"place":2, "name": "Белоногова Кристина, Коробейникова Ульяна", "time": "06:34", "gap": "+0:03"},
+            							                {"place":3, "name": "Смирнова Анжелика, Петрова Любовь", "time": "07:24", "gap": "+0:53"},
+            							                {"place":15, "name": "Беляева Анастасия, Борознова Гульчечек", "time": "10:20", "gap": "+03:49"}
+							]'
 							class="clickable-row">
                             <td>21.01.22</td>
                             <td>ВС, Марковский</td>
@@ -836,6 +922,10 @@
                             data-athletes='["Беляева Анастасия", "Борознова Гульчечек"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Николаева Екатерина, Урдякова Алина", "time": "02:16:36", "gap": ""},
+            							                {"place":2, "name": "Васильева Мария, Семочкина Надежда", "time": "02:35:54", "gap": "+19:18"},
+            							                {"place":3, "name": "Беляева Анастасия, Борознова Гульчечек", "time": "02:43:48", "gap": "+27:12"}
+							]'
 							class="clickable-row">
                             <td>21.10.22</td>
                             <td>ВС, Юматово</td>
@@ -848,6 +938,11 @@
                             data-athletes='["Беляева Анастасия"]'
 							data-distance="дистанция - пешеходная"
 							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Кадилова Анна", "time": "26:42", "gap": ""},
+            							                {"place":2, "name": "Фокина Надежда", "time": "29:14", "gap": "+02:32"},
+            							                {"place":3, "name": "Тетерина Дарья", "time": "29:21", "gap": "+02:39"},
+            							                {"place":14, "name": "Беляева Анастасия", "time": "34:31", "gap": "+07:49"}
+							]'
 							class="clickable-row">
                             <td>22.10.22</td>
                             <td>ВС, Юматово</td>
@@ -870,7 +965,7 @@
     </footer>
 
     <script>
-        // Фильтрация по годам и сортировка таблицы
+                // Фильтрация по годам и сортировка таблицы
 document.addEventListener('DOMContentLoaded', function() {
     const yearButtons = document.querySelectorAll('.year-btn');
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
@@ -997,12 +1092,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('universalModal');
     const closeBtn = document.querySelector('.close');
     const athletesList = document.getElementById('modalAthletesList');
+    const resultsList = document.getElementById('modalResultsList');
 
     const modalHeader = document.getElementById('modalHeader');
     const modalDiscipline = document.getElementById('modalDiscipline');
     const modalType = document.getElementById('modalType');
     const modalPlace = document.getElementById('modalPlace');
-    const modalResult = document.getElementById('modalResult');
 
     // Обработчик для кликабельных строк
     document.querySelectorAll('.clickable-row').forEach(row => {
@@ -1018,13 +1113,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const athletesData = row.getAttribute('data-athletes');
         const distanceData = row.getAttribute('data-distance');
         const competitionType = row.getAttribute('data-competition-type');
+        const resultsData = row.getAttribute('data-results');
         const eventParts = eventName.split(', ');
         const status = eventParts[0];
         const location = eventParts.slice(1).join(', ');
 
         // Получаем данные из ячеек
         const placeCell = row.cells[4];
-        const resultCell = row.cells[5];
 
         // Заполняем заголовок
         modalHeader.innerHTML = `
@@ -1037,10 +1132,12 @@ document.addEventListener('DOMContentLoaded', function() {
         modalDiscipline.textContent = distanceData && distanceData !== '-' ? distanceData : '—';
         modalType.textContent = competitionType && competitionType !== '-' ? competitionType : '—';
         modalPlace.innerHTML = getPlaceDisplay(placeCell);
-        modalResult.textContent = resultCell.textContent || '—';
 
         // Заполняем состав
         fillAthletesList(athletesData);
+
+        // Заполняем результаты
+        fillResultsList(resultsData, row);
 
         modal.style.display = 'block';
     }
@@ -1081,6 +1178,63 @@ document.addEventListener('DOMContentLoaded', function() {
             athletesList.appendChild(li);
         }
     }
+
+function fillResultsList(resultsData, row) {
+    resultsList.innerHTML = '';
+
+    try {
+        const results = JSON.parse(resultsData);
+
+        // Получаем место спортсмена из таблицы (пятый столбец)
+        const placeCell = row.cells[4];
+        const athletePlace = parseInt(placeCell.textContent);
+
+        // Сортируем результаты по месту
+        const sortedResults = results.sort((a, b) => a.place - b.place);
+
+        // Определяем, какие результаты показывать
+        let resultsToShow = [];
+
+        if (athletePlace <= 3) {
+            // Если спортсмен в топ-3, показываем первые 3 места
+            resultsToShow = sortedResults.filter(result => result.place <= 3);
+        } else {
+            // Если спортсмен не в топ-3, показываем первые 3 места + результат спортсмена
+            resultsToShow = sortedResults.filter(result => result.place <= 3 || result.place === athletePlace);
+        }
+
+        // Отображаем результаты
+        resultsToShow.forEach((result, index) => {
+            // Добавляем троеточие перед результатом спортсмена, если он не в топ-4
+            if (athletePlace > 4 && result.place === athletePlace && index > 2) {
+                const ellipsis = document.createElement('li');
+                ellipsis.className = 'ellipsis';
+                ellipsis.textContent = '...';
+                resultsList.appendChild(ellipsis);
+            }
+
+            const li = document.createElement('li');
+            // Сравниваем место из данных с местом из таблицы
+            li.className = result.place === athletePlace ? 'result-item athlete-result' : 'result-item';
+            li.innerHTML = `
+                <span class="result-place">${result.place}</span>
+                <span class="result-name">${result.name}</span>
+                <span class="result-time">${result.time}</span>
+                <span class="result-gap">${result.gap}</span>
+            `;
+            resultsList.appendChild(li);
+        });
+
+    } catch (e) {
+        const li = document.createElement('li');
+        li.textContent = "Данные о результатах недоступны";
+        li.style.color = '#999';
+        li.style.fontStyle = 'italic';
+        li.style.padding = '8px';
+        li.style.textAlign = 'center';
+        resultsList.appendChild(li);
+    }
+}
 
     // Закрытие модального окна
     closeBtn.addEventListener('click', function() {
