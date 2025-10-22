@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил детальные результаты по всем спортсменам">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Пересчитал Ющика.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pers_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_7.html" afterDir="false" />
     </list>
@@ -90,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1760908399861</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Пересчитал Ющика.">
+      <created>1761128335487</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761128335487</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -99,6 +106,7 @@
     <MESSAGE value="Добавил модальное окно" />
     <MESSAGE value="Добавил детальные результаты по нескольким спортсменам" />
     <MESSAGE value="Добавил детальные результаты по всем спортсменам" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил детальные результаты по всем спортсменам" />
+    <MESSAGE value="Пересчитал Ющика." />
+    <option name="LAST_COMMIT_MESSAGE" value="Пересчитал Ющика." />
   </component>
 </project>
