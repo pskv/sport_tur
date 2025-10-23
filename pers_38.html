@@ -38,11 +38,11 @@
     header {
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
-        padding: 30px 0;
+        padding: 25px 0;
         text-align: center;
         border-radius: 0 0 15px 15px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin-bottom: 0px;
     }
 
     .header-content {
@@ -50,16 +50,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .athlete-photo {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
@@ -68,25 +68,25 @@
     }
 
     .athlete-photo i {
-        font-size: 4rem;
+        font-size: 2.5rem;
         color: white;
         opacity: 0.9;
     }
 
     .athlete-info {
         text-align: center;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .athlete-name {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         font-weight: 700;
     }
 
     .athlete-sport {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 12px;
         opacity: 0.9;
     }
 
@@ -94,15 +94,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+    	font-size: 0.9rem;
     }
 
     .basic-info p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         justify-content: center;
     }
+
+	.fixed-header {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+	    background: rgba(26, 58, 95, 0.95);
+	    backdrop-filter: blur(10px);
+	    border-bottom: 1px solid rgba(255,255,255,0.1);
+	    padding: 10px 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}
+	
+	.back-button {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    background: rgba(255,255,255,0.15);
+	    color: white;
+	    padding: 6px 12px;
+	    border-radius: 16px;
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: all 0.3s ease;
+	    border: 1px solid rgba(255,255,255,0.2);
+	    font-size: 0.8rem;
+	}
 
     .stats-grid {
         display: grid;
@@ -187,7 +219,7 @@
     .section-title {
         font-size: 1.8rem;
         color: #1a3a5f;
-        margin: 40px 0 20px;
+        margin: 10px 0 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eaeaea;
     }
@@ -652,36 +684,16 @@
 </head>
 <body>
 
-<!-- Фиксированная верхняя панель -->
-<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(26, 58, 95, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
-    
-    <!-- Кнопка возврата -->
-    <a href="https://pskv.github.io/sport_tur/" 
-       style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(255,255,255,0.15); color: white; 
-              padding: 8px 16px; border-radius: 20px; 
-              text-decoration: none; font-weight: 600;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255,255,255,0.2);
-              font-size: 0.9rem;">
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
-    
-    <!-- Пустой элемент для выравнивания -->
-    <div style="width: 100px;"></div>
+    <div style="width: 80px;"></div>
 </div>
 
 <!-- Отступ для основного контента -->
-<div style="height: 60px;"></div>
+<div style="height: 50px;"></div>
 
 <!-- Универсальное модальное окно -->
 <div id="universalModal" class="modal">
@@ -749,21 +761,12 @@
         <div class='stats-grid'>
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">14</div>
+                <div class="stat-value">17</div>
                 <div class="stat-description">Всего участий в соревнованиях за 3 года</div>
             </div>
             <div class="stat-card">
                 <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
                 <div class="medal-stats">
-                    <div class="medal-item">
-                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
-                        <div class="medal-details">
-                            <div class="medal-count">2 место</div>
-                            <div class="medal-event">Всероссийские соревнования 2024, Юматово</div>
-                        </div>
-                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
-                    </div>
-
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #8B4513 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
@@ -771,6 +774,15 @@
                             <div class="medal-event">Всероссийские соревнования 2024, Юматово</div>
                         </div>
                         <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">2 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2024, Юматово</div>
+                        </div>
+                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
                     </div>
 
                     <div class="medal-item">
@@ -785,19 +797,19 @@
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
-                            <div class="medal-count">30 место</div>
-                            <div class="medal-event">Чемпионат России 2024, Орлёнок</div>
+                            <div class="medal-count">9 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Куяр</div>
                         </div>
-                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
                     </div>
 
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
-                            <div class="medal-count">11 место</div>
-                            <div class="medal-event">Всероссийские соревнования 2023, Юматово</div>
+                            <div class="medal-count">30 место</div>
+                            <div class="medal-event">Чемпионат России 2024, Орлёнок</div>
                         </div>
-                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
                     </div>
 
                 </div>
@@ -809,6 +821,7 @@
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2023">2023</button>
                 <button class="year-btn" data-year="2024">2024</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -871,10 +884,10 @@
                             data-athletes='["Михеев Василий", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Кузнецов Сергей, Львов Андрей", "time": "45:17", "gap": ""},
-            							                {"place":2, "name": "Дмитриев Георгий, Урдяков Рустам", "time": "46:06", "gap": "+0:49"},
-            							                {"place":3, "name": "Ющик Никита, Морос Максим", "time": "47:13", "gap": "+01:56"},
-            							                {"place":7, "name": "Михеев Василий, Трошин Евгений", "time": "51:56", "gap": "+06:39"}
+							data-results='[{"place":1, "name": "Кузнецов, Львов", "time": "45:17", "gap": ""},
+            							                {"place":2, "name": "Дмитриев, Урдяков", "time": "46:06", "gap": "+0:49"},
+            							                {"place":3, "name": "Ющик, Морос", "time": "47:13", "gap": "+01:56"},
+            							                {"place":7, "name": "Михеев, Трошин", "time": "51:56", "gap": "+06:39"}
 							]'
 							class="clickable-row">
                             <td>03.09.24</td>
@@ -888,10 +901,10 @@
                             data-athletes='["Горбунов Дмитрий", "Михеев Василий", "Отто Константин", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Калиновский Леонид, Тюрин Денис, Пешиков Сергей, Федин Михаил", "time": "02:00:28", "gap": ""},
-            							                {"place":2, "name": "Дмитриев Георгий, Урдяков Рустам, Рожков Константин, Дмитриев Игорь", "time": "02:01:50", "gap": "+01:22"},
-            							                {"place":3, "name": "Андреев Андрей, Квасков Дмитрий, Лукин Максим, Киль Олег", "time": "02:07:35", "gap": "+07:07"},
-            							                {"place":-, "name": "Михеев Василий, Трошин Евгений, Горбунов Дмитрий, Отто Константин", "time": "-", "gap": "-"}
+							data-results='[{"place":1, "name": "Калиновский, Тюрин, Пешиков, Федин", "time": "02:00:28", "gap": ""},
+            							                {"place":2, "name": "Дмитриев, Урдяков, Рожков, Дмитриев", "time": "02:01:50", "gap": "+01:22"},
+            							                {"place":3, "name": "Андреев, Квасков, Лукин, Киль", "time": "02:07:35", "gap": "+07:07"},
+            							                {"place":-, "name": "Михеев, Трошин, Горбунов, Отто", "time": "-", "gap": "-"}
 							]'
 							class="clickable-row">
                             <td>06.09.24</td>
@@ -922,10 +935,10 @@
                             data-athletes='["Горбунов Дмитрий", "Михеев Василий", "Трошин Евгений", "Фаезов Расуль"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Безносиков Владислав, Ушаков Савелий, Белявцев Максим, Трифонов Константин", "time": "01:40:41", "gap": ""},
-            							                {"place":2, "name": "Кузнецов Сергей, Прокопьев Андрей, Семенов Константин, Морозов Николай", "time": "01:43:04", "gap": "+02:23"},
-            							                {"place":3, "name": "Калиновский Леонид, Тюрин Денис, Федин Михаил, Скородумов Анатолий", "time": "01:45:51", "gap": "+05:10"},
-            							                {"place":4, "name": "Михеев Василий, Трошин Евгений, Горбунов Дмитрий, Фаезов Расуль", "time": "01:46:36", "gap": "+05:55"}
+							data-results='[{"place":1, "name": "Безносиков, Ушаков, Белявцев, Трифонов", "time": "01:40:41", "gap": ""},
+            							                {"place":2, "name": "Кузнецов, Прокопьев, Семенов, Морозов", "time": "01:43:04", "gap": "+02:23"},
+            							                {"place":3, "name": "Калиновский, Тюрин, Федин, Скородумов", "time": "01:45:51", "gap": "+05:10"},
+            							                {"place":4, "name": "Михеев, Трошин, Горбунов, Фаезов", "time": "01:46:36", "gap": "+05:55"}
 							]'
 							class="clickable-row">
                             <td>02.05.24</td>
@@ -939,10 +952,10 @@
                             data-athletes='["Михеев Василий", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="спринт"
-							data-results='[{"place":1, "name": "Безносиков Владислав, Ушаков Савелий", "time": "19:47", "gap": ""},
-            							                {"place":2, "name": "Дмитриев Георгий, Урдяков Рустам", "time": "20:29", "gap": "+0:42"},
-            							                {"place":3, "name": "Колесов Павел, Губанов Александр", "time": "21:23", "gap": "+01:36"},
-            							                {"place":27, "name": "Михеев Василий, Трошин Евгений", "time": "31:23", "gap": "+11:36"}
+							data-results='[{"place":1, "name": "Безносиков, Ушаков", "time": "19:47", "gap": ""},
+            							                {"place":2, "name": "Дмитриев, Урдяков", "time": "20:29", "gap": "+0:42"},
+            							                {"place":3, "name": "Колесов, Губанов", "time": "21:23", "gap": "+01:36"},
+            							                {"place":27, "name": "Михеев, Трошин", "time": "31:23", "gap": "+11:36"}
 							]'
 							class="clickable-row">
                             <td>01.05.24</td>
@@ -973,10 +986,10 @@
                             data-athletes='["Михеев Василий", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="спринт"
-							data-results='[{"place":1, "name": "Дмитриев Георгий, Тарасов Михаил", "time": "21:13", "gap": ""},
-            							                {"place":2, "name": "Фаезов Расуль, Щипачёв Данила", "time": "21:16", "gap": "+0:03"},
-            							                {"place":3, "name": "Ющик Никита, Морос Максим", "time": "22:41", "gap": "+01:28"},
-            							                {"place":12, "name": "Михеев Василий, Трошин Евгений", "time": "26:47", "gap": "+05:34"}
+							data-results='[{"place":1, "name": "Дмитриев, Тарасов", "time": "21:13", "gap": ""},
+            							                {"place":2, "name": "Фаезов, Щипачёв", "time": "21:16", "gap": "+0:03"},
+            							                {"place":3, "name": "Ющик, Морос", "time": "22:41", "gap": "+01:28"},
+            							                {"place":12, "name": "Михеев, Трошин", "time": "26:47", "gap": "+05:34"}
 							]'
 							class="clickable-row">
                             <td>01.05.23</td>
@@ -990,10 +1003,10 @@
                             data-athletes='["Михеев Василий", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Рожков Константин, Захаров Матвей", "time": "01:57:48", "gap": ""},
-            							                {"place":2, "name": "Фаезов Расуль, Отто Константин", "time": "02:02:46", "gap": "+04:58"},
-            							                {"place":3, "name": "Бикушев Эмиль, Леонтьев Максим", "time": "02:05:21", "gap": "+07:33"},
-            							                {"place":-, "name": "Михеев Василий, Трошин Евгений", "time": "-", "gap": "-"}
+							data-results='[{"place":1, "name": "Рожков, Захаров", "time": "01:57:48", "gap": ""},
+            							                {"place":2, "name": "Фаезов, Отто", "time": "02:02:46", "gap": "+04:58"},
+            							                {"place":3, "name": "Бикушев, Леонтьев", "time": "02:05:21", "gap": "+07:33"},
+            							                {"place":-, "name": "Михеев, Трошин", "time": "-", "gap": "-"}
 							]'
 							class="clickable-row">
                             <td>13.10.23</td>
@@ -1041,9 +1054,9 @@
                             data-athletes='["Михеев Василий", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Бикушев Эмиль, Тутунин Динар", "time": "01:33:25", "gap": ""},
-            							                {"place":2, "name": "Михеев Василий, Трошин Евгений", "time": "01:36:43", "gap": "+03:18"},
-            							                {"place":3, "name": "Дмитриев Игорь, Максимов Дмитрий", "time": "01:40:34", "gap": "+07:09"}
+							data-results='[{"place":1, "name": "Бикушев, Тутунин", "time": "01:33:25", "gap": ""},
+            							                {"place":2, "name": "Михеев, Трошин", "time": "01:36:43", "gap": "+03:18"},
+            							                {"place":3, "name": "Дмитриев, Максимов", "time": "01:40:34", "gap": "+07:09"}
 							]'
 							class="clickable-row">
                             <td>12.10.24</td>
@@ -1057,9 +1070,9 @@
                             data-athletes='["Авдеев Александр", "Михеев Василий", "Михеев Виктор", "Трошин Евгений"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Тютюньков Кирилл, Губанов Александр, Бекасов Илья, Сивов Иван", "time": "27:11", "gap": ""},
-            							                {"place":2, "name": "Дмитриев Георгий, Дмитриев Игорь, Максимов Дмитрий, Малахов Демьян", "time": "27:42", "gap": "+0:31"},
-            							                {"place":3, "name": "Михеев Василий, Трошин Евгений, Авдеев Александр, Михеев Виктор", "time": "28:44", "gap": "+01:33"}
+							data-results='[{"place":1, "name": "Тютюньков, Губанов, Бекасов, Сивов", "time": "27:11", "gap": ""},
+            							                {"place":2, "name": "Дмитриев, Дмитриев, Максимов, Малахов", "time": "27:42", "gap": "+0:31"},
+            							                {"place":3, "name": "Михеев, Трошин, Авдеев, Михеев", "time": "28:44", "gap": "+01:33"}
 							]'
 							class="clickable-row">
                             <td>13.10.24</td>
@@ -1068,6 +1081,57 @@
                             <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div></td>
                             <td><span class="place-badge place-3">3</span></td>
                             <td>105.7%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250503"
+                            data-athletes='["Михеев Василий", "Трошин Евгений"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Ющик, Морос", "time": "17:53", "gap": ""},
+            							                {"place":2, "name": "Безносиков, Ушаков", "time": "18:51", "gap": "+0:57"},
+            							                {"place":3, "name": "Колесов, Губанов", "time": "18:54", "gap": "+01:00"},
+            							                {"place":9, "name": "Михеев, Трошин", "time": "21:54", "gap": "+04:00"}
+							]'
+							class="clickable-row">
+                            <td>03.05.25</td>
+                            <td>ВС, Куяр</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>122.4%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250504"
+                            data-athletes='["Авдеев Александр", "Мананнов Максим", "Михеев Василий", "Трошин Евгений"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Безносиков, Ушаков, Белявцев, Трифонов", "time": "01:27:31", "gap": ""},
+            							                {"place":2, "name": "Калиновский, Тюрин, Пешиков, Федин", "time": "01:29:15", "gap": "+01:44"},
+            							                {"place":3, "name": "Ющик, Кудряшов, Морос, Волошкин", "time": "01:29:29", "gap": "+01:58"},
+            							                {"place":7, "name": "Михеев, Трошин, Авдеев, Мананнов", "time": "01:49:03", "gap": "+21:32"}
+							]'
+							class="clickable-row">
+                            <td>04.05.25</td>
+                            <td>ВС, Куяр</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
+                            <td><span class="place-badge place-top10">7</span></td>
+                            <td>124.6%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250502"
+                            data-athletes='["Трошин Евгений"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Михеев Василий", "time": "16:18", "gap": ""},
+            							                {"place":2, "name": "Белявцев Максим", "time": "16:28", "gap": "+0:10"},
+            							                {"place":3, "name": "Безносиков Владислав", "time": "16:56", "gap": "+0:38"},
+            							                {"place":9, "name": "Трошин Евгений", "time": "18:32", "gap": "+02:14"}
+							]'
+							class="clickable-row">
+                            <td>02.05.25</td>
+                            <td>ВС, Куяр</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>113.7%</td>
                         </tr>
                     </tbody>
                 </table>

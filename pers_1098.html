@@ -38,11 +38,11 @@
     header {
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
-        padding: 30px 0;
+        padding: 25px 0;
         text-align: center;
         border-radius: 0 0 15px 15px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin-bottom: 0px;
     }
 
     .header-content {
@@ -50,16 +50,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .athlete-photo {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
@@ -68,25 +68,25 @@
     }
 
     .athlete-photo i {
-        font-size: 4rem;
+        font-size: 2.5rem;
         color: white;
         opacity: 0.9;
     }
 
     .athlete-info {
         text-align: center;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .athlete-name {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         font-weight: 700;
     }
 
     .athlete-sport {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 12px;
         opacity: 0.9;
     }
 
@@ -94,15 +94,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+    	font-size: 0.9rem;
     }
 
     .basic-info p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         justify-content: center;
     }
+
+	.fixed-header {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+	    background: rgba(26, 58, 95, 0.95);
+	    backdrop-filter: blur(10px);
+	    border-bottom: 1px solid rgba(255,255,255,0.1);
+	    padding: 10px 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}
+	
+	.back-button {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    background: rgba(255,255,255,0.15);
+	    color: white;
+	    padding: 6px 12px;
+	    border-radius: 16px;
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: all 0.3s ease;
+	    border: 1px solid rgba(255,255,255,0.2);
+	    font-size: 0.8rem;
+	}
 
     .stats-grid {
         display: grid;
@@ -187,7 +219,7 @@
     .section-title {
         font-size: 1.8rem;
         color: #1a3a5f;
-        margin: 40px 0 20px;
+        margin: 10px 0 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eaeaea;
     }
@@ -652,36 +684,16 @@
 </head>
 <body>
 
-<!-- Фиксированная верхняя панель -->
-<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(26, 58, 95, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
-    
-    <!-- Кнопка возврата -->
-    <a href="https://pskv.github.io/sport_tur/" 
-       style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(255,255,255,0.15); color: white; 
-              padding: 8px 16px; border-radius: 20px; 
-              text-decoration: none; font-weight: 600;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255,255,255,0.2);
-              font-size: 0.9rem;">
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
-    
-    <!-- Пустой элемент для выравнивания -->
-    <div style="width: 100px;"></div>
+    <div style="width: 80px;"></div>
 </div>
 
 <!-- Отступ для основного контента -->
-<div style="height: 60px;"></div>
+<div style="height: 50px;"></div>
 
 <!-- Универсальное модальное окно -->
 <div id="universalModal" class="modal">
@@ -854,9 +866,9 @@
                             data-athletes='["Мубаракшина Ксения", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="спринт"
-							data-results='[{"place":1, "name": "Мубаракшина Ксения, Черникова Маргарита", "time": "25:12", "gap": ""},
-            							                {"place":2, "name": "Жильцова Кира, Лучникова Елизавета", "time": "26:15", "gap": "+01:02"},
-            							                {"place":3, "name": "Николаева Екатерина, Урдякова Алина", "time": "27:07", "gap": "+01:55"}
+							data-results='[{"place":1, "name": "Мубаракшина, Черникова", "time": "25:12", "gap": ""},
+            							                {"place":2, "name": "Жильцова, Лучникова", "time": "26:15", "gap": "+01:02"},
+            							                {"place":3, "name": "Николаева, Урдякова", "time": "27:07", "gap": "+01:55"}
 							]'
 							class="clickable-row">
                             <td>01.05.23</td>
@@ -870,9 +882,9 @@
                             data-athletes='["Мубаракшина Ксения", "Николаева Екатерина", "Урдякова Алина", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Чеботарёва Виктория, Елисеева Дарья, Даньшина Ирина, Костина Ева", "time": "01:27:13", "gap": ""},
-            							                {"place":2, "name": "Николаева Екатерина, Урдякова Алина, Мубаракшина Ксения, Черникова Маргарита", "time": "01:34:33", "gap": "+07:20"},
-            							                {"place":3, "name": "Шнайдер Валерия, Аверьянова Елизавета, Гришанова Алина, Дьякова Софья", "time": "02:46:26", "gap": "+01:19:13"}
+							data-results='[{"place":1, "name": "Чеботарёва, Елисеева, Даньшина, Костина", "time": "01:27:13", "gap": ""},
+            							                {"place":2, "name": "Николаева, Урдякова, Мубаракшина, Черникова", "time": "01:34:33", "gap": "+07:20"},
+            							                {"place":3, "name": "Шнайдер, Аверьянова, Гришанова, Дьякова", "time": "02:46:26", "gap": "+01:19:13"}
 							]'
 							class="clickable-row">
                             <td>02.05.23</td>
@@ -902,10 +914,10 @@
                             data-athletes='["Мубаракшина Ксения", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="спринт"
-							data-results='[{"place":1, "name": "Елисеева Дарья, Костина Ева", "time": "24:03", "gap": ""},
-            							                {"place":2, "name": "Чеботарёва Виктория, Даньшина Ирина", "time": "25:46", "gap": "+01:43"},
-            							                {"place":3, "name": "Тетерина Дарья, Уфимцева Мария", "time": "26:54", "gap": "+02:51"},
-            							                {"place":-, "name": "Мубаракшина Ксения, Черникова Маргарита", "time": "-", "gap": "-"}
+							data-results='[{"place":1, "name": "Елисеева, Костина", "time": "24:03", "gap": ""},
+            							                {"place":2, "name": "Чеботарёва, Даньшина", "time": "25:46", "gap": "+01:43"},
+            							                {"place":3, "name": "Тетерина, Уфимцева", "time": "26:54", "gap": "+02:51"},
+            							                {"place":-, "name": "Мубаракшина, Черникова", "time": "-", "gap": "-"}
 							]'
 							class="clickable-row">
                             <td>02.05.22</td>
@@ -919,9 +931,9 @@
                             data-athletes='["Мубаракшина Ксения", "Николаева Екатерина", "Урдякова Алина", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Николаева Екатерина, Урдякова Алина, Мубаракшина Ксения, Черникова Маргарита", "time": "01:22:44", "gap": ""},
-            							                {"place":2, "name": "Чеботарёва Виктория, Елисеева Дарья, Даньшина Ирина, Костина Ева", "time": "01:24:10", "gap": "+01:26"},
-            							                {"place":3, "name": "Афанасьева Анна, Феклистова Светлана, Нефедова Елизавета, Мешкова Ксения", "time": "01:38:33", "gap": "+15:49"}
+							data-results='[{"place":1, "name": "Николаева, Урдякова, Мубаракшина, Черникова", "time": "01:22:44", "gap": ""},
+            							                {"place":2, "name": "Чеботарёва, Елисеева, Даньшина, Костина", "time": "01:24:10", "gap": "+01:26"},
+            							                {"place":3, "name": "Афанасьева, Феклистова, Нефедова, Мешкова", "time": "01:38:33", "gap": "+15:49"}
 							]'
 							class="clickable-row">
                             <td>03.05.22</td>
@@ -935,10 +947,10 @@
                             data-athletes='["Ибрагимова Алия", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Елисеева Дарья, Костина Ева", "time": "35:17", "gap": ""},
-            							                {"place":2, "name": "Николаева Екатерина, Урдякова Алина", "time": "38:23", "gap": "+03:06"},
-            							                {"place":3, "name": "Кузнецова Екатерина, Комкова Надежда", "time": "40:25", "gap": "+05:08"},
-            							                {"place":4, "name": "Ибрагимова Алия, Черникова Маргарита", "time": "41:12", "gap": "+05:55"}
+							data-results='[{"place":1, "name": "Елисеева, Костина", "time": "35:17", "gap": ""},
+            							                {"place":2, "name": "Николаева, Урдякова", "time": "38:23", "gap": "+03:06"},
+            							                {"place":3, "name": "Кузнецова, Комкова", "time": "40:25", "gap": "+05:08"},
+            							                {"place":4, "name": "Ибрагимова, Черникова", "time": "41:12", "gap": "+05:55"}
 							]'
 							class="clickable-row">
                             <td>07.07.22</td>
@@ -985,9 +997,9 @@
                             data-athletes='["Мубаракшина Ксения", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Мубаракшина Ксения, Черникова Маргарита", "time": "47:55", "gap": ""},
-            							                {"place":2, "name": "Елисеева Дарья, Костина Ева", "time": "48:20", "gap": "+0:25"},
-            							                {"place":3, "name": "Маркова Альбина, Ибрагимова Алия", "time": "52:46", "gap": "+04:51"}
+							data-results='[{"place":1, "name": "Мубаракшина, Черникова", "time": "47:55", "gap": ""},
+            							                {"place":2, "name": "Елисеева, Костина", "time": "48:20", "gap": "+0:25"},
+            							                {"place":3, "name": "Маркова, Ибрагимова", "time": "52:46", "gap": "+04:51"}
 							]'
 							class="clickable-row">
                             <td>21.08.22</td>
@@ -1034,9 +1046,9 @@
                             data-athletes='["Мубаракшина Ксения", "Николаева Екатерина", "Урдякова Алина", "Черникова Маргарита"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Чеботарёва Виктория, Елисеева Дарья, Костина Ева, Шинкарева Дарья", "time": "01:50:57", "gap": ""},
-            							                {"place":2, "name": "Лебедева Наталья, Веденяпина Полина, Кузнецова Екатерина, Комкова Надежда", "time": "01:55:44", "gap": "+04:47"},
-            							                {"place":3, "name": "Николаева Екатерина, Урдякова Алина, Мубаракшина Ксения, Черникова Маргарита", "time": "01:57:08", "gap": "+06:11"}
+							data-results='[{"place":1, "name": "Чеботарёва, Елисеева, Костина, Шинкарева", "time": "01:50:57", "gap": ""},
+            							                {"place":2, "name": "Лебедева, Веденяпина, Кузнецова, Комкова", "time": "01:55:44", "gap": "+04:47"},
+            							                {"place":3, "name": "Николаева, Урдякова, Мубаракшина, Черникова", "time": "01:57:08", "gap": "+06:11"}
 							]'
 							class="clickable-row">
                             <td>25.08.22</td>

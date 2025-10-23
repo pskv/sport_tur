@@ -38,11 +38,11 @@
     header {
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
-        padding: 30px 0;
+        padding: 25px 0;
         text-align: center;
         border-radius: 0 0 15px 15px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin-bottom: 0px;
     }
 
     .header-content {
@@ -50,16 +50,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .athlete-photo {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
@@ -68,25 +68,25 @@
     }
 
     .athlete-photo i {
-        font-size: 4rem;
+        font-size: 2.5rem;
         color: white;
         opacity: 0.9;
     }
 
     .athlete-info {
         text-align: center;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .athlete-name {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         font-weight: 700;
     }
 
     .athlete-sport {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 12px;
         opacity: 0.9;
     }
 
@@ -94,15 +94,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+    	font-size: 0.9rem;
     }
 
     .basic-info p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         justify-content: center;
     }
+
+	.fixed-header {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+	    background: rgba(26, 58, 95, 0.95);
+	    backdrop-filter: blur(10px);
+	    border-bottom: 1px solid rgba(255,255,255,0.1);
+	    padding: 10px 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}
+	
+	.back-button {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    background: rgba(255,255,255,0.15);
+	    color: white;
+	    padding: 6px 12px;
+	    border-radius: 16px;
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: all 0.3s ease;
+	    border: 1px solid rgba(255,255,255,0.2);
+	    font-size: 0.8rem;
+	}
 
     .stats-grid {
         display: grid;
@@ -187,7 +219,7 @@
     .section-title {
         font-size: 1.8rem;
         color: #1a3a5f;
-        margin: 40px 0 20px;
+        margin: 10px 0 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eaeaea;
     }
@@ -652,36 +684,16 @@
 </head>
 <body>
 
-<!-- Фиксированная верхняя панель -->
-<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(26, 58, 95, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
-    
-    <!-- Кнопка возврата -->
-    <a href="https://pskv.github.io/sport_tur/" 
-       style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(255,255,255,0.15); color: white; 
-              padding: 8px 16px; border-radius: 20px; 
-              text-decoration: none; font-weight: 600;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255,255,255,0.2);
-              font-size: 0.9rem;">
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
-    
-    <!-- Пустой элемент для выравнивания -->
-    <div style="width: 100px;"></div>
+    <div style="width: 80px;"></div>
 </div>
 
 <!-- Отступ для основного контента -->
-<div style="height: 60px;"></div>
+<div style="height: 50px;"></div>
 
 <!-- Универсальное модальное окно -->
 <div id="universalModal" class="modal">
@@ -749,7 +761,7 @@
         <div class='stats-grid'>
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">2</div>
+                <div class="stat-value">4</div>
                 <div class="stat-description">Всего участий в соревнованиях за 3 года</div>
             </div>
             <div class="stat-card">
@@ -767,13 +779,29 @@
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
+                            <div class="medal-count">12 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Камышин</div>
+                        </div>
+                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">32 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Камышин</div>
+                        </div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
                             <div class="medal-count">37 место</div>
                             <div class="medal-event">Всероссийские соревнования 2024, Елец</div>
                         </div>
                         <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
                     </div>
-
-
 
 
                 </div>
@@ -784,6 +812,7 @@
             <div class="year-filter">
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2024">2024</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -829,10 +858,10 @@
                             data-athletes='["Бабушкин Владислав", "Головин Владимир", "Кучков Дмитрий", "Острожной Семен"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Ющик Никита, Морос Максим, Волошкин Олег, Ильинских Артем", "time": "06:18", "gap": ""},
-            							                {"place":2, "name": "Кудрявцев Дмитрий, Акулин Аркадий, Лучин Кирилл, Балакин Никита", "time": "06:26", "gap": "+0:08"},
-            							                {"place":3, "name": "Котик Георгий, Матвиенко Андрей, Ситнер Максим, Майстренко Андрей", "time": "06:34", "gap": "+0:15"},
-            							                {"place":6, "name": "Кучков Дмитрий, Бабушкин Владислав, Головин Владимир, Острожной Семен", "time": "08:18", "gap": "+02:00"}
+							data-results='[{"place":1, "name": "Ющик, Морос, Волошкин, Ильинских", "time": "06:18", "gap": ""},
+            							                {"place":2, "name": "Кудрявцев, Акулин, Лучин, Балакин", "time": "06:26", "gap": "+0:08"},
+            							                {"place":3, "name": "Котик, Матвиенко, Ситнер, Майстренко", "time": "06:34", "gap": "+0:15"},
+            							                {"place":6, "name": "Кучков, Бабушкин, Головин, Острожной", "time": "08:18", "gap": "+02:00"}
 							]'
 							class="clickable-row">
                             <td>23.12.24</td>
@@ -841,6 +870,40 @@
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-top10">6</span></td>
                             <td>131.7%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250207"
+                            data-athletes='["Острожной Семен"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Кучков Дмитрий", "time": "01:21", "gap": ""},
+            							                {"place":2, "name": "Лукин Максим", "time": "01:23", "gap": "+0:01"},
+            							                {"place":3, "name": "Щетинин Дмитрий", "time": "01:23", "gap": "+0:02"},
+            							                {"place":32, "name": "Острожной Семен", "time": "01:51", "gap": "+0:30"}
+							]'
+							class="clickable-row">
+                            <td>07.02.25</td>
+                            <td>ВС, Камышин</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-other">32</span></td>
+                            <td>137%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250208"
+                            data-athletes='["Кучков Дмитрий", "Острожной Семен"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Ющик, Ильинских", "time": "04:20", "gap": ""},
+            							                {"place":2, "name": "Симаков, Корякин", "time": "04:32", "gap": "+0:11"},
+            							                {"place":3, "name": "Медведев, Лапшин", "time": "04:45", "gap": "+0:24"},
+            							                {"place":12, "name": "Кучков, Острожной", "time": "05:49", "gap": "+01:29"}
+							]'
+							class="clickable-row">
+                            <td>08.02.25</td>
+                            <td>ВС, Камышин</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-other">12</span></td>
+                            <td>134.3%</td>
                         </tr>
                     </tbody>
                 </table>

@@ -38,11 +38,11 @@
     header {
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
-        padding: 30px 0;
+        padding: 25px 0;
         text-align: center;
         border-radius: 0 0 15px 15px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin-bottom: 0px;
     }
 
     .header-content {
@@ -50,16 +50,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .athlete-photo {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
@@ -68,25 +68,25 @@
     }
 
     .athlete-photo i {
-        font-size: 4rem;
+        font-size: 2.5rem;
         color: white;
         opacity: 0.9;
     }
 
     .athlete-info {
         text-align: center;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .athlete-name {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         font-weight: 700;
     }
 
     .athlete-sport {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 12px;
         opacity: 0.9;
     }
 
@@ -94,15 +94,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+    	font-size: 0.9rem;
     }
 
     .basic-info p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         justify-content: center;
     }
+
+	.fixed-header {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+	    background: rgba(26, 58, 95, 0.95);
+	    backdrop-filter: blur(10px);
+	    border-bottom: 1px solid rgba(255,255,255,0.1);
+	    padding: 10px 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}
+	
+	.back-button {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    background: rgba(255,255,255,0.15);
+	    color: white;
+	    padding: 6px 12px;
+	    border-radius: 16px;
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: all 0.3s ease;
+	    border: 1px solid rgba(255,255,255,0.2);
+	    font-size: 0.8rem;
+	}
 
     .stats-grid {
         display: grid;
@@ -187,7 +219,7 @@
     .section-title {
         font-size: 1.8rem;
         color: #1a3a5f;
-        margin: 40px 0 20px;
+        margin: 10px 0 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eaeaea;
     }
@@ -652,36 +684,16 @@
 </head>
 <body>
 
-<!-- Фиксированная верхняя панель -->
-<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(26, 58, 95, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
-    
-    <!-- Кнопка возврата -->
-    <a href="https://pskv.github.io/sport_tur/" 
-       style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(255,255,255,0.15); color: white; 
-              padding: 8px 16px; border-radius: 20px; 
-              text-decoration: none; font-weight: 600;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255,255,255,0.2);
-              font-size: 0.9rem;">
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
-    
-    <!-- Пустой элемент для выравнивания -->
-    <div style="width: 100px;"></div>
+    <div style="width: 80px;"></div>
 </div>
 
 <!-- Отступ для основного контента -->
-<div style="height: 60px;"></div>
+<div style="height: 50px;"></div>
 
 <!-- Универсальное модальное окно -->
 <div id="universalModal" class="modal">
@@ -749,7 +761,7 @@
         <div class='stats-grid'>
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">19</div>
+                <div class="stat-value">25</div>
                 <div class="stat-description">Всего участий в соревнованиях за 3 года</div>
             </div>
             <div class="stat-card">
@@ -759,9 +771,27 @@
                         <div class="medal-icon gold"><i class="fas fa-medal"></i></div>
                         <div class="medal-details">
                             <div class="medal-count">1 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Елец</div>
+                        </div>
+                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon gold"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">1 место</div>
                             <div class="medal-event">Всероссийские соревнования 2024, Елец</div>
                         </div>
                         <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon gold"><i class="fas fa-medal"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">1 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Елец</div>
+                        </div>
+                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
                     </div>
 
                     <div class="medal-item">
@@ -782,24 +812,6 @@
                         <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
                     </div>
 
-                    <div class="medal-item">
-                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
-                        <div class="medal-details">
-                            <div class="medal-count">2 место</div>
-                            <div class="medal-event">Всероссийские соревнования 2024, Елец</div>
-                        </div>
-                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
-                    </div>
-
-                    <div class="medal-item">
-                        <div class="medal-icon silver"><i class="fas fa-medal"></i></div>
-                        <div class="medal-details">
-                            <div class="medal-count">2 место</div>
-                            <div class="medal-event">Всероссийские соревнования 2024, Камышин</div>
-                        </div>
-                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -809,6 +821,7 @@
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2023">2023</button>
                 <button class="year-btn" data-year="2024">2024</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -854,9 +867,9 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Дегтярева Яна, Инюшина Светлана", "time": "07:06", "gap": ""},
-            							                {"place":2, "name": "Ляскун Софья, Кравченко Анастасия", "time": "08:27", "gap": "+01:20"},
-            							                {"place":3, "name": "Иншакова Инна, Полищук Анастасия", "time": "08:28", "gap": "+01:21"}
+							data-results='[{"place":1, "name": "Дегтярева, Инюшина", "time": "07:06", "gap": ""},
+            							                {"place":2, "name": "Ляскун, Кравченко", "time": "08:27", "gap": "+01:20"},
+            							                {"place":3, "name": "Иншакова, Полищук", "time": "08:28", "gap": "+01:21"}
 							]'
 							class="clickable-row">
                             <td>23.03.24</td>
@@ -887,10 +900,10 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Жильцова Кира, Лучникова Елизавета", "time": "05:29", "gap": ""},
-            							                {"place":2, "name": "Дегтярева Яна, Инюшина Светлана", "time": "05:48", "gap": "+0:19"},
-            							                {"place":3, "name": "Лапушкова Анастасия, Лапушкова Екатерина", "time": "06:07", "gap": "+0:38"},
-            							                {"place":8, "name": "Иншакова Инна, Полищук Анастасия", "time": "06:50", "gap": "+01:21"}
+							data-results='[{"place":1, "name": "Жильцова, Лучникова", "time": "05:29", "gap": ""},
+            							                {"place":2, "name": "Дегтярева, Инюшина", "time": "05:48", "gap": "+0:19"},
+            							                {"place":3, "name": "Лапушкова, Лапушкова", "time": "06:07", "gap": "+0:38"},
+            							                {"place":8, "name": "Иншакова, Полищук", "time": "06:50", "gap": "+01:21"}
 							]'
 							class="clickable-row">
                             <td>03.02.24</td>
@@ -904,9 +917,9 @@
                             data-athletes='["Иншакова Инна", "Кравченко Анастасия", "Ляскун Софья", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Чеботарёва Виктория, Жильцова Кира, Лучникова Елизавета, Даньшина Ирина", "time": "08:44:00", "gap": ""},
-            							                {"place":2, "name": "Иншакова Инна, Ляскун Софья, Полищук Анастасия, Кравченко Анастасия", "time": "09:09:00", "gap": "+25:00"},
-            							                {"place":3, "name": "Кузнецова Екатерина, Комкова Надежда, Сухарева Олеся, Иванова Татьяна", "time": "09:43:00", "gap": "+59:00"}
+							data-results='[{"place":1, "name": "Чеботарёва, Жильцова, Лучникова, Даньшина", "time": "08:44:00", "gap": ""},
+            							                {"place":2, "name": "Иншакова, Ляскун, Полищук, Кравченко", "time": "09:09:00", "gap": "+25:00"},
+            							                {"place":3, "name": "Кузнецова, Комкова, Сухарева, Иванова", "time": "09:43:00", "gap": "+59:00"}
 							]'
 							class="clickable-row">
                             <td>04.02.24</td>
@@ -937,10 +950,10 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Лапушкова Анастасия, Лапушкова Екатерина", "time": "09:21:00", "gap": ""},
-            							                {"place":2, "name": "Кузнецова Екатерина, Комкова Надежда", "time": "09:26:00", "gap": "+05:00"},
-            							                {"place":3, "name": "Дегтярева Яна, Инюшина Светлана", "time": "10:04:00", "gap": "+43:00"},
-            							                {"place":5, "name": "Иншакова Инна, Полищук Анастасия", "time": "10:28:00", "gap": "+01:07:00"}
+							data-results='[{"place":1, "name": "Лапушкова, Лапушкова", "time": "09:21:00", "gap": ""},
+            							                {"place":2, "name": "Кузнецова, Комкова", "time": "09:26:00", "gap": "+05:00"},
+            							                {"place":3, "name": "Дегтярева, Инюшина", "time": "10:04:00", "gap": "+43:00"},
+            							                {"place":5, "name": "Иншакова, Полищук", "time": "10:28:00", "gap": "+01:07:00"}
 							]'
 							class="clickable-row">
                             <td>03.02.23</td>
@@ -954,9 +967,9 @@
                             data-athletes='["Иншакова Инна", "Кравченко Анастасия", "Ляскун Софья", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Лапушкова Анастасия, Лапушкова Екатерина, Григорьева Кира, Чегодаева Полина", "time": "08:34:00", "gap": ""},
-            							                {"place":2, "name": "Белоногова Кристина, Микрюкова Мария, Шмыкова Полина, Калабина Елизавета", "time": "09:05:00", "gap": "+31:00"},
-            							                {"place":3, "name": "Иншакова Инна, Ляскун Софья, Полищук Анастасия, Кравченко Анастасия", "time": "09:42:00", "gap": "+01:08:00"}
+							data-results='[{"place":1, "name": "Лапушкова, Лапушкова, Григорьева, Чегодаева", "time": "08:34:00", "gap": ""},
+            							                {"place":2, "name": "Белоногова, Микрюкова, Шмыкова, Калабина", "time": "09:05:00", "gap": "+31:00"},
+            							                {"place":3, "name": "Иншакова, Ляскун, Полищук, Кравченко", "time": "09:42:00", "gap": "+01:08:00"}
 							]'
 							class="clickable-row">
                             <td>04.02.23</td>
@@ -987,10 +1000,10 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Ляскун Софья, Кравченко Анастасия", "time": "08:24", "gap": ""},
-            							                {"place":2, "name": "Дегтярева Яна, Инюшина Светлана", "time": "08:49", "gap": "+0:25"},
-            							                {"place":3, "name": "Чеботарёва Виктория, Даньшина Ирина", "time": "09:08", "gap": "+0:44"},
-            							                {"place":5, "name": "Иншакова Инна, Полищук Анастасия", "time": "09:53", "gap": "+01:29"}
+							data-results='[{"place":1, "name": "Ляскун, Кравченко", "time": "08:24", "gap": ""},
+            							                {"place":2, "name": "Дегтярева, Инюшина", "time": "08:49", "gap": "+0:25"},
+            							                {"place":3, "name": "Чеботарёва, Даньшина", "time": "09:08", "gap": "+0:44"},
+            							                {"place":5, "name": "Иншакова, Полищук", "time": "09:53", "gap": "+01:29"}
 							]'
 							class="clickable-row">
                             <td>18.02.23</td>
@@ -1004,10 +1017,10 @@
                             data-athletes='["Иншакова Инна", "Кравченко Анастасия", "Ляскун Софья", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Чеботарёва Виктория, Лучникова Елизавета, Даньшина Ирина, Шинкарева Дарья", "time": "09:03", "gap": ""},
-            							                {"place":2, "name": "Микрюкова Мария, Калабина Елизавета, Сиротина Альбина, Хворова Тамара", "time": "09:54", "gap": "+0:50"},
-            							                {"place":3, "name": "Кузнецова Екатерина, Комкова Надежда, Магомедгаджиева Эльмира, Сухарева Олеся", "time": "09:57", "gap": "+0:54"},
-            							                {"place":-, "name": "Иншакова Инна, Ляскун Софья, Полищук Анастасия, Кравченко Анастасия", "time": "-", "gap": "-"}
+							data-results='[{"place":1, "name": "Чеботарёва, Лучникова, Даньшина, Шинкарева", "time": "09:03", "gap": ""},
+            							                {"place":2, "name": "Микрюкова, Калабина, Сиротина, Хворова", "time": "09:54", "gap": "+0:50"},
+            							                {"place":3, "name": "Кузнецова, Комкова, Магомедгаджиева, Сухарева", "time": "09:57", "gap": "+0:54"},
+            							                {"place":-, "name": "Иншакова, Ляскун, Полищук, Кравченко", "time": "-", "gap": "-"}
 							]'
 							class="clickable-row">
                             <td>19.02.23</td>
@@ -1038,10 +1051,10 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Ляскун Софья, Кравченко Анастасия", "time": "07:40", "gap": ""},
-            							                {"place":2, "name": "Дегтярева Яна, Инюшина Светлана", "time": "07:48", "gap": "+0:07"},
-            							                {"place":3, "name": "Лапушкова Екатерина, Тотубалина Татьяна", "time": "07:53", "gap": "+0:13"},
-            							                {"place":6, "name": "Иншакова Инна, Полищук Анастасия", "time": "08:17", "gap": "+0:36"}
+							data-results='[{"place":1, "name": "Ляскун, Кравченко", "time": "07:40", "gap": ""},
+            							                {"place":2, "name": "Дегтярева, Инюшина", "time": "07:48", "gap": "+0:07"},
+            							                {"place":3, "name": "Лапушкова, Тотубалина", "time": "07:53", "gap": "+0:13"},
+            							                {"place":6, "name": "Иншакова, Полищук", "time": "08:17", "gap": "+0:36"}
 							]'
 							class="clickable-row">
                             <td>18.03.23</td>
@@ -1055,9 +1068,9 @@
                             data-athletes='["Иншакова Инна", "Кравченко Анастасия", "Ляскун Софья", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Хомякова Лилия, Хрипунова Варвара, Линник Вероника, Романчук Александра", "time": "08:32", "gap": ""},
-            							                {"place":2, "name": "Иншакова Инна, Ляскун Софья, Полищук Анастасия, Кравченко Анастасия", "time": "08:52", "gap": "+0:20"},
-            							                {"place":3, "name": "Межевич Анастасия, Кондратьева Алина, Кушигина Анастасия, Смирнова Анжелика", "time": "12:03", "gap": "+03:31"}
+							data-results='[{"place":1, "name": "Хомякова, Хрипунова, Линник, Романчук", "time": "08:32", "gap": ""},
+            							                {"place":2, "name": "Иншакова, Ляскун, Полищук, Кравченко", "time": "08:52", "gap": "+0:20"},
+            							                {"place":3, "name": "Межевич, Кондратьева, Кушигина, Смирнова", "time": "12:03", "gap": "+03:31"}
 							]'
 							class="clickable-row">
                             <td>19.03.23</td>
@@ -1088,9 +1101,9 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Чеботарёва Виктория, Лучникова Елизавета", "time": "07:11", "gap": ""},
-            							                {"place":2, "name": "Дегтярева Яна, Инюшина Светлана", "time": "07:30", "gap": "+0:18"},
-            							                {"place":3, "name": "Иншакова Инна, Полищук Анастасия", "time": "07:53", "gap": "+0:41"}
+							data-results='[{"place":1, "name": "Чеботарёва, Лучникова", "time": "07:11", "gap": ""},
+            							                {"place":2, "name": "Дегтярева, Инюшина", "time": "07:30", "gap": "+0:18"},
+            							                {"place":3, "name": "Иншакова, Полищук", "time": "07:53", "gap": "+0:41"}
 							]'
 							class="clickable-row">
                             <td>22.12.23</td>
@@ -1121,9 +1134,9 @@
                             data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Иншакова Инна, Полищук Анастасия", "time": "06:23", "gap": ""},
-            							                {"place":2, "name": "Жильцова Кира, Лучникова Елизавета", "time": "06:49", "gap": "+0:26"},
-            							                {"place":3, "name": "Дегтярева Яна, Володина Екатерина", "time": "06:51", "gap": "+0:28"}
+							data-results='[{"place":1, "name": "Иншакова, Полищук", "time": "06:23", "gap": ""},
+            							                {"place":2, "name": "Жильцова, Лучникова", "time": "06:49", "gap": "+0:26"},
+            							                {"place":3, "name": "Дегтярева, Володина", "time": "06:51", "gap": "+0:28"}
 							]'
 							class="clickable-row">
                             <td>22.12.24</td>
@@ -1137,9 +1150,9 @@
                             data-athletes='["Иншакова Инна", "Ливинцова Елизавета", "Полищук Анастасия", "Узбекова Валерия"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Струкова Анастасия, Белан Елизавета, Магомедгаджиева Эльмира, Пермякова София", "time": "07:33", "gap": ""},
-            							                {"place":2, "name": "Иншакова Инна, Ливинцова Елизавета, Полищук Анастасия, Узбекова Валерия", "time": "07:44", "gap": "+0:10"},
-            							                {"place":3, "name": "Дегтярева Яна, Инюшина Светлана, Понкратова Виктория, Володина Екатерина", "time": "07:49", "gap": "+0:16"}
+							data-results='[{"place":1, "name": "Струкова, Белан, Магомедгаджиева, Пермякова", "time": "07:33", "gap": ""},
+            							                {"place":2, "name": "Иншакова, Ливинцова, Полищук, Узбекова", "time": "07:44", "gap": "+0:10"},
+            							                {"place":3, "name": "Дегтярева, Инюшина, Понкратова, Володина", "time": "07:49", "gap": "+0:16"}
 							]'
 							class="clickable-row">
                             <td>23.12.24</td>
@@ -1148,6 +1161,106 @@
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-2">2</span></td>
                             <td>102.4%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250207"
+                            data-athletes='["Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Лапушкова Екатерина", "time": "01:31", "gap": ""},
+            							                {"place":2, "name": "Микрюкова Мария", "time": "01:34", "gap": "+0:02"},
+            							                {"place":3, "name": "Чеботарёва Виктория", "time": "01:37", "gap": "+0:05"},
+            							                {"place":32, "name": "Полищук Анастасия", "time": "01:58", "gap": "+0:26"}
+							]'
+							class="clickable-row">
+                            <td>07.02.25</td>
+                            <td>ВС, Камышин</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-other">32</span></td>
+                            <td>129.2%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250208"
+                            data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Жильцова, Лучникова", "time": "05:13", "gap": ""},
+            							                {"place":2, "name": "Чеботарёва, Орлова", "time": "05:14", "gap": "+0:01"},
+            							                {"place":3, "name": "Лапушкова, Лапушкова", "time": "05:25", "gap": "+0:12"},
+            							                {"place":-, "name": "Иншакова, Полищук", "time": "-", "gap": "-"}
+							]'
+							class="clickable-row">
+                            <td>08.02.25</td>
+                            <td>ВС, Камышин</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-dnf">CH</span></td>
+                            <td>-</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250209"
+                            data-athletes='["Беляева Валерия", "Иншакова Инна", "Ливинцова Елизавета", "Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Чеботарёва, Лучникова, Даньшина, Орлова", "time": "06:48", "gap": ""},
+            							                {"place":2, "name": "Белоногова, Микрюкова, Шмыкова, Сиротина", "time": "06:59", "gap": "+0:10"},
+            							                {"place":3, "name": "Паськова, Савченко, Синиченко, Шабалова", "time": "07:06", "gap": "+0:18"},
+            							                {"place":5, "name": "Беляева, Иншакова, Ливинцова, Полищук", "time": "07:27", "gap": "+0:38"}
+							]'
+							class="clickable-row">
+                            <td>09.02.25</td>
+                            <td>ВС, Камышин</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-top10">5</span></td>
+                            <td>109.5%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250314"
+                            data-athletes='["Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Чеботарёва Виктория", "time": "01:37", "gap": ""},
+            							                {"place":2, "name": "Лапушкова Анастасия", "time": "01:37", "gap": "+0:00"},
+            							                {"place":3, "name": "Инюшина Светлана", "time": "01:41", "gap": "+0:04"},
+            							                {"place":16, "name": "Полищук Анастасия", "time": "02:02", "gap": "+0:24"}
+							]'
+							class="clickable-row">
+                            <td>14.03.25</td>
+                            <td>ВС, Елец</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-other">16</span></td>
+                            <td>125.4%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250315"
+                            data-athletes='["Иншакова Инна", "Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Иншакова, Полищук", "time": "06:02", "gap": ""},
+            							                {"place":2, "name": "Инюшина, Понкратова", "time": "06:15", "gap": "+0:12"},
+            							                {"place":3, "name": "Чеботарёва, Орлова", "time": "06:23", "gap": "+0:20"}
+							]'
+							class="clickable-row">
+                            <td>15.03.25</td>
+                            <td>ВС, Елец</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-1">1</span></td>
+                            <td>100%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250316"
+                            data-athletes='["Беляева Валерия", "Иншакова Инна", "Ливинцова Елизавета", "Полищук Анастасия"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="залинг"
+							data-results='[{"place":1, "name": "Беляева, Иншакова, Ливинцова, Полищук", "time": "06:33", "gap": ""},
+            							                {"place":2, "name": "Чеботарёва, Лучникова, Даньшина, Орлова", "time": "06:58", "gap": "+0:25"},
+            							                {"place":3, "name": "Лапушкова, Лапушкова, Григорьева, Зуевская", "time": "07:49", "gap": "+01:15"}
+							]'
+							class="clickable-row">
+                            <td>16.03.25</td>
+                            <td>ВС, Елец</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
+                            <td><span class="place-badge place-1">1</span></td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>

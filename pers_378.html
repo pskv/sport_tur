@@ -38,11 +38,11 @@
     header {
         background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
         color: white;
-        padding: 30px 0;
+        padding: 25px 0;
         text-align: center;
         border-radius: 0 0 15px 15px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin-bottom: 0px;
     }
 
     .header-content {
@@ -50,16 +50,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .athlete-photo {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         overflow: hidden;
-        border: 5px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         display: flex;
         align-items: center;
@@ -68,25 +68,25 @@
     }
 
     .athlete-photo i {
-        font-size: 4rem;
+        font-size: 2.5rem;
         color: white;
         opacity: 0.9;
     }
 
     .athlete-info {
         text-align: center;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .athlete-name {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         font-weight: 700;
     }
 
     .athlete-sport {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 12px;
         opacity: 0.9;
     }
 
@@ -94,15 +94,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+    	font-size: 0.9rem;
     }
 
     .basic-info p {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         justify-content: center;
     }
+
+	.fixed-header {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    z-index: 1000;
+	    background: rgba(26, 58, 95, 0.95);
+	    backdrop-filter: blur(10px);
+	    border-bottom: 1px solid rgba(255,255,255,0.1);
+	    padding: 10px 15px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+	}
+	
+	.back-button {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    background: rgba(255,255,255,0.15);
+	    color: white;
+	    padding: 6px 12px;
+	    border-radius: 16px;
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: all 0.3s ease;
+	    border: 1px solid rgba(255,255,255,0.2);
+	    font-size: 0.8rem;
+	}
 
     .stats-grid {
         display: grid;
@@ -187,7 +219,7 @@
     .section-title {
         font-size: 1.8rem;
         color: #1a3a5f;
-        margin: 40px 0 20px;
+        margin: 10px 0 20px;
         padding-bottom: 10px;
         border-bottom: 2px solid #eaeaea;
     }
@@ -652,36 +684,16 @@
 </head>
 <body>
 
-<!-- Фиксированная верхняя панель -->
-<div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(26, 58, 95, 0.95); 
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);">
-    
-    <!-- Кнопка возврата -->
-    <a href="https://pskv.github.io/sport_tur/" 
-       style="display: inline-flex; align-items: center; gap: 8px; 
-              background: rgba(255,255,255,0.15); color: white; 
-              padding: 8px 16px; border-radius: 20px; 
-              text-decoration: none; font-weight: 600;
-              transition: all 0.3s ease;
-              border: 1px solid rgba(255,255,255,0.2);
-              font-size: 0.9rem;">
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
         <i class="fas fa-arrow-left"></i>
         На главную
     </a>
-    
-    <!-- Пустой элемент для выравнивания -->
-    <div style="width: 100px;"></div>
+    <div style="width: 80px;"></div>
 </div>
 
 <!-- Отступ для основного контента -->
-<div style="height: 60px;"></div>
+<div style="height: 50px;"></div>
 
 <!-- Универсальное модальное окно -->
 <div id="universalModal" class="modal">
@@ -838,10 +850,10 @@
                             data-athletes='["Глухов Андрей", "Жураков Антон", "Минаев Владимир", "Несмеянов Андрей"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Дмитриев Георгий, Урдяков Рустам, Петров Михаил, Дмитриев Игорь", "time": "01:46:56", "gap": ""},
-            							                {"place":2, "name": "Андреев Андрей, Просолов Игорь, Лукин Максим, Струков Павел", "time": "01:48:05", "gap": "+01:09"},
-            							                {"place":3, "name": "Калиновский Леонид, Тюрин Денис, Пешиков Сергей, Федин Михаил", "time": "01:48:42", "gap": "+01:46"},
-            							                {"place":11, "name": "Минаев Владимир, Глухов Андрей, Несмеянов Андрей, Жураков Антон", "time": "02:30:49", "gap": "+43:53"}
+							data-results='[{"place":1, "name": "Дмитриев, Урдяков, Петров, Дмитриев", "time": "01:46:56", "gap": ""},
+            							                {"place":2, "name": "Андреев, Просолов, Лукин, Струков", "time": "01:48:05", "gap": "+01:09"},
+            							                {"place":3, "name": "Калиновский, Тюрин, Пешиков, Федин", "time": "01:48:42", "gap": "+01:46"},
+            							                {"place":11, "name": "Минаев, Глухов, Несмеянов, Жураков", "time": "02:30:49", "gap": "+43:53"}
 							]'
 							class="clickable-row">
                             <td>07.07.24</td>
@@ -872,10 +884,10 @@
                             data-athletes='["Жураков Антон", "Несмеянов Андрей"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Кудрявцев Дмитрий, Акулин Аркадий", "time": "06:37", "gap": ""},
-            							                {"place":2, "name": "Медведев Роман, Солодун Семён", "time": "06:38", "gap": "+0:01"},
-            							                {"place":3, "name": "Четвериков Максим, Суворин Арсений", "time": "07:31", "gap": "+0:54"},
-            							                {"place":14, "name": "Несмеянов Андрей, Жураков Антон", "time": "09:35", "gap": "+02:58"}
+							data-results='[{"place":1, "name": "Кудрявцев, Акулин", "time": "06:37", "gap": ""},
+            							                {"place":2, "name": "Медведев, Солодун", "time": "06:38", "gap": "+0:01"},
+            							                {"place":3, "name": "Четвериков, Суворин", "time": "07:31", "gap": "+0:54"},
+            							                {"place":14, "name": "Несмеянов, Жураков", "time": "09:35", "gap": "+02:58"}
 							]'
 							class="clickable-row">
                             <td>23.03.24</td>
@@ -906,10 +918,10 @@
                             data-athletes='["Жураков Антон", "Несмеянов Андрей"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Ющик Никита, Ильинских Артем", "time": "04:43", "gap": ""},
-            							                {"place":2, "name": "Медведев Роман, Солодун Семён", "time": "04:59", "gap": "+0:16"},
-            							                {"place":3, "name": "Андреев Андрей, Киль Олег", "time": "05:00", "gap": "+0:17"},
-            							                {"place":20, "name": "Несмеянов Андрей, Жураков Антон", "time": "08:07", "gap": "+03:24"}
+							data-results='[{"place":1, "name": "Ющик, Ильинских", "time": "04:43", "gap": ""},
+            							                {"place":2, "name": "Медведев, Солодун", "time": "04:59", "gap": "+0:16"},
+            							                {"place":3, "name": "Андреев, Киль", "time": "05:00", "gap": "+0:17"},
+            							                {"place":20, "name": "Несмеянов, Жураков", "time": "08:07", "gap": "+03:24"}
 							]'
 							class="clickable-row">
                             <td>03.02.24</td>
@@ -923,10 +935,10 @@
                             data-athletes='["Ванзяк Руслан", "Жураков Антон", "Несмеянов Андрей", "Новиков Дмитрий"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Андреев Андрей, Просолов Игорь, Лукин Максим, Киль Олег", "time": "07:39:00", "gap": ""},
-            							                {"place":2, "name": "Головин Владимир, Горшенин Вадим, Микрюков Роман, Кушук Юрий", "time": "08:28:00", "gap": "+49:00"},
-            							                {"place":3, "name": "Кудрявцев Дмитрий, Акулин Аркадий, Лучин Кирилл, Лапшин Михаил", "time": "08:37:00", "gap": "+58:00"},
-            							                {"place":11, "name": "Несмеянов Андрей, Жураков Антон, Ванзяк Руслан, Новиков Дмитрий", "time": "12:51:00", "gap": "+05:12:00"}
+							data-results='[{"place":1, "name": "Андреев, Просолов, Лукин, Киль", "time": "07:39:00", "gap": ""},
+            							                {"place":2, "name": "Головин, Горшенин, Микрюков, Кушук", "time": "08:28:00", "gap": "+49:00"},
+            							                {"place":3, "name": "Кудрявцев, Акулин, Лучин, Лапшин", "time": "08:37:00", "gap": "+58:00"},
+            							                {"place":11, "name": "Несмеянов, Жураков, Ванзяк, Новиков", "time": "12:51:00", "gap": "+05:12:00"}
 							]'
 							class="clickable-row">
                             <td>04.02.24</td>
@@ -957,10 +969,10 @@
                             data-athletes='["Жураков Антон", "Харманис Андрос"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Рожков Константин, Петров Михаил", "time": "16:22", "gap": ""},
-            							                {"place":2, "name": "Колесов Павел, Губанов Александр", "time": "16:51", "gap": "+0:29"},
-            							                {"place":3, "name": "Тютюньков Кирилл, Бекасов Илья", "time": "17:42", "gap": "+01:20"},
-            							                {"place":23, "name": "Жураков Антон, Харманис Андрос", "time": "22:14", "gap": "+05:52"}
+							data-results='[{"place":1, "name": "Рожков, Петров", "time": "16:22", "gap": ""},
+            							                {"place":2, "name": "Колесов, Губанов", "time": "16:51", "gap": "+0:29"},
+            							                {"place":3, "name": "Тютюньков, Бекасов", "time": "17:42", "gap": "+01:20"},
+            							                {"place":23, "name": "Жураков, Харманис", "time": "22:14", "gap": "+05:52"}
 							]'
 							class="clickable-row">
                             <td>05.08.24</td>
@@ -974,10 +986,10 @@
                             data-athletes='["Ванзяк Руслан", "Жураков Антон", "Несмеянов Андрей", "Харманис Андрос"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Рожков Константин, Петров Михаил, Захаров Матвей, Дмитриев Игорь", "time": "01:12:14", "gap": ""},
-            							                {"place":2, "name": "Квасков Дмитрий, Санников Илья, Мавричев Кирилл, Артемьев Дмитрий", "time": "01:19:04", "gap": "+06:50"},
-            							                {"place":3, "name": "Колесов Павел, Тютюньков Кирилл, Губанов Александр, Бекасов Илья", "time": "01:22:46", "gap": "+10:32"},
-            							                {"place":10, "name": "Несмеянов Андрей, Жураков Антон, Ванзяк Руслан, Харманис Андрос", "time": "01:43:08", "gap": "+30:54"}
+							data-results='[{"place":1, "name": "Рожков, Петров, Захаров, Дмитриев", "time": "01:12:14", "gap": ""},
+            							                {"place":2, "name": "Квасков, Санников, Мавричев, Артемьев", "time": "01:19:04", "gap": "+06:50"},
+            							                {"place":3, "name": "Колесов, Тютюньков, Губанов, Бекасов", "time": "01:22:46", "gap": "+10:32"},
+            							                {"place":10, "name": "Несмеянов, Жураков, Ванзяк, Харманис", "time": "01:43:08", "gap": "+30:54"}
 							]'
 							class="clickable-row">
                             <td>07.08.24</td>
@@ -1008,10 +1020,10 @@
                             data-athletes='["Жураков Антон", "Харманис Андрос"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="залинг"
-							data-results='[{"place":1, "name": "Андреев Андрей, Просолов Игорь", "time": "05:53", "gap": ""},
-            							                {"place":2, "name": "Щетинин Дмитрий, Дрючин Андрей", "time": "06:38", "gap": "+0:45"},
-            							                {"place":3, "name": "Жиляков Вадим, Абдураманов Сейтмемет", "time": "06:58", "gap": "+01:04"},
-            							                {"place":15, "name": "Жураков Антон, Харманис Андрос", "time": "10:31", "gap": "+04:38"}
+							data-results='[{"place":1, "name": "Андреев, Просолов", "time": "05:53", "gap": ""},
+            							                {"place":2, "name": "Щетинин, Дрючин", "time": "06:38", "gap": "+0:45"},
+            							                {"place":3, "name": "Жиляков, Абдураманов", "time": "06:58", "gap": "+01:04"},
+            							                {"place":15, "name": "Жураков, Харманис", "time": "10:31", "gap": "+04:38"}
 							]'
 							class="clickable-row">
                             <td>18.03.23</td>
@@ -1025,10 +1037,10 @@
                             data-athletes='["Жураков Антон", "Харманис Андрос"]'
 							data-distance="дистанция - пешеходная - связка"
 							data-competition-type="короткая"
-							data-results='[{"place":1, "name": "Безносиков Владислав, Ушаков Савелий", "time": "28:04", "gap": ""},
-            							                {"place":2, "name": "Кузнецов Сергей, Львов Андрей", "time": "28:15", "gap": "+0:11"},
-            							                {"place":3, "name": "Дмитриев Георгий, Ложкин Сергей", "time": "29:01", "gap": "+0:57"},
-            							                {"place":-, "name": "Жураков Антон, Харманис Андрос", "time": "-", "gap": "-"}
+							data-results='[{"place":1, "name": "Безносиков, Ушаков", "time": "28:04", "gap": ""},
+            							                {"place":2, "name": "Кузнецов, Львов", "time": "28:15", "gap": "+0:11"},
+            							                {"place":3, "name": "Дмитриев, Ложкин", "time": "29:01", "gap": "+0:57"},
+            							                {"place":-, "name": "Жураков, Харманис", "time": "-", "gap": "-"}
 							]'
 							class="clickable-row">
                             <td>07.07.22</td>
@@ -1076,10 +1088,10 @@
                             data-athletes='["Глухов Андрей", "Жураков Антон", "Медведев Иван", "Харманис Андрос"]'
 							data-distance="дистанция - пешеходная - группа"
 							data-competition-type="длинная"
-							data-results='[{"place":1, "name": "Урдяков Рустам, Петров Михаил, Демьянов Вячеслав, Тарасов Михаил", "time": "01:59:41", "gap": ""},
-            							                {"place":2, "name": "Кудряшов Александр, Жильцов Алексей, Морос Максим, Ильинских Артем", "time": "02:00:08", "gap": "+0:27"},
-            							                {"place":3, "name": "Дмитриев Георгий, Рожков Константин, Ложкин Сергей, Захаров Матвей", "time": "02:03:37", "gap": "+03:56"},
-            							                {"place":10, "name": "Глухов Андрей, Жураков Антон, Харманис Андрос, Медведев Иван", "time": "02:49:28", "gap": "+49:47"}
+							data-results='[{"place":1, "name": "Урдяков, Петров, Демьянов, Тарасов", "time": "01:59:41", "gap": ""},
+            							                {"place":2, "name": "Кудряшов, Жильцов, Морос, Ильинских", "time": "02:00:08", "gap": "+0:27"},
+            							                {"place":3, "name": "Дмитриев, Рожков, Ложкин, Захаров", "time": "02:03:37", "gap": "+03:56"},
+            							                {"place":10, "name": "Глухов, Жураков, Харманис, Медведев", "time": "02:49:28", "gap": "+49:47"}
 							]'
 							class="clickable-row">
                             <td>10.07.22</td>
