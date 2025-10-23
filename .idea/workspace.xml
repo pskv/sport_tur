@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Пересчитал Ющика.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_121.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_121.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_17.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_19.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_20.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_20.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_294.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_294.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_393.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_393.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_89.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_89.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1761128335487</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Пересчитал Ющика.">
+      <created>1761138291740</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761138291740</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
