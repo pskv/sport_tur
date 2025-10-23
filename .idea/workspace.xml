@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Оставил только Фамилию в связках и группах.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_121.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_121.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_17.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_19.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_20.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_20.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pers_294.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_294.html" afterDir="false" />
-    </list>
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил ещё один протокол." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1761210939053</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Добавил ещё один протокол.">
+      <created>1761227963010</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761227963010</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -126,6 +126,7 @@
     <MESSAGE value="Добавил детальные результаты по всем спортсменам" />
     <MESSAGE value="Пересчитал Ющика." />
     <MESSAGE value="Оставил только Фамилию в связках и группах." />
-    <option name="LAST_COMMIT_MESSAGE" value="Оставил только Фамилию в связках и группах." />
+    <MESSAGE value="Добавил ещё один протокол." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил ещё один протокол." />
   </component>
 </project>
