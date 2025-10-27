@@ -397,23 +397,31 @@
 		border-radius: 12px 12px 0 0;
 		border-bottom: 1px solid rgba(255,255,255,0.2);
 	}
-
+	
 	.event-status {
 		font-size: 0.75rem;
 		color: rgba(255,255,255,0.9); /* Изменено с #2c5a8a */
 		font-weight: 600;
 		text-transform: uppercase;
-		margin-bottom: 2px;
+		margin-bottom: 4px;
 	}
-
+	
 	.event-name {
-		font-size: 1.1rem;
-		color: white; /* Изменено с #1a3a5f */
+		font-size: 1.2rem;
+		color: white;
 		font-weight: 700;
-		margin-bottom: 3px;
+		margin-bottom: 4px;
 		line-height: 1.2;
 	}
-
+	
+	.event-location {
+		font-size: 0.9rem;
+		color: white;
+		font-weight: 500;
+		margin-bottom: 4px;
+		line-height: 1.2;
+	}
+	
 	.event-date {
 		font-size: 0.85rem;
 		color: rgba(255,255,255,0.8); /* Изменено с #666 */
@@ -632,7 +640,7 @@
             width: 95%;
             max-width: 380px;
         }
-
+    
 		.modal-header.compact {
 			margin: 0 -12px 12px -12px; /* Соответственно изменить margin */
 			padding: 12px 15px;
@@ -666,7 +674,7 @@
 			margin: 5% auto;
 			padding: 0 10px 10px 10px; /* ИЗМЕНИТЬ padding */
 		}
-
+		
 		.modal-header.compact {
 			margin: 0 -10px 10px -10px; /* Соответственно изменить margin */
 			padding: 12px 15px;

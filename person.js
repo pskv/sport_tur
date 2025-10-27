@@ -148,19 +148,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const distanceData = row.getAttribute('data-distance');
         const competitionType = row.getAttribute('data-competition-type');
         const resultsData = row.getAttribute('data-results');
-        const eventParts = eventName.split(', ');
-        const status = eventParts[0];
-        const location = eventParts.slice(1).join(', ');
+		
+		const eventType = row.getAttribute('data-event-type');
+		const eventNameShort = row.getAttribute('data-event-name-short');
+		const eventLocation = row.getAttribute('data-event-location');
+		const eventDate = row.getAttribute('data-date');
 
         // Получаем данные из ячеек
         const placeCell = row.cells[4];
 
-        // Заполняем заголовок
-        modalHeader.innerHTML = `
-            <div class="event-status">${getStatusFullName(status)}</div>
-            <div class="event-name">${location}</div>
-            <div class="event-date">${date}</div>
-        `;
+		// Заполняем шапке
+		let headerHTML = `<div class="event-status">${eventType}</div>`;
+		if (eventNameShort && eventNameShort.trim() !== '') {
+			headerHTML += `<div class="event-name">${eventNameShort}</div>`;
+		}
+		headerHTML += `<div class="event-location">${eventLocation}</div>`;
+		headerHTML += `<div class="event-date">${formatDate(eventDate)}</div>`;
+		
+		modalHeader.innerHTML = headerHTML;
 
         // Заполняем информационные строки
         modalDiscipline.textContent = distanceData && distanceData !== '-' ? distanceData : '—';
@@ -177,14 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Вспомогательные функции
-    function getStatusFullName(status) {
-        const statusMap = {
-            'ВС': 'Всероссийские',
-            'ЧР': 'Чемпионат России',
-            'КР': 'Кубок России'
-        };
-        return statusMap[status] || status;
-    }
+	function formatDate(dateString) {
+		if (!dateString) return '';
+		
+		// dateString в формате YYYYMMDD (например "20240705")
+		const year = dateString.substring(0, 4);
+		const month = dateString.substring(4, 6);
+		const day = dateString.substring(6, 8);
+		
+		return `${day}.${month}.${year}`; // Возвращаем в формате DD.MM.YY
+	}
 
     function getPlaceDisplay(placeCell) {
         const badge = placeCell.querySelector('.place-badge');
