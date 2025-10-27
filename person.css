@@ -366,7 +366,7 @@
     .modal-content.compact {
         background: white;
         margin: 5% auto;
-        padding: 15px;
+		padding: 0 15px 15px 15px;
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         width: 90%;
@@ -388,33 +388,36 @@
         }
     }
 
-    .modal-header.compact {
-        text-align: center;
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #eaeaea;
-    }
+	.modal-header.compact {
+		background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
+		color: white;
+		text-align: center;
+		margin: 0 -15px 15px -15px;
+		padding: 12px 15px;
+		border-radius: 12px 12px 0 0;
+		border-bottom: 1px solid rgba(255,255,255,0.2);
+	}
 
-    .event-status {
-        font-size: 0.75rem;
-        color: #2c5a8a;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-    }
+	.event-status {
+		font-size: 0.75rem;
+		color: rgba(255,255,255,0.9); /* Изменено с #2c5a8a */
+		font-weight: 600;
+		text-transform: uppercase;
+		margin-bottom: 2px;
+	}
 
-    .event-name {
-        font-size: 1.1rem;
-        color: #1a3a5f;
-        font-weight: 700;
-        margin-bottom: 3px;
-        line-height: 1.2;
-    }
+	.event-name {
+		font-size: 1.1rem;
+		color: white; /* Изменено с #1a3a5f */
+		font-weight: 700;
+		margin-bottom: 3px;
+		line-height: 1.2;
+	}
 
-    .event-date {
-        font-size: 0.85rem;
-        color: #666;
-    }
+	.event-date {
+		font-size: 0.85rem;
+		color: rgba(255,255,255,0.8); /* Изменено с #666 */
+	}
 
     .modal-grid.compact {
         display: flex;
@@ -625,10 +628,15 @@
 
         .modal-content.compact {
             margin: 10% auto;
-            padding: 12px;
+			padding: 0 12px 12px 12px;
             width: 95%;
             max-width: 380px;
         }
+
+		.modal-header.compact {
+			margin: 0 -12px 12px -12px; /* Соответственно изменить margin */
+			padding: 12px 15px;
+		}
 
         .info-label {
             min-width: 60px;
@@ -654,10 +662,15 @@
     }
 
     @media (max-width: 480px) {
-        .modal-content.compact {
-            margin: 5% auto;
-            padding: 12px;
-        }
+		.modal-content.compact {
+			margin: 5% auto;
+			padding: 0 10px 10px 10px; /* ИЗМЕНИТЬ padding */
+		}
+
+		.modal-header.compact {
+			margin: 0 -10px 10px -10px; /* Соответственно изменить margin */
+			padding: 12px 15px;
+		}
 
         .info-label {
             min-width: 55px;
