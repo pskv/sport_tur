@@ -4,13 +4,286 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил имя вверху и плавные анимации. Пересчитал всех.">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил Елец 2025">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_10.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1001.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1001.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1004.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1004.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1007.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1007.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1008.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1008.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_101.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_101.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1011.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_102.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_102.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1020.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1020.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_103.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_103.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_104.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_104.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1049.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1049.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_105.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_105.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1054.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1054.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1055.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1055.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_106.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_106.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1063.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1063.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1070.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1070.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1074.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1074.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1078.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1078.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1079.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1079.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_108.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_108.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1083.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1083.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1084.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1084.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_109.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_109.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1098.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1098.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_11.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_110.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_110.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1105.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1105.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_111.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_111.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_112.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_112.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_113.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_113.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_114.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_114.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_115.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_115.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_116.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_116.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_117.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_117.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_118.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_118.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_119.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_119.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_12.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_121.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_121.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_122.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_122.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_124.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_124.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_125.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_125.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_126.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_126.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_127.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_127.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_128.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_128.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_129.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_129.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_13.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_130.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_130.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_132.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_132.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_133.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_133.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_134.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_134.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1354.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1354.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1355.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1355.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_136.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_136.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_137.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_137.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_14.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_140.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_140.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_141.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_141.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_142.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_142.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_147.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_147.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1510.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1510.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1511.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1511.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1512.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1512.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1513.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1513.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1514.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1514.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1515.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1515.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1516.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1516.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1517.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1517.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1518.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1518.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1519.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1519.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1520.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1520.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1521.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1521.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1525.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1525.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_155.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_155.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1578.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1578.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1579.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1579.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_158.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_158.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1580.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1580.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1586.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1586.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1587.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1587.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1590.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1590.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1598.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1598.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pers_16.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_160.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_160.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1602.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1602.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1604.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1604.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1608.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1608.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1611.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1611.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1620.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1620.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1621.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1621.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1625.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1625.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_163.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_163.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1637.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1637.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_165.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_165.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_166.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_166.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1664.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1664.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1688.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1688.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_169.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_169.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1692.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1692.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_17.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_18.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_19.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_20.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_20.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2047.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2047.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2048.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2048.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2050.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2050.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2053.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2053.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2136.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2136.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2156.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2156.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2159.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2159.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2165.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2165.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2181.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2181.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2183.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2183.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_22.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_22.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2242.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2242.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pers_2295.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2295.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_23.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_23.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2329.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2329.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2330.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2330.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2331.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2331.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2332.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2332.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2333.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2333.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2334.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2334.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2335.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2335.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2336.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2336.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2337.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2337.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2362.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2362.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2364.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2364.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_24.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_24.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_243.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_243.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_25.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_25.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2534.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2534.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_26.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_26.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_27.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_27.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pers_291.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_291.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pers_292.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_292.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_293.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_293.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_294.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_294.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_295.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_295.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_296.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_296.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_297.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_297.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_298.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_298.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_299.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_299.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_30.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_30.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_300.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_300.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_303.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_303.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_305.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_305.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_308.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_308.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_309.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_309.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_31.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_31.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_313.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_313.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_314.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_314.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_315.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_315.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_316.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_316.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_319.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_319.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_32.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_32.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_321.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_321.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_323.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_323.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_34.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_34.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_357.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_357.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_358.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_358.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_372.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_372.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_373.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_373.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_374.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_374.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_375.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_375.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_377.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_377.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_379.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_379.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_38.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_38.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_381.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_381.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_386.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_386.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_387.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_387.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_390.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_390.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_391.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_391.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_392.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_392.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_394.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_394.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_397.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_397.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_399.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_399.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_40.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_40.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_400.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_400.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_402.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_402.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_403.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_404.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_407.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_407.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_408.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_408.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_415.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_415.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_419.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_419.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_42.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_42.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_435.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_435.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_437.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_437.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_439.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_439.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_45.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_45.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_46.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_46.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_461.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_461.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_47.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_47.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_506.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_506.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_507.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_507.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_51.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_51.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_511.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_511.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_516.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_516.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_517.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_517.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_52.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_52.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_520.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_520.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_521.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_521.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_526.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_526.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_527.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_527.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_532.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_532.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_536.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_536.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_538.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_538.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_54.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_54.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_540.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_540.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_542.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_542.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_547.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_547.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_55.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_55.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_553.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_553.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_559.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_559.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_561.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_561.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_562.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_562.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_57.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_57.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_58.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_58.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_59.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_59.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_6.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_60.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_60.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_61.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_61.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_619.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_619.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_62.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_62.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_620.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_620.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_623.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_623.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_629.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_629.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_632.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_632.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_634.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_634.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_64.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_64.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_645.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_645.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_650.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_650.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_66.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_66.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_67.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_67.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_68.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_68.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_693.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_693.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_71.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_71.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_728.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_728.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_733.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_733.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_74.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_74.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_757.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_757.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_79.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_79.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_799.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_799.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_8.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_81.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_81.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_820.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_820.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_84.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_84.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_85.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_85.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_86.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_86.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_87.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_87.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_88.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_88.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_89.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_89.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_9.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_90.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_90.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_91.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_91.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_92.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_92.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_93.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_93.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_94.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_94.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_95.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_95.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_96.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_96.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_97.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_97.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_979.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_979.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_98.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_98.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_983.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_983.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_987.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_987.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_99.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_99.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_994.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_994.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_995.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_995.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_996.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_996.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_998.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_998.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1761634333969</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Добавил Елец 2025">
+      <created>1761641122083</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1761641122083</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -211,6 +491,7 @@
     <MESSAGE value="Изменил модальное окно в css (шапка)" />
     <MESSAGE value="Добавил имя вверху и плавные анимации" />
     <MESSAGE value="Добавил имя вверху и плавные анимации. Пересчитал всех." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил имя вверху и плавные анимации. Пересчитал всех." />
+    <MESSAGE value="Добавил Елец 2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил Елец 2025" />
   </component>
 </project>

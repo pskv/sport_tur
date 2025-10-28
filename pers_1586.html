@@ -98,7 +98,7 @@
 
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">4</div>
+                <div class="stat-value">6</div>
                 <div class="stat-description">Всего участий в соревнованиях</div>
             </div>
 
@@ -112,6 +112,15 @@
                             <div class="medal-event">Чемпионат России 2022, Листвянка</div>
                         </div>
                         <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">9 место</div>
+                            <div class="medal-event">Кубок России 2025, пос. им. Цюрупы</div>
+                        </div>
+                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
                     </div>
 
                     <div class="medal-item">
@@ -132,7 +141,14 @@
                         <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div>
                     </div>
 
-
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">39 место</div>
+                            <div class="medal-event">Кубок России 2025, пос. им. Цюрупы</div>
+                        </div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
+                    </div>
 
                 </div>
             </div>
@@ -144,6 +160,7 @@
             <div class="year-filter">
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2022">2022</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -247,6 +264,46 @@
                             <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
                             <td><span class="place-badge place-top10">4</span></td>
                             <td>103.8%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250703"
+                            data-athletes='["Бахтияров Руслан", "Прядохин Павел"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Кузнецов, Львов", "time": "26:01", "gap": ""},
+            							                {"place":2, "name": "Петров, Демьянов", "time": "28:01", "gap": "+02:00"},
+            							                {"place":3, "name": "Андреев, Лукин", "time": "28:48", "gap": "+02:47"},
+            							                {"place":9, "name": "Прядохин, Бахтияров", "time": "32:14", "gap": "+06:13"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок Кондратьева"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							class="clickable-row">
+                            <td>03.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-top10">9</span></td>
+                            <td>123.9%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250704"
+                            data-athletes='["Бахтияров Руслан"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Ушаков Савелий", "time": "20:16", "gap": ""},
+            							                {"place":2, "name": "Морос Максим", "time": "20:38", "gap": "+0:22"},
+            							                {"place":3, "name": "Безносиков Владислав", "time": "21:07", "gap": "+0:51"},
+            							                {"place":39, "name": "Бахтияров Руслан", "time": "30:10", "gap": "+09:54"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок Кондратьева"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							class="clickable-row">
+                            <td>04.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-other">39</span></td>
+                            <td>148.8%</td>
                         </tr>
                     </tbody>
                 </table>
