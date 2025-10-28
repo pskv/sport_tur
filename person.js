@@ -293,4 +293,34 @@ function fillResultsList(resultsData, row) {
             modal.style.display = 'none';
         }
     });
+
+    // Функция для обработки прокрутки
+	function handleScroll() {
+		const athleteNameHeader = document.getElementById('athleteNameHeader');
+		const backButton = document.querySelector('.back-button');
+		const backButtonText = backButton.querySelector('span');
+		const scrollY = window.scrollY;
+		
+		// Показываем имя когда прокрутка больше 100px
+		if (scrollY > 100) {
+			athleteNameHeader.classList.add('visible');
+			backButtonText.style.maxWidth = '0';
+			backButtonText.style.opacity = '0';
+			backButton.style.paddingLeft = '8px';
+			backButton.style.paddingRight = '8px';
+		} else {
+			athleteNameHeader.classList.remove('visible');
+			backButtonText.style.maxWidth = '80px';
+			backButtonText.style.opacity = '1';
+			backButton.style.paddingLeft = '12px';
+			backButton.style.paddingRight = '12px';
+		}
+	}
+
+    // Добавляем обработчик события прокрутки
+    window.addEventListener('scroll', handleScroll);
+
+    // Вызываем сразу для начального состояния
+    handleScroll();
+	
 });

@@ -105,18 +105,44 @@
 	}
 	
 	.back-button {
-	    display: inline-flex;
-	    align-items: center;
-	    gap: 6px;
-	    background: rgba(255,255,255,0.15);
-	    color: white;
-	    padding: 6px 12px;
-	    border-radius: 16px;
-	    text-decoration: none;
-	    font-weight: 600;
-	    transition: all 0.3s ease;
-	    border: 1px solid rgba(255,255,255,0.2);
-	    font-size: 0.8rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		background: rgba(255,255,255,0.15);
+		color: white;
+		padding: 6px 12px;
+		border-radius: 16px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		border: 1px solid rgba(255,255,255,0.2);
+		font-size: 0.8rem;
+		/* Добавляем эти свойства */
+		white-space: nowrap;
+		overflow: hidden;
+		min-width: auto;
+	}
+	
+	.back-button span {
+		transition: all 0.3s ease;
+		display: inline-block;
+		max-width: 80px;
+	}
+
+	.athlete-name-header {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		color: white;
+		font-weight: 600;
+		font-size: 1rem;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		white-space: nowrap;
+	}
+	
+	.athlete-name-header.visible {
+		opacity: 1;
 	}
 
     .stats-grid {
