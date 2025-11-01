@@ -98,13 +98,22 @@
 
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">2</div>
+                <div class="stat-value">3</div>
                 <div class="stat-description">Всего участий в соревнованиях</div>
             </div>
 
             <div class="stat-card">
                 <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
                 <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">11 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Бутово</div>
+                        </div>
+                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div>
+                    </div>
+
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
@@ -125,7 +134,6 @@
 
 
 
-
                 </div>
             </div>
 
@@ -136,6 +144,7 @@
             <div class="year-filter">
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2024">2024</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -199,6 +208,26 @@
                             <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div></td>
                             <td><span class="place-badge place-other">48</span></td>
                             <td>184.3%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250921"
+                            data-athletes='["Безруков Алексей", "Казаринов Андрей", "Колесов Никита", "Юкин Роман"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Калиновский, Тюрин, Пешиков, Федин", "time": "01:22:53", "gap": ""},
+            							                {"place":2, "name": "Ющик, Кудряшов, Морос, Волошкин", "time": "01:23:18", "gap": "+0:25"},
+            							                {"place":3, "name": "Урдяков, Рожков, Петров, Демьянов", "time": "01:23:45", "gap": "+0:52"},
+            							                {"place":11, "name": "Колесов, Казаринов, Безруков, Юкин", "time": "02:07:17", "gap": "+44:24"}
+							]'
+							data-event-type="Всероссийские соревнования"
+							data-event-name-short="Гонки четырех - 2025"
+							data-event-location="Москва, Бутовский лесопарк"
+							class="clickable-row">
+                            <td>21.09.25</td>
+                            <td>ВС, Бутово</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
+                            <td><span class="place-badge place-other">11</span></td>
+                            <td>153.6%</td>
                         </tr>
                     </tbody>
                 </table>

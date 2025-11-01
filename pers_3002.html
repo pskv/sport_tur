@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ганиев Риназ - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Ганиев Риназ</div>
+    <div style="width: 80px;"></div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+<!-- Универсальное модальное окно -->
+<div id="universalModal" class="modal">
+    <div class="modal-content compact">
+        <span class="close">&times;</span>
+        <div class="modal-header compact" id="modalHeader">
+            <!-- Заголовок будет заполняться JavaScript -->
+        </div>
+
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-users"></i> Состав
+            </div>
+            <ul class="athletes-list compact" id="modalAthletesList">
+                <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-person-running"></i>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Ганиев Риназ</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 2008</p>
+                        <p><i class="fas fa-flag"></i> Республика Татарстан</p>
+                        <p><i class="fas fa-award"></i> Разряд: I</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+    <div class="container">
+        <h2 class='section-title'>Общая статистика</h2>
+        <div class='stats-grid'>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">1</div>
+                <div class="stat-description">Всего участий в соревнованиях</div>
+            </div>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
+                <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #8B4513 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">4 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Глумилино</div>
+                        </div>
+                        <div class="icons-group"><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></div><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <h2 class='section-title'>История выступлений</h2>
+
+        <div class="competition-history">
+            <div class="year-filter">
+                <button class="year-btn active" data-year="all">Все годы</button>
+                <button class="year-btn" data-year="2025">2025</button>
+            </div>
+            <div class="table-container">
+                <table class="competition-table" id="competitionTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                            <th>Вид</th>
+                            <th></th>
+                            <th data-sort="place">Место <i class="fas fa-sort"></i></th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr data-year="2025"
+	                        data-date="20251005"
+                            data-athletes='["Ганиев Риназ", "Давлетшин Данил", "Калимуллин Айзат", "Муратов Карим"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="короткая"
+							data-results='[{"place":1, "name": "Урдяков, Дмитриев, Максимов, Демьянов", "time": "27:43", "gap": ""},
+            							                {"place":2, "name": "Трошин, Отто, Щипачёв, Авдеев", "time": "29:52", "gap": "+02:09"},
+            							                {"place":3, "name": "Ушаков, Белявцев, Зюзев, Коковкин", "time": "32:39", "gap": "+04:56"},
+            							                {"place":4, "name": "Давлетшин, Муратов, Ганиев, Калимуллин", "time": "42:59", "gap": "+15:16"}
+							]'
+							data-event-type="Всероссийские соревнования"
+							data-event-name-short="Кубок памяти К.П. Хомякова"
+							data-event-location="Республика Башкортостан, Уфимский р-н, д. Глумилино"
+							class="clickable-row">
+                            <td>05.10.25</td>
+                            <td>ВС, Глумилино</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div></td>
+                            <td><span class="place-badge place-top10">4</span></td>
+                            <td>155.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Статистика спортсмена.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script src="person.js"></script>
+	
+</body>
+</html>

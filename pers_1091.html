@@ -98,13 +98,22 @@
 
             <div class="stat-card">
                 <h3><i class="fas fa-trophy"></i> Соревнования</h3>
-                <div class="stat-value">3</div>
+                <div class="stat-value">4</div>
                 <div class="stat-description">Всего участий в соревнованиях</div>
             </div>
 
             <div class="stat-card">
                 <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
                 <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">15 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Глумилино</div>
+                        </div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div>
+                    </div>
+
                     <div class="medal-item">
                         <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
                         <div class="medal-details">
@@ -133,7 +142,6 @@
                     </div>
 
 
-
                 </div>
             </div>
 
@@ -144,6 +152,7 @@
             <div class="year-filter">
                 <button class="year-btn active" data-year="all">Все годы</button>
                 <button class="year-btn" data-year="2023">2023</button>
+                <button class="year-btn" data-year="2025">2025</button>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">
@@ -227,6 +236,26 @@
                             <td><div class="map-icon" style="color: #FFA500;"><i class="fas fa-house"></i></div></td>
                             <td><span class="place-badge place-other">42</span></td>
                             <td>214.1%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20251003"
+                            data-athletes='["Уфимцева Ксения"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="короткая"
+							data-results='[{"place":1, "name": "Шашкова Анна", "time": "25:38", "gap": ""},
+            							                {"place":2, "name": "Линова Дарья", "time": "25:54", "gap": "+0:16"},
+            							                {"place":3, "name": "Беляева Татьяна", "time": "28:56", "gap": "+03:18"},
+            							                {"place":15, "name": "Уфимцева Ксения", "time": "38:08", "gap": "+12:30"}
+							]'
+							data-event-type="Всероссийские соревнования"
+							data-event-name-short="Кубок памяти К.П. Хомякова"
+							data-event-location="Республика Башкортостан, Уфимский р-н, д. Глумилино"
+							class="clickable-row">
+                            <td>03.10.25</td>
+                            <td>ВС, Глумилино</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-route"></i></div></td>
+                            <td><span class="place-badge place-other">15</span></td>
+                            <td>148.8%</td>
                         </tr>
                     </tbody>
                 </table>

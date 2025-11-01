@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гирей Роман - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Гирей Роман</div>
+    <div style="width: 80px;"></div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+<!-- Универсальное модальное окно -->
+<div id="universalModal" class="modal">
+    <div class="modal-content compact">
+        <span class="close">&times;</span>
+        <div class="modal-header compact" id="modalHeader">
+            <!-- Заголовок будет заполняться JavaScript -->
+        </div>
+
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-users"></i> Состав
+            </div>
+            <ul class="athletes-list compact" id="modalAthletesList">
+                <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-person-running"></i>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Гирей Роман</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 1996</p>
+                        <p><i class="fas fa-flag"></i> город Москва</p>
+                        <p><i class="fas fa-award"></i> Разряд: II</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+    <div class="container">
+        <h2 class='section-title'>Общая статистика</h2>
+        <div class='stats-grid'>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">1</div>
+                <div class="stat-description">Всего участий в соревнованиях</div>
+            </div>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
+                <div class="medal-stats">
+None
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <h2 class='section-title'>История выступлений</h2>
+
+        <div class="competition-history">
+            <div class="year-filter">
+                <button class="year-btn active" data-year="all">Все годы</button>
+                <button class="year-btn" data-year="2025">2025</button>
+            </div>
+            <div class="table-container">
+                <table class="competition-table" id="competitionTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                            <th>Вид</th>
+                            <th></th>
+                            <th data-sort="place">Место <i class="fas fa-sort"></i></th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr data-year="2025"
+	                        data-date="20250921"
+                            data-athletes='["Гирей Роман", "Зубарев Пётр", "Орлов Сергей", "Скаун Андрей"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Калиновский, Тюрин, Пешиков, Федин", "time": "01:22:53", "gap": ""},
+            							                {"place":2, "name": "Ющик, Кудряшов, Морос, Волошкин", "time": "01:23:18", "gap": "+0:25"},
+            							                {"place":3, "name": "Урдяков, Рожков, Петров, Демьянов", "time": "01:23:45", "gap": "+0:52"},
+            							                {"place":"-", "name": "Скаун, Зубарев, Гирей, Орлов", "time": "-", "gap": "-"}
+							]'
+							data-event-type="Всероссийские соревнования"
+							data-event-name-short="Гонки четырех - 2025"
+							data-event-location="Москва, Бутовский лесопарк"
+							class="clickable-row">
+                            <td>21.09.25</td>
+                            <td>ВС, Бутово</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
+                            <td><span class="place-badge place-dnf">CH</span></td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Статистика спортсмена.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script src="person.js"></script>
+	
+</body>
+</html>
