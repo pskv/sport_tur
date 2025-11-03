@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медальный рейтинг - 2025. МУЖЧИНЫ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="rating.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="https://pskv.github.io/sport_tur/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="rating-name-header">Медальный рейтинг - 2025. МУЖЧИНЫ</div>
+    <div style="width: 80px;"></div>
+</div>
+
+<div style="height: 50px;"></div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="rating-photo">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="rating-info">
+                <h1 class="rating-name">Медальный рейтинг - 2025</h1>
+                <div class="rating-sport">МУЖЧИНЫ</div>
+                <div class="basic-info">
+                    <p><i class="fas fa-flag"></i> Уровень: всероссийские и выше</p>
+                    <p><i class="fas fa-calendar-alt"></i> Соревнований: 31</p>
+                    <p><i class="fas fa-users"></i> Спортсменов: 72</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Карточка "Описание" с кнопкой раскрытия -->
+    <div class="info-card-wrapper">
+        <div class="info-card collapsed" id="infoCard">
+            <div class="info-card-header" id="infoCardHeader">
+                <h3><i class="fas fa-info-circle"></i> Описание</h3>
+                <button class="toggle-btn" id="toggleBtn">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="info-card-content">
+                <div class="stat-description">
+                                        <p>Рейтинг рассчитывается на основе результатов всероссийских соревнований, кубков России, первенства России и чемпионата России за 2025 год.</p>
+                    <p><strong>Критерии оценки:</strong> спортсмены ранжируются по количеству золотых медалей, затем по количеству серебряных медалей, затем по количеству бронзовых медалей.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="competition-history">
+        <div class="table-container">
+            <table class="competition-table">
+                
+                <thead>
+					<tr>
+						<th>Место</th>
+						<th>Спортсмен</th>
+						<th data-tooltip="Количество золотых медалей"><i class="fas fa-medal gold"></i></th>
+						<th data-tooltip="Количество серебряных медалей"><i class="fas fa-medal silver"></i></th>
+						<th data-tooltip="Количество бронзовых медалей"><i class="fas fa-medal bronze"></i></th>
+						<th data-tooltip="Общее количество всех медалей"><i class="fas fa-trophy"></i></th>
+					</tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="place-badge place-1">1</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_9"><strong>Львов Андрей</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td><strong>8</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-2">2</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_23"><strong>Морос Максим</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td><strong>10</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-3">3</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_13"><strong>Ушаков Савелий</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td><strong>9</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">4</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1"><strong>Кузнецов Сергей</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">5</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_7"><strong>Ющик Никита</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td><strong>10</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">6</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_4"><strong>Безносиков Владислав</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td><strong>9</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">7</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_49"><strong>Максимов Дмитрий</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">8</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2333"><strong>Пастухов Александр</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">9</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_20"><strong>Белявцев Максим</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">10</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_42"><strong>Ильинских Артем</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">11</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_8"><strong>Урдяков Рустам</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">12</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_43"><strong>Дмитриев Игорь</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">13</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_435"><strong>Трифонов Константин</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">14</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2329"><strong>Кравцов Дмитрий</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">15</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_19"><strong>Пешиков Сергей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">16</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_22"><strong>Федин Михаил</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">17</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1007"><strong>Демьянов Вячеслав</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">18</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_18"><strong>Тюрин Денис</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">19</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_51"><strong>Лукин Максим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">20</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_17"><strong>Калиновский Леонид</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">21</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_37"><strong>Волошкин Олег</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">22</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_164"><strong>Боженов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">23</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1587"><strong>Беляков Вадим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">24</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1105"><strong>Щипачёв Данила</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_34"><strong>Губанов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">26</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_11"><strong>Кудряшов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_57"><strong>Симаков Кирилл</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">28</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1526"><strong>Малахов Демьян</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">29</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_425"><strong>Корякин Антон</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">30</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_799"><strong>Решетень Егор</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">31</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_24"><strong>Андреев Андрей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">32</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_31"><strong>Квасков Дмитрий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">33</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_47"><strong>Бабенко Тимофей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">34</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_5"><strong>Михеев Василий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">35</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_27"><strong>Тютюньков Кирилл</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">36</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_62"><strong>Кучков Дмитрий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">37</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_63"><strong>Мавричев Кирилл</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_65"><strong>Корякин Семен</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">39</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_320"><strong>Тысько Владимир</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">40</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_535"><strong>Котик Георгий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">41</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_543"><strong>Матвиенко Андрей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">42</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_560"><strong>Ситнер Максим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">43</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2245"><strong>Синицын Виталий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_572"><strong>Щетинин Дмитрий</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_545"><strong>Медведев Роман</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">46</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_71"><strong>Кириченко Семён</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">47</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1063"><strong>Прядохин Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">48</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_32"><strong>Петров Михаил</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">49</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_561"><strong>Солодун Семён</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">50</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_633"><strong>Лапшин Артем</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">51</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1621"><strong>Карасев Иван</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">52</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_21"><strong>Семенов Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_755"><strong>Иванов Илья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">54</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_30"><strong>Гардт Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">55</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_68"><strong>Акулин Аркадий</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">56</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_437"><strong>Фаезов Расуль</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">57</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2336"><strong>Таскаев Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">58</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2661"><strong>Магдеев Эльдар</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">59</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_38"><strong>Трошин Евгений</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">60</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1054"><strong>Отто Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">61</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_1523"><strong>Авдеев Александр</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">62</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_74"><strong>Лучин Кирилл</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_12"><strong>Рожков Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">64</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_52"><strong>Киль Олег</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">65</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2685"><strong>Степнов Леонид</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">66</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2299"><strong>Касторный Роман</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">67</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_766"><strong>Коковкин Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_2677"><strong>Поздов-Зрилов Матвей</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">69</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_316"><strong>Струков Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">70</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_3"><strong>Колесов Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">71</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_55"><strong>Санников Илья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">72</span></td>
+                        <td data-url="https://pskv.github.io/sport_tur/pers_752"><strong>Зюзев Кирилл</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 год. Медальный рейтинг спортивного туризма.</p>
+        <p>Источник исходных данных - https://tmmoscow.ru/</p>
+    </div>
+</footer>
+
+<script src="rating.js"></script>
+</body>
+</html>
