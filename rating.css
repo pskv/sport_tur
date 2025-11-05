@@ -61,13 +61,13 @@ header {
     max-width: 400px;
 }
 
-.rating-name {
+.rating-name-part1 {
     font-size: 1.8rem;
     margin-bottom: 8px;
     font-weight: 700;
 }
 
-.rating-sport {
+.rating-name-part2 {
     font-size: 1rem;
     margin-bottom: 12px;
     opacity: 0.9;
@@ -195,7 +195,7 @@ header {
     border-bottom: 2px solid #eaeaea;
 }
 
-.competition-history {
+.rating_card {
     background: white;
     border-radius: 10px;
     padding: 20px;
@@ -213,28 +213,28 @@ header {
     position: relative;
 }
 
-.competition-table {
+.rating-table {
     width: 100%;
     border-collapse: collapse;
     min-width: auto;
     table-layout: auto;
 }
 
-.competition-table th, 
-.competition-table td {
+.rating-table th, 
+.rating-table td {
     padding: 10px 12px;
     text-align: left;
     border-bottom: 1px solid #eaeaea;
     font-size: 0.9rem;
 }
 
-.competition-table thead {
+.rating-table thead {
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.competition-table thead th {
+.rating-table thead th {
     background-color: #f8f9fa;
     color: #1a3a5f;
     font-weight: 600;
@@ -243,17 +243,17 @@ header {
     border-bottom: 2px solid #eaeaea;
 }
 
-.competition-table th:hover {
+.rating-table th:hover {
     background-color: #f8f9fa;
 }
 
-.competition-table th i {
+.rating-table th i {
     margin-right: 5px;
     font-size: 0.8rem;
     opacity: 0.7;
 }
 
-.competition-table tr:hover {
+.rating-table tr:hover {
     background-color: #f5f7fa;
 }
 
@@ -315,36 +315,36 @@ footer {
 .stat-card strong { color: #1a3a5f; }
 
 /* Выравнивание столбцов */
-.competition-table th:first-child,
-.competition-table td:first-child {
+.rating-table th:first-child,
+.rating-table td:first-child {
     text-align: left;
 }
 
-.competition-table th:nth-child(2),
-.competition-table td:nth-child(2) {
+.rating-table th:nth-child(2),
+.rating-table td:nth-child(2) {
     text-align: left;
 }
 
 /* Центрирование для медальных столбцов */
-.competition-table th:nth-child(3),
-.competition-table th:nth-child(4),
-.competition-table th:nth-child(5),
-.competition-table th:nth-child(6) {
+.rating-table th:nth-child(3),
+.rating-table th:nth-child(4),
+.rating-table th:nth-child(5),
+.rating-table th:nth-child(6) {
     text-align: center;
 }
 
-.competition-table td:nth-child(3), /* Золото */
-.competition-table td:nth-child(4), /* Серебро */
-.competition-table td:nth-child(5), /* Бронза */
-.competition-table td:nth-child(6) { /* Всего */
+.rating-table td:nth-child(3), /* Золото */
+.rating-table td:nth-child(4), /* Серебро */
+.rating-table td:nth-child(5), /* Бронза */
+.rating-table td:nth-child(6) { /* Всего */
     text-align: center;
     font-weight: 600;
 }
 
-.competition-table td:nth-child(3) { color: #FFD700; }
-.competition-table td:nth-child(4) { color: #C0C0C0; }
-.competition-table td:nth-child(5) { color: #CD7F32; }
-.competition-table td:nth-child(6) { color: #1a3a5f; }
+.rating-table td:nth-child(3) { color: #FFD700; }
+.rating-table td:nth-child(4) { color: #C0C0C0; }
+.rating-table td:nth-child(5) { color: #CD7F32; }
+.rating-table td:nth-child(6) { color: #1a3a5f; }
 
 /* Стили для карточки с раскрытием */
 .info-card-wrapper {
@@ -449,37 +449,37 @@ footer {
     border-bottom-color: #1a3a5f;
 }
 
-.competition-table th[data-tooltip],
-.competition-table td[data-tooltip],
-.competition-table th[data-url],
-.competition-table td[data-url] {
+.rating-table th[data-tooltip],
+.rating-table td[data-tooltip],
+.rating-table th[data-url],
+.rating-table td[data-url] {
     cursor: pointer;
     transition: background-color 0.2s ease;
     position: relative;
 }
 
-.competition-table th[data-tooltip]:hover,
-.competition-table td[data-tooltip]:hover,
-.competition-table th[data-url]:hover,
-.competition-table td[data-url]:hover {
+.rating-table th[data-tooltip]:hover,
+.rating-table td[data-tooltip]:hover,
+.rating-table th[data-url]:hover,
+.rating-table td[data-url]:hover {
     background-color: #e9f5ff;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .competition-table {
+    .rating-table {
         min-width: auto;
         width: 100%;
         font-size: 0.6rem;
         line-height: 1.1;
     }
 
-    .competition-table th,
-    .competition-table td {
+    .rating-table th,
+    .rating-table td {
         padding: 2px 3px;
     }
 
-    .competition-table td:nth-child(2) {
+    .rating-table td:nth-child(2) {
         white-space: nowrap;
         font-size: 0.8rem;
     }
@@ -488,11 +488,11 @@ footer {
         padding: 8px;
     }
 
-    .competition-history {
+    .rating_card {
         padding: 12px 8px;
     }
 
-    .competition-table td:nth-child(2) {
+    .rating-table td:nth-child(2) {
         white-space: normal;
         word-break: break-word;
     }
@@ -507,7 +507,7 @@ footer {
         height: 100px;
     }
 
-    .rating-name {
+    .rating-name-part1 {
         font-size: 1.5rem;
     }
 
@@ -517,12 +517,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .competition-table {
+    .rating-table {
         font-size: 0.5rem;
     }
 
-    .competition-table th,
-    .competition-table td {
+    .rating-table th,
+    .rating-table td {
         padding: 1px 2px;
     }
 
@@ -541,7 +541,7 @@ footer {
         font-size: 2rem;
     }
 
-    .rating-name {
+    .rating-name-part1 {
         font-size: 1.3rem;
     }
 
