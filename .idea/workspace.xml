@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Доработанная версия index">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Поправил rating.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/rating.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1762341687713</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Поправил rating.js">
+      <created>1762342472242</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1762342472242</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -277,6 +283,7 @@
     <MESSAGE value="Добавил первый рейтинг" />
     <MESSAGE value="Правлю рейтинг - исправление технических названий атрибутов" />
     <MESSAGE value="Доработанная версия index" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доработанная версия index" />
+    <MESSAGE value="Поправил rating.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поправил rating.js" />
   </component>
 </project>
