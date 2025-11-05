@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Поправил rating.js">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил лого ЧР2025">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +28,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/peshi/OneDrive/Рабочий стол/Сережа/Python/Projects/Sport_Tur/github_site"
+    "last_opened_file_path": "C:/Users/peshi/OneDrive/Рабочий стол/Сережа/Python/Projects/Sport_Tur/github_site/logo"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peshi\OneDrive\Рабочий стол\Сережа\Python\Projects\Sport_Tur\github_site\logo" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -257,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1762342472242</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Добавил лого ЧР2025">
+      <created>1762343833189</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1762343833189</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -284,6 +296,7 @@
     <MESSAGE value="Правлю рейтинг - исправление технических названий атрибутов" />
     <MESSAGE value="Доработанная версия index" />
     <MESSAGE value="Поправил rating.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Поправил rating.js" />
+    <MESSAGE value="Добавил лого ЧР2025" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил лого ЧР2025" />
   </component>
 </project>
