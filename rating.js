@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Инициализация подсказок для таблицы
     function initTableTooltips() {
-        const tableElements = document.querySelectorAll('.competition-table [data-tooltip], .competition-table [data-url]');
+        const tableElements = document.querySelectorAll('.rating-table [data-tooltip], .rating-table [data-url]');
         let tooltip = document.querySelector('.tooltip');
         
         // Создание элемента подсказки
