@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил Г4 и КХ 2025">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Доработанная версия index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +216,28 @@
       <option name="project" value="LOCAL" />
       <updated>1761996284105</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Добавил первый рейтинг">
+      <created>1762213723229</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1762213723229</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Правлю рейтинг - исправление технических названий атрибутов">
+      <created>1762324280739</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1762324280739</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Доработанная версия index">
+      <created>1762334231509</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334231509</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -238,6 +260,9 @@
     <MESSAGE value="Добавил КК 2025" />
     <MESSAGE value="Добавил ПР и ЧР 2025" />
     <MESSAGE value="Добавил Г4 и КХ 2025" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил Г4 и КХ 2025" />
+    <MESSAGE value="Добавил первый рейтинг" />
+    <MESSAGE value="Правлю рейтинг - исправление технических названий атрибутов" />
+    <MESSAGE value="Доработанная версия index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доработанная версия index" />
   </component>
 </project>
