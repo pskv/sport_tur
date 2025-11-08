@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Перегенерил на относительные линки">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Поправил отображение логотипов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,12 +297,24 @@
       <option name="project" value="LOCAL" />
       <updated>1762379722686</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Добавил логотипы за 2025 год">
+      <created>1762422188317</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1762422188317</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Поправил отображение логотипов">
+      <created>1762610010018</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1762610010018</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил Google Analytics" />
-    <MESSAGE value="Добавил модальное окно" />
     <MESSAGE value="Добавил детальные результаты по нескольким спортсменам" />
     <MESSAGE value="Добавил детальные результаты по всем спортсменам" />
     <MESSAGE value="Пересчитал Ющика." />
@@ -327,6 +338,8 @@
     <MESSAGE value="Добавил лого ЧР2025" />
     <MESSAGE value="Добавил второй рейтинг" />
     <MESSAGE value="Перегенерил на относительные линки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Перегенерил на относительные линки" />
+    <MESSAGE value="Добавил логотипы за 2025 год" />
+    <MESSAGE value="Поправил отображение логотипов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Поправил отображение логотипов" />
   </component>
 </project>
