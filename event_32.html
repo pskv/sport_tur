@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Весенний призыв - 2025 - Информация о соревнованиях</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+    <style>
+        .event-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .athlete-photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white !important;
+        }
+        
+        .competition-card {
+            background: white;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .competition-header {
+            padding: 10px 12px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .competition-header-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        
+        .competition-icons {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .competition-icons.compact-group {
+            gap: 0;
+        }
+        
+        .competition-icons.compact-group i {
+            margin-right: 0;
+        }
+        
+        .distance-icon {
+            margin-left: 6px;
+        }
+        
+        .competition-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1a3a5f;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .competition-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 3px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 0.7rem;
+            color: #666;
+        }
+        
+        .competition-content {
+            padding: 0;
+            display: none;
+        }
+        
+        .competition-card.expanded .competition-content {
+            display: block;
+        }
+        
+        .competition-card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            color: #1a3a5f;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .info-card-header {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .info-card-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1a3a5f;
+            margin: 0;
+        }
+        
+        .info-card-content {
+            padding: 10px;
+            display: none;
+        }
+        
+        .info-card.expanded .info-card-content {
+            display: block;
+        }
+        
+        .info-card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .compact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 6px;
+        }
+        
+        .compact-stat {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 6px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+        }
+        
+        .compact-stat-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1a3a5f;
+            line-height: 1.1;
+        }
+        
+        .compact-stat-label {
+            color: #666;
+            font-size: 0.65rem;
+            margin-top: 1px;
+        }
+        
+        /* Уменьшаем размер шрифта в таблицах */
+        .competition-table.compact-table {
+            font-size: 0.7rem;
+        }
+        
+        .competition-table.compact-table th,
+        .competition-table.compact-table td {
+            padding: 4px 5px;
+        }
+        
+        .competition-table.compact-table th {
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        
+        .competition-table.compact-table .place-badge {
+            padding: 1px 4px;
+            border-radius: 6px;
+            font-size: 0.6rem;
+            min-width: 16px;
+        }
+        
+        /* Красный цвет для отставания */
+        .gap-red {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            margin: 6px 0 8px;
+            padding-bottom: 6px;
+        }
+        
+        .athlete-name {
+            font-size: 1.3rem;
+        }
+        
+        .basic-info p {
+            font-size: 0.75rem;
+        }
+        
+        @media (max-width: 768px) {
+            .competition-table.compact-table {
+                font-size: 0.65rem;
+            }
+            
+            .competition-table.compact-table th,
+            .competition-table.compact-table td {
+                padding: 2px 3px;
+            }
+            
+            .competition-title {
+                font-size: 0.8rem;
+            }
+            
+            .competition-header {
+                padding: 8px 10px;
+            }
+            
+            .competition-icons {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Весенний призыв - 2025</div>
+    <div style="width: 80px;"></div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <img src="logo/VS_Priziv_logo25.jpg" alt="Логотип соревнований" class="event-logo">
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Весенний призыв - 2025</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-flag"></i> Всероссийские соревнования</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Республика Марий Эл, п. Куяр</p>
+                        <p><i class="fas fa-calendar"></i> 30.04.2025 - 05.05.2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="info-card" id="generalInfoCard">
+            <div class="info-card-header" onclick="toggleInfoCard('generalInfoCard')">
+                <h3 class="info-card-title">Общая информация</h3>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="info-card-content">
+                <div class="compact-stats">
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">48</div>
+                        <div class="compact-stat-label">Участников</div>
+                    </div>
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">6</div>
+                        <div class="compact-stat-label">Протоколов</div>
+                    </div>
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">3</div>
+                        <div class="compact-stat-label">Типа дистанций</div>
+                    </div>
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">2</div>
+                        <div class="compact-stat-label">Категории</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class='section-title'>Результаты по дисциплинам</h2>
+
+        <!-- Мужчины, спринт -->
+        <div class="competition-card" id="card1">
+            <div class="competition-header" onclick="toggleCompetitionCard('card1')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная (спринт), МУЖЧИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>02.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участник</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Михеев Василий</td>
+                                <td>16:18.2</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Белявцев Максим</td>
+                                <td>16:28.8</td>
+                                <td class="gap-red">+00:10.6</td>
+                                <td>101.1%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Безносиков Владислав</td>
+                                <td>16:56.7</td>
+                                <td class="gap-red">+00:38.5</td>
+                                <td>103.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Дмитриев Георгий</td>
+                                <td>17:23.9</td>
+                                <td class="gap-red">+01:05.7</td>
+                                <td>106.7%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Ющик Никита</td>
+                                <td>17:51.1</td>
+                                <td class="gap-red">+01:32.9</td>
+                                <td>109.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Львов Андрей</td>
+                                <td>18:00.3</td>
+                                <td class="gap-red">+01:42.1</td>
+                                <td>110.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Женщины, спринт -->
+        <div class="competition-card" id="card2">
+            <div class="competition-header" onclick="toggleCompetitionCard('card2')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная (спринт), ЖЕНЩИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>02.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участник</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Елисеева Дарья</td>
+                                <td>19:08.4</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Жаркова Екатерина</td>
+                                <td>19:14.6</td>
+                                <td class="gap-red">+00:06.2</td>
+                                <td>100.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Линова Дарья</td>
+                                <td>20:00.3</td>
+                                <td class="gap-red">+00:51.9</td>
+                                <td>104.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Жильцова Кира</td>
+                                <td>20:27.9</td>
+                                <td class="gap-red">+01:19.5</td>
+                                <td>106.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Инюшина Светлана</td>
+                                <td>20:39.2</td>
+                                <td class="gap-red">+01:30.8</td>
+                                <td>107.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Васильева Мария</td>
+                                <td>21:28.8</td>
+                                <td class="gap-red">+02:20.4</td>
+                                <td>112.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мужчины, связка спринт -->
+        <div class="competition-card" id="card3">
+            <div class="competition-header" onclick="toggleCompetitionCard('card3')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-people-pulling" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная - связка (спринт), МУЖЧИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>03.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Морос Максим, Ющик Никита</td>
+                                <td>17:53.8</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Безносиков Владислав, Ушаков Савелий</td>
+                                <td>18:51.2</td>
+                                <td class="gap-red">+00:57.4</td>
+                                <td>105.4%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Колесов Павел, Губанов Александр</td>
+                                <td>18:54.7</td>
+                                <td class="gap-red">+01:00.9</td>
+                                <td>105.7%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Львов Андрей, Кузнецов Сергей</td>
+                                <td>18:56.9</td>
+                                <td class="gap-red">+01:03.1</td>
+                                <td>105.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Фаезов Расуль, Щипачев Данила</td>
+                                <td>19:03.1</td>
+                                <td class="gap-red">+01:09.3</td>
+                                <td>106.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Дмитриев Георгий, Урдяков Рустам</td>
+                                <td>19:08.6</td>
+                                <td class="gap-red">+01:14.8</td>
+                                <td>107.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Женщины, связка спринт -->
+        <div class="competition-card" id="card4">
+            <div class="competition-header" onclick="toggleCompetitionCard('card4')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-people-pulling" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная - связка (спринт), ЖЕНЩИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>03.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Елисеева Дарья, Жильцова Кира</td>
+                                <td>20:49.1</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Лучникова Елизавета, Орлова Екатерина</td>
+                                <td>21:41.6</td>
+                                <td class="gap-red">+00:52.5</td>
+                                <td>104.2%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Жаркова Екатерина, Карпова Анна</td>
+                                <td>23:19.4</td>
+                                <td class="gap-red">+02:30.3</td>
+                                <td>112.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Шашкова Анна, Романова Анастасия</td>
+                                <td>25:24.7</td>
+                                <td class="gap-red">+04:35.6</td>
+                                <td>122.1%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Загайнова Варвара, Суворова Ксения</td>
+                                <td>26:12.3</td>
+                                <td class="gap-red">+05:23.2</td>
+                                <td>125.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Дмитриева Валерия, Николаева Екатерина</td>
+                                <td>26:36.0</td>
+                                <td class="gap-red">+05:46.9</td>
+                                <td>127.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мужчины, группа длинная -->
+        <div class="competition-card" id="card5">
+            <div class="competition-header" onclick="toggleCompetitionCard('card5')">
+                <div class="competition-header-content">
+                    <div class="competition-icons compact-group">
+                        <i class="fa-solid fa-people-pulling" style="color: #000000;"></i>
+                        <i class="fa-solid fa-person-walking" style="color: #000000;"></i>
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-map-marked-alt distance-icon" style="color: #4CAF50;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная - группа (длинная), МУЖЧИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>04.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Безносиков Владислав, Белявцев Максим, Трифонов Константин, Ушаков Савелий</td>
+                                <td>1:27:31</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Федин Михаил, Калиновский Леонид, Пешиков Сергей, Тюрин Денис</td>
+                                <td>1:29:15</td>
+                                <td class="gap-red">+01:44</td>
+                                <td>102.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Волошкин Олег, Кудряшов Александр, Морос Максим, Ющик Никита</td>
+                                <td>1:29:29</td>
+                                <td class="gap-red">+01:58</td>
+                                <td>102.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Демьянов Вячеслав, Дмитриев Георгий, Петров Михаил, Урдяков Рустам</td>
+                                <td>1:32:11</td>
+                                <td class="gap-red">+04:40</td>
+                                <td>105.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Багабиев Амир, Бикушев Эмиль, Валиев Никита, Тутунин Динар</td>
+                                <td>1:36:30</td>
+                                <td class="gap-red">+08:59</td>
+                                <td>110.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Булыгин Максим, Отто Константин, Фаезов Расуль, Щипачев Данила</td>
+                                <td>1:37:00</td>
+                                <td class="gap-red">+09:29</td>
+                                <td>110.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Женщины, группа длинная -->
+        <div class="competition-card" id="card6">
+            <div class="competition-header" onclick="toggleCompetitionCard('card6')">
+                <div class="competition-header-content">
+                    <div class="competition-icons compact-group">
+                        <i class="fa-solid fa-people-pulling" style="color: #000000;"></i>
+                        <i class="fa-solid fa-person-walking" style="color: #000000;"></i>
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-map-marked-alt distance-icon" style="color: #4CAF50;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная - группа (длинная), ЖЕНЩИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>04.05.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td>Елисеева Дарья, Жильцова Кира, Лучникова Елизавета, Орлова Екатерина</td>
+                                <td>1:32:59</td>
+                                <td class="gap-red">-</td>
+                                <td>100.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td>Дмитриева Валерия, Ибрагимова Алия, Николаева Екатерина, Петренко Мария</td>
+                                <td>1:43:28</td>
+                                <td class="gap-red">+10:29</td>
+                                <td>111.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td>Огрызкова Анастасия, Ахапкина Алёна, Денисова Екатерина, Можарова Дарья</td>
+                                <td>1:54:03</td>
+                                <td class="gap-red">+21:04</td>
+                                <td>122.7%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td>Шашкова Анна, Романова Анастасия, Васильева Мария, Хлобостова Елизавета</td>
+                                <td>1:56:22</td>
+                                <td class="gap-red">+23:23</td>
+                                <td>125.2%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td>Пешикова Анастасия, Кузьмичева Наталья, Моргунова Анастасия, Орехова Ксения</td>
+                                <td>2:03:09</td>
+                                <td class="gap-red">+30:10</td>
+                                <td>132.4%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td>Бутова Алёна, Владыкина Екатерина, Загайнова Варвара, Суворова Ксения</td>
+                                <td>2:11:45</td>
+                                <td class="gap-red">+38:46</td>
+                                <td>141.7%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Информация о соревнованиях.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для переключения карточки с общей информацией
+        function toggleInfoCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('expanded');
+        }
+
+        // Функция для переключения карточек дисциплин
+        function toggleCompetitionCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('expanded');
+        }
+
+        // Функция для обработки прокрутки
+        function handleScroll() {
+            const eventNameHeader = document.getElementById('athleteNameHeader');
+            const backButton = document.querySelector('.back-button');
+            const backButtonText = backButton.querySelector('span');
+            const scrollY = window.scrollY;
+            
+            // Показываем имя когда прокрутка больше 100px
+            if (scrollY > 100) {
+                eventNameHeader.classList.add('visible');
+                backButtonText.style.maxWidth = '0';
+                backButtonText.style.opacity = '0';
+                backButton.style.paddingLeft = '8px';
+                backButton.style.paddingRight = '8px';
+            } else {
+                eventNameHeader.classList.remove('visible');
+                backButtonText.style.maxWidth = '80px';
+                backButtonText.style.opacity = '1';
+                backButton.style.paddingLeft = '12px';
+                backButton.style.paddingRight = '12px';
+            }
+        }
+
+        // Добавляем обработчик события прокрутки
+        window.addEventListener('scroll', handleScroll);
+
+        // Вызываем сразу для начального состояния
+        handleScroll();
+    </script>
+    
+</body>
+</html>
