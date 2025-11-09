@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -107,6 +108,8 @@ header {
     white-space: nowrap;
     overflow: hidden;
     min-width: auto;
+    z-index: 1001;
+    position: relative;
 }
 
 .back-button span {
@@ -125,6 +128,7 @@ header {
     opacity: 0;
     transition: opacity 0.3s ease;
     white-space: nowrap;
+    z-index: 1000;
 }
 
 .athlete-name-header.visible {
