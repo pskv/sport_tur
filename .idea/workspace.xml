@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Поправил отображение логотипов" />
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил страницу весеннего призыва">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_32.html" beforeDir="false" afterPath="$PROJECT_DIR$/event_32.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -316,11 +319,17 @@
       <option name="project" value="LOCAL" />
       <updated>1762610284315</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Добавил страницу весеннего призыва">
+      <created>1762634532672</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1762634532672</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил детальные результаты по нескольким спортсменам" />
     <MESSAGE value="Добавил детальные результаты по всем спортсменам" />
     <MESSAGE value="Пересчитал Ющика." />
     <MESSAGE value="Оставил только Фамилию в связках и группах." />
@@ -345,6 +354,7 @@
     <MESSAGE value="Перегенерил на относительные линки" />
     <MESSAGE value="Добавил логотипы за 2025 год" />
     <MESSAGE value="Поправил отображение логотипов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Поправил отображение логотипов" />
+    <MESSAGE value="Добавил страницу весеннего призыва" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил страницу весеннего призыва" />
   </component>
 </project>

@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.athlete-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.athlete-info {
+    text-align: center;
+    max-width: 400px;
+}
+
+.athlete-name {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.basic-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.basic-info p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(26, 58, 95, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: auto;
+}
+
+.back-button span {
+    transition: all 0.3s ease;
+    display: inline-block;
+    max-width: 80px;
+}
+
+.athlete-name-header {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.athlete-name-header.visible {
+    opacity: 1;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #1a3a5f;
+    margin: 10px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #eaeaea;
+}
+
+.event-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: white;
+    padding: 5px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.athlete-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white !important;
+}
+
+.competition-card {
+    background: white;
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.competition-header {
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.competition-header-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.competition-icons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.competition-icons.compact-group {
+    gap: 2px;
+}
+
+.competition-icons.compact-group i {
+    margin-right: 0;
+}
+
+.distance-icon {
+    margin-left: 6px;
+}
+
+.competition-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a3a5f;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.competition-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 3px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.competition-content {
+    padding: 0;
+    display: none;
+}
+
+.competition-card.expanded .competition-content {
+    display: block;
+}
+
+.competition-card.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+    color: #1a3a5f;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.info-card {
+    background: white;
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.info-card-header {
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.info-card-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1a3a5f;
+    margin: 0;
+}
+
+.info-card-content {
+    padding: 10px;
+    display: none;
+}
+
+.info-card.expanded .info-card-content {
+    display: block;
+}
+
+.info-card.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.compact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 6px;
+}
+
+.compact-stat {
+    background: #f8f9fa;
+    border-radius: 5px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+}
+
+.compact-stat-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a3a5f;
+    line-height: 1.1;
+}
+
+.compact-stat-label {
+    color: #666;
+    font-size: 0.65rem;
+    margin-top: 1px;
+}
+
+.competition-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: auto;
+    table-layout: auto;
+}
+
+.competition-table.compact-table {
+    font-size: 0.7rem;
+}
+
+.competition-table th, .competition-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 0.9rem;
+}
+
+.competition-table.compact-table th,
+.competition-table.compact-table td {
+    padding: 4px 5px;
+}
+
+.competition-table th {
+    background-color: #f8f9fa;
+    color: #1a3a5f;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.competition-table.compact-table th {
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+.competition-table tr:hover {
+    background-color: #f5f7fa;
+}
+
+.place-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 24px;
+}
+
+.competition-table.compact-table .place-badge {
+    padding: 1px 4px;
+    border-radius: 6px;
+    font-size: 0.6rem;
+    min-width: 16px;
+}
+
+.place-1 {
+    background-color: #FFD700;
+    color: #333;
+}
+
+.place-2 {
+    background-color: #C0C0C0;
+    color: #333;
+}
+
+.place-3 {
+    background-color: #CD7F32;
+    color: #fff;
+}
+
+.place-top10 {
+    background-color: #e9f5ff;
+    color: #1a3a5f;
+}
+
+.place-other {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.place-dnf {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px dashed #d32f2f;
+}
+
+.gap-red {
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+.athlete-link {
+    color: #1a3a5f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.athlete-link:hover {
+    color: #2c5a8a;
+    text-decoration: underline;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    margin: 6px 0 8px;
+    padding-bottom: 6px;
+}
+
+.athlete-name {
+    font-size: 1.3rem;
+}
+
+.basic-info p {
+    font-size: 0.75rem;
+}
+
+.table-container {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 8px;
+    }
+    
+    .competition-table.compact-table {
+        font-size: 0.65rem;
+    }
+    
+    .competition-table.compact-table th,
+    .competition-table.compact-table td {
+        padding: 2px 3px;
+    }
+    
+    .competition-title {
+        font-size: 0.8rem;
+    }
+    
+    .competition-header {
+        padding: 8px 10px;
+    }
+    
+    .competition-icons {
+        font-size: 0.9rem;
+    }
+    
+    .athlete-name {
+        font-size: 1.3rem;
+    }
+    
+    .basic-info p {
+        font-size: 0.75rem;
+    }
+}
