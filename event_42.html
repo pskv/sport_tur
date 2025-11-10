@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гонка Мастеров</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="event.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Гонка Мастеров</div>
+    <div style="width: 80px;"></div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <img src="logo/GM_130_fstr_logo.png" alt="Логотип соревнований" class="event-logo">
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Гонка Мастеров</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-flag"></i>Всероссийские соревнования</p>
+                        <p><i class="fas fa-map-marker-alt"></i>Московская область, м.о. Истра, с. Рождествено, ОК "Снегири"</p>
+                        <p><i class="fas fa-calendar"></i>13.10.2025 - 13.10.2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="info-card" id="generalInfoCard">
+            <div class="info-card-header" onclick="toggleInfoCard('generalInfoCard')">
+                <h3 class="info-card-title">Общая информация</h3>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="info-card-content">
+                <div class="compact-stats">
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">24</div>
+                        <div class="compact-stat-label">Участников</div>
+                    </div>
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">2</div>
+                        <div class="compact-stat-label">Протоколов</div>
+                    </div>
+                    <div class="compact-stat">
+                        <div class="compact-stat-value">1</div>
+                        <div class="compact-stat-label">Дисциплин</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class='section-title'>Результаты по дисциплинам</h2>
+
+
+        <div class="competition-card" id="card239">
+            <div class="competition-header" onclick="toggleCompetitionCard('card239')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная (спринт), МУЖЧИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>13.10.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td><a href="pers_8.html" class="athlete-link">Урдяков Рустам</a></td>
+                                <td>09:37</td>
+                                <td class="gap-red"></td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td><a href="pers_7.html" class="athlete-link">Ющик Никита</a></td>
+                                <td>10:11</td>
+                                <td class="gap-red">+00:34</td>
+                                <td>105.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td><a href="pers_4.html" class="athlete-link">Безносиков Владислав</a></td>
+                                <td>10:19</td>
+                                <td class="gap-red">+00:42</td>
+                                <td>107.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td><a href="pers_9.html" class="athlete-link">Львов Андрей</a></td>
+                                <td>10:27</td>
+                                <td class="gap-red">+00:50</td>
+                                <td>108.7%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td><a href="pers_2.html" class="athlete-link">Байкенов Ерлан</a></td>
+                                <td>10:29</td>
+                                <td class="gap-red">+00:52</td>
+                                <td>109%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td><a href="pers_13.html" class="athlete-link">Ушаков Савелий</a></td>
+                                <td>10:37</td>
+                                <td class="gap-red">+01:00</td>
+                                <td>110.4%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">7</span></td>
+                                <td><a href="pers_17.html" class="athlete-link">Калиновский Леонид</a></td>
+                                <td>11:09</td>
+                                <td class="gap-red">+01:32</td>
+                                <td>115.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">8</span></td>
+                                <td><a href="pers_81.html" class="athlete-link">Васильев Павел</a></td>
+                                <td>11:24</td>
+                                <td class="gap-red">+01:47</td>
+                                <td>118.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">9</span></td>
+                                <td><a href="pers_24.html" class="athlete-link">Андреев Андрей</a></td>
+                                <td>12:09</td>
+                                <td class="gap-red">+02:32</td>
+                                <td>126.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">10</span></td>
+                                <td><a href="pers_1.html" class="athlete-link">Кузнецов Сергей</a></td>
+                                <td>12:13</td>
+                                <td class="gap-red">+02:36</td>
+                                <td>127%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-other">11</span></td>
+                                <td><a href="pers_19.html" class="athlete-link">Пешиков Сергей</a></td>
+                                <td>12:42</td>
+                                <td class="gap-red">+03:05</td>
+                                <td>132.1%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-dnf">СН</span></td>
+                                <td><a href="pers_3.html" class="athlete-link">Колесов Павел</a></td>
+                                <td>-</td>
+                                <td class="gap-red">-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	   
+        <div class="competition-card" id="card240">
+            <div class="competition-header" onclick="toggleCompetitionCard('card240')">
+                <div class="competition-header-content">
+                    <div class="competition-icons">
+                        <i class="fa-solid fa-person-running" style="color: #000000;"></i>
+                        <i class="fa-solid fa-bolt distance-icon" style="color: #4169E1;"></i>
+                    </div>
+                    <div>
+                        <div class="competition-title">дистанция - пешеходная (спринт), ЖЕНЩИНЫ</div>
+                        <div class="competition-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>13.10.2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-running"></i>
+                                <span>Класс: 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="competition-content">
+                <div class="table-container">
+                    <table class="competition-table compact-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Участники</th>
+                                <th>Результат</th>
+                                <th>Отставание</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="place-badge place-1">1</span></td>
+                                <td><a href="pers_110.html" class="athlete-link">Жаркова Екатерина</a></td>
+                                <td>11:45</td>
+                                <td class="gap-red"></td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-2">2</span></td>
+                                <td><a href="pers_90.html" class="athlete-link">Жильцова Кира</a></td>
+                                <td>11:47</td>
+                                <td class="gap-red">+00:02</td>
+                                <td>100.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-3">3</span></td>
+                                <td><a href="pers_85.html" class="athlete-link">Чеботарёва Виктория</a></td>
+                                <td>12:27</td>
+                                <td class="gap-red">+00:42</td>
+                                <td>106%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">4</span></td>
+                                <td><a href="pers_88.html" class="athlete-link">Елисеева Дарья</a></td>
+                                <td>12:35</td>
+                                <td class="gap-red">+00:50</td>
+                                <td>107.1%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">5</span></td>
+                                <td><a href="pers_97.html" class="athlete-link">Инюшина Светлана</a></td>
+                                <td>12:57</td>
+                                <td class="gap-red">+01:12</td>
+                                <td>110.2%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">6</span></td>
+                                <td><a href="pers_89.html" class="athlete-link">Калиновская Мария</a></td>
+                                <td>13:13</td>
+                                <td class="gap-red">+01:28</td>
+                                <td>112.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">7</span></td>
+                                <td><a href="pers_109.html" class="athlete-link">Кузнецова Екатерина</a></td>
+                                <td>13:20</td>
+                                <td class="gap-red">+01:35</td>
+                                <td>113.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">8</span></td>
+                                <td><a href="pers_99.html" class="athlete-link">Шашкова Анна</a></td>
+                                <td>13:35</td>
+                                <td class="gap-red">+01:50</td>
+                                <td>115.6%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">9</span></td>
+                                <td><a href="pers_117.html" class="athlete-link">Лапушкова Екатерина</a></td>
+                                <td>13:41</td>
+                                <td class="gap-red">+01:56</td>
+                                <td>116.4%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-top10">10</span></td>
+                                <td><a href="pers_98.html" class="athlete-link">Карпова Анна</a></td>
+                                <td>13:44</td>
+                                <td class="gap-red">+01:59</td>
+                                <td>116.9%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-other">11</span></td>
+                                <td><a href="pers_94.html" class="athlete-link">Николаева Екатерина</a></td>
+                                <td>14:08</td>
+                                <td class="gap-red">+02:23</td>
+                                <td>120.3%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="place-badge place-other">12</span></td>
+                                <td><a href="pers_127.html" class="athlete-link">Комкова Надежда</a></td>
+                                <td>15:58</td>
+                                <td class="gap-red">+04:13</td>
+                                <td>135.9%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	   
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Информация о соревнованиях.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для переключения карточки с общей информацией
+        function toggleInfoCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('expanded');
+        }
+
+        // Функция для переключения карточек дисциплин
+        function toggleCompetitionCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('expanded');
+        }
+
+        // Функция для обработки прокрутки
+        function handleScroll() {
+            const eventNameHeader = document.getElementById('athleteNameHeader');
+            const backButton = document.querySelector('.back-button');
+            const backButtonText = backButton.querySelector('span');
+            const scrollY = window.scrollY;
+            
+            // Показываем имя когда прокрутка больше 100px
+            if (scrollY > 100) {
+                eventNameHeader.classList.add('visible');
+                backButtonText.style.maxWidth = '0';
+                backButtonText.style.opacity = '0';
+                backButton.style.paddingLeft = '8px';
+                backButton.style.paddingRight = '8px';
+            } else {
+                eventNameHeader.classList.remove('visible');
+                backButtonText.style.maxWidth = '80px';
+                backButtonText.style.opacity = '1';
+                backButton.style.paddingLeft = '12px';
+                backButton.style.paddingRight = '12px';
+            }
+        }
+
+        // Добавляем обработчик события прокрутки
+        window.addEventListener('scroll', handleScroll);
+
+        // Вызываем сразу для начального состояния
+        handleScroll();
+    </script>
+    
+</body>
+</html>
