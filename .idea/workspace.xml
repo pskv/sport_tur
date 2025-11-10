@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил все соревы">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил гонку мастеров.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_109.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_109.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_110.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_110.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_117.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_117.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_127.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_127.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_24.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_24.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_81.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_81.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_88.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_88.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_89.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_89.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_9.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_90.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_90.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_94.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_94.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_97.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_97.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_98.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_98.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pers_99.html" beforeDir="false" afterPath="$PROJECT_DIR$/pers_99.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,11 +359,17 @@
       <option name="project" value="LOCAL" />
       <updated>1762696367446</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Добавил гонку мастеров.">
+      <created>1762776830634</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1762776830634</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Оставил только Фамилию в связках и группах." />
     <MESSAGE value="Добавил ещё один протокол." />
     <MESSAGE value="Пересчитал всех с учётом МЭ 2025." />
     <MESSAGE value="Автосгенерированный index" />
@@ -368,6 +394,7 @@
     <MESSAGE value="Добавил страницу весеннего призыва" />
     <MESSAGE value="Добавил страницу весеннего призыва со всеми результатами" />
     <MESSAGE value="Добавил все соревы" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил все соревы" />
+    <MESSAGE value="Добавил гонку мастеров." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил гонку мастеров." />
   </component>
 </project>
