@@ -1,30 +1,399 @@
-
-        // Фильтрация по годам и сортировка таблицы
+// Компактные фильтры с выпадающими списками
 document.addEventListener('DOMContentLoaded', function() {
-    const yearButtons = document.querySelectorAll('.year-btn');
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
+    const clearFiltersBtn = document.getElementById('clearFilters');
+    const visibleCountElem = document.getElementById('visibleCount');
+    const totalCountElem = document.getElementById('totalCount');
 
-    // Фильтрация по годам
-    yearButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const year = this.getAttribute('data-year');
+    // Элементы фильтров
+    const yearFilterBtn = document.getElementById('yearFilterBtn');
+    const yearFilterContent = document.getElementById('yearFilterContent');
+    const disciplineFilterBtn = document.getElementById('disciplineFilterBtn');
+    const disciplineFilterContent = document.getElementById('disciplineFilterContent');
+    const distanceFilterBtn = document.getElementById('distanceFilterBtn');
+    const distanceFilterContent = document.getElementById('distanceFilterContent');
 
-            // Активируем кнопку
-            yearButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+    // Текущие активные фильтры
+    let activeFilters = {
+        years: ['all'],
+        disciplines: ['all'],
+        distances: ['all']
+    };
 
-            // Показываем/скрываем строки таблицы
-            tableRows.forEach(row => {
-                if (year === 'all' || row.getAttribute('data-year') === year) {
-                    row.style.display = '';
+    // Инициализация счетчика
+    totalCountElem.textContent = tableRows.length;
+    
+    // Динамическая инициализация фильтров
+    initializeYearFilters();
+    initializeDisciplineFilters();
+    initializeDistanceFilters();
+    
+    // Получаем обновленные checkbox'ы после динамической инициализации
+    const yearCheckboxes = yearFilterContent.querySelectorAll('input[type="checkbox"]');
+    const disciplineCheckboxes = disciplineFilterContent.querySelectorAll('input[type="checkbox"]');
+    const distanceCheckboxes = distanceFilterContent.querySelectorAll('input[type="checkbox"]');
+
+    updateVisibleCount();
+
+    // Функции динамической инициализации фильтров
+    function initializeYearFilters() {
+        const yearFilterContent = document.getElementById('yearFilterContent');
+        
+        // Очищаем существующие варианты (кроме "Все годы")
+        const existingOptions = yearFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+        existingOptions.forEach(option => option.remove());
+        
+        // Собираем уникальные годы из данных таблицы
+        const years = new Set();
+        tableRows.forEach(row => {
+            const year = row.getAttribute('data-year');
+            if (year) years.add(year);
+        });
+        
+        // Сортируем годы по убыванию
+        const sortedYears = Array.from(years).sort((a, b) => b - a);
+        
+        // Добавляем варианты в фильтр
+        sortedYears.forEach(year => {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
+            label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+            yearFilterContent.appendChild(label);
+        });
+    }
+
+    function initializeDisciplineFilters() {
+        const disciplineFilterContent = document.getElementById('disciplineFilterContent');
+        const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+        existingOptions.forEach(option => option.remove());
+        
+        const disciplines = new Set();
+        tableRows.forEach(row => {
+            const discipline = row.getAttribute('data-distance');
+            if (discipline && discipline !== '-') {
+                disciplines.add(discipline);
+            }
+        });
+        
+        disciplines.forEach(discipline => {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
+            
+            // Находим первую строку с этой дисциплиной чтобы взять иконку
+            const exampleRow = Array.from(tableRows).find(row => 
+                row.getAttribute('data-distance') === discipline
+            );
+            
+            let iconHtml = '';
+            if (exampleRow) {
+                const typeCell = exampleRow.cells[2];
+                iconHtml = typeCell.innerHTML;
+            }
+            
+            label.innerHTML = `
+                <input type="checkbox" value="${discipline}"> 
+                ${iconHtml} ${discipline}
+            `;
+            disciplineFilterContent.appendChild(label);
+        });
+    }
+
+    function initializeDistanceFilters() {
+        const distanceFilterContent = document.getElementById('distanceFilterContent');
+        const existingOptions = distanceFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+        existingOptions.forEach(option => option.remove());
+        
+        const distances = new Set();
+        tableRows.forEach(row => {
+            const distance = row.getAttribute('data-competition-type');
+            if (distance && distance !== '-') {
+                distances.add(distance);
+            }
+        });
+        
+        distances.forEach(distance => {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
+            
+            // Находим первую строку с этим типом дистанции чтобы взять иконку
+            const exampleRow = Array.from(tableRows).find(row => 
+                row.getAttribute('data-competition-type') === distance
+            );
+            
+            let iconHtml = '';
+            if (exampleRow) {
+                const mapCell = exampleRow.cells[3];
+                iconHtml = mapCell.innerHTML;
+            }
+            
+            label.innerHTML = `
+                <input type="checkbox" value="${distance}"> 
+                ${iconHtml} ${distance}
+            `;
+            distanceFilterContent.appendChild(label);
+        });
+    }
+
+    // Функция для умного позиционирования выпадающих списков
+    function smartPositionDropdown(button, content) {
+        if (window.innerWidth <= 768) {
+            // На мобильных используем фиксированное позиционирование снизу
+            content.classList.remove('upward');
+            return;
+        }
+
+        // На десктопе проверяем, достаточно ли места снизу
+        const buttonRect = button.getBoundingClientRect();
+        const contentHeight = content.scrollHeight;
+        const spaceBelow = window.innerHeight - buttonRect.bottom - 20; // 20px отступ
+        
+        if (spaceBelow < contentHeight && buttonRect.top > contentHeight) {
+            // Если места снизу мало, но сверху достаточно - открываем вверх
+            content.classList.add('upward');
+        } else {
+            // Иначе открываем вниз
+            content.classList.remove('upward');
+        }
+    }
+
+    // Функция определения дисциплины (для фильтрации строк)
+    function getDisciplineType(row) {
+        return row.getAttribute('data-distance');
+    }
+
+    // Функция определения длины дистанции (для фильтрации строк)
+    function getDistanceLength(row) {
+        return row.getAttribute('data-competition-type');
+    }
+
+    // Функция применения всех фильтров
+    function applyFilters() {
+        let visibleCount = 0;
+        
+        tableRows.forEach(row => {
+            const rowYear = row.getAttribute('data-year');
+            const rowDiscipline = getDisciplineType(row);
+            const rowDistance = getDistanceLength(row);
+            
+            const yearMatch = activeFilters.years.includes('all') || activeFilters.years.includes(rowYear);
+            const disciplineMatch = activeFilters.disciplines.includes('all') || activeFilters.disciplines.includes(rowDiscipline);
+            const distanceMatch = activeFilters.distances.includes('all') || activeFilters.distances.includes(rowDistance);
+            
+            if (yearMatch && disciplineMatch && distanceMatch) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+        
+        updateVisibleCount();
+        updateFilterButtons();
+        showEmptyMessage(visibleCount === 0);
+    }
+
+    // Функция обновления счетчика видимых строк
+    function updateVisibleCount() {
+        const visibleRows = Array.from(tableRows).filter(row => row.style.display !== 'none');
+        visibleCountElem.textContent = visibleRows.length;
+    }
+
+    // Функция показа/скрытия сообщения о пустой таблице
+    function showEmptyMessage(show) {
+        let emptyMessage = document.querySelector('.empty-table-message');
+        
+        if (!emptyMessage) {
+            emptyMessage = document.createElement('div');
+            emptyMessage.className = 'empty-table-message';
+            emptyMessage.textContent = 'Соревнования не найдены. Попробуйте изменить фильтры.';
+            document.querySelector('.table-container').appendChild(emptyMessage);
+        }
+        
+        if (show) {
+            emptyMessage.classList.remove('hidden');
+        } else {
+            emptyMessage.classList.add('hidden');
+        }
+    }
+
+    // Функция обновления текста кнопок фильтров
+    function updateFilterButtons() {
+        // Годы
+        updateFilterButtonText(yearFilterBtn, 'Все годы', activeFilters.years, 'год', 'года', 'лет');
+        
+        // Дисциплины
+        updateFilterButtonText(disciplineFilterBtn, 'Все дисциплины', activeFilters.disciplines, 'дисциплина', 'дисциплины', 'дисциплин');
+        
+        // Дистанции
+        updateFilterButtonText(distanceFilterBtn, 'Все дистанции', activeFilters.distances, 'дистанция', 'дистанции', 'дистанций');
+    }
+
+    function updateFilterButtonText(button, defaultText, activeValues, singleText, fewText, manyText) {
+        const filteredValues = activeValues.filter(v => v !== 'all');
+        
+        if (filteredValues.length === 0 || (filteredValues.length === 1 && filteredValues[0] === 'all')) {
+            button.querySelector('span').textContent = defaultText;
+            button.classList.remove('has-selection');
+        } else if (filteredValues.length === 1) {
+            button.querySelector('span').textContent = filteredValues[0];
+            button.classList.add('has-selection');
+        } else {
+            let text;
+            if (filteredValues.length === 1) {
+                text = `1 ${singleText}`;
+            } else if (filteredValues.length < 5) {
+                text = `${filteredValues.length} ${fewText}`;
+            } else {
+                text = `${filteredValues.length} ${manyText}`;
+            }
+            button.querySelector('span').textContent = text;
+            button.classList.add('has-selection');
+        }
+    }
+
+    // Функция обработки выбора в checkbox'ах
+    function handleCheckboxChange(checkboxes, filterType) {
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const value = this.value;
+                
+                if (value === 'all') {
+                    // Если выбран "Все", снимаем остальные выборы
+                    if (this.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb.value !== 'all') cb.checked = false;
+                        });
+                        activeFilters[filterType] = ['all'];
+                    }
                 } else {
-                    row.style.display = 'none';
+                    // Если выбран конкретный элемент, снимаем "Все"
+                    const allCheckbox = Array.from(checkboxes).find(cb => cb.value === 'all');
+                    if (allCheckbox) {
+                        allCheckbox.checked = false;
+                    }
+                    
+                    // Обновляем массив активных фильтров
+                    const currentValues = activeFilters[filterType].filter(v => v !== 'all');
+                    
+                    if (this.checked) {
+                        currentValues.push(value);
+                    } else {
+                        const index = currentValues.indexOf(value);
+                        if (index > -1) {
+                            currentValues.splice(index, 1);
+                        }
+                    }
+                    
+                    activeFilters[filterType] = currentValues.length > 0 ? currentValues : ['all'];
+                    
+                    // Если сняли все галочки, автоматически выбираем "Все"
+                    if (currentValues.length === 0) {
+                        allCheckbox.checked = true;
+                        activeFilters[filterType] = ['all'];
+                    }
                 }
+                
+                applyFilters();
             });
+        });
+    }
+
+    // Инициализация обработчиков для checkbox'ов
+    handleCheckboxChange(yearCheckboxes, 'years');
+    handleCheckboxChange(disciplineCheckboxes, 'disciplines');
+    handleCheckboxChange(distanceCheckboxes, 'distances');
+
+    // Обработчики для открытия/закрытия выпадающих списков
+    yearFilterBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isShowing = yearFilterContent.classList.toggle('show');
+        disciplineFilterContent.classList.remove('show');
+        distanceFilterContent.classList.remove('show');
+        
+        if (isShowing) {
+            smartPositionDropdown(this, yearFilterContent);
+        }
+    });
+
+    disciplineFilterBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isShowing = disciplineFilterContent.classList.toggle('show');
+        yearFilterContent.classList.remove('show');
+        distanceFilterContent.classList.remove('show');
+        
+        if (isShowing) {
+            smartPositionDropdown(this, disciplineFilterContent);
+        }
+    });
+
+    distanceFilterBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isShowing = distanceFilterContent.classList.toggle('show');
+        yearFilterContent.classList.remove('show');
+        disciplineFilterContent.classList.remove('show');
+        
+        if (isShowing) {
+            smartPositionDropdown(this, distanceFilterContent);
+        }
+    });
+
+    // Закрытие выпадающих списков при клике вне их
+    document.addEventListener('click', function() {
+        yearFilterContent.classList.remove('show');
+        disciplineFilterContent.classList.remove('show');
+        distanceFilterContent.classList.remove('show');
+    });
+
+    // Предотвращение закрытия при клике внутри выпадающего списка
+    [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(content => {
+        content.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
     });
 
-    // Сортировка таблицы - только для колонок с data-sort
+    // Добавьте обработчик изменения размера окна
+    window.addEventListener('resize', function() {
+        // Перепозиционируем открытые выпадающие списки
+        if (yearFilterContent.classList.contains('show')) {
+            smartPositionDropdown(yearFilterBtn, yearFilterContent);
+        }
+        if (disciplineFilterContent.classList.contains('show')) {
+            smartPositionDropdown(disciplineFilterBtn, disciplineFilterContent);
+        }
+        if (distanceFilterContent.classList.contains('show')) {
+            smartPositionDropdown(distanceFilterBtn, distanceFilterContent);
+        }
+    });
+
+    // Сброс всех фильтров
+    clearFiltersBtn.addEventListener('click', function() {
+        // Сбрасываем все checkbox'ы
+        yearCheckboxes.forEach(cb => {
+            cb.checked = cb.value === 'all';
+        });
+        disciplineCheckboxes.forEach(cb => {
+            cb.checked = cb.value === 'all';
+        });
+        distanceCheckboxes.forEach(cb => {
+            cb.checked = cb.value === 'all';
+        });
+
+        // Сбрасываем фильтры
+        activeFilters = {
+            years: ['all'],
+            disciplines: ['all'],
+            distances: ['all']
+        };
+        
+        applyFilters();
+        
+        // Закрываем все выпадающие списки
+        yearFilterContent.classList.remove('show');
+        disciplineFilterContent.classList.remove('show');
+        distanceFilterContent.classList.remove('show');
+    });
+
+    // Сортировка таблицы
     const table = document.getElementById('competitionTable');
     const headers = table.querySelectorAll('th[data-sort]');
     let currentSort = { column: 'date', direction: 'desc' };
@@ -33,20 +402,17 @@ document.addEventListener('DOMContentLoaded', function() {
         header.addEventListener('click', () => {
             const column = header.getAttribute('data-sort');
             const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr:not([style*="display: none"])'));
+            const visibleRows = Array.from(tbody.querySelectorAll('tr:not([style*="display: none"])'));
 
-            // Определяем направление сортировки
             const direction = currentSort.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
 
-            // Сортируем строки
-            rows.sort((a, b) => {
+            visibleRows.sort((a, b) => {
                 const aValue = a.querySelector(`td:nth-child(${getColumnIndex(header)})`).textContent.trim();
                 const bValue = b.querySelector(`td:nth-child(${getColumnIndex(header)})`).textContent.trim();
 
                 let comparison = 0;
 
                 if (column === 'date') {
-                    // Сортируем по числовому атрибуту data-date
                     const aDate = parseInt(a.getAttribute('data-date'));
                     const bDate = parseInt(b.getAttribute('data-date'));
                     comparison = aDate - bDate;
@@ -65,13 +431,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return direction === 'asc' ? comparison : -comparison;
             });
 
-            // Обновляем таблицу
-            rows.forEach(row => tbody.appendChild(row));
-
-            // Обновляем текущую сортировку
+            visibleRows.forEach(row => tbody.appendChild(row));
             currentSort = { column, direction };
-
-            // Обновляем иконки сортировки
             updateSortIcons(header, direction);
         });
     });
@@ -133,7 +494,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalType = document.getElementById('modalType');
     const modalPlace = document.getElementById('modalPlace');
 
-    // Обработчик для кликабельных строк
     document.querySelectorAll('.clickable-row').forEach(row => {
         row.addEventListener('click', function() {
             const eventName = this.cells[1].textContent;
@@ -143,21 +503,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function showModal(eventName, date, row) {
-        // Получаем данные из строки таблицы
         const athletesData = row.getAttribute('data-athletes');
         const distanceData = row.getAttribute('data-distance');
         const competitionType = row.getAttribute('data-competition-type');
         const resultsData = row.getAttribute('data-results');
-		
 		const eventType = row.getAttribute('data-event-type');
 		const eventNameShort = row.getAttribute('data-event-name-short');
 		const eventLocation = row.getAttribute('data-event-location');
 		const eventDate = row.getAttribute('data-date');
 
-        // Получаем данные из ячеек
         const placeCell = row.cells[4];
 
-		// Заполняем шапке
 		let headerHTML = `<div class="event-status">${eventType}</div>`;
 		if (eventNameShort && eventNameShort.trim() !== '') {
 			headerHTML += `<div class="event-name">${eventNameShort}</div>`;
@@ -167,30 +523,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		modalHeader.innerHTML = headerHTML;
 
-        // Заполняем информационные строки
         modalDiscipline.textContent = distanceData && distanceData !== '-' ? distanceData : '—';
         modalType.textContent = competitionType && competitionType !== '-' ? competitionType : '—';
         modalPlace.innerHTML = getPlaceDisplay(placeCell);
 
-        // Заполняем состав
         fillAthletesList(athletesData);
-
-        // Заполняем результаты
         fillResultsList(resultsData, row);
 
         modal.style.display = 'block';
     }
 
-    // Вспомогательные функции
 	function formatDate(dateString) {
 		if (!dateString) return '';
-		
-		// dateString в формате YYYYMMDD (например "20240705")
 		const year = dateString.substring(0, 4);
 		const month = dateString.substring(4, 6);
 		const day = dateString.substring(6, 8);
-		
-		return `${day}.${month}.${year}`; // Возвращаем в формате DD.MM.YY
+		return `${day}.${month}.${year}`;
 	}
 
     function getPlaceDisplay(placeCell) {
@@ -220,64 +568,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-function fillResultsList(resultsData, row) {
-    resultsList.innerHTML = '';
+    function fillResultsList(resultsData, row) {
+        resultsList.innerHTML = '';
+        try {
+            const results = JSON.parse(resultsData);
+            const placeCell = row.cells[4];
+            const athletePlace = parseInt(placeCell.textContent);
+            const sortedResults = results.sort((a, b) => a.place - b.place);
+            let resultsToShow = [];
 
-    try {
-        const results = JSON.parse(resultsData);
-
-        // Получаем место спортсмена из таблицы (пятый столбец)
-        const placeCell = row.cells[4];
-        const athletePlace = parseInt(placeCell.textContent);
-
-        // Сортируем результаты по месту
-        const sortedResults = results.sort((a, b) => a.place - b.place);
-
-        // Определяем, какие результаты показывать
-        let resultsToShow = [];
-
-        if (athletePlace <= 3) {
-            // Если спортсмен в топ-3, показываем первые 3 места
-            resultsToShow = sortedResults.filter(result => result.place <= 3);
-        } else {
-            // Если спортсмен не в топ-3, показываем первые 3 места + результат спортсмена
-            resultsToShow = sortedResults.filter(result => result.place <= 3 || result.place === athletePlace);
-        }
-
-        // Отображаем результаты
-        resultsToShow.forEach((result, index) => {
-            // Добавляем троеточие перед результатом спортсмена, если он не в топ-4
-            if (athletePlace > 4 && result.place === athletePlace && index > 2) {
-                const ellipsis = document.createElement('li');
-                ellipsis.className = 'ellipsis';
-                ellipsis.textContent = '...';
-                resultsList.appendChild(ellipsis);
+            if (athletePlace <= 3) {
+                resultsToShow = sortedResults.filter(result => result.place <= 3);
+            } else {
+                resultsToShow = sortedResults.filter(result => result.place <= 3 || result.place === athletePlace);
             }
 
+            resultsToShow.forEach((result, index) => {
+                if (athletePlace > 4 && result.place === athletePlace && index > 2) {
+                    const ellipsis = document.createElement('li');
+                    ellipsis.className = 'ellipsis';
+                    ellipsis.textContent = '...';
+                    resultsList.appendChild(ellipsis);
+                }
+
+                const li = document.createElement('li');
+                li.className = result.place === athletePlace ? 'result-item athlete-result' : 'result-item';
+                li.innerHTML = `
+                    <span class="result-place">${result.place}</span>
+                    <span class="result-name">${result.name}</span>
+                    <span class="result-time">${result.time}</span>
+                    <span class="result-gap">${result.gap}</span>
+                `;
+                resultsList.appendChild(li);
+            });
+
+        } catch (e) {
             const li = document.createElement('li');
-            // Сравниваем место из данных с местом из таблицы
-            li.className = result.place === athletePlace ? 'result-item athlete-result' : 'result-item';
-            li.innerHTML = `
-                <span class="result-place">${result.place}</span>
-                <span class="result-name">${result.name}</span>
-                <span class="result-time">${result.time}</span>
-                <span class="result-gap">${result.gap}</span>
-            `;
+            li.textContent = "Данные о результатах недоступны";
+            li.style.color = '#999';
+            li.style.fontStyle = 'italic';
+            li.style.padding = '8px';
+            li.style.textAlign = 'center';
             resultsList.appendChild(li);
-        });
-
-    } catch (e) {
-        const li = document.createElement('li');
-        li.textContent = "Данные о результатах недоступны";
-        li.style.color = '#999';
-        li.style.fontStyle = 'italic';
-        li.style.padding = '8px';
-        li.style.textAlign = 'center';
-        resultsList.appendChild(li);
+        }
     }
-}
 
-    // Закрытие модального окна
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
     });
@@ -294,14 +629,12 @@ function fillResultsList(resultsData, row) {
         }
     });
 
-    // Функция для обработки прокрутки
 	function handleScroll() {
 		const athleteNameHeader = document.getElementById('athleteNameHeader');
 		const backButton = document.querySelector('.back-button');
 		const backButtonText = backButton.querySelector('span');
 		const scrollY = window.scrollY;
 		
-		// Показываем имя когда прокрутка больше 100px
 		if (scrollY > 100) {
 			athleteNameHeader.classList.add('visible');
 			backButtonText.style.maxWidth = '0';
@@ -317,10 +650,9 @@ function fillResultsList(resultsData, row) {
 		}
 	}
 
-    // Добавляем обработчик события прокрутки
     window.addEventListener('scroll', handleScroll);
-
-    // Вызываем сразу для начального состояния
     handleScroll();
-	
+
+    // Инициализация при загрузке
+    applyFilters();
 });
