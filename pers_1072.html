@@ -133,10 +133,54 @@
         <h2 class='section-title'>История выступлений</h2>
 
         <div class="competition-history">
-            <div class="year-filter">
-                <button class="year-btn active" data-year="all">Все годы</button>
-                <button class="year-btn" data-year="2022">2022</button>
-                <button class="year-btn" data-year="2023">2023</button>
+
+            <!-- КОМПАКТНЫЕ ФИЛЬТРЫ -->
+            <div class="compact-filters">
+                <div class="filter-dropdown">
+                    <button class="filter-dropdown-btn" id="yearFilterBtn">
+                        <span>Все годы</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="yearFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все годы
+                        </label>
+                        <!-- Годы добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+                    <button class="filter-dropdown-btn" id="disciplineFilterBtn">
+                        <span>Все дисциплины</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="disciplineFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дисциплины
+                        </label>
+                        <!-- Дисциплины добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+                    <button class="filter-dropdown-btn" id="distanceFilterBtn">
+                        <span>Все дистанции</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="distanceFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дистанции
+                        </label>
+                        <!-- Типы дистанций добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-stats">
+                    <span id="visibleCount">0</span> из <span id="totalCount">0</span>
+                    <button class="clear-filters" id="clearFilters">
+                        <i class="fas fa-times"></i> Сбросить
+                    </button>
+                </div>
             </div>
             <div class="table-container">
                 <table class="competition-table" id="competitionTable">

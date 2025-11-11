@@ -1,3 +1,4 @@
+
 // Компактные фильтры с выпадающими списками
 document.addEventListener('DOMContentLoaded', function() {
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
