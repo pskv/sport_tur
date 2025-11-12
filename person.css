@@ -981,7 +981,7 @@ footer {
 }
 
 .search-expanded.active {
-    width: 250px;
+    width: 320x;
     opacity: 1;
     transform: scaleX(1);
 }
@@ -1016,7 +1016,7 @@ footer {
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     max-height: 300px;
     overflow-y: auto;
-    width: 300px;
+    width: 350px;
     z-index: 1102;
     display: none;
     margin-top: 8px;
@@ -1061,6 +1061,7 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.2;
+    min-width: 0;
 }
 
 .search-result-region {
@@ -1200,11 +1201,11 @@ footer {
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
     .search-expanded.active {
-        width: 200px;
+        width: 280px;
     }
     
     .search-results {
-        width: 250px;
+        width: 300px;
     }
 
     .search-result-item {
@@ -1232,10 +1233,10 @@ footer {
 
 @media (max-width: 480px) {
     .search-expanded.active {
-        width: 180px;
+        width: 250px;
     }
     
     .search-results {
-        width: 220px;
+        width: 260px;
     }
 }
