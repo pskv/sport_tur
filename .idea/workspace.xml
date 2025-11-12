@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Добавил кэширование списка спортсменов">
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Тест решения проблемы с поиском на ios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.css" beforeDir="false" afterPath="$PROJECT_DIR$/person.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/person.js" beforeDir="false" afterPath="$PROJECT_DIR$/person.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,20 +46,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760527221871</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Добавил Google Analytics">
-      <created>1760535179050</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1760535179050</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Добавил Google Analytics">
-      <created>1760536824370</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1760536824370</updated>
     </task>
     <task id="LOCAL-00005" summary="Добавил модальное окно">
       <created>1760716110956</created>
@@ -389,7 +376,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762969173136</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Тест решения проблемы с поиском на мобильных">
+      <created>1762980673473</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1762980673473</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Тест решения проблемы с поиском на ios">
+      <created>1762981658819</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1762981658819</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -404,8 +405,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Изменил логику секции &quot;Лучшие результаты&quot;" />
-    <MESSAGE value="Изменил модальное окно в css (шапка)" />
     <MESSAGE value="Добавил имя вверху и плавные анимации" />
     <MESSAGE value="Добавил имя вверху и плавные анимации. Пересчитал всех." />
     <MESSAGE value="Добавил Елец 2025" />
@@ -429,6 +428,8 @@
     <MESSAGE value="Добавил фильтр по дисциплинам и дистанциям." />
     <MESSAGE value="Добавил поиск спортсменов в карточку спортсмена" />
     <MESSAGE value="Добавил кэширование списка спортсменов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил кэширование списка спортсменов" />
+    <MESSAGE value="Тест решения проблемы с поиском на мобильных" />
+    <MESSAGE value="Тест решения проблемы с поиском на ios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Тест решения проблемы с поиском на ios" />
   </component>
 </project>
