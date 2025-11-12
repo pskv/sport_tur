@@ -1,3 +1,4 @@
+
 (function() {
     const DATA_VERSION = '1.0';
     const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
