@@ -763,7 +763,7 @@ if (searchIcon && searchExpanded && headerSearch) {
         const filtered = window.athletesData.filter(athlete => 
             athlete.name.toLowerCase().includes(searchTerm) || 
             (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
-            (athlete.rankText && athlete.rankText.toLowerCase().includes(searchTerm))
+            (athlete.rank && athlete.rank.toLowerCase().includes(searchTerm))
         );
         
         if (filtered.length > 0) {
@@ -781,12 +781,16 @@ if (searchIcon && searchExpanded && headerSearch) {
                     item.style.cursor = 'default';
                 }
                 
+                // Компактный формат карточки
+                const birthYearInfo = athlete.birthYear ? `, ${athlete.birthYear}` : '';
+                const rankInfo = athlete.rank ? `<div class="search-result-rank">${athlete.rank}</div>` : '';
+                
                 item.innerHTML = `
-                    <div>
-                        <div class="search-result-name">${athlete.name}</div>
+                    <div class="search-result-main">
+                        <div class="search-result-name">${athlete.name}${birthYearInfo}</div>
                         <div class="search-result-region">${athlete.region || ''}</div>
                     </div>
-                    <div class="search-result-rank">${athlete.rankText || athlete.rank || ''}</div>
+                    ${rankInfo}
                 `;
                 
                 // Для элементов без ссылки блокируем события

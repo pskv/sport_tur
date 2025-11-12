@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -946,6 +945,7 @@ footer {
     margin-right: 15px;
     display: flex;
     align-items: center;
+    z-index: 1100;
 }
 
 .search-icon {
@@ -971,11 +971,12 @@ footer {
     right: 0;
     top: 0;
     width: 0;
-    overflow: hidden;
+    overflow: visible;
     opacity: 0;
     transform: scaleX(0);
     transform-origin: right center;
     transition: all 0.3s ease;
+    z-index: 1101;
 }
 
 .search-expanded.active {
@@ -984,119 +985,6 @@ footer {
     transform: scaleX(1);
 }
 
-.search-expanded.active #headerSearch {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.search-expanded.active #headerSearch::placeholder {
-    color: rgba(255,255,255,0.7);
-}
-
-.search-expanded.active #headerSearch:focus {
-    outline: none;
-    background: rgba(255,255,255,0.25);
-}
-
-.search-results {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    max-height: 300px;
-    overflow-y: auto;
-    width: 300px;
-    z-index: 1002;
-    display: none;
-}
-
-.search-result-item {
-    padding: 10px 15px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-result-item:hover {
-    background: #f5f7fa;
-}
-
-.search-result-name {
-    font-weight: 600;
-    color: #1a3a5f;
-}
-
-.search-result-region {
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.search-result-rank {
-    font-size: 0.8rem;
-    color: #2c5a8a;
-    font-weight: 600;
-}
-
-/* Скрытие элементов при активном поиске */
-.search-active .back-button span {
-    max-width: 0 !important;
-    opacity: 0 !important;
-    margin-right: 0 !important;
-}
-
-.search-active .athlete-name-header {
-    opacity: 0 !important;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .search-expanded.active {
-        width: 200px;
-    }
-    
-    .search-results {
-        width: 250px;
-    }
-}
-
-.search-icon i {
-    color: white;
-    font-size: 0.9rem;
-}
-/* Скрываем плейсхолдер пока инпут не полностью появился */
-.search-expanded:not(.active) #headerSearch::placeholder {
-    color: transparent;
-}
-
-.search-expanded.active #headerSearch::placeholder {
-    color: rgba(255,255,255,0.7);
-    transition: color 0.3s ease 0.2s; /* Появляется с задержкой */
-}
-
-
-.search-expanded {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: all 0.3s ease;
-}
-
-/* Сразу задаем стили инпута, даже когда он скрыт */
 .search-expanded #headerSearch {
     width: 100%;
     padding: 8px 12px;
@@ -1112,43 +1000,12 @@ footer {
     color: rgba(255,255,255,0.7);
 }
 
-.search-expanded.active {
-    width: 250px;
-    opacity: 1;
-    transform: scaleX(1);
-}
-
 .search-expanded.active #headerSearch:focus {
     outline: none;
     background: rgba(255,255,255,0.25);
 }
 
-
-
-
-/* Финальные рабочие стили для поиска */
-.header-search {
-    position: relative;
-    margin-left: auto;
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-    z-index: 1100;
-}
-
-.search-expanded {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 0;
-    overflow: visible;
-    opacity: 0;
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: all 0.3s ease;
-    z-index: 1101;
-}
-
+/* Компактные стили для результатов поиска */
 .search-results {
     position: absolute;
     top: 100%;
@@ -1163,4 +1020,221 @@ footer {
     display: none;
     margin-top: 8px;
     border: 1px solid #e0e0e0;
+}
+
+.search-result-item {
+    text-decoration: none !important;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 44px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-main {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.search-result-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.search-result-region {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.search-result-rank {
+    font-size: 11px;
+    color: #888;
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+/* Элемент "нет результатов" */
+.search-result-item.no-results {
+    justify-content: center;
+    color: #999;
+    font-style: italic;
+    background: transparent !important;
+}
+
+.search-result-item.no-results:hover {
+    background: transparent !important;
+}
+
+/* Убираем подчеркивание во всех состояниях */
+.search-result-item:hover,
+.search-result-item:focus,
+.search-result-item:active,
+.search-result-item:visited {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .search-result-item {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+    }
+    
+    .search-expanded {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Скрытие элементов при активном поиске */
+.search-active .back-button span {
+    max-width: 0 !important;
+    opacity: 0 !important;
+    margin-right: 0 !important;
+}
+
+.search-active .athlete-name-header {
+    opacity: 0 !important;
+}
+
+.search-icon i {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Анимация появления */
+@keyframes searchResultsAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-results {
+    animation: searchResultsAppear 0.2s ease-out;
+}
+
+/* Стили для фиксированного хедера при активном поиске */
+/*
+.fixed-header.search-active {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+*/
+
+/* Убираем стандартные стили для всех ссылок в результатах поиска */
+.search-results a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-results a:hover,
+.search-results a:focus,
+.search-results a:active {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+/* Улучшаем доступность для фокуса */
+.search-result-item:focus-visible {
+    outline: 2px solid #007bff;
+    outline-offset: -2px;
+}
+
+/* Стили для скроллбара в результатах поиска */
+.search-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .search-expanded.active {
+        width: 200px;
+    }
+    
+    .search-results {
+        width: 250px;
+    }
+
+    .search-result-item {
+        padding: 6px 10px;
+        min-height: 40px;
+    }
+    
+    .search-result-name {
+        font-size: 13px;
+    }
+    
+    .search-result-region {
+        font-size: 11px;
+    }
+    
+    .search-result-rank {
+        font-size: 10px;
+        padding: 1px 4px;
+    }
+    
+    .search-results {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-expanded.active {
+        width: 180px;
+    }
+    
+    .search-results {
+        width: 220px;
+    }
 }
