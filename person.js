@@ -656,4 +656,124 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Инициализация при загрузке
     applyFilters();
+
+// === ПОИСК СПОРТСМЕНОВ В ШАПКЕ ===
+const searchIcon = document.getElementById('searchIcon');
+const searchExpanded = document.getElementById('searchExpanded');
+const headerSearch = document.getElementById('headerSearch');
+const searchResults = document.getElementById('searchResults');
+const fixedHeader = document.querySelector('.fixed-header');
+
+if (searchIcon && searchExpanded && headerSearch) {
+    // Открытие поиска
+    searchIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        fixedHeader.classList.add('search-active');
+        searchExpanded.classList.add('active');
+    
+    // Очищаем предыдущие результаты и скрываем панель
+    searchResults.innerHTML = '';
+    searchResults.style.display = 'none';
+    headerSearch.value = ''; // Очищаем поле ввода
+	
+        setTimeout(() => {
+            headerSearch.focus();
+        }, 300);
+    });
+
+    // Закрытие поиска при клике вне
+    document.addEventListener('click', function(e) {
+        if (!searchExpanded.contains(e.target) && !searchIcon.contains(e.target)) {
+            closeSearch();
+        }
+    });
+
+    // Поиск при вводе
+    headerSearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        searchResults.innerHTML = '';
+        
+        if (searchTerm.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        // Проверяем, загружены ли данные
+        if (!window.athletesData || !Array.isArray(window.athletesData)) {
+            console.warn('Данные спортсменов не загружены');
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        // Фильтрация данных
+        const filtered = window.athletesData.filter(athlete => 
+            athlete.name.toLowerCase().includes(searchTerm) || 
+            (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
+            (athlete.rankText && athlete.rankText.toLowerCase().includes(searchTerm))
+        );
+
+        if (filtered.length > 0) {
+            filtered.forEach(athlete => {
+                const item = document.createElement('div');
+                item.className = 'search-result-item';
+                item.innerHTML = `
+                    <div>
+                        <div class="search-result-name">${athlete.name}</div>
+                        <div class="search-result-region">${athlete.region || ''}</div>
+                    </div>
+                    <div class="search-result-rank">${athlete.rankText || athlete.rank || ''}</div>
+                `;
+                item.addEventListener('click', () => {
+                    if (athlete.link) {
+                        window.location.href = athlete.link;
+                    }
+                });
+                searchResults.appendChild(item);
+            });
+            searchResults.style.display = 'block';
+        } else {
+            // Показать сообщение "Ничего не найдено"
+            const noResults = document.createElement('div');
+            noResults.className = 'search-result-item';
+            noResults.innerHTML = `
+                <div style="text-align: center; width: 100%; color: #666; font-style: italic;">
+                    Спортсмены не найдены
+                </div>
+            `;
+            searchResults.appendChild(noResults);
+            searchResults.style.display = 'block';
+        }
+    });
+
+    // Закрытие при нажатии Escape
+    headerSearch.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeSearch();
+        }
+    });
+
+    // Функция закрытия поиска
+    function closeSearch() {
+        fixedHeader.classList.remove('search-active');
+        searchExpanded.classList.remove('active');
+        searchResults.style.display = 'none';
+        headerSearch.value = '';
+    }
+
+    // Закрытие при прокрутке
+    window.addEventListener('scroll', function() {
+        if (searchExpanded.classList.contains('active')) {
+            closeSearch();
+        }
+    });
+
+    // Закрытие при изменении размера окна
+    window.addEventListener('resize', function() {
+        if (searchExpanded.classList.contains('active')) {
+            closeSearch();
+        }
+    });
+}
+
+
 });

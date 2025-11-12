@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -937,4 +936,230 @@ footer {
 
 .filter-dropdown-content::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+}
+
+/* Стили для поиска в шапке */
+.header-search {
+    position: relative;
+    margin-left: auto;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+}
+
+.search-icon:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.search-expanded {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: all 0.3s ease;
+}
+
+.search-expanded.active {
+    width: 250px;
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.search-expanded.active #headerSearch {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-expanded.active #headerSearch::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.search-expanded.active #headerSearch:focus {
+    outline: none;
+    background: rgba(255,255,255,0.25);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-height: 300px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1002;
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-result-item:hover {
+    background: #f5f7fa;
+}
+
+.search-result-name {
+    font-weight: 600;
+    color: #1a3a5f;
+}
+
+.search-result-region {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.search-result-rank {
+    font-size: 0.8rem;
+    color: #2c5a8a;
+    font-weight: 600;
+}
+
+/* Скрытие элементов при активном поиске */
+.search-active .back-button span {
+    max-width: 0 !important;
+    opacity: 0 !important;
+    margin-right: 0 !important;
+}
+
+.search-active .athlete-name-header {
+    opacity: 0 !important;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .search-expanded.active {
+        width: 200px;
+    }
+    
+    .search-results {
+        width: 250px;
+    }
+}
+
+.search-icon i {
+    color: white;
+    font-size: 0.9rem;
+}
+/* Скрываем плейсхолдер пока инпут не полностью появился */
+.search-expanded:not(.active) #headerSearch::placeholder {
+    color: transparent;
+}
+
+.search-expanded.active #headerSearch::placeholder {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease 0.2s; /* Появляется с задержкой */
+}
+
+
+.search-expanded {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: all 0.3s ease;
+}
+
+/* Сразу задаем стили инпута, даже когда он скрыт */
+.search-expanded #headerSearch {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-expanded #headerSearch::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.search-expanded.active {
+    width: 250px;
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.search-expanded.active #headerSearch:focus {
+    outline: none;
+    background: rgba(255,255,255,0.25);
+}
+
+
+
+
+/* Финальные рабочие стили для поиска */
+.header-search {
+    position: relative;
+    margin-left: auto;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    z-index: 1100;
+}
+
+.search-expanded {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    overflow: visible;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: all 0.3s ease;
+    z-index: 1101;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    max-height: 300px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1102;
+    display: none;
+    margin-top: 8px;
+    border: 1px solid #e0e0e0;
 }
