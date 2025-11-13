@@ -710,6 +710,8 @@ if (searchIcon && searchExpanded && headerSearch) {
                 }
             }, 50);
         }, 30);
+        
+        console.log('🔍 Поиск открыт, поле очищено');
     });
 
     // Простая функция закрытия поиска
@@ -721,6 +723,8 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.innerHTML = '';
         headerSearch.value = '';
         headerSearch.blur();
+        
+        console.log('❌ Поиск закрыт');
     }
 
     // Закрытие поиска при клике вне
@@ -737,6 +741,15 @@ if (searchIcon && searchExpanded && headerSearch) {
         }
     });
 
+    // Логирование событий фокуса для отладки
+    headerSearch.addEventListener('focus', function() {
+        console.log('✅ Фокус на поле поиска');
+    });
+    
+    headerSearch.addEventListener('blur', function() {
+        console.log('❌ Потеря фокуса с поля поиска');
+    });
+
     // Поиск при вводе текста
     headerSearch.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();
@@ -748,6 +761,7 @@ if (searchIcon && searchExpanded && headerSearch) {
         }
         
         if (!window.athletesData || !Array.isArray(window.athletesData)) {
+            console.warn('Данные спортсменов не загружены');
             searchResults.style.display = 'none';
             return;
         }
