@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Тест появления клавиатуры на ios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Исправления" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,20 +42,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760527221871</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Добавил имя вверху и плавные анимации. Пересчитал всех.">
-      <created>1761634333969</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1761634333969</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Добавил Елец 2025">
-      <created>1761641122083</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1761641122083</updated>
     </task>
     <task id="LOCAL-00023" summary="Добавил КК 2025">
       <created>1761661852852</created>
@@ -388,7 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763016304997</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Исправления">
+      <created>1763017291367</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1763017291367</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Исправления">
+      <created>1763017905848</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1763017905848</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -403,7 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил имя вверху и плавные анимации. Пересчитал всех." />
     <MESSAGE value="Добавил Елец 2025" />
     <MESSAGE value="Добавил КК 2025" />
     <MESSAGE value="Добавил ПР и ЧР 2025" />
@@ -428,6 +425,7 @@
     <MESSAGE value="Тест решения проблемы с поиском на мобильных" />
     <MESSAGE value="Тест решения проблемы с поиском на ios" />
     <MESSAGE value="Тест появления клавиатуры на ios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Тест появления клавиатуры на ios" />
+    <MESSAGE value="Исправления" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправления" />
   </component>
 </project>

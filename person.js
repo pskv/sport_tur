@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const visibleCountElem = document.getElementById('visibleCount');
     const totalCountElem = document.getElementById('totalCount');
 
-    // Элементы фильтров
     const yearFilterBtn = document.getElementById('yearFilterBtn');
     const yearFilterContent = document.getElementById('yearFilterContent');
     const disciplineFilterBtn = document.getElementById('disciplineFilterBtn');
@@ -13,56 +12,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const distanceFilterBtn = document.getElementById('distanceFilterBtn');
     const distanceFilterContent = document.getElementById('distanceFilterContent');
 
-    // Текущие активные фильтры
     let activeFilters = {
         years: ['all'],
         disciplines: ['all'],
         distances: ['all']
     };
 
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Проверка существования элементов
     if (!yearFilterBtn || !disciplineFilterBtn || !distanceFilterBtn || !tableRows.length) {
-        console.warn('Required elements not found, skipping filter initialization');
         if (totalCountElem) totalCountElem.textContent = tableRows.length;
         return;
     }
 
-    // Инициализация счетчика
     totalCountElem.textContent = tableRows.length;
     
-    // Динамическая инициализация фильтров
     initializeYearFilters();
     initializeDisciplineFilters();
     initializeDistanceFilters();
     
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Получаем checkbox'ы ПОСЛЕ инициализации
     const yearCheckboxes = yearFilterContent.querySelectorAll('input[type="checkbox"]');
     const disciplineCheckboxes = disciplineFilterContent.querySelectorAll('input[type="checkbox"]');
     const distanceCheckboxes = distanceFilterContent.querySelectorAll('input[type="checkbox"]');
 
     updateVisibleCount();
 
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Добавляем обработку ошибок в инициализацию
     function initializeYearFilters() {
         try {
-            const yearFilterContent = document.getElementById('yearFilterContent');
-            if (!yearFilterContent) return;
-            
-            // Очищаем существующие варианты (кроме "Все годы")
             const existingOptions = yearFilterContent.querySelectorAll('.filter-option:not(:first-child)');
             existingOptions.forEach(option => option.remove());
             
-            // Собираем уникальные годы из данных таблицы
             const years = new Set();
             tableRows.forEach(row => {
                 const year = row.getAttribute('data-year');
                 if (year) years.add(year);
             });
             
-            // Сортируем годы по убыванию
             const sortedYears = Array.from(years).sort((a, b) => b - a);
             
-            // Добавляем варианты в фильтр
             sortedYears.forEach(year => {
                 const label = document.createElement('label');
                 label.className = 'filter-option';
@@ -76,9 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeDisciplineFilters() {
         try {
-            const disciplineFilterContent = document.getElementById('disciplineFilterContent');
-            if (!disciplineFilterContent) return;
-            
             const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
             existingOptions.forEach(option => option.remove());
             
@@ -94,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const label = document.createElement('label');
                 label.className = 'filter-option';
                 
-                // Находим первую строку с этой дисциплиной чтобы взять иконку
                 const exampleRow = Array.from(tableRows).find(row => 
                     row.getAttribute('data-distance') === discipline
                 );
@@ -118,9 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeDistanceFilters() {
         try {
-            const distanceFilterContent = document.getElementById('distanceFilterContent');
-            if (!distanceFilterContent) return;
-            
             const existingOptions = distanceFilterContent.querySelectorAll('.filter-option:not(:first-child)');
             existingOptions.forEach(option => option.remove());
             
@@ -136,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const label = document.createElement('label');
                 label.className = 'filter-option';
                 
-                // Находим первую строку с этим типом дистанции чтобы взять иконку
                 const exampleRow = Array.from(tableRows).find(row => 
                     row.getAttribute('data-competition-type') === distance
                 );
@@ -158,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Debounce для resize
     function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
@@ -171,39 +147,31 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // Функция для умного позиционирования выпадающих списков
     function smartPositionDropdown(button, content) {
         if (window.innerWidth <= 768) {
-            // На мобильных используем фиксированное позиционирование снизу
             content.classList.remove('upward');
             return;
         }
 
-        // На десктопе проверяем, достаточно ли места снизу
         const buttonRect = button.getBoundingClientRect();
         const contentHeight = content.scrollHeight;
-        const spaceBelow = window.innerHeight - buttonRect.bottom - 20; // 20px отступ
+        const spaceBelow = window.innerHeight - buttonRect.bottom - 20;
         
         if (spaceBelow < contentHeight && buttonRect.top > contentHeight) {
-            // Если места снизу мало, но сверху достаточно - открываем вверх
             content.classList.add('upward');
         } else {
-            // Иначе открываем вниз
             content.classList.remove('upward');
         }
     }
 
-    // Функция определения дисциплины (для фильтрации строк)
     function getDisciplineType(row) {
         return row.getAttribute('data-distance');
     }
 
-    // Функция определения длины дистанции (для фильтрации строк)
     function getDistanceLength(row) {
         return row.getAttribute('data-competition-type');
     }
 
-    // Функция применения всех фильтров
     function applyFilters() {
         let visibleCount = 0;
         
@@ -229,13 +197,11 @@ document.addEventListener('DOMContentLoaded', function() {
         showEmptyMessage(visibleCount === 0);
     }
 
-    // Функция обновления счетчика видимых строк
     function updateVisibleCount() {
         const visibleRows = Array.from(tableRows).filter(row => row.style.display !== 'none');
         visibleCountElem.textContent = visibleRows.length;
     }
 
-    // Функция показа/скрытия сообщения о пустой таблице
     function showEmptyMessage(show) {
         let emptyMessage = document.querySelector('.empty-table-message');
         
@@ -253,15 +219,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Функция обновления текста кнопок фильтров
     function updateFilterButtons() {
-        // Годы
         updateFilterButtonText(yearFilterBtn, 'Все годы', activeFilters.years, 'год', 'года', 'лет');
-        
-        // Дисциплины
         updateFilterButtonText(disciplineFilterBtn, 'Все дисциплины', activeFilters.disciplines, 'дисциплина', 'дисциплины', 'дисциплин');
-        
-        // Дистанции
         updateFilterButtonText(distanceFilterBtn, 'Все дистанции', activeFilters.distances, 'дистанция', 'дистанции', 'дистанций');
     }
 
@@ -288,14 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Функция обработки выбора в checkbox'ах
     function handleCheckboxChange(checkboxes, filterType) {
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
                 const value = this.value;
                 
                 if (value === 'all') {
-                    // Если выбран "Все", снимаем остальные выборы
                     if (this.checked) {
                         checkboxes.forEach(cb => {
                             if (cb.value !== 'all') cb.checked = false;
@@ -303,13 +261,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         activeFilters[filterType] = ['all'];
                     }
                 } else {
-                    // Если выбран конкретный элемент, снимаем "Все"
                     const allCheckbox = Array.from(checkboxes).find(cb => cb.value === 'all');
                     if (allCheckbox) {
                         allCheckbox.checked = false;
                     }
                     
-                    // Обновляем массив активных фильтров
                     const currentValues = activeFilters[filterType].filter(v => v !== 'all');
                     
                     if (this.checked) {
@@ -323,7 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     activeFilters[filterType] = currentValues.length > 0 ? currentValues : ['all'];
                     
-                    // Если сняли все галочки, автоматически выбираем "Все"
                     if (currentValues.length === 0) {
                         allCheckbox.checked = true;
                         activeFilters[filterType] = ['all'];
@@ -335,12 +290,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Инициализация обработчиков для checkbox'ов
     handleCheckboxChange(yearCheckboxes, 'years');
     handleCheckboxChange(disciplineCheckboxes, 'disciplines');
     handleCheckboxChange(distanceCheckboxes, 'distances');
 
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Единый обработчик для фильтров с проверками
     function setupFilterToggle(button, content) {
         if (!button || !content) return;
         
@@ -348,7 +301,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             const isShowing = content.classList.toggle('show');
             
-            // Скрыть другие фильтры
             [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(otherContent => {
                 if (otherContent && otherContent !== content) otherContent.classList.remove('show');
             });
@@ -357,44 +309,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Инициализация обработчиков с проверками
     setupFilterToggle(yearFilterBtn, yearFilterContent);
     setupFilterToggle(disciplineFilterBtn, disciplineFilterContent);
     setupFilterToggle(distanceFilterBtn, distanceFilterContent);
 
-    // Закрытие выпадающих списков при клике вне их
     document.addEventListener('click', function() {
         yearFilterContent.classList.remove('show');
         disciplineFilterContent.classList.remove('show');
         distanceFilterContent.classList.remove('show');
     });
 
-    // Предотвращение закрытия при клике внутри выпадающего списка
     [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(content => {
-        content.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+        if (content) {
+            content.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     });
 
-    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Debounce для resize
     const handleResize = debounce(function() {
-        // Перепозиционируем открытые выпадающие списки
-        if (yearFilterContent.classList.contains('show')) {
+        if (yearFilterContent && yearFilterContent.classList.contains('show')) {
             smartPositionDropdown(yearFilterBtn, yearFilterContent);
         }
-        if (disciplineFilterContent.classList.contains('show')) {
+        if (disciplineFilterContent && disciplineFilterContent.classList.contains('show')) {
             smartPositionDropdown(disciplineFilterBtn, disciplineFilterContent);
         }
-        if (distanceFilterContent.classList.contains('show')) {
+        if (distanceFilterContent && distanceFilterContent.classList.contains('show')) {
             smartPositionDropdown(distanceFilterBtn, distanceFilterContent);
         }
     }, 250);
 
     window.addEventListener('resize', handleResize);
 
-    // Сброс всех фильтров
     clearFiltersBtn.addEventListener('click', function() {
-        // Сбрасываем все checkbox'ы
         yearCheckboxes.forEach(cb => {
             cb.checked = cb.value === 'all';
         });
@@ -405,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cb.checked = cb.value === 'all';
         });
 
-        // Сбрасываем фильтры
         activeFilters = {
             years: ['all'],
             disciplines: ['all'],
@@ -414,13 +360,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         applyFilters();
         
-        // Закрываем все выпадающие списки
         yearFilterContent.classList.remove('show');
         disciplineFilterContent.classList.remove('show');
         distanceFilterContent.classList.remove('show');
     });
 
-    // Сортировка таблицы
     const table = document.getElementById('competitionTable');
     const headers = table.querySelectorAll('th[data-sort]');
     let currentSort = { column: 'date', direction: 'desc' };
@@ -504,13 +448,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Инициализация - сортировка по дате (новые сверху) при загрузке
     const dateHeader = document.querySelector('th[data-sort="date"]');
     if (dateHeader) {
         dateHeader.click();
     }
 
-    // Модальное окно
     const modal = document.getElementById('universalModal');
     const closeBtn = document.querySelector('.close');
     const athletesList = document.getElementById('modalAthletesList');
@@ -534,21 +476,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const distanceData = row.getAttribute('data-distance');
         const competitionType = row.getAttribute('data-competition-type');
         const resultsData = row.getAttribute('data-results');
-		const eventType = row.getAttribute('data-event-type');
-		const eventNameShort = row.getAttribute('data-event-name-short');
-		const eventLocation = row.getAttribute('data-event-location');
-		const eventDate = row.getAttribute('data-date');
+        const eventType = row.getAttribute('data-event-type');
+        const eventNameShort = row.getAttribute('data-event-name-short');
+        const eventLocation = row.getAttribute('data-event-location');
+        const eventDate = row.getAttribute('data-date');
 
         const placeCell = row.cells[4];
 
-		let headerHTML = `<div class="event-status">${eventType}</div>`;
-		if (eventNameShort && eventNameShort.trim() !== '') {
-			headerHTML += `<div class="event-name">${eventNameShort}</div>`;
-		}
-		headerHTML += `<div class="event-location">${eventLocation}</div>`;
-		headerHTML += `<div class="event-date">${formatDate(eventDate)}</div>`;
-		
-		modalHeader.innerHTML = headerHTML;
+        let headerHTML = `<div class="event-status">${eventType}</div>`;
+        if (eventNameShort && eventNameShort.trim() !== '') {
+            headerHTML += `<div class="event-name">${eventNameShort}</div>`;
+        }
+        headerHTML += `<div class="event-location">${eventLocation}</div>`;
+        headerHTML += `<div class="event-date">${formatDate(eventDate)}</div>`;
+        
+        modalHeader.innerHTML = headerHTML;
 
         modalDiscipline.textContent = distanceData && distanceData !== '-' ? distanceData : '—';
         modalType.textContent = competitionType && competitionType !== '-' ? competitionType : '—';
@@ -560,13 +502,13 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'block';
     }
 
-	function formatDate(dateString) {
-		if (!dateString) return '';
-		const year = dateString.substring(0, 4);
-		const month = dateString.substring(4, 6);
-		const day = dateString.substring(6, 8);
-		return `${day}.${month}.${year}`;
-	}
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const year = dateString.substring(0, 4);
+        const month = dateString.substring(4, 6);
+        const day = dateString.substring(6, 8);
+        return `${day}.${month}.${year}`;
+    }
 
     function getPlaceDisplay(placeCell) {
         const badge = placeCell.querySelector('.place-badge');
@@ -656,246 +598,209 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-	function handleScroll() {
-		const athleteNameHeader = document.getElementById('athleteNameHeader');
-		const backButton = document.querySelector('.back-button');
-		const backButtonText = backButton.querySelector('span');
-		const scrollY = window.scrollY;
-		
-		if (scrollY > 100) {
-			athleteNameHeader.classList.add('visible');
-			backButtonText.style.maxWidth = '0';
-			backButtonText.style.opacity = '0';
-			backButton.style.paddingLeft = '8px';
-			backButton.style.paddingRight = '8px';
-		} else {
-			athleteNameHeader.classList.remove('visible');
-			backButtonText.style.maxWidth = '80px';
-			backButtonText.style.opacity = '1';
-			backButton.style.paddingLeft = '12px';
-			backButton.style.paddingRight = '12px';
-		}
-	}
+    function handleScroll() {
+        const athleteNameHeader = document.getElementById('athleteNameHeader');
+        const backButton = document.querySelector('.back-button');
+        const backButtonText = backButton.querySelector('span');
+        const scrollY = window.scrollY;
+        
+        if (scrollY > 100) {
+            athleteNameHeader.classList.add('visible');
+            backButtonText.style.maxWidth = '0';
+            backButtonText.style.opacity = '0';
+            backButton.style.paddingLeft = '8px';
+            backButton.style.paddingRight = '8px';
+        } else {
+            athleteNameHeader.classList.remove('visible');
+            backButtonText.style.maxWidth = '80px';
+            backButtonText.style.opacity = '1';
+            backButton.style.paddingLeft = '12px';
+            backButton.style.paddingRight = '12px';
+        }
+    }
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    // Инициализация при загрузке
     applyFilters();
 
-// === ГАРАНТИРОВАННО РАБОЧИЙ ПОИСК ДЛЯ iOS ===
-const searchIcon = document.getElementById('searchIcon');
-const searchExpanded = document.getElementById('searchExpanded');
-const headerSearch = document.getElementById('headerSearch');
-const searchResults = document.getElementById('searchResults');
-const fixedHeader = document.querySelector('.fixed-header');
+    const searchIcon = document.getElementById('searchIcon');
+    const searchExpanded = document.getElementById('searchExpanded');
+    const headerSearch = document.getElementById('headerSearch');
+    const searchResults = document.getElementById('searchResults');
+    const fixedHeader = document.querySelector('.fixed-header');
 
-// Создаем скрытое поле для iOS (если еще не создано)
-let tempInput = document.getElementById('tempInput');
-if (!tempInput) {
-    tempInput = document.createElement('input');
-    tempInput.type = 'text';
-    tempInput.id = 'tempInput';
-    tempInput.className = 'hidden-input';
-    tempInput.style.position = 'absolute';
-    tempInput.style.left = '-1000px';
-    tempInput.style.top = '0';
-    tempInput.style.width = '1px';
-    tempInput.style.height = '1px';
-    tempInput.style.opacity = '0';
-    document.body.appendChild(tempInput);
-}
+    let tempInput = document.getElementById('tempInput');
+    if (!tempInput) {
+        tempInput = document.createElement('input');
+        tempInput.type = 'text';
+        tempInput.id = 'tempInput';
+        tempInput.className = 'hidden-input';
+        tempInput.style.position = 'absolute';
+        tempInput.style.left = '-1000px';
+        tempInput.style.top = '0';
+        tempInput.style.width = '1px';
+        tempInput.style.height = '1px';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+    }
 
-if (searchIcon && searchExpanded && headerSearch) {
-    let searchActive = false;
-    
-    // Функция для гарантированного открытия клавиатуры на iOS
-    function openKeyboardForSearch() {
-        console.log('🔄 Запуск открытия клавиатуры для поиска...');
+    if (searchIcon && searchExpanded && headerSearch) {
+        let searchActive = false;
         
-        // Очищаем поле
-        headerSearch.value = '';
-        headerSearch.placeholder = 'Введите имя спортсмена...';
-        
-        // РАБОЧИЙ МЕТОД ДЛЯ iOS - тот же принцип, что в рабочем примере
-        // 1. Сначала фокусируемся на временном скрытом поле
-        tempInput.focus();
-        
-        // 2. Через небольшую задержку переключаемся на настоящее поле поиска
-        setTimeout(() => {
-            headerSearch.focus();
+        function openKeyboardForSearch() {
+            headerSearch.value = '';
+            headerSearch.placeholder = 'Введите имя спортсмена...';
             
-            // 3. Дополнительные попытки для надежности
+            tempInput.focus();
+            
             setTimeout(() => {
                 headerSearch.focus();
                 
-                // Для iOS иногда нужно вызвать click и дополнительный focus
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    headerSearch.click();
-                    setTimeout(() => {
-                        headerSearch.focus();
-                    }, 10);
-                }
-            }, 50);
-        }, 30);
-        
-        console.log('✅ Процедура открытия клавиатуры завершена');
-    }
-    
-    // Открытие поиска по рабочему принципу
-    searchIcon.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        searchActive = true;
-        fixedHeader.classList.add('search-active');
-        searchExpanded.classList.add('active');
-        
-        // Очищаем предыдущие результаты
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'none';
-        
-        // Запускаем процедуру открытия клавиатуры
-        openKeyboardForSearch();
-        
-        console.log('🔍 Поиск открыт, поле очищено');
-    });
-
-    // Простая функция закрытия поиска
-    function closeSearch() {
-        searchActive = false;
-        fixedHeader.classList.remove('search-active');
-        searchExpanded.classList.remove('active');
-        searchResults.style.display = 'none';
-        searchResults.innerHTML = '';
-        headerSearch.value = '';
-        headerSearch.blur();
-        
-        console.log('❌ Поиск закрыт');
-    }
-
-    // Закрытие поиска при клике вне
-    document.addEventListener('click', function(e) {
-        if (searchActive && !searchExpanded.contains(e.target) && !searchIcon.contains(e.target)) {
-            closeSearch();
-        }
-    });
-
-    // Закрытие при нажатии Escape
-    headerSearch.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeSearch();
-        }
-    });
-
-    // Логирование событий фокуса для отладки
-    headerSearch.addEventListener('focus', function() {
-        console.log('✅ Фокус на поле поиска');
-    });
-    
-    headerSearch.addEventListener('blur', function() {
-        console.log('❌ Потеря фокуса с поля поиска');
-    });
-
-    // Поиск при вводе текста
-    headerSearch.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase().trim();
-        searchResults.innerHTML = '';
-        
-        if (searchTerm.length < 3) {
-            searchResults.style.display = 'none';
-            return;
-        }
-        
-        if (!window.athletesData || !Array.isArray(window.athletesData)) {
-            console.warn('Данные спортсменов не загружены');
-            searchResults.style.display = 'none';
-            return;
-        }
-        
-        const filtered = window.athletesData.filter(athlete => 
-            athlete.name.toLowerCase().includes(searchTerm) || 
-            (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
-            (athlete.rank && athlete.rank.toLowerCase().includes(searchTerm))
-        );
-        
-        if (filtered.length > 0) {
-            filtered.forEach(athlete => {
-                const item = document.createElement(athlete.link ? 'a' : 'div');
-                item.className = 'search-result-item';
-                
-                if (athlete.link) {
-                    item.href = athlete.link;
-                    item.setAttribute('role', 'link');
-                    item.setAttribute('aria-label', `Перейти к профилю ${athlete.name}`);
-                } else {
-                    item.style.cursor = 'default';
-                }
-                
-                const birthYearInfo = athlete.birthYear ? `, ${athlete.birthYear}` : '';
-                const rankInfo = athlete.rank ? `<div class="search-result-rank">${athlete.rank}</div>` : '';
-                
-                item.innerHTML = `
-                    <div class="search-result-main">
-                        <div class="search-result-name">${athlete.name}${birthYearInfo}</div>
-                        <div class="search-result-region">${athlete.region || ''}</div>
-                    </div>
-                    ${rankInfo}
-                `;
-                
-                if (!athlete.link) {
-                    item.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    });
-                }
-                
-                item.addEventListener('touchend', function(e) {
-                    if (athlete.link) {
-                        e.preventDefault();
-                        e.stopPropagation();
+                setTimeout(() => {
+                    headerSearch.focus();
+                    
+                    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                        headerSearch.click();
                         setTimeout(() => {
-                            window.location.href = athlete.link;
-                        }, 50);
+                            headerSearch.focus();
+                        }, 10);
                     }
-                });
-                
-                item.addEventListener('click', function(e) {
-                    if (athlete.link) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = athlete.link;
-                    }
-                });
-                
-                searchResults.appendChild(item);
-            });
-            searchResults.style.display = 'block';
-        } else {
-            const noResults = document.createElement('div');
-            noResults.className = 'search-result-item no-results';
-            noResults.innerHTML = `
-                <div style="text-align: center; width: 100%; color: #666; font-style: italic;">
-                    Спортсмены не найдены
-                </div>
-            `;
-            noResults.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            
-            searchResults.appendChild(noResults);
-            searchResults.style.display = 'block';
+                }, 50);
+            }, 30);
         }
-    });
-    
-    // Дополнительная функция для принудительного фокуса при тапе на поле
-    headerSearch.addEventListener('touchstart', function(e) {
-        if (!searchActive) {
+        
+        searchIcon.addEventListener('click', function(e) {
             e.preventDefault();
-            searchIcon.click();
-        }
-    });
-}
+            e.stopPropagation();
+            
+            searchActive = true;
+            fixedHeader.classList.add('search-active');
+            searchExpanded.classList.add('active');
+            
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'none';
+            
+            openKeyboardForSearch();
+        });
 
+        function closeSearch() {
+            searchActive = false;
+            fixedHeader.classList.remove('search-active');
+            searchExpanded.classList.remove('active');
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+            headerSearch.value = '';
+            headerSearch.blur();
+        }
+
+        document.addEventListener('click', function(e) {
+            if (searchActive && !searchExpanded.contains(e.target) && !searchIcon.contains(e.target)) {
+                closeSearch();
+            }
+        });
+
+        headerSearch.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+            }
+        });
+
+        headerSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            searchResults.innerHTML = '';
+            
+            if (searchTerm.length < 3) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            if (!window.athletesData || !Array.isArray(window.athletesData)) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            const filtered = window.athletesData.filter(athlete => 
+                athlete.name.toLowerCase().includes(searchTerm) || 
+                (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
+                (athlete.rank && athlete.rank.toLowerCase().includes(searchTerm))
+            );
+            
+            if (filtered.length > 0) {
+                filtered.forEach(athlete => {
+                    const item = document.createElement(athlete.link ? 'a' : 'div');
+                    item.className = 'search-result-item';
+                    
+                    if (athlete.link) {
+                        item.href = athlete.link;
+                        item.setAttribute('role', 'link');
+                        item.setAttribute('aria-label', `Перейти к профилю ${athlete.name}`);
+                    } else {
+                        item.style.cursor = 'default';
+                    }
+                    
+                    const birthYearInfo = athlete.birthYear ? `, ${athlete.birthYear}` : '';
+                    const rankInfo = athlete.rank ? `<div class="search-result-rank">${athlete.rank}</div>` : '';
+                    
+                    item.innerHTML = `
+                        <div class="search-result-main">
+                            <div class="search-result-name">${athlete.name}${birthYearInfo}</div>
+                            <div class="search-result-region">${athlete.region || ''}</div>
+                        </div>
+                        ${rankInfo}
+                    `;
+                    
+                    if (!athlete.link) {
+                        item.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        });
+                    }
+                    
+                    item.addEventListener('touchend', function(e) {
+                        if (athlete.link) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setTimeout(() => {
+                                window.location.href = athlete.link;
+                            }, 50);
+                        }
+                    });
+                    
+                    item.addEventListener('click', function(e) {
+                        if (athlete.link) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.location.href = athlete.link;
+                        }
+                    });
+                    
+                    searchResults.appendChild(item);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                const noResults = document.createElement('div');
+                noResults.className = 'search-result-item no-results';
+                noResults.innerHTML = `
+                    <div style="text-align: center; width: 100%; color: #666; font-style: italic;">
+                        Спортсмены не найдены
+                    </div>
+                `;
+                noResults.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                
+                searchResults.appendChild(noResults);
+                searchResults.style.display = 'block';
+            }
+        });
+        
+        headerSearch.addEventListener('touchstart', function(e) {
+            if (!searchActive) {
+                e.preventDefault();
+                searchIcon.click();
+            }
+        });
+    }
 });
