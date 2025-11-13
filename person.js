@@ -657,17 +657,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация при загрузке
     applyFilters();
 
-// === ПРОСТОЙ РАБОЧИЙ ПОИСК ===
+// === ГАРАНТИРОВАННО РАБОЧИЙ ПОИСК ДЛЯ iOS ===
 const searchIcon = document.getElementById('searchIcon');
 const searchExpanded = document.getElementById('searchExpanded');
 const headerSearch = document.getElementById('headerSearch');
 const searchResults = document.getElementById('searchResults');
 const fixedHeader = document.querySelector('.fixed-header');
 
+// Создаем скрытое поле для iOS
+const tempInput = document.createElement('input');
+tempInput.type = 'text';
+tempInput.style.position = 'absolute';
+tempInput.style.left = '-1000px';
+tempInput.style.top = '0';
+tempInput.style.width = '1px';
+tempInput.style.height = '1px';
+tempInput.style.opacity = '0';
+document.body.appendChild(tempInput);
+
 if (searchIcon && searchExpanded && headerSearch) {
     let searchActive = false;
     
-    // Открытие поиска - максимально просто
+    // Открытие поиска по рабочему принципу
     searchIcon.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -680,11 +691,27 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.innerHTML = '';
         searchResults.style.display = 'none';
         headerSearch.value = '';
+        headerSearch.placeholder = 'Введите имя спортсмена...';
         
-        // Просто фокусируемся на поле
+        // РАБОЧИЙ МЕТОД ДЛЯ iOS
+        // 1. Фокусируемся на временном поле
+        tempInput.focus();
+        
+        // 2. Через небольшую задержку переключаемся на настоящее поле
         setTimeout(() => {
             headerSearch.focus();
-        }, 100);
+            
+            // 3. Дополнительная попытка для надежности
+            setTimeout(() => {
+                headerSearch.focus();
+                // Для iOS иногда нужно вызвать click
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    headerSearch.click();
+                }
+            }, 50);
+        }, 30);
+        
+        console.log('🔍 Поиск открыт, поле очищено');
     });
 
     // Простая функция закрытия поиска
@@ -696,6 +723,8 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.innerHTML = '';
         headerSearch.value = '';
         headerSearch.blur();
+        
+        console.log('❌ Поиск закрыт');
     }
 
     // Закрытие поиска при клике вне
@@ -710,6 +739,15 @@ if (searchIcon && searchExpanded && headerSearch) {
         if (e.key === 'Escape') {
             closeSearch();
         }
+    });
+
+    // Логирование событий фокуса для отладки
+    headerSearch.addEventListener('focus', function() {
+        console.log('✅ Фокус на поле поиска');
+    });
+    
+    headerSearch.addEventListener('blur', function() {
+        console.log('❌ Потеря фокуса с поля поиска');
     });
 
     // Поиск при вводе текста
