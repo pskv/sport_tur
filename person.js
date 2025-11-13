@@ -448,10 +448,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const dateHeader = document.querySelector('th[data-sort="date"]');
-    if (dateHeader) {
-        dateHeader.click();
-    }
+//	const dateHeader = document.querySelector('th[data-sort="date"]');
+//	if (dateHeader) {
+//	    dateHeader.click();
+//	}
 
     const modal = document.getElementById('universalModal');
     const closeBtn = document.querySelector('.close');
