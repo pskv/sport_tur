@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Тест появления клавиатуры на ios">
-      <change afterPath="$PROJECT_DIR$/test_iphone_keyboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person.css" beforeDir="false" afterPath="$PROJECT_DIR$/person.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.js" beforeDir="false" afterPath="$PROJECT_DIR$/person.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_iphone_keyboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/test_iphone_keyboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +46,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760527221871</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Добавил ещё один протокол.">
-      <created>1761230081405</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1761230081405</updated>
     </task>
     <task id="LOCAL-00013" summary="Пересчитал всех с учётом МЭ 2025.">
       <created>1761241793662</created>
@@ -390,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1763012801628</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Тест появления клавиатуры на ios">
+      <created>1763013214031</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1763013214031</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
