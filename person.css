@@ -947,6 +947,7 @@ footer {
     display: flex;
     align-items: center;
     z-index: 1100;
+    height: 44px;
 }
 
 .search-icon {
@@ -962,6 +963,7 @@ footer {
     border: 1px solid rgba(255,255,255,0.3);
     flex-shrink: 0;
     -webkit-tap-highlight-color: transparent;
+    line-height: 1;
 }
 
 .search-icon:hover {
@@ -991,13 +993,16 @@ footer {
     width: 100%;
     padding: 12px 16px;
     border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
+    border-radius: 22px;
     background: rgba(255,255,255,0.15);
     color: white;
     font-size: 16px; /* Важно для iOS */
     transition: all 0.3s ease;
     -webkit-appearance: none;
     appearance: none;
+    height: 44px;
+    box-sizing: border-box;
+    line-height: 1.2;
 }
 
 .search-expanded #headerSearch::placeholder {
@@ -1194,8 +1199,17 @@ footer {
 
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
+    .header-search {
+        height: 44px;
+    }
+	
     .search-expanded.active {
         width: 280px;
+    }
+    
+    .search-expanded #headerSearch {
+        height: 44px;
+        padding: 10px 14px;
     }
     
     .search-results {
@@ -1228,6 +1242,11 @@ footer {
 @media (max-width: 480px) {
     .search-expanded.active {
         width: 250px;
+    }
+    
+    .search-expanded #headerSearch {
+        height: 44px;
+        padding: 10px 12px;
     }
     
     .search-results {
