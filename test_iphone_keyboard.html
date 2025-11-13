@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест клавиатуры iPhone - Исправлено</title>
+    <title>Открытие клавиатуры на iPhone</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -31,7 +31,7 @@
             font-weight: 600;
             color: #555;
         }
-        input, textarea {
+        input {
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
@@ -39,26 +39,9 @@
             font-size: 16px;
             box-sizing: border-box;
         }
-        input:focus, textarea:focus {
+        input:focus {
             border-color: #007AFF;
             outline: none;
-        }
-        .keyboard-type {
-            display: inline-block;
-            background: #007AFF;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-        .note {
-            background: #FFF3CD;
-            border: 1px solid #FFEAA7;
-            border-radius: 6px;
-            padding: 12px;
-            margin-top: 20px;
-            font-size: 14px;
         }
         button {
             background: #007AFF;
@@ -82,174 +65,71 @@
             height: 1px;
             opacity: 0;
         }
-        .method-buttons {
-            display: flex;
-            gap: 10px;
-            flex-direction: column;
-        }
-        .clear-indicator {
-            color: #FF3B30;
-            font-size: 12px;
-            margin-left: 10px;
+        .status {
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📱 Тест клавиатуры iPhone - Исправлено</h1>
+        <h1>📱 Открытие клавиатуры</h1>
         
+        <div id="status"></div>
+
         <div class="input-group">
-            <label>Тестовое поле для ввода <span class="keyboard-type">text</span></label>
-            <input type="text" id="mainInput" placeholder="Нажмите сюда или используйте кнопки ниже...">
+            <label>Поле для ввода</label>
+            <input type="text" id="mainInput" placeholder="Нажмите кнопку ниже чтобы открыть клавиатуру...">
         </div>
 
-        <div class="method-buttons">
-            <button onclick="method1()">🔧 Метод 1: Фокус с таймаутом</button>
-            <button onclick="method2()">🎯 Метод 2: Временное поле <span class="clear-indicator">+ очистка</span></button>
-            <button onclick="method3()">⚡ Метод 3: Клик + Фокус</button>
-            <button onclick="method4()">📝 Метод 4: Textarea метод <span class="clear-indicator">+ очистка</span></button>
-            <button onclick="clearAllFields()">🗑️ Очистить все поля</button>
-        </div>
+        <button onclick="openKeyboard()">🎯 Открыть клавиатуру и очистить поле</button>
 
-        <div class="note">
-            <strong>Обновление:</strong> Исправлена проблема с исчезающей клавиатурой. Теперь используются разные методы для обхода ограничений iOS.<br>
-            <strong>Методы 2 и 4</strong> теперь также очищают поле перед фокусом.
-        </div>
-
-        <!-- Скрытое поле для метода 2 -->
+        <!-- Скрытое поле для метода -->
         <input type="text" id="tempInput" class="hidden-input">
-        <textarea id="tempTextarea" class="hidden-input"></textarea>
     </div>
 
     <script>
         const mainInput = document.getElementById('mainInput');
         const tempInput = document.getElementById('tempInput');
-        const tempTextarea = document.getElementById('tempTextarea');
+        const statusDiv = document.getElementById('status');
 
-        // Функция для очистки основного поля
-        function clearMainInput() {
-            mainInput.value = '';
-            mainInput.placeholder = 'Поле очищено - вводите текст...';
-            console.log('✅ Поле очищено');
-        }
-
-        // Метод 1: Фокус с таймаутами
-        function method1() {
-            console.log('Метод 1: Фокус с таймаутом');
-            mainInput.focus();
-            
-            // Добавляем несколько попыток фокуса
+        function showStatus(message) {
+            statusDiv.textContent = message;
             setTimeout(() => {
-                mainInput.blur();
-                setTimeout(() => {
-                    mainInput.focus();
-                    // Еще одна попытка для надежности
-                    setTimeout(() => {
-                        mainInput.focus();
-                    }, 300);
-                }, 200);
-            }, 100);
+                statusDiv.textContent = '';
+            }, 2000);
         }
 
-        // Метод 2: Создание и использование временного поля (С ОЧИСТКОЙ)
-        function method2() {
-            console.log('Метод 2: Временное поле + очистка');
+        function openKeyboard() {
+            // Очистка поля
+            mainInput.value = '';
+            mainInput.placeholder = 'Вводите текст...';
             
-            // ОЧИСТКА поля перед фокусом
-            clearMainInput();
-            
-            // Фокусируемся на временном поле
+            // Метод 2: Временное поле
             tempInput.focus();
             
-            // Через короткое время переключаемся на основное поле
             setTimeout(() => {
                 mainInput.focus();
-                // Добавляем дополнительные попытки
-                setTimeout(() => mainInput.focus(), 100);
-                setTimeout(() => mainInput.focus(), 300);
-            }, 50);
-        }
+                // Дополнительная попытка для надежности
+                setTimeout(() => mainInput.focus(), 50);
+            }, 30);
 
-        // Метод 3: Имитация клика + фокус
-        function method3() {
-            console.log('Метод 3: Клик + Фокус');
-            
-            // Создаем и инициируем событие клика
-            const clickEvent = new MouseEvent('click', {
-                view: window,
-                bubbles: true,
-                cancelable: true
-            });
-            
-            mainInput.dispatchEvent(clickEvent);
-            
-            // Затем фокусируемся
-            setTimeout(() => {
-                mainInput.focus();
-            }, 10);
-            
-            // Дополнительные попытки
-            setTimeout(() => mainInput.focus(), 100);
-            setTimeout(() => mainInput.focus(), 200);
-        }
-
-        // Метод 4: Для textarea (часто работает лучше на iOS) (С ОЧИСТКОЙ)
-        function method4() {
-            console.log('Метод 4: Textarea метод + очистка');
-            
-            // ОЧИСТКА поля перед фокусом
-            clearMainInput();
-            
-            // Фокусируемся на временном textarea
-            tempTextarea.focus();
-            
-            // Затем переключаемся на основное поле
-            setTimeout(() => {
-                mainInput.focus();
-                // Множественные попытки фокуса
-                let attempts = 0;
-                const focusInterval = setInterval(() => {
-                    mainInput.focus();
-                    attempts++;
-                    if (attempts >= 5) {
-                        clearInterval(focusInterval);
-                    }
-                }, 100);
-            }, 50);
-        }
-
-        // Функция для очистки всех полей
-        function clearAllFields() {
-            mainInput.value = '';
-            tempInput.value = '';
-            tempTextarea.value = '';
-            mainInput.placeholder = 'Все поля очищены - вводите текст...';
-            console.log('✅ Все поля очищены');
+            showStatus('✅ Клавиатура открыта, поле очищено!');
         }
 
         // Логирование событий фокуса
-        document.querySelectorAll('input, textarea').forEach(element => {
-            element.addEventListener('focus', function() {
-                console.log('✅ Фокус на:', this.id || this.type);
-            });
-            
-            element.addEventListener('blur', function() {
-                console.log('❌ Потеря фокуса:', this.id || this.type);
-            });
-
-            // Добавляем обработчик ввода для отслеживания текста
-            element.addEventListener('input', function() {
-                if (this.id === 'mainInput') {
-                    console.log('📝 Введен текст:', this.value);
-                }
-            });
+        mainInput.addEventListener('focus', function() {
+            console.log('✅ Фокус на основном поле');
         });
-
-        // Авто-фокус при загрузке (может не работать на iOS)
-        window.addEventListener('load', () => {
-            console.log('Страница загружена');
-            // Устанавливаем первоначальный placeholder
-            mainInput.placeholder = 'Нажмите сюда или используйте кнопки ниже...';
+        
+        mainInput.addEventListener('blur', function() {
+            console.log('❌ Потеря фокуса');
         });
     </script>
 </body>
