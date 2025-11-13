@@ -1240,3 +1240,54 @@ footer {
         width: 260px;
     }
 }
+
+
+
+/* Улучшения для мобильного поиска */
+@media (max-width: 768px) {
+    .search-expanded.active {
+        width: calc(100vw - 100px) !important;
+        max-width: 280px;
+    }
+    
+    .search-expanded #headerSearch {
+        font-size: 16px; /* Предотвращает масштабирование в iOS */
+        padding: 10px 14px;
+    }
+    
+    .search-results {
+        width: calc(100vw - 60px) !important;
+        max-width: 300px;
+        left: 0;
+        right: auto;
+    }
+    
+    /* Убедимся, что поле ввода достаточно большое для касания */
+    .search-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+    .search-expanded.active {
+        width: calc(100vw - 80px) !important;
+    }
+    
+    .search-results {
+        width: calc(100vw - 40px) !important;
+    }
+}
+
+/* Улучшение визуальной обратной связи для касания */
+.search-icon:active {
+    background: rgba(255,255,255,0.3);
+    transform: scale(0.95);
+}
+
+.search-expanded #headerSearch:focus {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+}
