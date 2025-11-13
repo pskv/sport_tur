@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Тест появления клавиатуры на ios">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person.css" beforeDir="false" afterPath="$PROJECT_DIR$/person.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/person.js" beforeDir="false" afterPath="$PROJECT_DIR$/person.js" afterDir="false" />
-    </list>
+    <list default="true" id="5cee08e8-ebce-48ce-bdac-2d4dfd5ad069" name="Changes" comment="Тест появления клавиатуры на ios" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,20 +42,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760527221871</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Вынес css и js в отдельные файлы.">
-      <created>1761502906796</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1761502906796</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Изменил логику секции &quot;Лучшие результаты&quot;">
-      <created>1761577870030</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1761577870030</updated>
     </task>
     <task id="LOCAL-00018" summary="Изменил модальное окно в css (шапка)">
       <created>1761579210477</created>
@@ -390,7 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763014199529</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Тест появления клавиатуры на ios">
+      <created>1763015169807</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1763015169807</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Тест появления клавиатуры на ios">
+      <created>1763015541321</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1763015541321</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
