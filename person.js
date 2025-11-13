@@ -664,19 +664,57 @@ const headerSearch = document.getElementById('headerSearch');
 const searchResults = document.getElementById('searchResults');
 const fixedHeader = document.querySelector('.fixed-header');
 
-// Создаем скрытое поле для iOS
-const tempInput = document.createElement('input');
-tempInput.type = 'text';
-tempInput.style.position = 'absolute';
-tempInput.style.left = '-1000px';
-tempInput.style.top = '0';
-tempInput.style.width = '1px';
-tempInput.style.height = '1px';
-tempInput.style.opacity = '0';
-document.body.appendChild(tempInput);
+// Создаем скрытое поле для iOS (если еще не создано)
+let tempInput = document.getElementById('tempInput');
+if (!tempInput) {
+    tempInput = document.createElement('input');
+    tempInput.type = 'text';
+    tempInput.id = 'tempInput';
+    tempInput.className = 'hidden-input';
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-1000px';
+    tempInput.style.top = '0';
+    tempInput.style.width = '1px';
+    tempInput.style.height = '1px';
+    tempInput.style.opacity = '0';
+    document.body.appendChild(tempInput);
+}
 
 if (searchIcon && searchExpanded && headerSearch) {
     let searchActive = false;
+    
+    // Функция для гарантированного открытия клавиатуры на iOS
+    function openKeyboardForSearch() {
+        console.log('🔄 Запуск открытия клавиатуры для поиска...');
+        
+        // Очищаем поле
+        headerSearch.value = '';
+        headerSearch.placeholder = 'Введите имя спортсмена...';
+        
+        // РАБОЧИЙ МЕТОД ДЛЯ iOS - тот же принцип, что в рабочем примере
+        // 1. Сначала фокусируемся на временном скрытом поле
+        tempInput.focus();
+        
+        // 2. Через небольшую задержку переключаемся на настоящее поле поиска
+        setTimeout(() => {
+            headerSearch.focus();
+            
+            // 3. Дополнительные попытки для надежности
+            setTimeout(() => {
+                headerSearch.focus();
+                
+                // Для iOS иногда нужно вызвать click и дополнительный focus
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    headerSearch.click();
+                    setTimeout(() => {
+                        headerSearch.focus();
+                    }, 10);
+                }
+            }, 50);
+        }, 30);
+        
+        console.log('✅ Процедура открытия клавиатуры завершена');
+    }
     
     // Открытие поиска по рабочему принципу
     searchIcon.addEventListener('click', function(e) {
@@ -690,26 +728,9 @@ if (searchIcon && searchExpanded && headerSearch) {
         // Очищаем предыдущие результаты
         searchResults.innerHTML = '';
         searchResults.style.display = 'none';
-        headerSearch.value = '';
-        headerSearch.placeholder = 'Введите имя спортсмена...';
         
-        // РАБОЧИЙ МЕТОД ДЛЯ iOS
-        // 1. Фокусируемся на временном поле
-        tempInput.focus();
-        
-        // 2. Через небольшую задержку переключаемся на настоящее поле
-        setTimeout(() => {
-            headerSearch.focus();
-            
-            // 3. Дополнительная попытка для надежности
-            setTimeout(() => {
-                headerSearch.focus();
-                // Для iOS иногда нужно вызвать click
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    headerSearch.click();
-                }
-            }, 50);
-        }, 30);
+        // Запускаем процедуру открытия клавиатуры
+        openKeyboardForSearch();
         
         console.log('🔍 Поиск открыт, поле очищено');
     });
@@ -839,6 +860,14 @@ if (searchIcon && searchExpanded && headerSearch) {
             
             searchResults.appendChild(noResults);
             searchResults.style.display = 'block';
+        }
+    });
+    
+    // Дополнительная функция для принудительного фокуса при тапе на поле
+    headerSearch.addEventListener('touchstart', function(e) {
+        if (!searchActive) {
+            e.preventDefault();
+            searchIcon.click();
         }
     });
 }
