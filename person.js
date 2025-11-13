@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация при загрузке
     applyFilters();
 
-// === ИСПРАВЛЕННЫЙ ПОИСК СПОРТСМЕНОВ В ШАПКЕ ===
+// === ИСПРАВЛЕННЫЙ ПОИСК ДЛЯ iOS ===
 const searchIcon = document.getElementById('searchIcon');
 const searchExpanded = document.getElementById('searchExpanded');
 const headerSearch = document.getElementById('headerSearch');
@@ -665,6 +665,8 @@ const searchResults = document.getElementById('searchResults');
 const fixedHeader = document.querySelector('.fixed-header');
 
 if (searchIcon && searchExpanded && headerSearch) {
+    let isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    
     // Открытие поиска
     searchIcon.addEventListener('click', function(e) {
         e.preventDefault();
@@ -678,81 +680,80 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.style.display = 'none';
         headerSearch.value = '';
         
-        // Фокус с задержкой для мобильных устройств
-        setTimeout(() => {
-            headerSearch.focus();
+        // Для iOS используем специальный подход
+        if (isIOS) {
+            // Создаем прозрачное поле поверх иконки поиска
+            const tempInput = document.createElement('input');
+            tempInput.type = 'text';
+            tempInput.style.position = 'fixed';
+            tempInput.style.top = '0';
+            tempInput.style.left = '0';
+            tempInput.style.width = '0';
+            tempInput.style.height = '0';
+            tempInput.style.opacity = '0';
+            tempInput.style.zIndex = '-1';
+            document.body.appendChild(tempInput);
             
-            // Дополнительные методы для iOS
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                // Для iOS: создаем временное событие touchstart
-                const touchEvent = new TouchEvent('touchstart', {
-                    bubbles: true,
-                    cancelable: true
-                });
-                headerSearch.dispatchEvent(touchEvent);
+            // Фокусируемся на временном поле чтобы открыть клавиатуру
+            setTimeout(() => {
+                tempInput.focus();
                 
-                // Дополнительный фокус через requestAnimationFrame
-                requestAnimationFrame(() => {
+                // После открытия клавиатуры переключаемся на настоящее поле
+                setTimeout(() => {
                     headerSearch.focus();
-                    
-                    // Попытка программно открыть клавиатуру
-                    setTimeout(() => {
-                        headerSearch.setAttribute('contenteditable', 'true');
-                        headerSearch.focus();
-                        
-                        // Еще одна попытка через небольшой таймаут
-                        setTimeout(() => {
-                            headerSearch.focus();
-                            headerSearch.click();
-                        }, 100);
-                    }, 50);
-                });
-            }
-        }, 100);
+                    document.body.removeChild(tempInput);
+                }, 300);
+            }, 100);
+        } else {
+            // Для Android и других - стандартный подход
+            setTimeout(() => {
+                headerSearch.focus();
+            }, 100);
+        }
     });
 
-    // Улучшенные обработчики для touch событий
+    // Улучшенные обработчики для iOS
     headerSearch.addEventListener('touchstart', function(e) {
         e.stopPropagation();
     }, { passive: true });
 
     headerSearch.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (isIOS) {
+            e.preventDefault();
+        }
         this.focus();
     });
 
-    // Предотвращаем потерю фокуса при касании других элементов
+    // Предотвращаем потерю фокуса
     searchResults.addEventListener('touchstart', function(e) {
-        e.preventDefault();
+        if (isIOS) {
+            e.preventDefault();
+        }
     }, { passive: false });
-
-    searchResults.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    });
-
-    // Предотвращаем blur при клике в области поиска
-    searchExpanded.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
 
     // Улучшенная функция закрытия поиска
     function closeSearch() {
-        // Сначала скрываем интерфейс
         fixedHeader.classList.remove('search-active');
         searchExpanded.classList.remove('active');
         searchResults.style.display = 'none';
         searchResults.innerHTML = '';
         headerSearch.value = '';
         
-        // Затем скрываем клавиатуру
+        // Для iOS - обязательно blur чтобы скрыть клавиатуру
         setTimeout(() => {
             headerSearch.blur();
+            
+            // Дополнительный blur для iOS
+            if (isIOS) {
+                const activeElement = document.activeElement;
+                if (activeElement && (activeElement === headerSearch || activeElement.tagName === 'INPUT')) {
+                    activeElement.blur();
+                }
+            }
         }, 50);
     }
 
-    // Закрытие поиска при клике вне - с задержкой
+    // Закрытие поиска при клике вне
     document.addEventListener('click', function(e) {
         if (!searchExpanded.contains(e.target) && !searchIcon.contains(e.target)) {
             closeSearch();
@@ -766,7 +767,19 @@ if (searchIcon && searchExpanded && headerSearch) {
         }
     });
 
-    // Остальной код поиска остается без изменений...
+    // Обработчик для физической кнопки "Назад" на Android
+    headerSearch.addEventListener('blur', function() {
+        // Не закрываем сразу при blur - ждем немного
+        setTimeout(() => {
+            if (document.activeElement !== headerSearch && 
+                !searchResults.contains(document.activeElement)) {
+                // Закрываем только если фокус действительно ушел из поиска
+                closeSearch();
+            }
+        }, 100);
+    });
+
+    // Поиск при вводе текста (остается без изменений)
     headerSearch.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();
         searchResults.innerHTML = '';
@@ -776,14 +789,12 @@ if (searchIcon && searchExpanded && headerSearch) {
             return;
         }
         
-        // Проверяем, загружены ли данные
         if (!window.athletesData || !Array.isArray(window.athletesData)) {
             console.warn('Данные спортсменов не загружены');
             searchResults.style.display = 'none';
             return;
         }
         
-        // Фильтрация данных
         const filtered = window.athletesData.filter(athlete => 
             athlete.name.toLowerCase().includes(searchTerm) || 
             (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
@@ -819,18 +830,12 @@ if (searchIcon && searchExpanded && headerSearch) {
                         e.preventDefault();
                         e.stopPropagation();
                     });
-                    
-                    item.addEventListener('touchend', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    });
                 }
                 
                 item.addEventListener('touchend', function(e) {
                     if (athlete.link) {
                         e.preventDefault();
                         e.stopPropagation();
-                        
                         setTimeout(() => {
                             window.location.href = athlete.link;
                         }, 50);
@@ -857,10 +862,6 @@ if (searchIcon && searchExpanded && headerSearch) {
                 </div>
             `;
             noResults.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            noResults.addEventListener('touchend', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
             });
