@@ -657,28 +657,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация при загрузке
     applyFilters();
 
-// === ГАРАНТИРОВАННО РАБОЧИЙ ПОИСК ДЛЯ iOS ===
+
+// === УПРОЩЕННЫЙ И РАБОЧИЙ ПОИСК ===
 const searchIcon = document.getElementById('searchIcon');
 const searchExpanded = document.getElementById('searchExpanded');
 const headerSearch = document.getElementById('headerSearch');
 const searchResults = document.getElementById('searchResults');
 const fixedHeader = document.querySelector('.fixed-header');
 
-// Создаем скрытое поле для iOS
-const tempInput = document.createElement('input');
-tempInput.type = 'text';
-tempInput.style.position = 'absolute';
-tempInput.style.left = '-1000px';
-tempInput.style.top = '0';
-tempInput.style.width = '1px';
-tempInput.style.height = '1px';
-tempInput.style.opacity = '0';
-document.body.appendChild(tempInput);
-
 if (searchIcon && searchExpanded && headerSearch) {
     let searchActive = false;
     
-    // Открытие поиска по рабочему принципу
     searchIcon.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -687,32 +676,17 @@ if (searchIcon && searchExpanded && headerSearch) {
         fixedHeader.classList.add('search-active');
         searchExpanded.classList.add('active');
         
-        // Очищаем предыдущие результаты
         searchResults.innerHTML = '';
         searchResults.style.display = 'none';
         headerSearch.value = '';
         headerSearch.placeholder = 'Введите имя спортсмена...';
         
-        // РАБОЧИЙ МЕТОД ДЛЯ iOS
-        // 1. Фокусируемся на временном поле
-        tempInput.focus();
-        
-        // 2. Через небольшую задержку переключаемся на настоящее поле
+        // Простой и надежный фокус
         setTimeout(() => {
             headerSearch.focus();
-            
-            // 3. Дополнительная попытка для надежности
-            setTimeout(() => {
-                headerSearch.focus();
-                // Для iOS иногда нужно вызвать click
-                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    headerSearch.click();
-                }
-            }, 50);
-        }, 30);
+        }, 100);
     });
 
-    // Простая функция закрытия поиска
     function closeSearch() {
         searchActive = false;
         fixedHeader.classList.remove('search-active');
@@ -723,109 +697,65 @@ if (searchIcon && searchExpanded && headerSearch) {
         headerSearch.blur();
     }
 
-    // Закрытие поиска при клике вне
     document.addEventListener('click', function(e) {
         if (searchActive && !searchExpanded.contains(e.target) && !searchIcon.contains(e.target)) {
             closeSearch();
         }
     });
 
-    // Закрытие при нажатии Escape
     headerSearch.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeSearch();
-        }
+        if (e.key === 'Escape') closeSearch();
     });
 
-    // Поиск при вводе текста
     headerSearch.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();
-        searchResults.innerHTML = '';
         
         if (searchTerm.length < 3) {
             searchResults.style.display = 'none';
             return;
         }
         
-        if (!window.athletesData || !Array.isArray(window.athletesData)) {
+        if (!window.athletesData) {
             searchResults.style.display = 'none';
             return;
         }
         
         const filtered = window.athletesData.filter(athlete => 
-            athlete.name.toLowerCase().includes(searchTerm) || 
-            (athlete.region && athlete.region.toLowerCase().includes(searchTerm)) ||
-            (athlete.rank && athlete.rank.toLowerCase().includes(searchTerm))
+            athlete.name.toLowerCase().includes(searchTerm)
         );
+        
+        searchResults.innerHTML = '';
         
         if (filtered.length > 0) {
             filtered.forEach(athlete => {
-                const item = document.createElement(athlete.link ? 'a' : 'div');
+                const item = document.createElement('a');
                 item.className = 'search-result-item';
+                item.href = athlete.link || '#';
                 
-                if (athlete.link) {
-                    item.href = athlete.link;
-                    item.setAttribute('role', 'link');
-                    item.setAttribute('aria-label', `Перейти к профилю ${athlete.name}`);
-                } else {
-                    item.style.cursor = 'default';
+                if (!athlete.link) {
+                    item.addEventListener('click', (e) => e.preventDefault());
                 }
                 
                 const birthYearInfo = athlete.birthYear ? `, ${athlete.birthYear}` : '';
-                const rankInfo = athlete.rank ? `<div class="search-result-rank">${athlete.rank}</div>` : '';
                 
                 item.innerHTML = `
                     <div class="search-result-main">
                         <div class="search-result-name">${athlete.name}${birthYearInfo}</div>
                         <div class="search-result-region">${athlete.region || ''}</div>
                     </div>
-                    ${rankInfo}
+                    ${athlete.rank ? `<div class="search-result-rank">${athlete.rank}</div>` : ''}
                 `;
-                
-                if (!athlete.link) {
-                    item.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    });
-                }
-                
-                item.addEventListener('touchend', function(e) {
-                    if (athlete.link) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setTimeout(() => {
-                            window.location.href = athlete.link;
-                        }, 50);
-                    }
-                });
-                
-                item.addEventListener('click', function(e) {
-                    if (athlete.link) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = athlete.link;
-                    }
-                });
                 
                 searchResults.appendChild(item);
             });
-            searchResults.style.display = 'block';
         } else {
             const noResults = document.createElement('div');
             noResults.className = 'search-result-item no-results';
-            noResults.innerHTML = `
-                <div style="text-align: center; width: 100%; color: #666; font-style: italic;">
-                    Спортсмены не найдены
-                </div>
-            `;
-            noResults.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            
+            noResults.textContent = 'Спортсмены не найдены';
             searchResults.appendChild(noResults);
-            searchResults.style.display = 'block';
         }
+        
+        searchResults.style.display = 'block';
     });
 }
 
