@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const table = document.getElementById('competitionTable');
     const headers = table.querySelectorAll('th[data-sort]');
-    let currentSort = { column: 'date', direction: 'desc' };
+    let currentSort = { column: 'date', direction: 'asc' };
 
     headers.forEach(header => {
         header.addEventListener('click', () => {
@@ -448,10 +448,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-//	const dateHeader = document.querySelector('th[data-sort="date"]');
-//	if (dateHeader) {
-//	    dateHeader.click();
-//	}
+    const dateHeader = document.querySelector('th[data-sort="date"]');
+    if (dateHeader) {
+        dateHeader.click();
+    }
 
     const modal = document.getElementById('universalModal');
     const closeBtn = document.querySelector('.close');
