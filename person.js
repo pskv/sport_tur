@@ -1,4 +1,3 @@
-
 // Компактные фильтры с выпадающими списками
 document.addEventListener('DOMContentLoaded', function() {
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
@@ -21,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
         distances: ['all']
     };
 
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Проверка существования элементов
+    if (!yearFilterBtn || !disciplineFilterBtn || !distanceFilterBtn || !tableRows.length) {
+        console.warn('Required elements not found, skipping filter initialization');
+        if (totalCountElem) totalCountElem.textContent = tableRows.length;
+        return;
+    }
+
     // Инициализация счетчика
     totalCountElem.textContent = tableRows.length;
     
@@ -29,110 +35,140 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDisciplineFilters();
     initializeDistanceFilters();
     
-    // Получаем обновленные checkbox'ы после динамической инициализации
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Получаем checkbox'ы ПОСЛЕ инициализации
     const yearCheckboxes = yearFilterContent.querySelectorAll('input[type="checkbox"]');
     const disciplineCheckboxes = disciplineFilterContent.querySelectorAll('input[type="checkbox"]');
     const distanceCheckboxes = distanceFilterContent.querySelectorAll('input[type="checkbox"]');
 
     updateVisibleCount();
 
-    // Функции динамической инициализации фильтров
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Добавляем обработку ошибок в инициализацию
     function initializeYearFilters() {
-        const yearFilterContent = document.getElementById('yearFilterContent');
-        
-        // Очищаем существующие варианты (кроме "Все годы")
-        const existingOptions = yearFilterContent.querySelectorAll('.filter-option:not(:first-child)');
-        existingOptions.forEach(option => option.remove());
-        
-        // Собираем уникальные годы из данных таблицы
-        const years = new Set();
-        tableRows.forEach(row => {
-            const year = row.getAttribute('data-year');
-            if (year) years.add(year);
-        });
-        
-        // Сортируем годы по убыванию
-        const sortedYears = Array.from(years).sort((a, b) => b - a);
-        
-        // Добавляем варианты в фильтр
-        sortedYears.forEach(year => {
-            const label = document.createElement('label');
-            label.className = 'filter-option';
-            label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
-            yearFilterContent.appendChild(label);
-        });
+        try {
+            const yearFilterContent = document.getElementById('yearFilterContent');
+            if (!yearFilterContent) return;
+            
+            // Очищаем существующие варианты (кроме "Все годы")
+            const existingOptions = yearFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+            existingOptions.forEach(option => option.remove());
+            
+            // Собираем уникальные годы из данных таблицы
+            const years = new Set();
+            tableRows.forEach(row => {
+                const year = row.getAttribute('data-year');
+                if (year) years.add(year);
+            });
+            
+            // Сортируем годы по убыванию
+            const sortedYears = Array.from(years).sort((a, b) => b - a);
+            
+            // Добавляем варианты в фильтр
+            sortedYears.forEach(year => {
+                const label = document.createElement('label');
+                label.className = 'filter-option';
+                label.innerHTML = `<input type="checkbox" value="${year}"> ${year}`;
+                yearFilterContent.appendChild(label);
+            });
+        } catch (error) {
+            console.error('Error initializing year filters:', error);
+        }
     }
 
     function initializeDisciplineFilters() {
-        const disciplineFilterContent = document.getElementById('disciplineFilterContent');
-        const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
-        existingOptions.forEach(option => option.remove());
-        
-        const disciplines = new Set();
-        tableRows.forEach(row => {
-            const discipline = row.getAttribute('data-distance');
-            if (discipline && discipline !== '-') {
-                disciplines.add(discipline);
-            }
-        });
-        
-        disciplines.forEach(discipline => {
-            const label = document.createElement('label');
-            label.className = 'filter-option';
+        try {
+            const disciplineFilterContent = document.getElementById('disciplineFilterContent');
+            if (!disciplineFilterContent) return;
             
-            // Находим первую строку с этой дисциплиной чтобы взять иконку
-            const exampleRow = Array.from(tableRows).find(row => 
-                row.getAttribute('data-distance') === discipline
-            );
+            const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+            existingOptions.forEach(option => option.remove());
             
-            let iconHtml = '';
-            if (exampleRow) {
-                const typeCell = exampleRow.cells[2];
-                iconHtml = typeCell.innerHTML;
-            }
+            const disciplines = new Set();
+            tableRows.forEach(row => {
+                const discipline = row.getAttribute('data-distance');
+                if (discipline && discipline !== '-') {
+                    disciplines.add(discipline);
+                }
+            });
             
-            label.innerHTML = `
-                <input type="checkbox" value="${discipline}"> 
-                ${iconHtml} ${discipline}
-            `;
-            disciplineFilterContent.appendChild(label);
-        });
+            disciplines.forEach(discipline => {
+                const label = document.createElement('label');
+                label.className = 'filter-option';
+                
+                // Находим первую строку с этой дисциплиной чтобы взять иконку
+                const exampleRow = Array.from(tableRows).find(row => 
+                    row.getAttribute('data-distance') === discipline
+                );
+                
+                let iconHtml = '';
+                if (exampleRow) {
+                    const typeCell = exampleRow.cells[2];
+                    iconHtml = typeCell.innerHTML;
+                }
+                
+                label.innerHTML = `
+                    <input type="checkbox" value="${discipline}"> 
+                    ${iconHtml} ${discipline}
+                `;
+                disciplineFilterContent.appendChild(label);
+            });
+        } catch (error) {
+            console.error('Error initializing discipline filters:', error);
+        }
     }
 
     function initializeDistanceFilters() {
-        const distanceFilterContent = document.getElementById('distanceFilterContent');
-        const existingOptions = distanceFilterContent.querySelectorAll('.filter-option:not(:first-child)');
-        existingOptions.forEach(option => option.remove());
-        
-        const distances = new Set();
-        tableRows.forEach(row => {
-            const distance = row.getAttribute('data-competition-type');
-            if (distance && distance !== '-') {
-                distances.add(distance);
-            }
-        });
-        
-        distances.forEach(distance => {
-            const label = document.createElement('label');
-            label.className = 'filter-option';
+        try {
+            const distanceFilterContent = document.getElementById('distanceFilterContent');
+            if (!distanceFilterContent) return;
             
-            // Находим первую строку с этим типом дистанции чтобы взять иконку
-            const exampleRow = Array.from(tableRows).find(row => 
-                row.getAttribute('data-competition-type') === distance
-            );
+            const existingOptions = distanceFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+            existingOptions.forEach(option => option.remove());
             
-            let iconHtml = '';
-            if (exampleRow) {
-                const mapCell = exampleRow.cells[3];
-                iconHtml = mapCell.innerHTML;
-            }
+            const distances = new Set();
+            tableRows.forEach(row => {
+                const distance = row.getAttribute('data-competition-type');
+                if (distance && distance !== '-') {
+                    distances.add(distance);
+                }
+            });
             
-            label.innerHTML = `
-                <input type="checkbox" value="${distance}"> 
-                ${iconHtml} ${distance}
-            `;
-            distanceFilterContent.appendChild(label);
-        });
+            distances.forEach(distance => {
+                const label = document.createElement('label');
+                label.className = 'filter-option';
+                
+                // Находим первую строку с этим типом дистанции чтобы взять иконку
+                const exampleRow = Array.from(tableRows).find(row => 
+                    row.getAttribute('data-competition-type') === distance
+                );
+                
+                let iconHtml = '';
+                if (exampleRow) {
+                    const mapCell = exampleRow.cells[3];
+                    iconHtml = mapCell.innerHTML;
+                }
+                
+                label.innerHTML = `
+                    <input type="checkbox" value="${distance}"> 
+                    ${iconHtml} ${distance}
+                `;
+                distanceFilterContent.appendChild(label);
+            });
+        } catch (error) {
+            console.error('Error initializing distance filters:', error);
+        }
+    }
+
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Debounce для resize
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
     // Функция для умного позиционирования выпадающих списков
@@ -304,39 +340,27 @@ document.addEventListener('DOMContentLoaded', function() {
     handleCheckboxChange(disciplineCheckboxes, 'disciplines');
     handleCheckboxChange(distanceCheckboxes, 'distances');
 
-    // Обработчики для открытия/закрытия выпадающих списков
-    yearFilterBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isShowing = yearFilterContent.classList.toggle('show');
-        disciplineFilterContent.classList.remove('show');
-        distanceFilterContent.classList.remove('show');
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Единый обработчик для фильтров с проверками
+    function setupFilterToggle(button, content) {
+        if (!button || !content) return;
         
-        if (isShowing) {
-            smartPositionDropdown(this, yearFilterContent);
-        }
-    });
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isShowing = content.classList.toggle('show');
+            
+            // Скрыть другие фильтры
+            [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(otherContent => {
+                if (otherContent && otherContent !== content) otherContent.classList.remove('show');
+            });
+            
+            if (isShowing) smartPositionDropdown(this, content);
+        });
+    }
 
-    disciplineFilterBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isShowing = disciplineFilterContent.classList.toggle('show');
-        yearFilterContent.classList.remove('show');
-        distanceFilterContent.classList.remove('show');
-        
-        if (isShowing) {
-            smartPositionDropdown(this, disciplineFilterContent);
-        }
-    });
-
-    distanceFilterBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isShowing = distanceFilterContent.classList.toggle('show');
-        yearFilterContent.classList.remove('show');
-        disciplineFilterContent.classList.remove('show');
-        
-        if (isShowing) {
-            smartPositionDropdown(this, distanceFilterContent);
-        }
-    });
+    // Инициализация обработчиков с проверками
+    setupFilterToggle(yearFilterBtn, yearFilterContent);
+    setupFilterToggle(disciplineFilterBtn, disciplineFilterContent);
+    setupFilterToggle(distanceFilterBtn, distanceFilterContent);
 
     // Закрытие выпадающих списков при клике вне их
     document.addEventListener('click', function() {
@@ -352,8 +376,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Добавьте обработчик изменения размера окна
-    window.addEventListener('resize', function() {
+    // 🔴 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: Debounce для resize
+    const handleResize = debounce(function() {
         // Перепозиционируем открытые выпадающие списки
         if (yearFilterContent.classList.contains('show')) {
             smartPositionDropdown(yearFilterBtn, yearFilterContent);
@@ -364,7 +388,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (distanceFilterContent.classList.contains('show')) {
             smartPositionDropdown(distanceFilterBtn, distanceFilterContent);
         }
-    });
+    }, 250);
+
+    window.addEventListener('resize', handleResize);
 
     // Сброс всех фильтров
     clearFiltersBtn.addEventListener('click', function() {
