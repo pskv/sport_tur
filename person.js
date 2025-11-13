@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация при загрузке
     applyFilters();
 
-// === ПЕРЕПИСАННЫЙ ПОИСК ДЛЯ iOS ===
+// === ПРОСТОЙ РАБОЧИЙ ПОИСК ===
 const searchIcon = document.getElementById('searchIcon');
 const searchExpanded = document.getElementById('searchExpanded');
 const headerSearch = document.getElementById('headerSearch');
@@ -666,46 +666,8 @@ const fixedHeader = document.querySelector('.fixed-header');
 
 if (searchIcon && searchExpanded && headerSearch) {
     let searchActive = false;
-    let isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
     
-    // Функция для принудительного открытия клавиатуры в iOS
-    function forceIOSKeyboard(input) {
-        // Метод 1: Создаем и фокусируем временный input
-        const tempInput = document.createElement('input');
-        tempInput.setAttribute('type', 'text');
-        tempInput.style.position = 'absolute';
-        tempInput.style.opacity = '0';
-        tempInput.style.height = '0';
-        tempInput.style.fontSize = '16px'; // Важно для iOS
-        document.body.appendChild(tempInput);
-        
-        // Фокусируем временный input
-        setTimeout(() => {
-            tempInput.focus();
-            
-            // Метод 2: Пытаемся кликнуть на реальный input
-            setTimeout(() => {
-                input.focus();
-                input.click();
-                
-                // Метод 3: Используем selection если доступно
-                setTimeout(() => {
-                    if (input.setSelectionRange) {
-                        input.setSelectionRange(0, 0);
-                    }
-                    input.focus();
-                    
-                    // Метод 4: Еще одна попытка через таймаут
-                    setTimeout(() => {
-                        input.focus();
-                        document.body.removeChild(tempInput);
-                    }, 100);
-                }, 100);
-            }, 200);
-        }, 50);
-    }
-    
-    // Открытие поиска
+    // Открытие поиска - максимально просто
     searchIcon.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -719,36 +681,13 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.style.display = 'none';
         headerSearch.value = '';
         
-        // Для iOS используем специальные методы
-        if (isIOS) {
-            // Небольшая задержка для отрисовки интерфейса
-            setTimeout(() => {
-                forceIOSKeyboard(headerSearch);
-            }, 300);
-        } else {
-            // Для Android и десктопа
-            setTimeout(() => {
-                headerSearch.focus();
-            }, 100);
-        }
+        // Просто фокусируемся на поле
+        setTimeout(() => {
+            headerSearch.focus();
+        }, 100);
     });
 
-    // Также добавляем обработчик touchstart для iOS
-    searchIcon.addEventListener('touchstart', function(e) {
-        if (isIOS) {
-            e.preventDefault();
-        }
-    });
-
-    // Обработчик для прямого касания поля поиска в iOS
-    headerSearch.addEventListener('touchstart', function(e) {
-        if (isIOS && !searchActive) {
-            e.preventDefault();
-            searchIcon.click();
-        }
-    }, { passive: false });
-
-    // Улучшенная функция закрытия поиска
+    // Простая функция закрытия поиска
     function closeSearch() {
         searchActive = false;
         fixedHeader.classList.remove('search-active');
@@ -756,25 +695,7 @@ if (searchIcon && searchExpanded && headerSearch) {
         searchResults.style.display = 'none';
         searchResults.innerHTML = '';
         headerSearch.value = '';
-        
-        // Скрываем клавиатуру
-        setTimeout(() => {
-            headerSearch.blur();
-            
-            // Дополнительные действия для iOS
-            if (isIOS) {
-                // Создаем и сразу удаляем временный элемент чтобы скрыть клавиатуру
-                const temp = document.createElement('input');
-                temp.style.position = 'fixed';
-                temp.style.top = '0';
-                temp.style.opacity = '0';
-                document.body.appendChild(temp);
-                temp.focus();
-                setTimeout(() => {
-                    document.body.removeChild(temp);
-                }, 100);
-            }
-        }, 50);
+        headerSearch.blur();
     }
 
     // Закрытие поиска при клике вне
@@ -789,17 +710,6 @@ if (searchIcon && searchExpanded && headerSearch) {
         if (e.key === 'Escape') {
             closeSearch();
         }
-    });
-
-    // Обработка потери фокуса
-    headerSearch.addEventListener('blur', function() {
-        setTimeout(() => {
-            // Если фокус перешел на результаты поиска - не закрываем
-            if (searchActive && document.activeElement !== headerSearch && 
-                !searchResults.contains(document.activeElement)) {
-                closeSearch();
-            }
-        }, 150);
     });
 
     // Поиск при вводе текста
@@ -893,19 +803,6 @@ if (searchIcon && searchExpanded && headerSearch) {
             searchResults.style.display = 'block';
         }
     });
-
-    // Дополнительно: обрабатываем изменения видимости клавиатуры
-    window.addEventListener('resize', function() {
-        if (isIOS && searchActive) {
-            // В iOS изменение размера окна часто означает появление/скрытие клавиатуры
-            setTimeout(() => {
-                if (!headerSearch.matches(':focus')) {
-                    headerSearch.focus();
-                }
-            }, 100);
-        }
-    });
 }
-
 
 });

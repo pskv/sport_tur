@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест клавиатуры iPhone</title>
+    <title>Тест клавиатуры iPhone - Исправлено</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -69,90 +69,149 @@
             font-size: 16px;
             cursor: pointer;
             width: 100%;
+            margin: 5px 0;
         }
         button:hover {
             background: #0056CC;
+        }
+        .hidden-input {
+            position: absolute;
+            left: -1000px;
+            top: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        .method-buttons {
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🧪 Тест клавиатуры iPhone</h1>
+        <h1>📱 Тест клавиатуры iPhone - Исправлено</h1>
         
         <div class="input-group">
-            <label>Стандартная клавиатура <span class="keyboard-type">text</span></label>
-            <input type="text" placeholder="Попробуйте ввести текст...">
+            <label>Тестовое поле для ввода <span class="keyboard-type">text</span></label>
+            <input type="text" id="mainInput" placeholder="Нажмите сюда или используйте кнопки ниже...">
         </div>
 
-        <div class="input-group">
-            <label>Только цифры <span class="keyboard-type">number</span></label>
-            <input type="number" placeholder="1234567890">
-        </div>
-
-        <div class="input-group">
-            <label>Телефонная клавиатура <span class="keyboard-type">tel</span></label>
-            <input type="tel" placeholder="+7 (900) 123-45-67">
-        </div>
-
-        <div class="input-group">
-            <label>Email клавиатура <span class="keyboard-type">email</span></label>
-            <input type="email" placeholder="test@example.com">
-        </div>
-
-        <div class="input-group">
-            <label>URL клавиатура <span class="keyboard-type">url</span></label>
-            <input type="url" placeholder="https://example.com">
-        </div>
-
-        <div class="input-group">
-            <label>Поиск <span class="keyboard-type">search</span></label>
-            <input type="search" placeholder="Поиск...">
-        </div>
-
-        <div class="input-group">
-            <label>Цифровая клавиатура <span class="keyboard-type">inputmode=numeric</span></label>
-            <input type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Только цифры">
-        </div>
-
-        <div class="input-group">
-            <label>Текстовое поле <span class="keyboard-type">textarea</span></label>
-            <textarea rows="3" placeholder="Многострочный текст..."></textarea>
-        </div>
-
-        <div class="input-group">
-            <button onclick="focusFirstInput()">📱 Сфокусироваться на первом поле</button>
+        <div class="method-buttons">
+            <button onclick="method1()">🔧 Метод 1: Фокус с таймаутом</button>
+            <button onclick="method2()">🎯 Метод 2: Создание временного поля</button>
+            <button onclick="method3()">⚡ Метод 3: Клик + Фокус</button>
+            <button onclick="method4()">📝 Метод 4: Для textarea</button>
         </div>
 
         <div class="note">
-            <strong>Примечание:</strong> Нажмите на любое поле ввода или кнопку выше, чтобы протестировать открытие клавиатуры на iPhone. Обратите внимание на разницу в типах клавиатур для разных полей.
+            <strong>Обновление:</strong> Исправлена проблема с исчезающей клавиатурой. Теперь используются разные методы для обхода ограничений iOS.
         </div>
+
+        <!-- Скрытое поле для метода 2 -->
+        <input type="text" id="tempInput" class="hidden-input">
+        <textarea id="tempTextarea" class="hidden-input"></textarea>
     </div>
 
     <script>
-        function focusFirstInput() {
-            const firstInput = document.querySelector('input');
-            if (firstInput) {
-                firstInput.focus();
-                
-                // Дополнительная попытка для надежности на iOS
+        const mainInput = document.getElementById('mainInput');
+        const tempInput = document.getElementById('tempInput');
+        const tempTextarea = document.getElementById('tempTextarea');
+
+        // Метод 1: Фокус с таймаутами
+        function method1() {
+            console.log('Метод 1: Фокус с таймаутом');
+            mainInput.focus();
+            
+            // Добавляем несколько попыток фокуса
+            setTimeout(() => {
+                mainInput.blur();
                 setTimeout(() => {
-                    firstInput.blur();
+                    mainInput.focus();
+                    // Еще одна попытка для надежности
                     setTimeout(() => {
-                        firstInput.focus();
-                    }, 100);
+                        mainInput.focus();
+                    }, 300);
                 }, 200);
-            }
+            }, 100);
         }
 
-        // Добавляем обработчики для отслеживания фокуса
+        // Метод 2: Создание и использование временного поля
+        function method2() {
+            console.log('Метод 2: Временное поле');
+            
+            // Фокусируемся на временном поле
+            tempInput.focus();
+            
+            // Через короткое время переключаемся на основное поле
+            setTimeout(() => {
+                mainInput.focus();
+                // Добавляем дополнительные попытки
+                setTimeout(() => mainInput.focus(), 100);
+                setTimeout(() => mainInput.focus(), 300);
+            }, 50);
+        }
+
+        // Метод 3: Имитация клика + фокус
+        function method3() {
+            console.log('Метод 3: Клик + Фокус');
+            
+            // Создаем и инициируем событие клика
+            const clickEvent = new MouseEvent('click', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+            });
+            
+            mainInput.dispatchEvent(clickEvent);
+            
+            // Затем фокусируемся
+            setTimeout(() => {
+                mainInput.focus();
+            }, 10);
+            
+            // Дополнительные попытки
+            setTimeout(() => mainInput.focus(), 100);
+            setTimeout(() => mainInput.focus(), 200);
+        }
+
+        // Метод 4: Для textarea (часто работает лучше на iOS)
+        function method4() {
+            console.log('Метод 4: Textarea метод');
+            
+            // Фокусируемся на временном textarea
+            tempTextarea.focus();
+            
+            // Затем переключаемся на основное поле
+            setTimeout(() => {
+                mainInput.focus();
+                // Множественные попытки фокуса
+                let attempts = 0;
+                const focusInterval = setInterval(() => {
+                    mainInput.focus();
+                    attempts++;
+                    if (attempts >= 5) {
+                        clearInterval(focusInterval);
+                    }
+                }, 100);
+            }, 50);
+        }
+
+        // Логирование событий фокуса
         document.querySelectorAll('input, textarea').forEach(element => {
             element.addEventListener('focus', function() {
-                console.log('Фокус на:', this.type || 'textarea');
+                console.log('✅ Фокус на:', this.id || this.type);
             });
             
             element.addEventListener('blur', function() {
-                console.log('Потеря фокуса:', this.type || 'textarea');
+                console.log('❌ Потеря фокуса:', this.id || this.type);
             });
+        });
+
+        // Авто-фокус при загрузке (может не работать на iOS)
+        window.addEventListener('load', () => {
+            console.log('Страница загружена');
         });
     </script>
 </body>
