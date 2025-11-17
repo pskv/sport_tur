@@ -11099,6 +11099,26 @@ window.athletesData =
                 rank: "КМС",
                 rankText: "Кандидат в мастера спорта",
                 link: "pers_3009.html",
+            },
+            {
+                id: 3028,
+                name: "Иванова Наталья",
+                region: "Чувашская Республика - Чувашия",
+                gender: "f",
+                birthYear: 1985,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3028.html",
+            },
+            {
+                id: 3029,
+                name: "Султанов Айрат",
+                region: "Республика Татарстан",
+                gender: "m",
+                birthYear: 1986,
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
+                link: "pers_3029.html",
             }
 ];
     
