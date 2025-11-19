@@ -171,6 +171,7 @@
             <!-- КОМПАКТНЫЕ ФИЛЬТРЫ -->
             <div class="compact-filters">
                 <div class="filter-dropdown">
+					<span class="filter-icon">📅</span>
                     <button class="filter-dropdown-btn" id="yearFilterBtn">
                         <span>Все годы</span>
                         <i class="fas fa-chevron-down"></i>
@@ -184,6 +185,7 @@
                 </div>
 
                 <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
                     <button class="filter-dropdown-btn" id="disciplineFilterBtn">
                         <span>Все дисциплины</span>
                         <i class="fas fa-chevron-down"></i>
@@ -197,6 +199,7 @@
                 </div>
 
                 <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
                     <button class="filter-dropdown-btn" id="distanceFilterBtn">
                         <span>Все дистанции</span>
                         <i class="fas fa-chevron-down"></i>
@@ -208,6 +211,20 @@
                         <!-- Типы дистанций добавятся автоматически через JavaScript -->
                     </div>
                 </div>
+				
+				<div class="filter-dropdown">
+					<span class="filter-icon">🔎</span>
+				    <button class="filter-dropdown-btn" id="ratingFilterBtn">
+				        <span>Процент отставания</span>
+				        <i class="fas fa-chevron-down"></i>
+				    </button>
+				    <div class="filter-dropdown-content" id="ratingFilterContent">
+				        <label class="filter-option">
+				            <input type="radio" name="ratingType" value="Процент отставания" checked> Процент отставания
+				        </label>
+				        <!-- Рейтинги добавятся автоматически через JavaScript -->
+				    </div>
+				</div>
 
                 <div class="filter-stats">
                     <span id="visibleCount">0</span> из <span id="totalCount">0</span>
@@ -251,7 +268,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2024"
 							data-event-location="Московская обл., Воскресенский район, пос. им. Цюрупы"
-							data-glicko_ratings='{"1": {"before": 1458, "diff": 71}}'
+							data-glicko_ratings='{"1": {"before": 1490, "diff": 64}}'
 							class="clickable-row">
                             <td>05.07.24</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -272,7 +289,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Краснодарский край, пгт. Новомихайловский, ВДЦ «Орлёнок»"
-							data-glicko_ratings='{"1": {"before": 1532, "diff": -63}}'
+							data-glicko_ratings='{"1": {"before": 1544, "diff": -84}}'
 							class="clickable-row">
                             <td>04.09.24</td>
                             <td>ЧР, Орлёнок</td>
@@ -293,7 +310,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2024"
 							data-event-location="Московская обл., Воскресенский район, пос. им. Цюрупы"
-							data-glicko_ratings='{"1": {"before": 1427, "diff": 31}}'
+							data-glicko_ratings='{"1": {"before": 1477, "diff": 13}}'
 							class="clickable-row">
                             <td>04.07.24</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -314,7 +331,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Краснодарский край, пгт. Новомихайловский, ВДЦ «Орлёнок»"
-							data-glicko_ratings='{"1": {"before": 1529, "diff": 3}}'
+							data-glicko_ratings='{"1": {"before": 1554, "diff": -9}}'
 							class="clickable-row">
                             <td>03.09.24</td>
                             <td>ЧР, Орлёнок</td>
@@ -335,7 +352,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Краснодарский край, пгт. Новомихайловский, ВДЦ «Орлёнок»"
-							data-glicko_ratings='{"2": {"before": 1675, "diff": -27}}'
+							data-glicko_ratings='{"2": {"before": 1615, "diff": -52}}'
 							class="clickable-row">
                             <td>06.09.24</td>
                             <td>ЧР, Орлёнок</td>
@@ -356,7 +373,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2024"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"1": {"before": 1649, "diff": -108}}'
+							data-glicko_ratings='{"1": {"before": 1635, "diff": -100}}'
 							class="clickable-row">
                             <td>30.04.24</td>
                             <td>ВС, Куяр</td>
@@ -377,7 +394,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2024"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"1": {"before": 1541, "diff": -115}}'
+							data-glicko_ratings='{"1": {"before": 1535, "diff": -58}}'
 							class="clickable-row">
                             <td>01.05.24</td>
                             <td>ВС, Куяр</td>
@@ -398,7 +415,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2024"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"2": {"before": 1855, "diff": -181}}'
+							data-glicko_ratings='{"2": {"before": 1691, "diff": -76}}'
 							class="clickable-row">
                             <td>02.05.24</td>
                             <td>ВС, Куяр</td>
@@ -419,7 +436,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Волгоградская область, г. Камышин"
-							data-glicko_ratings='{"1": {"before": 1500, "diff": 58}}'
+							data-glicko_ratings='{"1": {"before": 1500, "diff": 42}}'
 							class="clickable-row">
                             <td>13.09.23</td>
                             <td>ЧР, Камышин</td>
@@ -440,7 +457,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Волгоградская область, г. Камышин"
-							data-glicko_ratings='{"1": {"before": 1558, "diff": -17}}'
+							data-glicko_ratings='{"1": {"before": 1542, "diff": -18}}'
 							class="clickable-row">
                             <td>14.09.23</td>
                             <td>ЧР, Камышин</td>
@@ -461,7 +478,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Волгоградская область, г. Камышин"
-							data-glicko_ratings='{"2": {"before": 1500, "diff": 144}}'
+							data-glicko_ratings='{"2": {"before": 1500, "diff": -3}}'
 							class="clickable-row">
                             <td>16.09.23</td>
                             <td>ЧР, Камышин</td>
@@ -481,7 +498,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2023"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"2": {"before": 1644, "diff": 211}}'
+							data-glicko_ratings='{"2": {"before": 1497, "diff": 194}}'
 							class="clickable-row">
                             <td>13.10.23</td>
                             <td>ВС, Юматово</td>
@@ -502,7 +519,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2023"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"1": {"before": 1541, "diff": 99}}'
+							data-glicko_ratings='{"1": {"before": 1524, "diff": 109}}'
 							class="clickable-row">
                             <td>14.10.23</td>
                             <td>ВС, Юматово</td>
@@ -521,7 +538,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2023"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"1": {"before": 1640, "diff": 9}}'
+							data-glicko_ratings='{"1": {"before": 1633, "diff": 2}}'
 							class="clickable-row">
                             <td>15.10.23</td>
                             <td>ВС, Юматово</td>
@@ -542,7 +559,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2024"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"1": {"before": 1469, "diff": 20}}'
+							data-glicko_ratings='{"1": {"before": 1460, "diff": 29}}'
 							class="clickable-row">
                             <td>11.10.24</td>
                             <td>ВС, Юматово</td>
@@ -563,7 +580,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2024"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"2": {"before": 1648, "diff": -10}}'
+							data-glicko_ratings='{"2": {"before": 1563, "diff": 16}}'
 							class="clickable-row">
                             <td>12.10.24</td>
                             <td>ВС, Юматово</td>
@@ -583,7 +600,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2024"
 							data-event-location="Республика Башкортостан, п. Юматово"
-							data-glicko_ratings='{"1": {"before": 1489, "diff": 4}}'
+							data-glicko_ratings='{"1": {"before": 1489, "diff": 1}}'
 							class="clickable-row">
                             <td>13.10.24</td>
                             <td>ВС, Юматово</td>
@@ -604,7 +621,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2025"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"1": {"before": 1581, "diff": 1}}'
+							data-glicko_ratings='{"1": {"before": 1586, "diff": 4}}'
 							class="clickable-row">
                             <td>03.05.25</td>
                             <td>ВС, Куяр</td>
@@ -625,7 +642,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2025"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"2": {"before": 1638, "diff": -34}}'
+							data-glicko_ratings='{"2": {"before": 1579, "diff": -10}}'
 							class="clickable-row">
                             <td>04.05.25</td>
                             <td>ВС, Куяр</td>
@@ -646,7 +663,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Весенний призыв - 2025"
 							data-event-location="Республика Марий Эл, п. Куяр"
-							data-glicko_ratings='{"1": {"before": 1494, "diff": 87}}'
+							data-glicko_ratings='{"1": {"before": 1491, "diff": 95}}'
 							class="clickable-row">
                             <td>02.05.25</td>
                             <td>ВС, Куяр</td>
@@ -667,7 +684,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
 							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
-							data-glicko_ratings='{"1": {"before": 1582, "diff": 84}}'
+							data-glicko_ratings='{"1": {"before": 1590, "diff": 60}}'
 							class="clickable-row">
                             <td>03.07.25</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -688,7 +705,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
 							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
-							data-glicko_ratings='{"1": {"before": 1666, "diff": -12}}'
+							data-glicko_ratings='{"1": {"before": 1650, "diff": -43}}'
 							class="clickable-row">
                             <td>04.07.25</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -709,7 +726,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
 							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
-							data-glicko_ratings='{"2": {"before": 1604, "diff": -112}}'
+							data-glicko_ratings='{"2": {"before": 1569, "diff": -104}}'
 							class="clickable-row">
                             <td>05.07.25</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -730,7 +747,7 @@
 							data-event-type="Кубок России"
 							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
 							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
-							data-glicko_ratings='{"2": {"before": 1492, "diff": -17}}'
+							data-glicko_ratings='{"2": {"before": 1465, "diff": -10}}'
 							class="clickable-row">
                             <td>06.07.25</td>
                             <td>КР, пос. им. Цюрупы</td>
@@ -751,7 +768,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Алтайский край с. Нижнекаянча"
-							data-glicko_ratings='{"1": {"before": 1654, "diff": -44}}'
+							data-glicko_ratings='{"1": {"before": 1608, "diff": -55}}'
 							class="clickable-row">
                             <td>25.08.25</td>
                             <td>ЧР, Алтай</td>
@@ -772,7 +789,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Алтайский край с. Нижнекаянча"
-							data-glicko_ratings='{"1": {"before": 1610, "diff": 11}}'
+							data-glicko_ratings='{"1": {"before": 1553, "diff": 13}}'
 							class="clickable-row">
                             <td>26.08.25</td>
                             <td>ЧР, Алтай</td>
@@ -793,7 +810,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Алтайский край с. Нижнекаянча"
-							data-glicko_ratings='{"2": {"before": 1475, "diff": -32}}'
+							data-glicko_ratings='{"2": {"before": 1455, "diff": -54}}'
 							class="clickable-row">
                             <td>27.08.25</td>
                             <td>ЧР, Алтай</td>
@@ -814,7 +831,7 @@
 							data-event-type="Чемпионат России"
 							data-event-name-short=""
 							data-event-location="Алтайский край с. Нижнекаянча"
-							data-glicko_ratings='{"2": {"before": 1443, "diff": -11}}'
+							data-glicko_ratings='{"2": {"before": 1401, "diff": -7}}'
 							class="clickable-row">
                             <td>28.08.25</td>
                             <td>ЧР, Алтай</td>
@@ -835,7 +852,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2025"
 							data-event-location="Республика Башкортостан, Уфимский р-н, д. Глумилино"
-							data-glicko_ratings='{"1": {"before": 1621, "diff": -4}}'
+							data-glicko_ratings='{"1": {"before": 1566, "diff": 3}}'
 							class="clickable-row">
                             <td>03.10.25</td>
                             <td>ВС, Глумилино</td>
@@ -856,7 +873,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2025"
 							data-event-location="Республика Башкортостан, Уфимский р-н, д. Глумилино"
-							data-glicko_ratings='{"2": {"before": 1432, "diff": 18}}'
+							data-glicko_ratings='{"2": {"before": 1394, "diff": 24}}'
 							class="clickable-row">
                             <td>04.10.25</td>
                             <td>ВС, Глумилино</td>
@@ -876,7 +893,7 @@
 							data-event-type="Всероссийские соревнования"
 							data-event-name-short="Кубок памяти К.П. Хомякова - 2025"
 							data-event-location="Республика Башкортостан, Уфимский р-н, д. Глумилино"
-							data-glicko_ratings='{"1": {"before": 1617, "diff": 0}}'
+							data-glicko_ratings='{"1": {"before": 1569, "diff": 1}}'
 							class="clickable-row">
                             <td>05.10.25</td>
                             <td>ВС, Глумилино</td>

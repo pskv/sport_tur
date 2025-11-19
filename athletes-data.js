@@ -11126,6 +11126,7 @@
 
     // ДОБАВИЛИ ratingsDictionary
     window.ratingsDictionary = {
+
         "1": "Рейтинг: короткие дистанции",
         "2": "Рейтинг: длинные дистанции"
     };
@@ -11134,7 +11135,7 @@
     try {
         const dataToCache = {
             athletesData: window.athletesData,
-            ratingsDictionary: window.ratingsDictionary // ДОБАВИЛИ
+            ratingsDictionary: window.ratingsDictionary
         };
         localStorage.setItem(CACHE_KEY, JSON.stringify(dataToCache));
         console.log('💾 Данные сохранены в кэш LocalStorage');
