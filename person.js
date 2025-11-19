@@ -403,14 +403,14 @@ function handleCheckboxChange(checkboxes, filterType) {
                 
                 // Если выбран рейтинг (не "Процент отставания"), сбрасываем другие фильтры
                 if (value !== 'Процент отставания') {
-                    activeFilters.years = ['all'];
+                    //activeFilters.years = ['all'];
                     activeFilters.disciplines = ['all'];
                     activeFilters.distances = ['all'];
                     
                     // Сбрасываем чекбоксы других фильтров
-                    yearCheckboxes.forEach(cb => {
-                        cb.checked = cb.value === 'all';
-                    });
+                    //yearCheckboxes.forEach(cb => {
+                    //    cb.checked = cb.value === 'all';
+                    //});
                     disciplineCheckboxes.forEach(cb => {
                         cb.checked = cb.value === 'all';
                     });
