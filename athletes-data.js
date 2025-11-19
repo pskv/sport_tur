@@ -7,7 +7,9 @@
     try {
         const cachedData = localStorage.getItem(CACHE_KEY);
         if (cachedData) {
-            window.athletesData = JSON.parse(cachedData);
+			const parsedData = JSON.parse(cachedData);
+			window.athletesData = parsedData.athletesData;
+			window.ratingsDictionary = parsedData.ratingsDictionary;
             console.log('✅ Данные загружены из кэша LocalStorage');
             return; // Выходим, не выполняя код ниже
         }
@@ -17,8 +19,8 @@
     
     // Этот код выполняется ТОЛЬКО при первой загрузке
     console.log('🔄 Первая загрузка данных...');
-window.athletesData = 
-[
+	window.athletesData = 
+	[
 
             {
                 id: 1,
@@ -11120,11 +11122,21 @@ window.athletesData =
                 rankText: "Кандидат в мастера спорта",
                 link: "pers_3029.html",
             }
-];
+	];
+
+    // ДОБАВИЛИ ratingsDictionary
+    window.ratingsDictionary = {
+        "1": "Рейтинг: короткие дистанции",
+        "2": "Рейтинг: длинные дистанции"
+    };
     
-    // Сохраняем в кэш для следующих загрузок
+    // Сохраняем в кэш
     try {
-        localStorage.setItem(CACHE_KEY, JSON.stringify(window.athletesData));
+        const dataToCache = {
+            athletesData: window.athletesData,
+            ratingsDictionary: window.ratingsDictionary // ДОБАВИЛИ
+        };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(dataToCache));
         console.log('💾 Данные сохранены в кэш LocalStorage');
     } catch (e) {
         console.error('❌ Ошибка сохранения в кэш:', e);
