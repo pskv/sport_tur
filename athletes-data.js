@@ -1,3 +1,23 @@
+(function() {
+    const DATA_VERSION = '1.0';
+    const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
+
+    // Пытаемся получить данные из кэша
+    try {
+        const cachedData = localStorage.getItem(CACHE_KEY);
+        if (cachedData) {
+			const parsedData = JSON.parse(cachedData);
+			window.athletesData = parsedData.athletesData;
+			window.ratingsDictionary = parsedData.ratingsDictionary;
+            console.log('✅ Данные загружены из кэша LocalStorage');
+            return; // Выходим, не выполняя код ниже
+        }
+    } catch (e) {
+        console.warn('⚠️ Ошибка чтения кэша:', e);
+    }
+
+    // Этот код выполняется ТОЛЬКО при первой загрузке
+    console.log('🔄 Первая загрузка данных...');
 	window.athletesData =
 	[
 
@@ -11103,8 +11123,22 @@
             }
 	];
 
+    // ДОБАВИЛИ ratingsDictionary
     window.ratingsDictionary = {
 
         "1": "Рейтинг: короткие дистанции",
         "2": "Рейтинг: длинные дистанции"
     };
+
+    // Сохраняем в кэш
+    try {
+        const dataToCache = {
+            athletesData: window.athletesData,
+            ratingsDictionary: window.ratingsDictionary
+        };
+        localStorage.setItem(CACHE_KEY, JSON.stringify(dataToCache));
+        console.log('💾 Данные сохранены в кэш LocalStorage');
+    } catch (e) {
+        console.error('❌ Ошибка сохранения в кэш:', e);
+    }
+})();
