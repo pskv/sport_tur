@@ -386,6 +386,10 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
+		
+		.year-badge.even-year {
+			background: linear-gradient(135deg, #ffa726, #f57c00); /* оранжевый для чётных */
+		}
 
         .badges-row {
             display: flex;
@@ -1200,6 +1204,8 @@
 				const dateTo = new Date(event.dateTo);
 				const year = dateFrom.getFullYear();
 				const shortName = event.shortName;
+				const isEvenYear = year % 2 === 0;
+				const yearClass = isEvenYear ? 'even-year' : '';
 				
 				// Определяем, есть ли логотип
 				const hasLogo = event.logo && event.logo.trim() !== '';
@@ -1216,7 +1222,7 @@
 						<div class="event-left">
 							<div class="badges-row">
 								<span class="event-type-badge">${event.type}</span>
-								<span class="year-badge">${year}</span>
+								<span class="year-badge ${yearClass}">${year}</span>
 							</div>
 							${shortName ? `<div class="event-name">${shortName}</div>` : ''}
 							<div class="event-details">
