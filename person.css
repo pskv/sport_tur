@@ -1326,3 +1326,273 @@ footer {
     padding: 0 !important;
     margin-left: -4px !important; /* Сдвигаем иконки ближе друг к другу */
 }
+
+
+/* Стили для карточки рейтингов */
+.ratings-container {
+    margin: 15px 0;
+}
+
+.rating-category {
+    margin-bottom: 0;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eaeaea;
+    font-weight: 600;
+    color: #1a3a5f;
+    font-size: 1rem;
+}
+
+.category-header i {
+    color: #2c5a8a;
+    font-size: 1rem;
+}
+
+.rating-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.rating-main {
+    flex-shrink: 0;
+    min-width: 110px;
+}
+
+.current-rating {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #1a3a5f;
+    line-height: 1;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.current-position {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+    text-align: center;
+}
+
+.rating-side {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 200px;
+    max-width: 220px;
+}
+
+.rating-changes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 90px;
+}
+
+.change-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.year {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.change {
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 32px;
+    text-align: right;
+}
+
+.change.positive {
+    color: #2e7d32;
+}
+
+.change.negative {
+    color: #c62828;
+}
+
+.rating-best {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 8px;
+    background: #fff8e1;
+    border-radius: 8px;
+    border: 1px solid #ffecb3;
+    flex: 1;
+    min-width: 80px;
+}
+
+.best-label {
+    font-size: 0.65rem;
+    color: #ff6f00;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.best-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff6f00;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.best-date {
+    font-size: 0.65rem;
+    color: #8d6e63;
+    font-weight: 500;
+}
+
+.category-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    margin: 20px 0;
+}
+
+/* Адаптивность для карточки рейтингов */
+@media (max-width: 900px) {
+    .rating-content {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .rating-side {
+        min-width: 180px;
+        max-width: 200px;
+    }
+    
+    .current-rating {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .rating-content {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .rating-main {
+        min-width: auto;
+        order: 1;
+    }
+    
+    .rating-side {
+        order: 2;
+        min-width: 250px;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .current-rating {
+        font-size: 2.3rem;
+    }
+    
+    .rating-changes {
+        min-width: 100px;
+    }
+    
+    .rating-best {
+        min-width: 100px;
+    }
+    
+    .best-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rating-side {
+        flex-direction: column;
+        gap: 10px;
+        min-width: 200px;
+        max-width: 220px;
+    }
+    
+    .rating-changes {
+        flex-direction: row;
+        justify-content: space-around;
+        min-width: auto;
+    }
+    
+    .rating-best {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        min-width: auto;
+        padding: 8px 12px;
+    }
+    
+    .best-label {
+        margin-bottom: 0;
+        font-size: 0.7rem;
+    }
+    
+    .best-value {
+        margin-bottom: 0;
+        font-size: 1.1rem;
+    }
+    
+    .best-date {
+        font-size: 0.7rem;
+    }
+    
+    .category-header {
+        font-size: 0.9rem;
+        justify-content: center;
+    }
+    
+    .current-rating {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .rating-side {
+        min-width: 180px;
+        max-width: 200px;
+    }
+    
+    .rating-changes {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .change-year {
+        justify-content: space-around;
+    }
+    
+    .rating-best {
+        flex-direction: column;
+        gap: 2px;
+        padding: 8px;
+    }
+    
+    .current-rating {
+        font-size: 1.9rem;
+    }
+}
