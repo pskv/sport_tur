@@ -1,4 +1,3 @@
-
 // Компактные фильтры с выпадающими списками
 document.addEventListener('DOMContentLoaded', function() {
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
@@ -12,11 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const disciplineFilterContent = document.getElementById('disciplineFilterContent');
     const distanceFilterBtn = document.getElementById('distanceFilterBtn');
     const distanceFilterContent = document.getElementById('distanceFilterContent');
+    const ratingFilterBtn = document.getElementById('ratingFilterBtn');
+    const ratingFilterContent = document.getElementById('ratingFilterContent');
 
     let activeFilters = {
         years: ['all'],
         disciplines: ['all'],
-        distances: ['all']
+        distances: ['all'],
+        ratings: ['Процент отставания']
     };
 
     if (!yearFilterBtn || !disciplineFilterBtn || !distanceFilterBtn || !tableRows.length) {
@@ -29,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeYearFilters();
     initializeDisciplineFilters();
     initializeDistanceFilters();
+    initializeRatingFilters();
     
     const yearCheckboxes = yearFilterContent.querySelectorAll('input[type="checkbox"]');
     const disciplineCheckboxes = disciplineFilterContent.querySelectorAll('input[type="checkbox"]');
     const distanceCheckboxes = distanceFilterContent.querySelectorAll('input[type="checkbox"]');
+    const ratingCheckboxes = ratingFilterContent.querySelectorAll('input[type="radio"]');
 
     updateVisibleCount();
 
@@ -60,43 +64,54 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function initializeDisciplineFilters() {
-        try {
-            const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
-            existingOptions.forEach(option => option.remove());
+function initializeDisciplineFilters() {
+    try {
+        const existingOptions = disciplineFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+        existingOptions.forEach(option => option.remove());
+        
+        const disciplines = new Set();
+        tableRows.forEach(row => {
+            const discipline = row.getAttribute('data-distance');
+            if (discipline && discipline !== '-') {
+                disciplines.add(discipline);
+            }
+        });
+        
+        disciplines.forEach(discipline => {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
             
-            const disciplines = new Set();
-            tableRows.forEach(row => {
-                const discipline = row.getAttribute('data-distance');
-                if (discipline && discipline !== '-') {
-                    disciplines.add(discipline);
-                }
-            });
+            const exampleRow = Array.from(tableRows).find(row => 
+                row.getAttribute('data-distance') === discipline
+            );
             
-            disciplines.forEach(discipline => {
-                const label = document.createElement('label');
-                label.className = 'filter-option';
+            let iconHtml = '';
+            if (exampleRow) {
+                const typeCell = exampleRow.cells[2];
+                // Извлекаем только иконки без обертки .icons-group
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = typeCell.innerHTML;
                 
-                const exampleRow = Array.from(tableRows).find(row => 
-                    row.getAttribute('data-distance') === discipline
-                );
-                
-                let iconHtml = '';
-                if (exampleRow) {
-                    const typeCell = exampleRow.cells[2];
+                const iconsGroup = tempDiv.querySelector('.icons-group');
+                if (iconsGroup) {
+                    // Берем только HTML содержимое .icons-group (сами иконки)
+                    iconHtml = iconsGroup.innerHTML;
+                } else {
+                    // Если нет .icons-group, берем весь HTML
                     iconHtml = typeCell.innerHTML;
                 }
-                
-                label.innerHTML = `
-                    <input type="checkbox" value="${discipline}"> 
-                    ${iconHtml} ${discipline}
-                `;
-                disciplineFilterContent.appendChild(label);
-            });
-        } catch (error) {
-            console.error('Error initializing discipline filters:', error);
-        }
+            }
+            
+            label.innerHTML = `
+                <input type="checkbox" value="${discipline}"> 
+                <span class="filter-icons" style="display: inline-flex; gap: 0; margin-right: 4px;">${iconHtml}</span> ${discipline}
+            `;
+            disciplineFilterContent.appendChild(label);
+        });
+    } catch (error) {
+        console.error('Error initializing discipline filters:', error);
     }
+}
 
     function initializeDistanceFilters() {
         try {
@@ -133,6 +148,44 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } catch (error) {
             console.error('Error initializing distance filters:', error);
+        }
+    }
+
+    function initializeRatingFilters() {
+        try {
+            const existingOptions = ratingFilterContent.querySelectorAll('.filter-option:not(:first-child)');
+            existingOptions.forEach(option => option.remove());
+            
+            // Получаем справочник из глобальной переменной
+			let ratingsDictionary = window.ratingsDictionary || {};
+            
+            const ratingTypes = new Set();
+            tableRows.forEach(row => {
+                const ratingsData = row.getAttribute('data-glicko_ratings');
+                if (ratingsData && ratingsData !== '{}') {
+                    try {
+                        const ratings = JSON.parse(ratingsData);
+                        Object.keys(ratings).forEach(key => ratingTypes.add(key));
+                    } catch (e) {
+                        console.error('Error parsing glicko ratings:', e);
+                    }
+                }
+            });
+            
+            const sortedTypes = Array.from(ratingTypes).sort((a, b) => parseInt(a) - parseInt(b));
+
+            sortedTypes.forEach(type => {
+                const label = document.createElement('label');
+                label.className = 'filter-option';
+                const isChecked = activeFilters.ratings[0] === type;
+                // Используем название из справочника или стандартное, если нет в справочнике
+                const ratingName = ratingsDictionary[type] || `Рейтинг ${type}`;
+                label.innerHTML = `<input type="radio" name="ratingType" value="${type}" ${isChecked ? 'checked' : ''}> ${ratingName}`;
+                ratingFilterContent.appendChild(label);
+            });
+            
+        } catch (error) {
+            console.error('Error initializing rating filters:', error);
         }
     }
 
@@ -173,30 +226,98 @@ document.addEventListener('DOMContentLoaded', function() {
         return row.getAttribute('data-competition-type');
     }
 
-    function applyFilters() {
-        let visibleCount = 0;
+    function updateResultCellDisplay(row, displayType) {
+        const resultCell = row.cells[5];
         
-        tableRows.forEach(row => {
-            const rowYear = row.getAttribute('data-year');
-            const rowDiscipline = getDisciplineType(row);
-            const rowDistance = getDistanceLength(row);
-            
-            const yearMatch = activeFilters.years.includes('all') || activeFilters.years.includes(rowYear);
-            const disciplineMatch = activeFilters.disciplines.includes('all') || activeFilters.disciplines.includes(rowDiscipline);
-            const distanceMatch = activeFilters.distances.includes('all') || activeFilters.distances.includes(rowDistance);
-            
-            if (yearMatch && disciplineMatch && distanceMatch) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
+        if (displayType === 'Процент отставания') {
+            const originalPercent = row.getAttribute('data-original-percent') || resultCell.textContent;
+            resultCell.textContent = originalPercent;
+            resultCell.innerHTML = originalPercent; // Сброс HTML
+        } else {
+            if (!row.hasAttribute('data-original-percent')) {
+                row.setAttribute('data-original-percent', resultCell.textContent);
             }
-        });
-        
-        updateVisibleCount();
-        updateFilterButtons();
-        showEmptyMessage(visibleCount === 0);
+            
+            const ratingsData = row.getAttribute('data-glicko_ratings');
+            if (ratingsData && ratingsData !== '{}') {
+                try {
+                    const ratings = JSON.parse(ratingsData);
+                    const ratingInfo = ratings[displayType];
+                    
+                    if (ratingInfo) {
+                        const beforeRating = ratingInfo.before || 0;
+                        const diff = ratingInfo.diff || 0;
+                        
+                        // Форматирование с HTML для раскраски изменения
+                        let displayHTML = beforeRating.toFixed(0);
+                        if (diff !== 0) {
+                            const sign = diff > 0 ? '+' : '';
+                            const color = diff > 0 ? '#2e7d32' : (diff < 0 ? '#c62828' : '#666');
+                            displayHTML += ` <span style="color: ${color}">${sign}${diff}</span>`;
+                        } else {
+                            displayHTML += ` <span style="color: #666">+0</span>`;
+                        }
+                        
+                        resultCell.innerHTML = displayHTML;
+                    } else {
+                        resultCell.textContent = '-';
+                        resultCell.innerHTML = '-';
+                    }
+                } catch (e) {
+                    resultCell.textContent = '-';
+                    resultCell.innerHTML = '-';
+                }
+            } else {
+                resultCell.textContent = '-';
+                resultCell.innerHTML = '-';
+            }
+        }
     }
+
+
+function applyFilters() {
+    let visibleCount = 0;
+    
+    tableRows.forEach(row => {
+        const rowYear = row.getAttribute('data-year');
+        const rowDiscipline = getDisciplineType(row);
+        const rowDistance = getDistanceLength(row);
+        const ratingsData = row.getAttribute('data-glicko_ratings');
+        
+        const yearMatch = activeFilters.years.includes('all') || activeFilters.years.includes(rowYear);
+        const disciplineMatch = activeFilters.disciplines.includes('all') || activeFilters.disciplines.includes(rowDiscipline);
+        const distanceMatch = activeFilters.distances.includes('all') || activeFilters.distances.includes(rowDistance);
+        
+        // Проверяем наличие рейтинга, если выбран не "Процент отставания"
+        let ratingMatch = true;
+        if (activeFilters.ratings[0] !== 'Процент отставания') {
+            if (ratingsData && ratingsData !== '{}') {
+                try {
+                    const ratings = JSON.parse(ratingsData);
+                    ratingMatch = ratings.hasOwnProperty(activeFilters.ratings[0]);
+                } catch (e) {
+                    ratingMatch = false;
+                }
+            } else {
+                ratingMatch = false;
+            }
+        }
+        
+        updateResultCellDisplay(row, activeFilters.ratings[0]);
+    
+        if (yearMatch && disciplineMatch && distanceMatch && ratingMatch) {
+            row.style.display = '';
+            visibleCount++;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    
+    updateVisibleCount();
+    updateFilterButtons();
+    showEmptyMessage(visibleCount === 0);
+}
+
 
     function updateVisibleCount() {
         const visibleRows = Array.from(tableRows).filter(row => row.style.display !== 'none');
@@ -224,9 +345,30 @@ document.addEventListener('DOMContentLoaded', function() {
         updateFilterButtonText(yearFilterBtn, 'Все годы', activeFilters.years, 'год', 'года', 'лет');
         updateFilterButtonText(disciplineFilterBtn, 'Все дисциплины', activeFilters.disciplines, 'дисциплина', 'дисциплины', 'дисциплин');
         updateFilterButtonText(distanceFilterBtn, 'Все дистанции', activeFilters.distances, 'дистанция', 'дистанции', 'дистанций');
+        updateRatingFilterButton(); // Отдельная функция для рейтингов
+    }
+
+    function updateRatingFilterButton() {
+        const currentRating = activeFilters.ratings[0];
+        if (currentRating === 'Процент отставания') {
+            ratingFilterBtn.querySelector('span').textContent = 'Процент отставания';
+            ratingFilterBtn.classList.remove('has-selection');
+        } else {
+            // Получаем справочник и используем название
+            const ratingsDictionary = window.ratingsDictionary || {};
+            const ratingName = ratingsDictionary[currentRating] || `Рейтинг ${currentRating}`;
+            ratingFilterBtn.querySelector('span').textContent = ratingName;
+            ratingFilterBtn.classList.add('has-selection');
+        }
     }
 
     function updateFilterButtonText(button, defaultText, activeValues, singleText, fewText, manyText) {
+        // Для рейтингов используем отдельную функцию
+        if (button === ratingFilterBtn) {
+            updateRatingFilterButton();
+            return;
+        }
+        
         const filteredValues = activeValues.filter(v => v !== 'all');
         
         if (filteredValues.length === 0 || (filteredValues.length === 1 && filteredValues[0] === 'all')) {
@@ -249,11 +391,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function handleCheckboxChange(checkboxes, filterType) {
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const value = this.value;
+function handleCheckboxChange(checkboxes, filterType) {
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const value = this.value;
+            
+            if (filterType === 'ratings') {
+                // Для рейтингов - только один выбор (radio buttons)
+                activeFilters[filterType] = [value];
                 
+                // Если выбран рейтинг (не "Процент отставания"), сбрасываем другие фильтры
+                if (value !== 'Процент отставания') {
+                    activeFilters.years = ['all'];
+                    activeFilters.disciplines = ['all'];
+                    activeFilters.distances = ['all'];
+                    
+                    // Сбрасываем чекбоксы других фильтров
+                    yearCheckboxes.forEach(cb => {
+                        cb.checked = cb.value === 'all';
+                    });
+                    disciplineCheckboxes.forEach(cb => {
+                        cb.checked = cb.value === 'all';
+                    });
+                    distanceCheckboxes.forEach(cb => {
+                        cb.checked = cb.value === 'all';
+                    });
+                }
+                
+                // Обновляем текст кнопки
+                updateRatingFilterButton();
+                
+                // Закрываем выпадающий список после выбора
+                ratingFilterContent.classList.remove('show');
+            } else {
+                // Для остальных фильтров - множественный выбор (checkboxes)
                 if (value === 'all') {
                     if (this.checked) {
                         checkboxes.forEach(cb => {
@@ -286,14 +457,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 
-                applyFilters();
-            });
+                // Сбрасываем фильтр рейтингов на "Процент отставания" при выборе других фильтров
+                if (filterType !== 'ratings') {
+                    activeFilters.ratings = ['Процент отставания'];
+                    ratingCheckboxes.forEach(cb => {
+                        cb.checked = cb.value === 'Процент отставания';
+                    });
+                    updateRatingFilterButton();
+                }
+            }
+            
+            applyFilters();
         });
-    }
+    });
+}
 
     handleCheckboxChange(yearCheckboxes, 'years');
     handleCheckboxChange(disciplineCheckboxes, 'disciplines');
     handleCheckboxChange(distanceCheckboxes, 'distances');
+    handleCheckboxChange(ratingCheckboxes, 'ratings');
 
     function setupFilterToggle(button, content) {
         if (!button || !content) return;
@@ -302,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             const isShowing = content.classList.toggle('show');
             
-            [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(otherContent => {
+            [yearFilterContent, disciplineFilterContent, distanceFilterContent, ratingFilterContent].forEach(otherContent => {
                 if (otherContent && otherContent !== content) otherContent.classList.remove('show');
             });
             
@@ -313,14 +495,16 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFilterToggle(yearFilterBtn, yearFilterContent);
     setupFilterToggle(disciplineFilterBtn, disciplineFilterContent);
     setupFilterToggle(distanceFilterBtn, distanceFilterContent);
+    setupFilterToggle(ratingFilterBtn, ratingFilterContent);
 
     document.addEventListener('click', function() {
         yearFilterContent.classList.remove('show');
         disciplineFilterContent.classList.remove('show');
         distanceFilterContent.classList.remove('show');
+        ratingFilterContent.classList.remove('show');
     });
 
-    [yearFilterContent, disciplineFilterContent, distanceFilterContent].forEach(content => {
+    [yearFilterContent, disciplineFilterContent, distanceFilterContent, ratingFilterContent].forEach(content => {
         if (content) {
             content.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -338,6 +522,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (distanceFilterContent && distanceFilterContent.classList.contains('show')) {
             smartPositionDropdown(distanceFilterBtn, distanceFilterContent);
         }
+        if (ratingFilterContent && ratingFilterContent.classList.contains('show')) {
+            smartPositionDropdown(ratingFilterBtn, ratingFilterContent);
+        }
     }, 250);
 
     window.addEventListener('resize', handleResize);
@@ -352,18 +539,26 @@ document.addEventListener('DOMContentLoaded', function() {
         distanceCheckboxes.forEach(cb => {
             cb.checked = cb.value === 'all';
         });
+        ratingCheckboxes.forEach(cb => {
+            cb.checked = cb.value === 'Процент отставания';
+        });
 
         activeFilters = {
             years: ['all'],
             disciplines: ['all'],
-            distances: ['all']
+            distances: ['all'],
+            ratings: ['Процент отставания']
         };
+        
+        // Обновляем текст кнопки рейтинга при сбросе
+        updateRatingFilterButton();
         
         applyFilters();
         
         yearFilterContent.classList.remove('show');
         disciplineFilterContent.classList.remove('show');
         distanceFilterContent.classList.remove('show');
+        ratingFilterContent.classList.remove('show');
     });
 
     const table = document.getElementById('competitionTable');
@@ -431,11 +626,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!resultCell) return 999;
 
         const resultText = resultCell.textContent;
-        if (resultText.includes('Снятие') || resultText.includes('DNF')) return 999;
-        if (resultText.includes('-') || resultText === '') return 998;
-
-        const match = resultText.match(/(\d+\.?\d*)/);
-        return match ? parseFloat(match[0]) : 997;
+        
+        const isRatingMode = activeFilters.ratings[0] !== 'Процент отставания';
+        
+        if (isRatingMode) {
+            if (resultText.includes('-')) return 998;
+            const match = resultText.match(/(-?\d+)/);
+            return match ? parseFloat(match[0]) : 997;
+        } else {
+            if (resultText.includes('Снятие') || resultText.includes('DNF')) return 999;
+            if (resultText.includes('-') || resultText === '') return 998;
+            const match = resultText.match(/(\d+\.?\d*)/);
+            return match ? parseFloat(match[0]) : 997;
+        }
     }
 
     function updateSortIcons(activeHeader, direction) {
