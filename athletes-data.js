@@ -1,7 +1,8 @@
-(function() {
-    const DATA_VERSION = '202511191324';
-    const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
 
+(function() {
+    const DATA_VERSION = '1.0';
+    const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
+    
     // Пытаемся получить данные из кэша
     try {
         const cachedData = localStorage.getItem(CACHE_KEY);
@@ -15,10 +16,10 @@
     } catch (e) {
         console.warn('⚠️ Ошибка чтения кэша:', e);
     }
-
+    
     // Этот код выполняется ТОЛЬКО при первой загрузке
     console.log('🔄 Первая загрузка данных...');
-	window.athletesData =
+	window.athletesData = 
 	[
 
             {
@@ -11129,7 +11130,7 @@
         "1": "Рейтинг: короткие дистанции",
         "2": "Рейтинг: длинные дистанции"
     };
-
+    
     // Сохраняем в кэш
     try {
         const dataToCache = {
