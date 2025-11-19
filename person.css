@@ -1253,3 +1253,76 @@ footer {
         width: 300px;
     }
 }
+
+
+/* Запрет переноса строк в последнем столбце таблицы */
+.competition-table td:last-child {
+    white-space: nowrap;
+}
+
+/* Для мобильных устройств можно добавить минимальную ширину */
+@media (max-width: 768px) {
+    .competition-table td:last-child {
+        min-width: 80px;
+    }
+}
+
+
+
+
+/* Иконки для фильтров */
+.compact-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-icon {
+    margin-right: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+.filter-dropdown-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.filter-dropdown-btn:hover {
+    border-color: #999;
+}
+
+.filter-dropdown-btn.has-selection {
+    background: #f0f8ff;
+    border-color: #4CAF50;
+}
+
+.filter-dropdown-btn.has-selection .filter-icon {
+    color: #4CAF50;
+}
+
+.filter-option .filter-icons {
+    display: inline-flex;
+    gap: 0 !important;
+    margin-right: 4px;
+}
+
+.filter-option .filter-icons i {
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-left: -4px !important; /* Сдвигаем иконки ближе друг к другу */
+}
