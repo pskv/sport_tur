@@ -307,44 +307,6 @@ footer {
     border-top: 1px solid #eaeaea;
 }
 
-/* Стили для медалей в таблице */
-.gold { color: #FFD700; }
-.silver { color: #C0C0C0; }
-.bronze { color: #CD7F32; }
-
-.stat-card strong { color: #1a3a5f; }
-
-/* Выравнивание столбцов */
-.rating-table th:first-child,
-.rating-table td:first-child {
-    text-align: left;
-}
-
-.rating-table th:nth-child(2),
-.rating-table td:nth-child(2) {
-    text-align: left;
-}
-
-/* Центрирование для медальных столбцов */
-.rating-table th:nth-child(3),
-.rating-table th:nth-child(4),
-.rating-table th:nth-child(5),
-.rating-table th:nth-child(6) {
-    text-align: center;
-}
-
-.rating-table td:nth-child(3), /* Золото */
-.rating-table td:nth-child(4), /* Серебро */
-.rating-table td:nth-child(5), /* Бронза */
-.rating-table td:nth-child(6) { /* Всего */
-    text-align: center;
-    font-weight: 600;
-}
-
-.rating-table td:nth-child(3) { color: #FFD700; }
-.rating-table td:nth-child(4) { color: #C0C0C0; }
-.rating-table td:nth-child(5) { color: #CD7F32; }
-.rating-table td:nth-child(6) { color: #1a3a5f; }
 
 /* Стили для карточки с раскрытием */
 .info-card-wrapper {
@@ -494,7 +456,6 @@ footer {
 
     .rating-table td:nth-child(2) {
         white-space: normal;
-        word-break: break-word;
     }
 
     .header-content {
