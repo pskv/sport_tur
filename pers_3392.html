@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гарипов Александр - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <script src="athletes-data.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Гарипов Александр</div>
+    
+	<div class="header-search">
+		<div class="search-icon" id="searchIcon">
+			<i class="fas fa-search"></i>
+		</div>
+		<div class="search-expanded" id="searchExpanded">
+			<input type="text" id="headerSearch" placeholder="Поиск спортсмена...">
+			<div class="search-results" id="searchResults"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+<!-- Универсальное модальное окно -->
+<div id="universalModal" class="modal">
+    <div class="modal-content compact">
+        <span class="close">&times;</span>
+        <div class="modal-header compact" id="modalHeader">
+            <!-- Заголовок будет заполняться JavaScript -->
+        </div>
+
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-users"></i> Состав
+            </div>
+            <ul class="athletes-list compact" id="modalAthletesList">
+                <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-person-running"></i>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Гарипов Александр</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 2009</p>
+                        <p><i class="fas fa-flag"></i> None</p>
+                        <p><i class="fas fa-award"></i> Разряд: I</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+    <div class="container">
+        <h2 class='section-title'>Общая статистика</h2>
+        <div class='stats-grid'>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">1</div>
+                <div class="stat-description">Всего участий в соревнованиях</div>
+            </div>
+
+<div class="stat-card">
+    <h3><i class="fas fa-chart-line"></i> Текущие рейтинги</h3>
+    <div class="ratings-container">
+None
+    </div>
+</div>
+
+
+            <div class="stat-card">
+                <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
+                <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">10 место</div>
+                            <div class="medal-event">Всероссийские соревнования 2025, Набережные Челны</div>
+                        </div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <h2 class='section-title'>История выступлений</h2>
+
+        <div class="competition-history">
+
+            <!-- КОМПАКТНЫЕ ФИЛЬТРЫ -->
+            <div class="compact-filters">
+                <div class="filter-dropdown">
+					<span class="filter-icon">📅</span>
+                    <button class="filter-dropdown-btn" id="yearFilterBtn">
+                        <span>Все годы</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="yearFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все годы
+                        </label>
+                        <!-- Годы добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
+                    <button class="filter-dropdown-btn" id="disciplineFilterBtn">
+                        <span>Все дисциплины</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="disciplineFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дисциплины
+                        </label>
+                        <!-- Дисциплины добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
+                    <button class="filter-dropdown-btn" id="distanceFilterBtn">
+                        <span>Все дистанции</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="distanceFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дистанции
+                        </label>
+                        <!-- Типы дистанций добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+				
+				<div class="filter-dropdown">
+					<span class="filter-icon">🔎</span>
+				    <button class="filter-dropdown-btn" id="ratingFilterBtn">
+				        <span>Процент отставания</span>
+				        <i class="fas fa-chevron-down"></i>
+				    </button>
+				    <div class="filter-dropdown-content" id="ratingFilterContent">
+				        <label class="filter-option">
+				            <input type="radio" name="ratingType" value="Процент отставания" checked> Процент отставания
+				        </label>
+				        <!-- Рейтинги добавятся автоматически через JavaScript -->
+				    </div>
+				</div>
+
+                <div class="filter-stats">
+                    <span id="visibleCount">0</span> из <span id="totalCount">0</span>
+                    <button class="clear-filters" id="clearFilters">
+                        <i class="fas fa-times"></i> Сбросить
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="competition-table" id="competitionTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                            <th>Вид</th>
+                            <th></th>
+                            <th data-sort="place">Место <i class="fas fa-sort"></i></th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr data-year="2025"
+	                        data-date="20251031"
+                            data-athletes='["Гарипов Александр"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Родионов Валентин", "time": "16:50", "gap": ""},
+            							                {"place":2, "name": "Бабиков Степан", "time": "16:58", "gap": "+0:08"},
+            							                {"place":3, "name": "Шапаренко Денис", "time": "17:31", "gap": "+0:41"},
+            							                {"place":10, "name": "Гарипов Александр", "time": "21:37", "gap": "+04:47"}
+							]'
+							data-event-type="Всероссийские соревнования"
+							data-event-name-short=""
+							data-event-location="Республика Татарстан, поселок Ильичевский, Оздоровительный комплекс «Саулык»"
+							data-glicko_ratings='{}'
+							class="clickable-row">
+                            <td>31.10.25</td>
+                            <td>ВС, Набережные Челны</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-top10">10</span></td>
+                            <td>128.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Статистика спортсмена.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script src="person.js"></script>
+	
+</body>
+</html>
