@@ -1,6 +1,6 @@
 
 (function() {
-    const DATA_VERSION = '202511301404';
+    const DATA_VERSION = '202511301607';
     const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
     
     // Пытаемся получить данные из кэша
@@ -2228,8 +2228,8 @@
                 region: "Ярославская область",
                 gender: "m",
                 birthYear: 2007,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_384.html",
             },
             {
@@ -2568,8 +2568,8 @@
                 region: "Кировская область",
                 gender: "f",
                 birthYear: 2007,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_418.html",
             },
             {
@@ -3458,8 +3458,8 @@
                 region: "Вологодская область",
                 gender: "m",
                 birthYear: 2004,
-                rank: "КМС",
-                rankText: "Кандидат в мастера спорта",
+                rank: "МС",
+                rankText: "Мастер спорта",
                 link: "pers_564.html",
             },
             {
@@ -4308,8 +4308,8 @@
                 region: "Республика Коми",
                 gender: "m",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_756.html",
             },
             {
@@ -4478,8 +4478,8 @@
                 region: "Калужская область",
                 gender: "m",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_773.html",
             },
             {
@@ -4518,8 +4518,8 @@
                 region: "Калужская область",
                 gender: "m",
                 birthYear: 2008,
-                rank: "2",
-                rankText: "2 разряд",
+                rank: "II",
+                rankText: "II разряд",
                 link: "pers_777.html",
             },
             {
@@ -4588,8 +4588,8 @@
                 region: "Смоленская область",
                 gender: "f",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_784.html",
             },
             {
@@ -4598,8 +4598,8 @@
                 region: "город Москва",
                 gender: "m",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_785.html",
             },
             {
@@ -4678,8 +4678,8 @@
                 region: "Ивановская область",
                 gender: "f",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_793.html",
             },
             {
@@ -4708,8 +4708,8 @@
                 region: "Республика Карелия",
                 gender: "f",
                 birthYear: 2006,
-                rank: "2",
-                rankText: "2 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_796.html",
             },
             {
@@ -4728,8 +4728,8 @@
                 region: "Московская область",
                 gender: "m",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_798.html",
             },
             {
@@ -4788,8 +4788,8 @@
                 region: "Республика Коми",
                 gender: "m",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_804.html",
             },
             {
@@ -4918,8 +4918,8 @@
                 region: "Чувашская Республика - Чувашия",
                 gender: "f",
                 birthYear: 2008,
-                rank: "1",
-                rankText: "1 разряд",
+                rank: "I",
+                rankText: "I разряд",
                 link: "pers_817.html",
             },
             {
@@ -5085,7 +5085,7 @@
             {
                 id: 834,
                 name: "Юхнович Кристина",
-                region: "Красноярский край",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2005,
                 rank: "КМС",
@@ -6178,8 +6178,8 @@
                 region: "Ярославская область",
                 gender: "f",
                 birthYear: 1995,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_1079.html",
             },
             {
@@ -6538,8 +6538,8 @@
                 region: "Ярославская область",
                 gender: "f",
                 birthYear: 2002,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_1354.html",
             },
             {
@@ -8328,8 +8328,8 @@
                 region: "Московская область",
                 gender: "m",
                 birthYear: 2004,
-                rank: "КМС",
-                rankText: "Кандидат в мастера спорта",
+                rank: "МС",
+                rankText: "Мастер спорта",
                 link: "pers_2054.html",
             },
             {
@@ -8365,7 +8365,7 @@
             {
                 id: 2119,
                 name: "Балакин Никита",
-                region: "Липецкая область",
+                region: "Калужская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "КМС",
@@ -8478,8 +8478,8 @@
                 region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2006,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_2130.html",
             },
             {
@@ -8675,11 +8675,11 @@
             {
                 id: 2150,
                 name: "Маркова Александра",
-                region: "Ярославская область",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2005,
-                rank: "II",
-                rankText: "II разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_2150.html",
             },
             {
@@ -8858,8 +8858,8 @@
                 region: "Ярославская область",
                 gender: "m",
                 birthYear: 2007,
-                rank: "I",
-                rankText: "I разряд",
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
                 link: "pers_2168.html",
             },
             {
@@ -12125,7 +12125,7 @@
             {
                 id: 3462,
                 name: "Вагапов Ярослав",
-                region: "",
+                region: "Смоленская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "I",
@@ -12135,7 +12135,7 @@
             {
                 id: 3463,
                 name: "Васецкий Илья",
-                region: "",
+                region: "Смоленская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12145,7 +12145,7 @@
             {
                 id: 3464,
                 name: "Влад Павел",
-                region: "",
+                region: "Московская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12155,7 +12155,7 @@
             {
                 id: 3465,
                 name: "Врачева Алиса",
-                region: "",
+                region: "Московская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12165,7 +12165,7 @@
             {
                 id: 3466,
                 name: "Гончаров Андрей",
-                region: "",
+                region: "Белгородская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12175,7 +12175,7 @@
             {
                 id: 3467,
                 name: "Гунина Анна",
-                region: "",
+                region: "Московская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12185,7 +12185,7 @@
             {
                 id: 3468,
                 name: "Денисов Матвей",
-                region: "",
+                region: "Московская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12195,7 +12195,7 @@
             {
                 id: 3469,
                 name: "Денисов Николай",
-                region: "",
+                region: "Московская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12205,7 +12205,7 @@
             {
                 id: 3470,
                 name: "Денисов Роман",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12215,7 +12215,7 @@
             {
                 id: 3471,
                 name: "Егорова Маргарита",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2007,
                 rank: "КМС",
@@ -12225,7 +12225,7 @@
             {
                 id: 3472,
                 name: "Ершова Виктория",
-                region: "",
+                region: "Пермский край",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12235,7 +12235,7 @@
             {
                 id: 3473,
                 name: "Жданов Егор",
-                region: "",
+                region: "Ярославская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "II",
@@ -12245,7 +12245,7 @@
             {
                 id: 3474,
                 name: "Жуковский Максим",
-                region: "",
+                region: "Смоленская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12255,7 +12255,7 @@
             {
                 id: 3475,
                 name: "Журба София",
-                region: "",
+                region: "Московская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12265,7 +12265,7 @@
             {
                 id: 3476,
                 name: "Зайцев Антон",
-                region: "",
+                region: "Калужская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12275,7 +12275,7 @@
             {
                 id: 3477,
                 name: "Захаров Иван",
-                region: "",
+                region: "город Москва",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12285,7 +12285,7 @@
             {
                 id: 3478,
                 name: "Ильясов Тимур",
-                region: "",
+                region: "Ульяновская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12295,7 +12295,7 @@
             {
                 id: 3479,
                 name: "Карташов Виктор",
-                region: "",
+                region: "Смоленская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12305,7 +12305,7 @@
             {
                 id: 3480,
                 name: "Кирьянова Дарья",
-                region: "",
+                region: "Московская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12315,7 +12315,7 @@
             {
                 id: 3481,
                 name: "Колпаченко Екатерина",
-                region: "",
+                region: "Самарская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12325,7 +12325,7 @@
             {
                 id: 3482,
                 name: "Комкова Дарина",
-                region: "",
+                region: "Смоленская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12335,7 +12335,7 @@
             {
                 id: 3483,
                 name: "Кузнецов Тимофей",
-                region: "",
+                region: "Московская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12345,7 +12345,7 @@
             {
                 id: 3484,
                 name: "Кузнецова Анна",
-                region: "",
+                region: "Луганская Народная Республика",
                 gender: "f",
                 birthYear: 2008,
                 rank: "I",
@@ -12355,7 +12355,7 @@
             {
                 id: 3485,
                 name: "Куликов Роман",
-                region: "",
+                region: "Ярославская область",
                 gender: "m",
                 birthYear: 2007,
                 rank: "КМС",
@@ -12365,7 +12365,7 @@
             {
                 id: 3486,
                 name: "Лабюк Григорий",
-                region: "",
+                region: "Ярославская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "I",
@@ -12375,7 +12375,7 @@
             {
                 id: 3487,
                 name: "Лебедева Ульяна",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12385,7 +12385,7 @@
             {
                 id: 3488,
                 name: "Левченко Данил",
-                region: "",
+                region: "Краснодарский край",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12395,7 +12395,7 @@
             {
                 id: 3489,
                 name: "Луканин Андрей",
-                region: "",
+                region: "Смоленская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "II",
@@ -12405,7 +12405,7 @@
             {
                 id: 3490,
                 name: "Магушев Артём",
-                region: "",
+                region: "Калужская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12415,7 +12415,7 @@
             {
                 id: 3491,
                 name: "Маслов Платон",
-                region: "",
+                region: "Белгородская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12425,7 +12425,7 @@
             {
                 id: 3492,
                 name: "Матюхин Андрей",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12435,7 +12435,7 @@
             {
                 id: 3493,
                 name: "Меднова Ангелина",
-                region: "",
+                region: "Тульская область",
                 gender: "f",
                 birthYear: 2008,
                 rank: "I",
@@ -12445,7 +12445,7 @@
             {
                 id: 3494,
                 name: "Миронов Максим",
-                region: "",
+                region: "Ленинградская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "II",
@@ -12455,7 +12455,7 @@
             {
                 id: 3495,
                 name: "Михина Дарья",
-                region: "",
+                region: "Московская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12465,7 +12465,7 @@
             {
                 id: 3496,
                 name: "Мичкова Александра",
-                region: "",
+                region: "Пермский край",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12475,7 +12475,7 @@
             {
                 id: 3497,
                 name: "Мишунина Анастасия",
-                region: "",
+                region: "Калужская область",
                 gender: "f",
                 birthYear: 2008,
                 rank: "КМС",
@@ -12485,7 +12485,7 @@
             {
                 id: 3498,
                 name: "Молотова Елизавета",
-                region: "",
+                region: "Смоленская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12495,7 +12495,7 @@
             {
                 id: 3499,
                 name: "Морозова Злата",
-                region: "",
+                region: "Владимирская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12505,7 +12505,7 @@
             {
                 id: 3500,
                 name: "Назаркин Ярослав",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12515,7 +12515,7 @@
             {
                 id: 3501,
                 name: "Невечёрова Анастасия",
-                region: "",
+                region: "Брянская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12525,7 +12525,7 @@
             {
                 id: 3502,
                 name: "Новикова Дарья",
-                region: "",
+                region: "Смоленская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12535,7 +12535,7 @@
             {
                 id: 3503,
                 name: "Орлов Денис",
-                region: "",
+                region: "Луганская Народная Республика",
                 gender: "m",
                 birthYear: 2009,
                 rank: "II",
@@ -12545,7 +12545,7 @@
             {
                 id: 3504,
                 name: "Пакеева Ольга",
-                region: "",
+                region: "Республика Марий Эл",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12555,7 +12555,7 @@
             {
                 id: 3505,
                 name: "Петрова Валерия",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12565,7 +12565,7 @@
             {
                 id: 3506,
                 name: "Полуян Валерия",
-                region: "",
+                region: "Смоленская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12575,7 +12575,7 @@
             {
                 id: 3507,
                 name: "Прасол Матвей",
-                region: "",
+                region: "Белгородская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "I",
@@ -12585,7 +12585,7 @@
             {
                 id: 3508,
                 name: "Пулькин Иван",
-                region: "",
+                region: "Самарская область",
                 gender: "m",
                 birthYear: 2007,
                 rank: "II",
@@ -12595,7 +12595,7 @@
             {
                 id: 3509,
                 name: "Романов Владислав",
-                region: "",
+                region: "Луганская Народная Республика",
                 gender: "m",
                 birthYear: 2008,
                 rank: "II",
@@ -12605,7 +12605,7 @@
             {
                 id: 3510,
                 name: "Селютина Ирина",
-                region: "",
+                region: "Калужская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12615,7 +12615,7 @@
             {
                 id: 3511,
                 name: "Скачкова Алёна",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2008,
                 rank: "II",
@@ -12625,7 +12625,7 @@
             {
                 id: 3512,
                 name: "Слотин Тимофей",
-                region: "",
+                region: "Пермский край",
                 gender: "m",
                 birthYear: 2008,
                 rank: "II",
@@ -12635,7 +12635,7 @@
             {
                 id: 3513,
                 name: "Соболева Альбина",
-                region: "",
+                region: "Удмуртская Республика",
                 gender: "f",
                 birthYear: 2008,
                 rank: "II",
@@ -12645,7 +12645,7 @@
             {
                 id: 3514,
                 name: "Тарасов Виталий",
-                region: "",
+                region: "Белгородская область",
                 gender: "m",
                 birthYear: 2009,
                 rank: "I",
@@ -12655,7 +12655,7 @@
             {
                 id: 3515,
                 name: "Тарасова Полина",
-                region: "",
+                region: "Республика Марий Эл",
                 gender: "f",
                 birthYear: 2008,
                 rank: "I",
@@ -12665,7 +12665,7 @@
             {
                 id: 3516,
                 name: "Уткина Кристина",
-                region: "",
+                region: "Чувашская Республика - Чувашия",
                 gender: "f",
                 birthYear: 2008,
                 rank: "I",
@@ -12675,7 +12675,7 @@
             {
                 id: 3517,
                 name: "Фабчак Александра",
-                region: "",
+                region: "Белгородская область",
                 gender: "f",
                 birthYear: 2008,
                 rank: "КМС",
@@ -12685,7 +12685,7 @@
             {
                 id: 3518,
                 name: "Филипова Анна",
-                region: "",
+                region: "Республика Коми",
                 gender: "f",
                 birthYear: 2008,
                 rank: "II",
@@ -12695,7 +12695,7 @@
             {
                 id: 3519,
                 name: "Хабаров Виталий",
-                region: "",
+                region: "Ярославская область",
                 gender: "m",
                 birthYear: 2008,
                 rank: "КМС",
@@ -12705,7 +12705,7 @@
             {
                 id: 3520,
                 name: "Хабибуллова Динара",
-                region: "",
+                region: "Ульяновская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12715,7 +12715,7 @@
             {
                 id: 3521,
                 name: "Хаустова Полина",
-                region: "",
+                region: "Луганская Народная Республика",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12725,7 +12725,7 @@
             {
                 id: 3522,
                 name: "Хорчева Виктория",
-                region: "",
+                region: "Смоленская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "II",
@@ -12735,7 +12735,7 @@
             {
                 id: 3523,
                 name: "Худорожкова Дарья",
-                region: "",
+                region: "Пермский край",
                 gender: "f",
                 birthYear: 2008,
                 rank: "КМС",
@@ -12745,7 +12745,7 @@
             {
                 id: 3524,
                 name: "Чечина Елизавета",
-                region: "",
+                region: "Белгородская область",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12755,7 +12755,7 @@
             {
                 id: 3525,
                 name: "Шахрамова Милена",
-                region: "",
+                region: "Пермский край",
                 gender: "f",
                 birthYear: 2009,
                 rank: "КМС",
@@ -12765,7 +12765,7 @@
             {
                 id: 3526,
                 name: "Шошина Полина",
-                region: "",
+                region: "город Санкт-Петербург",
                 gender: "f",
                 birthYear: 2009,
                 rank: "I",
@@ -12775,12 +12775,162 @@
             {
                 id: 3527,
                 name: "Яременко Андрей",
-                region: "",
+                region: "Луганская Народная Республика",
                 gender: "m",
                 birthYear: 2008,
                 rank: "II",
                 rankText: "II разряд",
                 link: "pers_3527.html",
+            },
+            {
+                id: 3619,
+                name: "Арафайлов Ярослав",
+                region: "Кировская область",
+                gender: "m",
+                birthYear: 2008,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3619.html",
+            },
+            {
+                id: 3620,
+                name: "Бондарев Максим",
+                region: "Воронежская область",
+                gender: "m",
+                birthYear: 2008,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3620.html",
+            },
+            {
+                id: 3621,
+                name: "Буряк Михаил",
+                region: "город Севастополь",
+                gender: "m",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3621.html",
+            },
+            {
+                id: 3622,
+                name: "Глумова Альбина",
+                region: "Белгородская область",
+                gender: "f",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3622.html",
+            },
+            {
+                id: 3623,
+                name: "Завадская София",
+                region: "Краснодарский край",
+                gender: "f",
+                birthYear: 2009,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3623.html",
+            },
+            {
+                id: 3624,
+                name: "Калганов Илья",
+                region: "Краснодарский край",
+                gender: "m",
+                birthYear: 2008,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3624.html",
+            },
+            {
+                id: 3625,
+                name: "Карпук Илья",
+                region: "Беларусь",
+                gender: "m",
+                birthYear: 2009,
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
+                link: "pers_3625.html",
+            },
+            {
+                id: 3626,
+                name: "Котович Константин",
+                region: "Воронежская область",
+                gender: "m",
+                birthYear: 2008,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3626.html",
+            },
+            {
+                id: 3627,
+                name: "Мальвин Дмитрий",
+                region: "Липецкая область",
+                gender: "m",
+                birthYear: 2008,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3627.html",
+            },
+            {
+                id: 3628,
+                name: "Нархов Арсений",
+                region: "Липецкая область",
+                gender: "m",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3628.html",
+            },
+            {
+                id: 3629,
+                name: "Рощупкина Ангелина",
+                region: "Липецкая область",
+                gender: "f",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3629.html",
+            },
+            {
+                id: 3630,
+                name: "Ухина Анна",
+                region: "Калужская область",
+                gender: "f",
+                birthYear: 2009,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3630.html",
+            },
+            {
+                id: 3631,
+                name: "Хорошилов Егор",
+                region: "Липецкая область",
+                gender: "m",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3631.html",
+            },
+            {
+                id: 3632,
+                name: "Цуркова Мария",
+                region: "город Санкт-Петербург",
+                gender: "f",
+                birthYear: 2009,
+                rank: "I",
+                rankText: "I разряд",
+                link: "pers_3632.html",
+            },
+            {
+                id: 3633,
+                name: "Шиповская Ольга",
+                region: "Воронежская область",
+                gender: "f",
+                birthYear: 2008,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3633.html",
             }
 	];
 
