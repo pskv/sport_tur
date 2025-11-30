@@ -484,3 +484,107 @@ footer {
         font-size: 0.75rem;
     }
 }
+
+/* Стили для улучшенных плиток */
+.competition-meta-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.competition-weekday {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.competition-date {
+    font-weight: 600;
+    color: #1a3a5f;
+    font-size: 0.75rem;
+}
+
+.competition-class {
+    background: white;
+    color: #1a3a5f;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border: 2px solid #1a3a5f;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.competition-gender {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-right: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gender-male {
+    background: #4facfe;
+    color: white;
+    border: 1px solid #3a9bed;
+}
+
+.gender-female {
+    background: #fa709a;
+    color: white;
+    border: 1px solid #e85f8a;
+}
+
+.gender-junior-male {
+    background: #a8edea;
+    color: #2c5a8a;
+    border: 1px solid #96dbd8;
+}
+
+.gender-junior-female {
+    background: #fed6e3;
+    color: #2c5a8a;
+    border: 1px solid #ecc4d1;
+}
+
+
+/* Улучшенные стили для заголовка дисциплины */
+.competition-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a3a5f;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .competition-meta-line {
+        gap: 6px;
+    }
+    
+    .competition-date {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+    
+    .competition-weekday,
+    .competition-class,
+    .competition-gender {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+    
+    .competition-weekday {
+        min-width: 20px;
+    }
+}
