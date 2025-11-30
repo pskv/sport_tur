@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Денисов Роман - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <script src="athletes-data.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Денисов Роман</div>
+    
+	<div class="header-search">
+		<div class="search-icon" id="searchIcon">
+			<i class="fas fa-search"></i>
+		</div>
+		<div class="search-expanded" id="searchExpanded">
+			<input type="text" id="headerSearch" placeholder="Поиск спортсмена...">
+			<div class="search-results" id="searchResults"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+<!-- Универсальное модальное окно -->
+<div id="universalModal" class="modal">
+    <div class="modal-content compact">
+        <span class="close">&times;</span>
+        <div class="modal-header compact" id="modalHeader">
+            <!-- Заголовок будет заполняться JavaScript -->
+        </div>
+
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-users"></i> Состав
+            </div>
+            <ul class="athletes-list compact" id="modalAthletesList">
+                <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-person-running"></i>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Денисов Роман</h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 2009</p>
+                        <p><i class="fas fa-flag"></i> None</p>
+                        <p><i class="fas fa-award"></i> Разряд: I</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+    <div class="container">
+        <h2 class='section-title'>Общая статистика</h2>
+        <div class='stats-grid'>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">4</div>
+                <div class="stat-description">Всего участий в соревнованиях</div>
+            </div>
+
+<div class="stat-card">
+    <h3><i class="fas fa-chart-line"></i> Текущие рейтинги</h3>
+    <div class="ratings-container">
+None
+    </div>
+</div>
+
+
+            <div class="stat-card">
+                <h3><i class="fas fa-medal"></i> Лучшие результаты</h3>
+                <div class="medal-stats">
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">37 место</div>
+                            <div class="medal-event">Кубок России 2025, пос. им. Цюрупы</div>
+                        </div>
+                        <i class="fa-solid fa-people-pulling"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
+                    </div>
+
+                    <div class="medal-item">
+                        <div class="medal-icon" style="color: #45b7d1 ;"><i class="fas fa-award"></i></div>
+                        <div class="medal-details">
+                            <div class="medal-count">97 место</div>
+                            <div class="medal-event">Кубок России 2025, пос. им. Цюрупы</div>
+                        </div>
+                        <i class="fa-solid fa-person-running"></i><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <h2 class='section-title'>История выступлений</h2>
+
+        <div class="competition-history">
+
+            <!-- КОМПАКТНЫЕ ФИЛЬТРЫ -->
+            <div class="compact-filters">
+                <div class="filter-dropdown">
+					<span class="filter-icon">📅</span>
+                    <button class="filter-dropdown-btn" id="yearFilterBtn">
+                        <span>Все годы</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="yearFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все годы
+                        </label>
+                        <!-- Годы добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
+                    <button class="filter-dropdown-btn" id="disciplineFilterBtn">
+                        <span>Все дисциплины</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="disciplineFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дисциплины
+                        </label>
+                        <!-- Дисциплины добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+					<span class="filter-icon">⚙️</span>
+                    <button class="filter-dropdown-btn" id="distanceFilterBtn">
+                        <span>Все дистанции</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="filter-dropdown-content" id="distanceFilterContent">
+                        <label class="filter-option">
+                            <input type="checkbox" value="all" checked> Все дистанции
+                        </label>
+                        <!-- Типы дистанций добавятся автоматически через JavaScript -->
+                    </div>
+                </div>
+				
+				<div class="filter-dropdown">
+					<span class="filter-icon">🔎</span>
+				    <button class="filter-dropdown-btn" id="ratingFilterBtn">
+				        <span>Процент отставания</span>
+				        <i class="fas fa-chevron-down"></i>
+				    </button>
+				    <div class="filter-dropdown-content" id="ratingFilterContent">
+				        <label class="filter-option">
+				            <input type="radio" name="ratingType" value="Процент отставания" checked> Процент отставания
+				        </label>
+				        <!-- Рейтинги добавятся автоматически через JavaScript -->
+				    </div>
+				</div>
+
+                <div class="filter-stats">
+                    <span id="visibleCount">0</span> из <span id="totalCount">0</span>
+                    <button class="clear-filters" id="clearFilters">
+                        <i class="fas fa-times"></i> Сбросить
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="competition-table" id="competitionTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                            <th data-sort="competition">
+                              <span class="full-text">Соревнование</span>
+                              <span class="short-text">Соревн.</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                            <th>Вид</th>
+                            <th></th>
+                            <th data-sort="place">Место <i class="fas fa-sort"></i></th>
+                            <th data-sort="result">
+                              <span class="full-text">Результат</span>
+                              <span class="short-text">Рез-т</span>
+                              <i class="fas fa-sort"></i>
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr data-year="2025"
+	                        data-date="20250703"
+                            data-athletes='["Денисов Роман", "Лавров Егор"]'
+							data-distance="дистанция - пешеходная - связка"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Дмитриев, Рыков", "time": "18:17", "gap": ""},
+            							                {"place":2, "name": "Волошкин, Ильинских", "time": "19:05", "gap": "+0:48"},
+            							                {"place":3, "name": "Максимов, Малахов", "time": "19:15", "gap": "+0:58"},
+            							                {"place":37, "name": "Лавров, Денисов", "time": "33:54", "gap": "+15:37"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							data-glicko_ratings='{}'
+							class="clickable-row">
+                            <td>03.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-people-pulling"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-other">37</span></td>
+                            <td>185.4%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250704"
+                            data-athletes='["Денисов Роман"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="спринт"
+							data-results='[{"place":1, "name": "Дмитриев Игорь", "time": "14:38", "gap": ""},
+            							                {"place":2, "name": "Семенов Константин", "time": "14:48", "gap": "+0:10"},
+            							                {"place":3, "name": "Магдеев Эльдар", "time": "15:05", "gap": "+0:27"},
+            							                {"place":3, "name": "Волошкин Олег", "time": "15:05", "gap": "+0:27"},
+            							                {"place":97, "name": "Денисов Роман", "time": "30:12", "gap": "+15:34"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							data-glicko_ratings='{}'
+							class="clickable-row">
+                            <td>04.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4169E1;"><i class="fas fa-bolt"></i></div></td>
+                            <td><span class="place-badge place-other">97</span></td>
+                            <td>206.4%</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250705"
+                            data-athletes='["Денисов Роман"]'
+							data-distance="дистанция - пешеходная"
+							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Квасков Дмитрий", "time": "51:26", "gap": ""},
+            							                {"place":2, "name": "Дмитриев Игорь", "time": "53:52", "gap": "+02:26"},
+            							                {"place":3, "name": "Волошкин Олег", "time": "54:03", "gap": "+02:37"},
+            							                {"place":"-", "name": "Денисов Роман", "time": "-", "gap": "-"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							data-glicko_ratings='{}'
+							class="clickable-row">
+                            <td>05.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
+                            <td><span class="place-badge place-dnf">CH</span></td>
+                            <td>-</td>
+                        </tr>                        <tr data-year="2025"
+	                        data-date="20250706"
+                            data-athletes='["Денисов Роман", "Матюхин Андрей", "Назаркин Ярослав", "Санников Илья"]'
+							data-distance="дистанция - пешеходная - группа"
+							data-competition-type="длинная"
+							data-results='[{"place":1, "name": "Дмитриев, Максимов, Рыков, Малахов", "time": "01:27:05", "gap": ""},
+            							                {"place":2, "name": "Квасков, Мавричев, Поздов-Зрилов, Степнов", "time": "01:28:48", "gap": "+01:43"},
+            							                {"place":3, "name": "Волошкин, Долженко, Боженов, Магдеев", "time": "01:36:34", "gap": "+09:29"},
+            							                {"place":"-", "name": "Санников, Денисов, Матюхин, Назаркин", "time": "-", "gap": "-"}
+							]'
+							data-event-type="Кубок России"
+							data-event-name-short="Кубок памяти Виталия Кондратьева - 2025"
+							data-event-location="Московская обл., городской округ Воскресенск, пос. им. Цюрупы"
+							data-glicko_ratings='{}'
+							class="clickable-row">
+                            <td>06.07.25</td>
+                            <td>КР, пос. им. Цюрупы</td>
+                            <td><i class="fa-solid fa-people-pulling"></i><i class="fa-solid fa-person-walking"></i><i class="fa-solid fa-person-running"></i></td>
+                            <td><div class="map-icon" style="color: #4CAF50;"><i class="fas fa-map-marked-alt"></i></div></td>
+                            <td><span class="place-badge place-dnf">CH</span></td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Статистика спортсмена.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script src="person.js"></script>
+	
+</body>
+</html>
