@@ -1,6 +1,6 @@
 
 (function() {
-    const DATA_VERSION = '202511302242';
+    const DATA_VERSION = '202512010226';
     const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
     
     // Пытаемся получить данные из кэша
@@ -13791,6 +13791,56 @@
                 rank: "1",
                 rankText: "1 разряд",
                 link: "pers_3719.html",
+            },
+            {
+                id: 3836,
+                name: "Двинянинова Полина",
+                region: "Московская область",
+                gender: "f",
+                birthYear: 2009,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3836.html",
+            },
+            {
+                id: 3837,
+                name: "Звягинцев-Литкенс Владимир",
+                region: "Московская область",
+                gender: "m",
+                birthYear: 1987,
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
+                link: "pers_3837.html",
+            },
+            {
+                id: 3838,
+                name: "Малёмина Анастасия",
+                region: "Московская область",
+                gender: "f",
+                birthYear: 2000,
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
+                link: "pers_3838.html",
+            },
+            {
+                id: 3839,
+                name: "Николаев Вячeслав",
+                region: "Московская область",
+                gender: "m",
+                birthYear: 2008,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_3839.html",
+            },
+            {
+                id: 3840,
+                name: "Тельбух Степан",
+                region: "Московская область",
+                gender: "m",
+                birthYear: 1996,
+                rank: "КМС",
+                rankText: "Кандидат в мастера спорта",
+                link: "pers_3840.html",
             }
 	];
 
