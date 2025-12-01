@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Караблин Никита  - Статистика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="person.css">
+    <script src="athletes-data.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="athlete-name-header" id="athleteNameHeader">Караблин Никита </div>
+    
+	<div class="header-search">
+		<div class="search-icon" id="searchIcon">
+			<i class="fas fa-search"></i>
+		</div>
+		<div class="search-expanded" id="searchExpanded">
+			<input type="text" id="headerSearch" placeholder="Поиск спортсмена...">
+			<div class="search-results" id="searchResults"></div>
+		</div>
+	</div>
+</div>
+
+<!-- Отступ для основного контента -->
+<div style="height: 50px;"></div>
+
+<!-- Универсальное модальное окно -->
+<div id="universalModal" class="modal">
+    <div class="modal-content compact">
+        <span class="close">&times;</span>
+        <div class="modal-header compact" id="modalHeader">
+            <!-- Заголовок будет заполняться JavaScript -->
+        </div>
+
+        <div class="modal-grid compact">
+            <div class="info-row">
+                <span class="info-label">Дисциплина:</span>
+                <span class="info-value" id="modalDiscipline"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Вид:</span>
+                <span class="info-value" id="modalType"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Место:</span>
+                <span class="info-value" id="modalPlace"></span>
+            </div>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-users"></i> Состав
+            </div>
+            <ul class="athletes-list compact" id="modalAthletesList">
+                <!-- Список будет заполняться JavaScript -->
+            </ul>
+        </div>
+
+        <div class="modal-section compact">
+            <div class="modal-section-title">
+                <i class="fas fa-list-ol"></i> Результаты
+            </div>
+            <ul class="results-list" id="modalResultsList">
+                <!-- Список результатов будет заполняться JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="athlete-photo">
+                    <i class="fas fa-person-running"></i>
+                </div>
+                <div class="athlete-info">
+                    <h1 class="athlete-name">Караблин Никита </h1>
+                    <div class="basic-info">
+                        <p><i class="fas fa-birthday-cake"></i> Год рождения: 2008</p>
+                        <p><i class="fas fa-flag"></i> None</p>
+                        <p><i class="fas fa-award"></i> Разряд: КМС</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+    <div class="container">
+        <h2 class='section-title'>Общая статистика</h2>
+        <div class='stats-grid'>
+
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy"></i> Соревнования</h3>
+                <div class="stat-value">0</div>
+                <div class="stat-description">Всего участий в соревнованиях</div>
+            </div>
+
+<div class="stat-card">
+    <h3><i class="fas fa-chart-line"></i> Текущие рейтинги</h3>
+    <div class="ratings-container">
+None
+    </div>
+</div>
+
+
+        </div>
+        <h2 class='section-title'>История выступлений</h2>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 год. Статистика спортсмена.</p>
+            <p>Источник исходных данных - https://tmmoscow.ru/ - официальный сайт, посвященный спортивному туризму всех видов в Москве и России</p>
+        </div>
+    </footer>
+
+    <script src="person.js"></script>
+	
+</body>
+</html>
