@@ -514,6 +514,15 @@
                 font-size: 1.1rem;
             }
         }
+
+        @media (max-width: 334px) and (min-width: 0) {
+            body {
+                min-width: 335px !important;
+                overflow-x: auto !important;
+                padding-right: 35px !important; /* Компенсируем ширину скролла */
+                background: linear-gradient(135deg, #1a3a5f, #2c5a8a) fixed !important;
+            }
+        }
     </style>
 
 </head>
@@ -590,11 +599,11 @@
                 <select id="eventTypeFilter" class="filter-select">
                     <option value="">Все типы соревнований</option>
 
-                    <option value="Всероссийские соревнования">Всероссийские соревнования</option>
-                    <option value="Кубок России">Кубок России</option>
                     <option value="Чемпионат России">Чемпионат России</option>
                     <option value="Первенство России">Первенство России</option>
-                    <option value="Региональные соревнования">Региональные соревнования</option>
+                    <option value="Кубок России">Кубок России</option>
+                    <option value="Всероссийские">Всероссийские</option>
+                    <option value="Региональные">Региональные</option>
                 </select>
                 <select id="yearFilter" class="filter-select">
                     <option value="">Все годы</option>
@@ -656,7 +665,7 @@
                 location: "Чайковский г.о., п. Марковский",
                 dateFrom: "2022-01-20",
                 dateTo: "2022-02-22",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_2.html",
                 shortName: "",
                 logo: ""
@@ -666,7 +675,7 @@
                 location: "Липецкая область, г. Елец",
                 dateFrom: "2022-03-24",
                 dateTo: "2022-03-26",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_3.html",
                 shortName: "",
                 logo: ""
@@ -676,7 +685,7 @@
                 location: "Республика Марий Эл, п. Куяр",
                 dateFrom: "2022-05-01",
                 dateTo: "2022-05-03",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_4.html",
                 shortName: "Весенний призыв - 2022",
                 logo: ""
@@ -726,7 +735,7 @@
                 location: "зона отдыха «Волкуша», г. Лыткарино, Московская область",
                 dateFrom: "2022-10-01",
                 dateTo: "2022-10-01",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_8.html",
                 shortName: "Гонки четырех - 2022",
                 logo: "logo/RacesOfFour_logo.webp"
@@ -736,7 +745,7 @@
                 location: "Республика Башкортостан, п. Юматово",
                 dateFrom: "2022-10-21",
                 dateTo: "2022-10-23",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_9.html",
                 shortName: "Кубок памяти К.П. Хомякова - 2022",
                 logo: "logo/KH2022_logo.webp"
@@ -746,7 +755,7 @@
                 location: "Чайковский г.о., п. Марковский",
                 dateFrom: "2022-11-25",
                 dateTo: "2022-11-27",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_10.html",
                 shortName: "",
                 logo: ""
@@ -756,7 +765,7 @@
                 location: "Республика Татарстан, г. Набережные Челны",
                 dateFrom: "2023-02-02",
                 dateTo: "2023-02-04",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_11.html",
                 shortName: "",
                 logo: ""
@@ -766,7 +775,7 @@
                 location: "Липецкая область, г. Елец",
                 dateFrom: "2023-02-17",
                 dateTo: "2023-02-19",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_12.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Elec_logo.webp"
@@ -776,7 +785,7 @@
                 location: "Волгоградская область, г. Камышин",
                 dateFrom: "2023-03-17",
                 dateTo: "2023-03-19",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_13.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Kamyshin_logo_2023.webp"
@@ -786,7 +795,7 @@
                 location: "Республика Марий Эл, п. Куяр",
                 dateFrom: "2023-04-30",
                 dateTo: "2023-05-02",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_14.html",
                 shortName: "Весенний призыв - 2023",
                 logo: "logo/Priziv2023_logo.webp"
@@ -796,7 +805,7 @@
                 location: "Липецкая область, с. Аргамач-Пальна",
                 dateFrom: "2023-05-07",
                 dateTo: "2023-05-09",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_15.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Elec-may_logo.webp"
@@ -836,7 +845,7 @@
                 location: "Москва, Бутовский лесопарк",
                 dateFrom: "2023-09-30",
                 dateTo: "2023-09-30",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_18.html",
                 shortName: "Гонки четырех - 2023",
                 logo: "logo/RacesOfFour_logo.webp"
@@ -846,7 +855,7 @@
                 location: "Республика Башкортостан, п. Юматово",
                 dateFrom: "2023-10-13",
                 dateTo: "2023-10-15",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_19.html",
                 shortName: "Кубок памяти К.П. Хомякова - 2023",
                 logo: "logo/KH2022_logo.webp"
@@ -856,7 +865,7 @@
                 location: "Чайковский г.о., п. Марковский",
                 dateFrom: "2023-12-21",
                 dateTo: "2023-12-23",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_20.html",
                 shortName: "",
                 logo: ""
@@ -866,7 +875,7 @@
                 location: "Волгоградская область, г. Камышин",
                 dateFrom: "2024-02-02",
                 dateTo: "2024-02-04",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_21.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Kamyshin_logo_2024.webp"
@@ -876,7 +885,7 @@
                 location: "Чайковский г.о., п. Марковский",
                 dateFrom: "2024-03-22",
                 dateTo: "2024-03-23",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_22.html",
                 shortName: "",
                 logo: "logo/VS_Markovskiy_logo_24.webp"
@@ -886,7 +895,7 @@
                 location: "Республика Марий Эл, п. Куяр",
                 dateFrom: "2024-04-30",
                 dateTo: "2024-05-02",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_23.html",
                 shortName: "Весенний призыв - 2024",
                 logo: "logo/VS_Priziv_logo24.webp"
@@ -896,7 +905,7 @@
                 location: "Липецкая область, с. Аргамач-Пальна",
                 dateFrom: "2024-05-07",
                 dateTo: "2024-05-09",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_24.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Argamach_logo2024.webp"
@@ -936,7 +945,7 @@
                 location: "Республика Башкортостан, п. Юматово",
                 dateFrom: "2024-10-11",
                 dateTo: "2024-10-13",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_28.html",
                 shortName: "Кубок памяти К.П. Хомякова - 2024",
                 logo: "logo/KH2022_logo.webp"
@@ -946,7 +955,7 @@
                 location: "Москва, Бутовский лесопарк",
                 dateFrom: "2024-10-19",
                 dateTo: "2024-10-20",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_29.html",
                 shortName: "Гонки четырех - 2024",
                 logo: "logo/RacesOfFour_logo.webp"
@@ -956,7 +965,7 @@
                 location: "Липецкая область, г. Елец",
                 dateFrom: "2024-12-21",
                 dateTo: "2024-12-23",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_30.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Elets_logo_2024.webp"
@@ -966,7 +975,7 @@
                 location: "Волгоградская область, г. Камышин",
                 dateFrom: "2025-02-06",
                 dateTo: "2025-02-10",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_40.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Kamyshin_logo_2025new.webp"
@@ -976,7 +985,7 @@
                 location: "Липецкая область, г. Елец",
                 dateFrom: "2025-03-13",
                 dateTo: "2025-03-17",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_41.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Elets_logo_2025.webp"
@@ -986,7 +995,7 @@
                 location: "Красноярский край, г. Зеленогорск",
                 dateFrom: "2025-04-10",
                 dateTo: "2025-04-14",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_31.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Zelenogorsk_logo_2025.webp"
@@ -996,7 +1005,7 @@
                 location: "Республика Марий Эл, п. Куяр",
                 dateFrom: "2025-04-30",
                 dateTo: "2025-05-05",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_32.html",
                 shortName: "Весенний призыв - 2025",
                 logo: "logo/VS_Priziv_logo25.webp"
@@ -1006,7 +1015,7 @@
                 location: "Липецкая область, с. Аргамач-Пальна",
                 dateFrom: "2025-05-06",
                 dateTo: "2025-05-09",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_33.html",
                 shortName: "",
                 logo: "logo/VS_pesh_Elets-may_logo_2025.webp"
@@ -1016,7 +1025,7 @@
                 location: "г. Истра, лесной массив «Соколиная гора»",
                 dateFrom: "2025-05-24",
                 dateTo: "2025-05-25",
-                type: "Региональные соревнования",
+                type: "Региональные",
                 link: "event_45.html",
                 shortName: "Чемпионат и Первенство Московской области",
                 logo: "logo/chip_mo.jpg"
@@ -1056,7 +1065,7 @@
                 location: "Москва, Бутовский лесопарк",
                 dateFrom: "2025-09-20",
                 dateTo: "2025-09-21",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_37.html",
                 shortName: "Гонки четырех - 2025",
                 logo: "logo/RacesOfFour_logo.webp"
@@ -1066,7 +1075,7 @@
                 location: "Республика Башкортостан, Уфимский р-н, д. Глумилино",
                 dateFrom: "2025-10-01",
                 dateTo: "2025-10-06",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_38.html",
                 shortName: "Кубок памяти К.П. Хомякова - 2025",
                 logo: "logo/KH2022_logo.webp"
@@ -1076,7 +1085,7 @@
                 location: "Московская область, м.о. Истра, с. Рождествено, ОК Снегири",
                 dateFrom: "2025-10-13",
                 dateTo: "2025-10-13",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_42.html",
                 shortName: "Гонка Мастеров",
                 logo: "logo/GM_130_fstr_logo.webp"
@@ -1086,7 +1095,7 @@
                 location: "Республика Татарстан, поселок Ильичевский, Оздоровительный комплекс «Саулык»",
                 dateFrom: "2025-10-30",
                 dateTo: "2025-11-03",
-                type: "Всероссийские соревнования",
+                type: "Всероссийские",
                 link: "event_39.html",
                 shortName: "",
                 logo: "logo/VS_tat25_pesh_logo.webp"
