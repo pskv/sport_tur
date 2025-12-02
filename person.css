@@ -943,7 +943,7 @@ footer {
 .header-search {
     position: relative;
     margin-left: auto;
-    margin-right: 15px;
+    margin-right: 0px;
     display: flex;
     align-items: center;
     z-index: 1100;
@@ -1263,7 +1263,7 @@ footer {
 /* Для мобильных устройств можно добавить минимальную ширину */
 @media (max-width: 768px) {
     .competition-table td:last-child {
-        min-width: 80px;
+        min-width: 60px;
     }
 }
 
@@ -1594,5 +1594,15 @@ footer {
     
     .current-rating {
         font-size: 1.9rem;
+    }
+}
+
+
+
+@media (max-width: 350px) and (min-width: 0) {
+    body {
+        min-width: 349px !important;
+        overflow-x: auto !important;
+        padding-right: 5px !important; /* Компенсируем ширину скролла */
     }
 }

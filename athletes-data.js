@@ -1,6 +1,6 @@
 
 (function() {
-    const DATA_VERSION = '202512020150';
+    const DATA_VERSION = '202512030148';
     const CACHE_KEY = `athletesData_v${DATA_VERSION}`;
     
     // Пытаемся получить данные из кэша
