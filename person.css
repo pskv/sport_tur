@@ -1606,3 +1606,19 @@ footer {
         padding-right: 5px !important; /* Компенсируем ширину скролла */
     }
 }
+
+
+/* Стили для внешних ссылок в карточках */
+.stat-value a {
+    color: #1a3a5f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.stat-value a:hover {
+    color: #2c5a8a;
+    transform: translateY(-2px);
+    text-shadow: 0 2px 5px rgba(44, 90, 138, 0.2);
+}
