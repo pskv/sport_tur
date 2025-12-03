@@ -1360,6 +1360,7 @@ footer {
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .rating-main {
@@ -1491,7 +1492,6 @@ footer {
 
 @media (max-width: 768px) {
     .rating-content {
-        flex-direction: column;
         gap: 15px;
         align-items: center;
     }
