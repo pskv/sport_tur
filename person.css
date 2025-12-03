@@ -1356,7 +1356,7 @@ footer {
 
 .rating-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
@@ -1608,17 +1608,31 @@ footer {
 }
 
 
-/* Стили для внешних ссылок в карточках */
-.stat-value a {
-    color: #1a3a5f;
+
+/* Универсальные стили для иконок-ссылок после текста */
+.text-link-icon {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 6px;
+    vertical-align: baseline;
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
+    line-height: 0;
+    
+    /* Наследование от родительского текста */
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+	
+    /* Важно: предотвращаем изменение цвета для посещённых ссылок */
+    -webkit-tap-highlight-color: transparent;
 }
 
-.stat-value a:hover {
-    color: #2c5a8a;
-    transform: translateY(-2px);
-    text-shadow: 0 2px 5px rgba(44, 90, 138, 0.2);
+.text-link-icon:hover {
+    opacity: 0.7;
+}
+
+.text-link-icon i {
+    display: inline-block;
+    font-size: 0.85em !important; /* Иконка чуть меньше текста */
+    line-height: inherit;
 }
