@@ -26,6 +26,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html.js-loading .tab-content {
+            display: none !important;
+        }
+        
+        html.js-loading .tabs {
+            visibility: hidden;
+        }
+
         body {
             background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
             color: white;
@@ -536,7 +544,7 @@
         <!-- Секция с вкладками -->
         <div class="tabs-section">
             <div class="tabs">
-                <div class="tab active" data-tab="athletes">
+                <div class="tab" data-tab="athletes">
                     <i class="fas fa-users"></i>
                     <span class="tab-text">Спортсмены</span>
                 </div>
@@ -552,7 +560,7 @@
         </div>
 
         <!-- Вкладка поиска спортсменов -->
-        <div class="tab-content active" id="athletes-tab">
+        <div class="tab-content" id="athletes-tab">
             <div class="search-section">
                 <div class="search-box">
                     <input type="text" id="searchInput" class="search-input" placeholder="Введите фамилию, имя или регион (минимум 3 символа)...">
@@ -1160,8 +1168,20 @@
                 logo: ""
             }
         ];
+		
+        document.documentElement.classList.add('js-loading');
 
         document.addEventListener('DOMContentLoaded', function() {
+		
+            // Функция для получения параметров из URL
+            function getUrlParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+            
+            // Получаем параметр вкладки из URL (по умолчанию 'athletes')
+            const defaultTab = getUrlParameter('tab') || 'athletes';
+	
             // Элементы для вкладки спортсменов
             const searchInput = document.getElementById('searchInput');
             const athletesList = document.getElementById('athletesList');
@@ -1406,6 +1426,12 @@
 
             // Функции для переключения вкладок
             function switchTab(tabName) {
+                // Проверяем, существует ли такая вкладка
+                const validTabs = ['athletes', 'events', 'ratings'];
+                if (!validTabs.includes(tabName)) {
+                    tabName = 'athletes'; // по умолчанию
+                }
+                
                 // Скрываем все вкладки
                 tabContents.forEach(tabContent => {
                     tabContent.classList.remove('active');
@@ -1425,6 +1451,11 @@
                 // Если переключились на вкладку рейтингов, загружаем данные
                 if (tabName === 'ratings') {
                     displayRatings();
+                }
+                
+                // Если переключились на вкладку соревнований, обновляем фильтрацию
+                if (tabName === 'events') {
+                    filterEvents();
                 }
             }
 
@@ -1448,12 +1479,17 @@
                 });
             });
             
-            // Инициализация
-            filterEvents(); // Инициализация списка соревнований
-            displayRatings(); // Инициализация списка рейтингов
+            // Инициализация - используем вкладку из параметра URL
+            switchTab(defaultTab);
+			
+			document.documentElement.classList.remove('js-loading');
             
-            // Фокус на поиск при загрузке
-            searchInput.focus();
+            // Если активна вкладка спортсменов - фокус на поиск
+            if (defaultTab === 'athletes') {
+                setTimeout(() => {
+                    searchInput.focus();
+                }, 100);
+            }
         });
     </script>
 </body>
