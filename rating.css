@@ -123,6 +123,7 @@ header {
     min-width: auto;
     position: relative;
     z-index: 10;
+    flex-shrink: 0; /* Не позволяет сжиматься */
 }
 
 .back-button span {
@@ -134,15 +135,24 @@ header {
 }
 
 .rating-name-header {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+	/* Убираем абсолютное позиционирование */
+    position: static; /* или просто удалите position, left, transform */
+    /* left: 50%;
+    transform: translateX(-50%); */
     color: white;
     font-weight: 600;
     font-size: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	
+    /* Вместо max-width используем flex свойства */
+    flex: 1; /* Занимает всё доступное пространство */
+    min-width: 0; /* Ключевое! Позволяет сжиматься меньше содержимого */
+    text-align: center;
+    margin: 0 10px; /* Отступы от соседних элементов */
 }
 
 .rating-name-header.visible {

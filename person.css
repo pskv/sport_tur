@@ -122,6 +122,8 @@ header {
     white-space: nowrap;
     overflow: hidden;
     min-width: auto;
+	
+    flex-shrink: 0; /* Не позволяет сжиматься */
 }
 
 .back-button span {
@@ -131,15 +133,26 @@ header {
 }
 
 .athlete-name-header {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+	/* Убираем абсолютное позиционирование */
+    position: static; /* или просто удалите position, left, transform */
+    /* left: 50%;
+    transform: translateX(-50%); */
+	
     color: white;
     font-weight: 600;
     font-size: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	
+	/*max-width: calc(100vw - 250px);*/
+    /* Вместо max-width используем flex свойства */
+    flex: 1; /* Занимает всё доступное пространство */
+    min-width: 0; /* Ключевое! Позволяет сжиматься меньше содержимого */
+    text-align: center;
+    margin: 0 10px; /* Отступы от соседних элементов */
 }
 
 .athlete-name-header.visible {
@@ -950,6 +963,8 @@ footer {
     align-items: center;
     z-index: 1100;
     height: 44px;
+	
+    flex-shrink: 0; /* Не позволяет сжиматься */
 }
 
 .search-icon {
