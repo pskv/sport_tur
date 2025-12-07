@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggleBtn.addEventListener('click', function(e) {
         e.stopPropagation();
+        toggleCard(); // Добавьте эту строку
     });
 
     // Закрытие карточки при клике вне её области
