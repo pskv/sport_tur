@@ -21,7 +21,7 @@ body {
 header {
     background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
     color: white;
-    padding: 25px 0;
+    padding: 5px 0;
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -29,10 +29,11 @@ header {
 }
 
 .header-content {
+    flex-direction: row;
+    flex-wrap: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -48,6 +49,7 @@ header {
     align-items: center;
     justify-content: center;
     position: relative;
+	flex-shrink: 0;
 }
 
 .rating-photo i {
@@ -69,7 +71,6 @@ header {
 
 .rating-name-part2 {
     font-size: 1rem;
-    margin-bottom: 12px;
     opacity: 0.9;
 }
 
@@ -459,7 +460,6 @@ footer {
     }
 
     .header-content {
-        flex-direction: column;
         text-align: center;
     }
 
