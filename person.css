@@ -21,7 +21,7 @@ body {
 header {
     background: linear-gradient(135deg, #1a3a5f, #2c5a8a);
     color: white;
-    padding: 15px 0;
+    padding: 12px 0;
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -34,7 +34,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 10px;
+    margin-left: 15px; /* или любое другое значение */
 }
 
 .athlete-photo {
@@ -64,14 +65,14 @@ header {
 }
 
 .athlete-name {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
     font-weight: 700;
 }
 
 .athlete-sport {
-    font-size: 1rem;
-    margin-bottom: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
     opacity: 0.9;
 }
 
@@ -79,14 +80,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
+    gap: 4px;
+    font-size: 0.8rem;
 }
 
 .basic-info p {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     justify-content: center;
 }
 
@@ -133,10 +134,7 @@ header {
 }
 
 .athlete-name-header {
-	/* Убираем абсолютное позиционирование */
-    position: static; /* или просто удалите position, left, transform */
-    /* left: 50%;
-    transform: translateX(-50%); */
+    position: static;
 	
     color: white;
     font-weight: 600;
@@ -169,7 +167,7 @@ header {
 .stat-card {
     background: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
@@ -180,27 +178,27 @@ header {
 
 .stat-card h3 {
     color: #2c5a8a;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .stat-card i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: #1a3a5f;
 }
 
 .stat-description {
     color: #666;
-    margin-top: 5px;
-    font-size: 0.9rem;
+    margin-top: 2px;
+    font-size: 0.85rem;
 }
 
 .medal-stats {
@@ -240,10 +238,10 @@ header {
 }
 
 .section-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #1a3a5f;
-    margin: 10px 0 20px;
-    padding-bottom: 10px;
+    margin: 5px 0 10px;
+    padding-bottom: 8px;
     border-bottom: 2px solid #eaeaea;
 }
 
@@ -1357,25 +1355,25 @@ footer {
 .category-header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-    padding-bottom: 8px;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
     border-bottom: 2px solid #eaeaea;
     font-weight: 600;
     color: #1a3a5f;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .category-header i {
     color: #2c5a8a;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .rating-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
     flex-direction: column;
 }
@@ -1386,16 +1384,16 @@ footer {
 }
 
 .current-rating {
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #1a3a5f;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     text-align: center;
 }
 
 .current-position {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #666;
     font-weight: 500;
     text-align: center;
@@ -1413,31 +1411,31 @@ footer {
 .rating-changes {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 10px 12px;
+    gap: 15px;
+    padding: 8px 10px;
     background: #f8f9fa;
     border-radius: 8px;
     flex: 1;
-    min-width: 90px;
+    min-width: 85px;
 }
 
 .change-year {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .year {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #666;
     font-weight: 500;
 }
 
 .change {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    min-width: 32px;
+    min-width: 28px;
     text-align: right;
 }
 
@@ -1454,32 +1452,33 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px 8px;
+    padding: 8px;
     background: #fff8e1;
     border-radius: 8px;
     border: 1px solid #ffecb3;
     flex: 1;
-    min-width: 80px;
+    min-width: 75px;
+    gap: 15px;
 }
 
 .best-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: #ff6f00;
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .best-value {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #ff6f00;
     line-height: 1;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .best-date {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: #8d6e63;
     font-weight: 500;
 }
@@ -1487,7 +1486,7 @@ footer {
 .category-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 /* Адаптивность для карточки рейтингов */
@@ -1508,10 +1507,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .rating-content {
-        gap: 15px;
-        align-items: center;
-    }
     
     .rating-main {
         min-width: auto;
@@ -1650,6 +1645,6 @@ footer {
 
 .text-link-icon i {
     display: inline-block;
-    font-size: 0.85em !important; /* Иконка чуть меньше текста */
+    font-size: 0.75em !important; /* Иконка чуть меньше текста */
     line-height: inherit;
 }
