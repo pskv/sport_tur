@@ -1,4 +1,3 @@
-
 // Компактные фильтры с выпадающими списками
 document.addEventListener('DOMContentLoaded', function() {
     const tableRows = document.querySelectorAll('.competition-table tbody tr');
@@ -1008,4 +1007,48 @@ function handleCheckboxChange(checkboxes, filterType) {
             }
         });
     }
+    
+    // ============================================
+    // ОБРАБОТКА КЛИКОВ ПО КАРТОЧКЕ "ЛУЧШИЕ РЕЗУЛЬТАТЫ"
+    // ============================================
+    
+    // Функция для настройки кликабельности строк в карточке медалей
+    function setupMedalCardClickHandlers() {
+        const medalItems = document.querySelectorAll('.medal-stats .medal-item[data-result-id]');
+        
+        if (medalItems.length === 0) {
+            return;
+        }
+        
+        medalItems.forEach((medalItem) => {
+            // Добавляем CSS класс для стилизации
+            medalItem.classList.add('clickable-medal');
+            
+            // Обработчик клика
+            medalItem.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                const resultId = this.getAttribute('data-result-id');
+                
+                if (!resultId) {
+                    return;
+                }
+                
+                const tableRow = document.querySelector(`.competition-table tbody tr[data-result-id="${resultId}"]`);
+                
+                if (tableRow && tableRow.classList.contains('clickable-row')) {
+                    const eventName = tableRow.cells[1].textContent;
+                    const date = tableRow.cells[0].textContent;
+                    showModal(eventName, date, tableRow);
+                } else {
+                    const medalEvent = this.querySelector('.medal-event').textContent;
+                    alert(`Подробная информация для результата "${medalEvent}" недоступна`);
+                }
+            });
+        });
+    }
+    
+    // Настраиваем кликабельность строк в карточке медалей
+    setupMedalCardClickHandlers();
+    
 });

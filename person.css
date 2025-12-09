@@ -1628,3 +1628,62 @@ footer {
     font-size: 0.75em !important; /* Иконка чуть меньше текста */
     line-height: inherit;
 }
+
+
+
+/* ============================================
+   СТИЛИ ДЛЯ КЛИКАБЕЛЬНЫХ МЕДАЛЕЙ
+   ============================================ */
+
+/* Основные стили для кликабельных медалей */
+.medal-stats .medal-item.clickable-medal {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Эффект при наведении */
+.medal-stats .medal-item.clickable-medal:hover {
+    background-color: #f0f4f8 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Подсветка иконки медали при наведении */
+.medal-stats .medal-item.clickable-medal:hover .medal-icon {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Подсветка текста при наведении */
+.medal-stats .medal-item.clickable-medal:hover .medal-count {
+    color: #2c5a8a;
+}
+
+.medal-stats .medal-item.clickable-medal:hover .medal-event {
+    color: #1a3a5f;
+}
+
+/* Подсветка иконок внутри медали при наведении */
+.medal-stats .medal-item.clickable-medal:hover .icons-group i,
+.medal-stats .medal-item.clickable-medal:hover .map-icon i {
+    color: #2c5a8a;
+}
+
+/* Активное состояние при клике */
+.medal-stats .medal-item.clickable-medal:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .medal-stats .medal-item.clickable-medal:hover {
+        transform: none; /* На мобильных убираем трансформацию */
+    }
+}
+
+/* Стили для золотых медалей при наведении */
+.medal-stats .medal-item.clickable-medal:hover .medal-icon.gold {
+    filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5));
+}
