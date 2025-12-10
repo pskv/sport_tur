@@ -684,6 +684,8 @@ function handleCheckboxChange(checkboxes, filterType) {
         const eventNameShort = row.getAttribute('data-event-name-short');
         const eventLocation = row.getAttribute('data-event-location');
         const eventDate = row.getAttribute('data-date');
+		const eventId = row.getAttribute('data-event-id');
+		const competitionId = row.getAttribute('data-competition-id');
 
         const placeCell = row.cells[4];
 
@@ -702,6 +704,8 @@ function handleCheckboxChange(checkboxes, filterType) {
 
         fillAthletesList(athletesData);
         fillResultsList(resultsData, row);
+		
+		updateModalEventLink(eventId, competitionId);
 
         modal.style.display = 'block';
     }
@@ -783,6 +787,27 @@ function handleCheckboxChange(checkboxes, filterType) {
             li.style.padding = '8px';
             li.style.textAlign = 'center';
             resultsList.appendChild(li);
+        }
+    }
+	
+    function updateModalEventLink(eventId, competitionId) {
+        const eventLink = document.getElementById('modalEventLink');
+        
+        if (eventLink) {
+            if (eventId && competitionId) {
+                // Формируем ссылку с query-параметром
+                eventLink.href = `event_${eventId}.html?card=card${competitionId}`;
+                eventLink.title = 'Подробные результаты события';
+                eventLink.style.display = 'inline';
+            } else if (eventId) {
+                // Если есть только eventId (на всякий случай)
+                eventLink.href = `event_${eventId}.html`;
+                eventLink.title = 'Подробные результаты события';
+                eventLink.style.display = 'inline';
+            } else {
+                // Скрываем, если нет данных
+                eventLink.style.display = 'none';
+            }
         }
     }
 

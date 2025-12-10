@@ -275,9 +275,6 @@ footer {
     flex-shrink: 0;
 }
 
-.competition-icons.compact-group {
-    gap: 2px;
-}
 
 .competition-icons.compact-group i {
     margin-right: 0;
@@ -670,3 +667,4 @@ footer {
         min-width: 20px;
     }
 }
+
