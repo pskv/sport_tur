@@ -685,6 +685,7 @@ function handleCheckboxChange(checkboxes, filterType) {
         const eventLocation = row.getAttribute('data-event-location');
         const eventDate = row.getAttribute('data-date');
 		const eventId = row.getAttribute('data-event-id');
+		const competitionId = row.getAttribute('data-competition-id');
 
         const placeCell = row.cells[4];
 
@@ -704,7 +705,7 @@ function handleCheckboxChange(checkboxes, filterType) {
         fillAthletesList(athletesData);
         fillResultsList(resultsData, row);
 		
-		updateModalEventLink(eventId);
+		updateModalEventLink(eventId, competitionId);
 
         modal.style.display = 'block';
     }
@@ -789,21 +790,24 @@ function handleCheckboxChange(checkboxes, filterType) {
         }
     }
 	
-    function updateModalEventLink(eventId) {
-        // Находим ссылку по id
+    function updateModalEventLink(eventId, competitionId) {
         const eventLink = document.getElementById('modalEventLink');
         
-        if (eventLink && eventId) {
-            // Формируем ссылку на основе eventId
-            eventLink.href = `event_${eventId}.html`;
-            eventLink.title = 'Подробные результаты события';
-            
-            // Делаем ссылку видимой (если была скрыта)
-            eventLink.style.display = 'inline';
-            eventLink.style.visibility = 'visible';
-        } else if (eventLink && !eventId) {
-            // Если нет eventId, скрываем ссылку
-            eventLink.style.display = 'none';
+        if (eventLink) {
+            if (eventId && competitionId) {
+                // Формируем ссылку с query-параметром
+                eventLink.href = `event_${eventId}.html?card=card${competitionId}`;
+                eventLink.title = 'Подробные результаты события';
+                eventLink.style.display = 'inline';
+            } else if (eventId) {
+                // Если есть только eventId (на всякий случай)
+                eventLink.href = `event_${eventId}.html`;
+                eventLink.title = 'Подробные результаты события';
+                eventLink.style.display = 'inline';
+            } else {
+                // Скрываем, если нет данных
+                eventLink.style.display = 'none';
+            }
         }
     }
 
