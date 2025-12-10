@@ -1279,6 +1279,8 @@
         </div>
 	   
 
+    </div>
+	
     <footer>
         <div class="container">
             <p>© 2025 год. Информация о соревнованиях.</p>
@@ -1286,48 +1288,126 @@
         </div>
     </footer>
 
-    <script>
-        // Функция для переключения карточки с общей информацией
-        function toggleInfoCard(cardId) {
-            const card = document.getElementById(cardId);
-            card.classList.toggle('expanded');
-        }
+<script>
+    // Функция для получения параметров из URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
 
-        // Функция для переключения карточек дисциплин
-        function toggleCompetitionCard(cardId) {
-            const card = document.getElementById(cardId);
-            card.classList.toggle('expanded');
+    // Функция для переключения карточки с общей информацией
+    function toggleInfoCard(cardId) {
+        const card = document.getElementById(cardId);
+        const isExpanding = !card.classList.contains('expanded');
+        
+        // Сворачиваем все info-card перед открытием новой
+        document.querySelectorAll('.info-card.expanded').forEach(c => {
+            if (c.id !== cardId) {
+                c.classList.remove('expanded');
+            }
+        });
+        
+        // Переключаем текущую карточку
+        card.classList.toggle('expanded');
+        
+        // Прокручиваем к карточке если она открывается
+        if (isExpanding) {
+            scrollToCard(card);
         }
+    }
 
-        // Функция для обработки прокрутки
-        function handleScroll() {
-            const eventNameHeader = document.getElementById('athleteNameHeader');
-            const backButton = document.querySelector('.back-button');
-            const backButtonText = backButton.querySelector('span');
-            const scrollY = window.scrollY;
-            
-            // Показываем имя когда прокрутка больше 100px
-            if (scrollY > 100) {
-                eventNameHeader.classList.add('visible');
-                backButtonText.style.maxWidth = '0';
-                backButtonText.style.opacity = '0';
-                backButton.style.paddingLeft = '8px';
-                backButton.style.paddingRight = '8px';
-            } else {
-                eventNameHeader.classList.remove('visible');
-                backButtonText.style.maxWidth = '80px';
-                backButtonText.style.opacity = '1';
-                backButton.style.paddingLeft = '12px';
-                backButton.style.paddingRight = '12px';
+    // Функция для переключения карточек дисциплин
+    function toggleCompetitionCard(cardId) {
+        const card = document.getElementById(cardId);
+        const isExpanding = !card.classList.contains('expanded');
+        
+        // Сворачиваем все competition-card перед открытием новой
+        document.querySelectorAll('.competition-card.expanded').forEach(c => {
+            if (c.id !== cardId) {
+                c.classList.remove('expanded');
+            }
+        });
+        
+        // Переключаем текущую карточку
+        card.classList.toggle('expanded');
+        
+        // Прокручиваем к карточке если она открывается
+        if (isExpanding) {
+            scrollToCard(card);
+        }
+    }
+
+    // Функция для прокрутки к карточке
+    function scrollToCard(card) {
+        setTimeout(() => {
+            const offset = 60; // Отступ для фиксированного хедера
+            const cardTop = card.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: cardTop - offset,
+                behavior: 'smooth'
+            });
+        }, 50); // Небольшая задержка чтобы контент успел отрендериться
+    }
+
+    // Функция для обработки прокрутки
+    function handleScroll() {
+        const eventNameHeader = document.getElementById('athleteNameHeader');
+        const backButton = document.querySelector('.back-button');
+        const backButtonText = backButton.querySelector('span');
+        const scrollY = window.scrollY;
+        
+        // Показываем имя когда прокрутка больше 100px
+        if (scrollY > 100) {
+            eventNameHeader.classList.add('visible');
+            backButtonText.style.maxWidth = '0';
+            backButtonText.style.opacity = '0';
+            backButton.style.paddingLeft = '8px';
+            backButton.style.paddingRight = '8px';
+        } else {
+            eventNameHeader.classList.remove('visible');
+            backButtonText.style.maxWidth = '80px';
+            backButtonText.style.opacity = '1';
+            backButton.style.paddingLeft = '12px';
+            backButton.style.paddingRight = '12px';
+        }
+    }
+
+    // Функция для автоматического открытия карточки
+    function autoExpandCard() {
+        const cardId = getUrlParameter('card');
+        
+        if (cardId) {
+            // Если карточка существует
+            const card = document.getElementById(cardId);
+            if (card) {
+                // Сворачиваем все карточки
+                document.querySelectorAll('.competition-card.expanded, .info-card.expanded').forEach(c => {
+                    c.classList.remove('expanded');
+                });
+                
+                // Открываем нужную карточку
+                card.classList.add('expanded');
+                
+                // Прокручиваем к карточке
+                scrollToCard(card);
             }
         }
+    }
 
+    // Инициализация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        // Автоматически открываем карточку если есть параметр
+        autoExpandCard();
+        
         // Добавляем обработчик события прокрутки
         window.addEventListener('scroll', handleScroll);
-
+        
         // Вызываем сразу для начального состояния
         handleScroll();
-    </script>
+    });
+</script>
     
 </body>
 </html>
