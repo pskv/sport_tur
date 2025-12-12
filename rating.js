@@ -1,10 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     // Элементы карточки описания
     const infoCard = document.getElementById('infoCard');
     const infoCardHeader = document.getElementById('infoCardHeader');
     const toggleBtn = document.getElementById('toggleBtn');
-    const toggleIcon = toggleBtn.querySelector('i');
+    const toggleIcon = toggleBtn ? toggleBtn.querySelector('i') : null;
 
     // Переключение карточки описания
     function toggleCard() {
@@ -20,28 +19,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Обработчики для карточки описания
-    infoCardHeader.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleCard();
-    });
+    if (infoCardHeader && toggleBtn) {
+        infoCardHeader.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleCard();
+        });
 
-    toggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleCard(); // Добавьте эту строку
-    });
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleCard();
+        });
 
-    // Закрытие карточки при клике вне её области
-    document.addEventListener('click', function(e) {
-        if (!infoCard.contains(e.target) && infoCard.classList.contains('expanded')) {
-            infoCard.classList.remove('expanded');
-            infoCard.classList.add('collapsed');
-            toggleIcon.className = 'fas fa-chevron-down';
-        }
-    });
+        // Закрытие карточки при клике вне её области
+        document.addEventListener('click', function(e) {
+            if (!infoCard.contains(e.target) && infoCard.classList.contains('expanded')) {
+                infoCard.classList.remove('expanded');
+                infoCard.classList.add('collapsed');
+                toggleIcon.className = 'fas fa-chevron-down';
+            }
+        });
+    }
+
+    // Переключение между рейтингами
+    const tabs = document.querySelectorAll('.rating-tab');
+    const contents = document.querySelectorAll('.rating-content');
+    
+    if (tabs.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                
+                // Убираем активный класс у всех вкладок
+                tabs.forEach(t => t.classList.remove('active'));
+                // Добавляем активный класс текущей вкладке
+                this.classList.add('active');
+                
+                // Скрываем все контенты
+                contents.forEach(content => content.classList.remove('active'));
+                // Показываем целевой контент
+                const targetContent = document.getElementById(target + 'Content');
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    }
 
     // Инициализация подсказок для таблицы
     function initTableTooltips() {
         const tableElements = document.querySelectorAll('.rating-table [data-tooltip], .rating-table [data-url]');
+        
+        if (tableElements.length === 0) return;
+        
         let tooltip = document.querySelector('.tooltip');
         
         // Создание элемента подсказки
@@ -98,8 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 return;
             }
-            
-            // Если ни ссылки ни подсказки - ничего не делаем
         }
 
         // Добавление обработчиков для всех элементов
@@ -153,4 +180,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Вызываем сразу для начального состояния
     handleScroll();
+    
+    // Сохранение выбранной вкладки в URL
+    function updateUrlTab(tab) {
+        const url = new URL(window.location);
+        url.searchParams.set('tab', tab);
+        window.history.replaceState({}, '', url);
+    }
+    
+    // Восстановление вкладки из URL при загрузке
+    function restoreTabFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tab = urlParams.get('tab');
+        
+        if (tab) {
+            const tabElement = document.querySelector(`.rating-tab[data-target="${tab}"]`);
+            if (tabElement) {
+                tabElement.click();
+                return;
+            }
+        }
+        
+        const firstTab = document.querySelector('.rating-tab');
+        if (firstTab) {
+            firstTab.click();
+        }
+    }
+    
+    // Модифицируем обработчик клика по вкладкам
+    if (tabs.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                updateUrlTab(target);
+            });
+        });
+        
+        // Восстанавливаем вкладку при загрузке
+        restoreTabFromUrl();
+    }
+    
+    // Функция для автоматической проверки необходимости переноса вкладок
+    function checkTabsOverflow() {
+        const tabsContainer = document.getElementById('ratingTabs');
+        if (!tabsContainer) return;
+        
+        const tabs = tabsContainer.querySelectorAll('.rating-tab');
+        if (tabs.length === 0) return;
+        
+        // Проверяем, помещаются ли все вкладки в одну строку
+        let totalWidth = 0;
+        const containerPadding = 8; // padding контейнера
+        const gapWidth = 4; // gap между вкладками
+        
+        tabs.forEach(tab => {
+            const style = window.getComputedStyle(tab);
+            const marginLeft = parseFloat(style.marginLeft) || 0;
+            const marginRight = parseFloat(style.marginRight) || 0;
+            totalWidth += tab.offsetWidth + marginLeft + marginRight;
+        });
+        
+        // Добавляем gap между вкладками
+        totalWidth += (tabs.length - 1) * gapWidth;
+        
+        const containerWidth = tabsContainer.offsetWidth - containerPadding * 2;
+        
+        // Автоматически переключаем на многострочный режим при нехватке места
+        if (totalWidth > containerWidth) {
+            if (!tabsContainer.classList.contains('auto-wrap')) {
+                tabsContainer.classList.add('auto-wrap');
+            }
+        }
+    }
+    
+    // Проверка при загрузке и изменении размера окна
+    window.addEventListener('load', function() {
+        checkTabsOverflow();
+    });
+    
+    window.addEventListener('resize', function() {
+        checkTabsOverflow();
+    });
+    
+    // Также проверяем после небольшой задержки для полной загрузки контента
+    setTimeout(checkTabsOverflow, 100);
 });

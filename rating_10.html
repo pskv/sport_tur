@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медальный зачёт - 2025</title>
+    <link rel="stylesheet" href="font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="rating.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHSVZLPZ8C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XHSVZLPZ8C');
+    </script>
+	<style>
+/* Стили для медалей в таблице */
+.gold { color: #FFD700; }
+.silver { color: #C0C0C0; }
+.bronze { color: #CD7F32; }
+
+.stat-card strong { color: #1a3a5f; }
+
+/* Выравнивание столбцов */
+.rating-table th:first-child,
+.rating-table td:first-child {
+    text-align: left;
+}
+
+.rating-table th:nth-child(2),
+.rating-table td:nth-child(2) {
+    text-align: left;
+}
+
+/* Центрирование для медальных столбцов */
+.rating-table th:nth-child(3),
+.rating-table th:nth-child(4),
+.rating-table th:nth-child(5),
+.rating-table th:nth-child(6) {
+    text-align: center;
+}
+
+.rating-table td:nth-child(3), /* Золото */
+.rating-table td:nth-child(4), /* Серебро */
+.rating-table td:nth-child(5), /* Бронза */
+.rating-table td:nth-child(6) { /* Всего */
+    text-align: center;
+    font-weight: 600;
+}
+
+.rating-table td:nth-child(3) { color: #FFD700; }
+.rating-table td:nth-child(4) { color: #C0C0C0; }
+.rating-table td:nth-child(5) { color: #CD7F32; }
+.rating-table td:nth-child(6) { color: #1a3a5f; }
+</style>
+</head>
+<body>
+
+<div class="fixed-header">
+    <a href="index.html?tab=ratings" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span>На главную</span>
+    </a>
+    <div class="rating-name-header">Медальный зачёт - 2025</div>
+</div>
+
+<div style="height: 50px;"></div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="rating-photo">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="rating-info">
+                <h1>Медальный зачёт - 2025</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Карточка "Описание" с кнопкой раскрытия -->
+    <div class="info-card-wrapper">
+        <div class="info-card collapsed" id="infoCard">
+            <div class="info-card-header" id="infoCardHeader">
+                <h3><i class="fas fa-info-circle"></i> Описание</h3>
+                <button class="toggle-btn" id="toggleBtn">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="info-card-content">
+                <div class="stat-description">
+                    <p>Рейтинг рассчитывается на основе результатов всероссийских соревнований, Кубков России, Первенства России и Чемпионата России за 2025 год.</p>
+<p>Учитываются только дистанции 5 класса</p>
+<p>Cпортсмены ранжируются по количеству золотых медалей, затем по количеству серебряных медалей, затем по количеству бронзовых медалей.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="rating-tabs auto-wrap compact" id="ratingTabs">
+    <div class="rating-tab" data-target="male">
+        Мужчины
+    </div>
+    <div class="rating-tab" data-target="female">
+        Женщины
+    </div>
+</div>
+
+
+    <div class="rating-content active" id="femaleContent">
+        <div class="rating_card">
+            <div class="table-container">
+                <table class="rating-table">
+                    <thead>
+                        <tr>
+                            <th>Место</th>
+                            <th>Спортсмен</th>
+                            <th data-tooltip="Количество золотых медалей"><i class="fas fa-medal gold"></i></th>
+                            <th data-tooltip="Количество серебряных медалей"><i class="fas fa-medal silver"></i></th>
+                            <th data-tooltip="Количество бронзовых медалей"><i class="fas fa-medal bronze"></i></th>
+                            <th data-tooltip="Общее количество всех медалей"><i class="fas fa-trophy"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><span class="place-badge place-1">1</span></td>
+                        <td data-url="pers_88.html"><strong>Елисеева Дарья</strong></td>
+                        <td><strong>9</strong></td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td><strong>14</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-2">2</span></td>
+                        <td data-url="pers_85.html"><strong>Чеботарёва Виктория</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td><strong>11</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-3">3</span></td>
+                        <td data-url="pers_108.html"><strong>Лучникова Елизавета</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">4</span></td>
+                        <td data-url="pers_90.html"><strong>Жильцова Кира</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td><strong>8</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">5</span></td>
+                        <td data-url="pers_129.html"><strong>Орлова Екатерина</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td><strong>8</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">6</span></td>
+                        <td data-url="pers_113.html"><strong>Даньшина Ирина</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">7</span></td>
+                        <td data-url="pers_117.html"><strong>Лапушкова Екатерина</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">7</span></td>
+                        <td data-url="pers_112.html"><strong>Лапушкова Анастасия</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">9</span></td>
+                        <td data-url="pers_97.html"><strong>Инюшина Светлана</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">10</span></td>
+                        <td data-url="pers_2364.html"><strong>Дмитриева Валерия</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">11</span></td>
+                        <td data-url="pers_94.html"><strong>Николаева Екатерина</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">11</span></td>
+                        <td data-url="pers_99.html"><strong>Шашкова Анна</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">13</span></td>
+                        <td data-url="pers_91.html"><strong>Лебедева Наталья</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>4</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">14</span></td>
+                        <td data-url="pers_553.html"><strong>Полищук Анастасия</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">14</span></td>
+                        <td data-url="pers_116.html"><strong>Маркова Альбина</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">14</span></td>
+                        <td data-url="pers_526.html"><strong>Иншакова Инна</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">17</span></td>
+                        <td data-url="pers_115.html"><strong>Беляева Татьяна</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">18</span></td>
+                        <td data-url="pers_141.html"><strong>Петренко Мария</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">18</span></td>
+                        <td data-url="pers_89.html"><strong>Калиновская Мария</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">20</span></td>
+                        <td data-url="pers_110.html"><strong>Жаркова Екатерина</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">21</span></td>
+                        <td data-url="pers_757.html"><strong>Кадилова Анна</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">22</span></td>
+                        <td data-url="pers_1664.html"><strong>Потылицына Алина</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">22</span></td>
+                        <td data-url="pers_95.html"><strong>Романова Анастасия</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">22</span></td>
+                        <td data-url="pers_119.html"><strong>Васильева Мария</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="pers_1598.html"><strong>Гардт Ника</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="pers_101.html"><strong>Веденяпина Полина</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="pers_2334.html"><strong>Рожина Татьяна</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="pers_292.html"><strong>Белан Елизавета</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">25</span></td>
+                        <td data-url="pers_96.html"><strong>Струкова Анастасия</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">30</span></td>
+                        <td data-url="pers_140.html"><strong>Хлобостова Елизавета</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">30</span></td>
+                        <td data-url="pers_86.html"><strong>Орлова Марина</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">30</span></td>
+                        <td data-url="pers_538.html"><strong>Ливинцова Елизавета</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">30</span></td>
+                        <td data-url="pers_511.html"><strong>Беляева Валерия</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">34</span></td>
+                        <td data-url="pers_147.html"><strong>Микрюкова Мария</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">35</span></td>
+                        <td data-url="pers_134.html"><strong>Филина Софья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">35</span></td>
+                        <td data-url="pers_114.html"><strong>Суворова Ксения</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">35</span></td>
+                        <td data-url="pers_296.html"><strong>Денисова Екатерина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_137.html"><strong>Пшестанчик Ирина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_104.html"><strong>Линова Дарья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_136.html"><strong>Огрызкова Анастасия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_130.html"><strong>Константинова Олеся</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_98.html"><strong>Карпова Анна</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_623.html"><strong>Бутова Алена</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_105.html"><strong>Хамурзова Мария</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_124.html"><strong>Ибрагимова Алия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_400.html"><strong>Понкратова Виктория</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_1525.html"><strong>Коробейникова Вера</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_803.html"><strong>Савостьянова Кира</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_2362.html"><strong>Владыкина Екатерина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_109.html"><strong>Кузнецова Екатерина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_559.html"><strong>Сиротина Влада</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_2330.html"><strong>Кузнецова Валерия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_169.html"><strong>Иващенко Алина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_158.html"><strong>Шмыкова Полина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_2332.html"><strong>Новопашина Надежда</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_126.html"><strong>Белоногова Кристина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_1049.html"><strong>Нецветаева Виктория</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_2331.html"><strong>Нестеренко Елизавета</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_166.html"><strong>Лизунова Анна</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_93.html"><strong>Алексеева Анастасия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">45</span></td>
+                        <td data-url="pers_404.html"><strong>Тарасова Юлия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">62</span></td>
+                        <td data-url="pers_293.html"><strong>Магомедгаджиева Эльмира</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_125.html"><strong>Ворожейкина Мария</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_3004.html"><strong>Ким Игнесса</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_128.html"><strong>Григорьева Кира</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_632.html"><strong>Кушигина Анастасия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_379.html"><strong>Ахапкина Алёна</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_831.html"><strong>Шабалова Арина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_2242.html"><strong>Зуевская Екатерина</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_996.html"><strong>Можарова Дарья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_148.html"><strong>Савченко Вероника</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_118.html"><strong>Сорокоумова Юлия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_123.html"><strong>Паськова Софья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_135.html"><strong>Шагабудинова Милена</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_3005.html"><strong>Косолапова Юлия</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_399.html"><strong>Пермякова София</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_150.html"><strong>Синиченко Анна</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">63</span></td>
+                        <td data-url="pers_2822.html"><strong>Потапова Ольга</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="rating-content active" id="maleContent">
+        <div class="rating_card">
+            <div class="table-container">
+                <table class="rating-table">
+                    <thead>
+                        <tr>
+                            <th>Место</th>
+                            <th>Спортсмен</th>
+                            <th data-tooltip="Количество золотых медалей"><i class="fas fa-medal gold"></i></th>
+                            <th data-tooltip="Количество серебряных медалей"><i class="fas fa-medal silver"></i></th>
+                            <th data-tooltip="Количество бронзовых медалей"><i class="fas fa-medal bronze"></i></th>
+                            <th data-tooltip="Общее количество всех медалей"><i class="fas fa-trophy"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><span class="place-badge place-1">1</span></td>
+                        <td data-url="pers_9.html"><strong>Львов Андрей</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td><strong>8</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-2">2</span></td>
+                        <td data-url="pers_8.html"><strong>Урдяков Рустам</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-3">3</span></td>
+                        <td data-url="pers_13.html"><strong>Ушаков Савелий</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td><strong>9</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">4</span></td>
+                        <td data-url="pers_1.html"><strong>Кузнецов Сергей</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">5</span></td>
+                        <td data-url="pers_49.html"><strong>Максимов Дмитрий</strong></td>
+                        <td><strong>4</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">6</span></td>
+                        <td data-url="pers_4.html"><strong>Безносиков Владислав</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td><strong>9</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">7</span></td>
+                        <td data-url="pers_7.html"><strong>Ющик Никита</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td><strong>9</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">8</span></td>
+                        <td data-url="pers_23.html"><strong>Морос Максим</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">9</span></td>
+                        <td data-url="pers_2333.html"><strong>Пастухов Александр</strong></td>
+                        <td><strong>3</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-top10">10</span></td>
+                        <td data-url="pers_20.html"><strong>Белявцев Максим</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">11</span></td>
+                        <td data-url="pers_42.html"><strong>Ильинских Артем</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">12</span></td>
+                        <td data-url="pers_2329.html"><strong>Кравцов Дмитрий</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">12</span></td>
+                        <td data-url="pers_435.html"><strong>Трифонов Константин</strong></td>
+                        <td><strong>2</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">14</span></td>
+                        <td data-url="pers_51.html"><strong>Лукин Максим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">15</span></td>
+                        <td data-url="pers_1007.html"><strong>Демьянов Вячеслав</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">16</span></td>
+                        <td data-url="pers_1105.html"><strong>Щипачёв Данила</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">16</span></td>
+                        <td data-url="pers_1587.html"><strong>Беляков Вадим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">18</span></td>
+                        <td data-url="pers_164.html"><strong>Боженов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">18</span></td>
+                        <td data-url="pers_57.html"><strong>Симаков Кирилл</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">20</span></td>
+                        <td data-url="pers_425.html"><strong>Корякин Антон</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">20</span></td>
+                        <td data-url="pers_6.html"><strong>Дмитриев Георгий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">20</span></td>
+                        <td data-url="pers_799.html"><strong>Решетень Егор</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">23</span></td>
+                        <td data-url="pers_24.html"><strong>Андреев Андрей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">24</span></td>
+                        <td data-url="pers_11.html"><strong>Кудряшов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">24</span></td>
+                        <td data-url="pers_43.html"><strong>Дмитриев Игорь</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">24</span></td>
+                        <td data-url="pers_37.html"><strong>Волошкин Олег</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_535.html"><strong>Котик Георгий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_65.html"><strong>Корякин Семен</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_2245.html"><strong>Синицын Виталий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_47.html"><strong>Бабенко Тимофей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_5.html"><strong>Михеев Василий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_2367.html"><strong>Подыганов Александр</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_62.html"><strong>Кучков Дмитрий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_543.html"><strong>Матвиенко Андрей</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_560.html"><strong>Ситнер Максим</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_63.html"><strong>Мавричев Кирилл</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">27</span></td>
+                        <td data-url="pers_31.html"><strong>Квасков Дмитрий</strong></td>
+                        <td><strong>1</strong></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">38</span></td>
+                        <td data-url="pers_19.html"><strong>Пешиков Сергей</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">39</span></td>
+                        <td data-url="pers_22.html"><strong>Федин Михаил</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td><strong>5</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">40</span></td>
+                        <td data-url="pers_17.html"><strong>Калиновский Леонид</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">40</span></td>
+                        <td data-url="pers_18.html"><strong>Тюрин Денис</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td><strong>4</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">42</span></td>
+                        <td data-url="pers_545.html"><strong>Медведев Роман</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">42</span></td>
+                        <td data-url="pers_572.html"><strong>Щетинин Дмитрий</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_1063.html"><strong>Прядохин Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_561.html"><strong>Солодун Семён</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_71.html"><strong>Кириченко Семён</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_34.html"><strong>Губанов Александр</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_30.html"><strong>Гардт Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_319.html"><strong>Тутунин Динар</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_1621.html"><strong>Карасев Иван</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_303.html"><strong>Бикушев Эмиль</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">44</span></td>
+                        <td data-url="pers_633.html"><strong>Лапшин Артем</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_1054.html"><strong>Отто Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_74.html"><strong>Лучин Кирилл</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_436.html"><strong>Уманцев Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_2336.html"><strong>Таскаев Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_68.html"><strong>Акулин Аркадий</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_32.html"><strong>Петров Михаил</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_755.html"><strong>Иванов Илья</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_21.html"><strong>Семенов Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_437.html"><strong>Фаезов Расуль</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_359.html"><strong>Багабиев Амир</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_27.html"><strong>Тютюньков Кирилл</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_38.html"><strong>Трошин Евгений</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">53</span></td>
+                        <td data-url="pers_1523.html"><strong>Авдеев Александр</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">66</span></td>
+                        <td data-url="pers_52.html"><strong>Киль Олег</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">66</span></td>
+                        <td data-url="pers_3.html"><strong>Колесов Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_766.html"><strong>Коковкин Никита</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_3002.html"><strong>Ганиев Риназ</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_752.html"><strong>Зюзев Кирилл</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_428.html"><strong>Муратов Карим</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_67.html"><strong>Давлетшин Данил</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_2299.html"><strong>Касторный Роман</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_3029.html"><strong>Султанов Айрат</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_316.html"><strong>Струков Павел</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span class="place-badge place-other">68</span></td>
+                        <td data-url="pers_12.html"><strong>Рожков Константин</strong></td>
+                        <td><strong>0</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 год.</p>
+        <p>Источник исходных данных - https://tmmoscow.ru/</p>
+    </div>
+</footer>
+
+<script src="rating.js"></script>
+</body>
+</html>

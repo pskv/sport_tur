@@ -10,6 +10,8 @@ body {
     background-color: #f5f7fa;
     color: #333;
     line-height: 1.6;
+        min-width: 330px;
+        overflow-x: auto;
 }
 
 .container {
@@ -49,7 +51,7 @@ header {
     align-items: center;
     justify-content: center;
     position: relative;
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .rating-photo i {
@@ -63,30 +65,9 @@ header {
     max-width: 400px;
 }
 
-.rating-name-part1 {
+.rating-info h1 {
     font-size: 1.8rem;
-    margin-bottom: 8px;
     font-weight: 700;
-}
-
-.rating-name-part2 {
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.basic-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-}
-
-.basic-info p {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center;
 }
 
 .fixed-header {
@@ -123,7 +104,7 @@ header {
     min-width: auto;
     position: relative;
     z-index: 10;
-    flex-shrink: 0; /* Не позволяет сжиматься */
+    flex-shrink: 0;
 }
 
 .back-button span {
@@ -135,10 +116,7 @@ header {
 }
 
 .rating-name-header {
-	/* Убираем абсолютное позиционирование */
-    position: static; /* или просто удалите position, left, transform */
-    /* left: 50%;
-    transform: translateX(-50%); */
+    position: static;
     color: white;
     font-weight: 600;
     font-size: 1rem;
@@ -147,12 +125,10 @@ header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-	
-    /* Вместо max-width используем flex свойства */
-    flex: 1; /* Занимает всё доступное пространство */
-    min-width: 0; /* Ключевое! Позволяет сжиматься меньше содержимого */
+    flex: 1;
+    min-width: 0;
     text-align: center;
-    margin: 0 10px; /* Отступы от соседних элементов */
+    margin: 0 10px;
 }
 
 .rating-name-header.visible {
@@ -212,7 +188,6 @@ header {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     margin-bottom: 30px;
-    overflow-x: auto;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -318,10 +293,9 @@ footer {
     border-top: 1px solid #eaeaea;
 }
 
-
 /* Стили для карточки с раскрытием */
 .info-card-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .info-card {
@@ -344,7 +318,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 2px 7px;
     cursor: pointer;
     background: white;
     border-bottom: 1px solid transparent;
@@ -357,7 +331,7 @@ footer {
 .info-card-header h3 {
     color: #2c5a8a;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -438,6 +412,180 @@ footer {
     background-color: #e9f5ff;
 }
 
+/* Стили для переключателя рейтингов */
+.rating-tabs {
+    margin-bottom: 20px;
+}
+
+/* Вариант с табами как вкладки */
+.rating-tabs.tab-style {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    background: transparent;
+    padding: 0;
+    border-bottom: 2px solid #eaeaea;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.rating-tabs.tab-style .rating-tab {
+    padding: 10px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.rating-tabs.tab-style .rating-tab:hover {
+    background: #f5f7fa;
+    color: #2c5a8a;
+    border-bottom: 2px solid #c0d4ed;
+}
+
+.rating-tabs.tab-style .rating-tab.active {
+    background: white;
+    color: #2c5a8a;
+    border-bottom: 2px solid #2c5a8a;
+    font-weight: 700;
+}
+
+.rating-tabs.tab-style .rating-tab i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+/* Стили для контента рейтингов */
+.rating-content {
+    display: none;
+}
+
+.rating-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Альтернативный компактный стиль вкладок */
+.rating-tabs.compact {
+    display: inline-flex;
+    gap: 0;
+    margin-bottom: 5px;
+    background: #f8f9fa;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+}
+
+.rating-tabs.compact .rating-tab {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    color: #666;
+}
+
+.rating-tabs.compact .rating-tab:hover {
+    background: rgba(44, 90, 138, 0.1);
+    color: #2c5a8a;
+}
+
+.rating-tabs.compact .rating-tab.active {
+    background: #2c5a8a;
+    color: white;
+    box-shadow: 0 2px 4px rgba(26, 58, 95, 0.2);
+}
+
+/* Автоматический перенос вкладок на новую строку */
+.rating-tabs.auto-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 20px;
+    background: #f0f4f8;
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d1dce9;
+    width: 100%;
+}
+
+.rating-tabs.auto-wrap .rating-tab {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    white-space: nowrap;
+    flex: 0 1 auto;
+    min-height: 40px;
+    margin: 2px;
+}
+
+.rating-tabs.auto-wrap .rating-tab:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2c5a8a;
+    border-color: #c0d4ed;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(44, 90, 138, 0.1);
+}
+
+.rating-tabs.auto-wrap .rating-tab.active {
+    background: white;
+    color: #2c5a8a;
+    border-color: #2c5a8a;
+    box-shadow: 0 2px 8px rgba(44, 90, 138, 0.15);
+    transform: translateY(0);
+}
+
+.rating-tabs.auto-wrap .rating-tab i {
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Компактная версия с автопереносом */
+.rating-tabs.auto-wrap.compact {
+    padding: 3px;
+    gap: 3px;
+}
+
+.rating-tabs.auto-wrap.compact .rating-tab {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-height: 36px;
+    gap: 6px;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .rating-table {
@@ -478,12 +626,40 @@ footer {
         height: 100px;
     }
 
-    .rating-name-part1 {
+    .rating-photo i {
+        font-size: 2rem;
+    }
+
+    .rating-info h1 {
         font-size: 1.5rem;
     }
 
     .section-title {
         font-size: 1.4rem;
+    }
+    
+    .rating-tabs.tab-style .rating-tab {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .rating-tabs.compact .rating-tab {
+        padding: 6px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .rating-tabs.auto-wrap .rating-tab {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        min-height: 36px;
+        gap: 6px;
+    }
+    
+    .rating-tabs.auto-wrap.compact .rating-tab {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-height: 34px;
+        gap: 4px;
     }
 }
 
@@ -509,10 +685,10 @@ footer {
     }
 
     .rating-photo i {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
-    .rating-name-part1 {
+    .rating-info h1 {
         font-size: 1.3rem;
     }
 
@@ -526,5 +702,59 @@ footer {
 
     .stat-card h3 {
         font-size: 1.1rem;
+    }
+    
+    .rating-tabs.tab-style .rating-tab {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .rating-tabs.tab-style .rating-tab i {
+        margin-right: 4px;
+        font-size: 0.9rem;
+    }
+    
+    .rating-tabs.compact .rating-tab {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .rating-tabs.auto-wrap .rating-tab {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-height: 34px;
+        gap: 4px;
+    }
+    
+    .rating-tabs.auto-wrap.compact .rating-tab {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        min-height: 32px;
+        gap: 3px;
+    }
+    
+    .rating-tabs.auto-wrap .rating-tab i {
+        font-size: 0.85rem;
+    }
+    
+    /* На очень маленьких экранах скрываем иконки */
+    @media (max-width: 360px) {
+        .rating-tabs.tab-style .rating-tab i {
+            display: none;
+        }
+        
+        .rating-tabs.compact .rating-tab {
+            padding: 5px 10px;
+        }
+        
+        .rating-tabs.auto-wrap .rating-tab i {
+            display: none;
+        }
+        
+        .rating-tabs.auto-wrap .rating-tab {
+            padding: 5px 8px;
+            font-size: 0.75rem;
+            min-height: 30px;
+        }
     }
 }
