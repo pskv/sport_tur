@@ -412,16 +412,11 @@ footer {
     background-color: #e9f5ff;
 }
 
-/* Стили для переключателя рейтингов */
-.rating-tabs {
-    margin-bottom: 20px;
-}
 
 /* Вариант с табами как вкладки */
 .rating-tabs.tab-style {
     display: flex;
     gap: 0;
-    margin-bottom: 20px;
     background: transparent;
     padding: 0;
     border-bottom: 2px solid #eaeaea;
@@ -521,7 +516,6 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
-    margin-bottom: 20px;
     background: #f0f4f8;
     padding: 4px;
     border-radius: 8px;
