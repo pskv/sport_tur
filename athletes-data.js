@@ -1,4 +1,3 @@
-
 (function() {
 	window.athletesData = 
 	[
@@ -14432,15 +14431,24 @@
                 rank: "II",
                 rankText: "II разряд",
                 link: "pers_3932.html",
+            },
+            {
+                id: 4014,
+                name: "Степанов Иван",
+                region: "",
+                gender: "m",
+                birthYear: 2006,
+                rank: "II",
+                rankText: "II разряд",
+                link: "pers_4014.html",
             }
 	];
 
-    // ДОБАВИЛИ ratingsDictionary
     window.ratingsDictionary = {
 
         "1": "Рейтинг: Короткие дистанции",
         "2": "Рейтинг: Длинные дистанции",
         "3": "Рейтинг: Зальные дистанции"
     };
-	
+
 })();
